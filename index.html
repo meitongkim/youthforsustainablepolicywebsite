@@ -27,7 +27,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet" />
 
   <style>
     /* ── CSS Reset ────────────────────────────────── */
@@ -52,6 +52,7 @@
       --white:    #ffffff;
 
       --font-display: 'Playfair Display', Georgia, serif;
+      --font-editorial: 'Cormorant Garamond', Georgia, serif;
       --font-body:    'DM Sans', sans-serif;
       --font-mono:    'DM Mono', monospace;
 
@@ -1259,6 +1260,533 @@
       .footer-top { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; align-items: flex-start; }
     }
+    /* ── Hero Canvas Background ───────────────────── */
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.55;
+    }
+    .hero > *:not(#hero-canvas) { position: relative; z-index: 1; }
+
+    /* ── Wave Gradient Text ───────────────────────── */
+    @keyframes waveGradient {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .wave-text {
+      background: linear-gradient(120deg,
+        #f5f0e8 0%, #d4af6a 20%, #a8c5a0 38%, #f5f0e8 52%,
+        #d4af6a 68%, #6b8f71 82%, #f5f0e8 100%);
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: waveGradient 5s ease infinite;
+      display: inline;
+    }
+
+    /* ── Section Reveal Animations ────────────────── */
+    @keyframes slideLeft {
+      from { opacity: 0; transform: translateX(-36px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideRight {
+      from { opacity: 0; transform: translateX(36px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.94); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes rotateIn {
+      from { opacity: 0; transform: rotate(-3deg) translateY(20px); }
+      to   { opacity: 1; transform: rotate(0deg) translateY(0); }
+    }
+    .reveal-left  { opacity: 0; }
+    .reveal-right { opacity: 0; }
+    .reveal-scale { opacity: 0; }
+    .reveal-rotate{ opacity: 0; }
+    .reveal-left.in  { animation: slideLeft  0.8s var(--ease-out) both; }
+    .reveal-right.in { animation: slideRight 0.8s var(--ease-out) both; }
+    .reveal-scale.in { animation: scaleIn   0.7s var(--ease-out) both; }
+    .reveal-rotate.in{ animation: rotateIn  0.9s var(--ease-out) both; }
+
+    /* ── Leadership Section ───────────────────────── */
+    .leadership {
+      background: var(--charcoal);
+      position: relative;
+      overflow: hidden;
+    }
+    .leadership::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .leadership::after {
+      content: '';
+      position: absolute;
+      top: -40%; right: -15%;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(26,58,42,0.25) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .leadership .section-eyebrow { color: var(--gold-lt); }
+    .leadership .section-title { color: var(--cream); }
+
+    .leadership-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: end;
+      margin-bottom: 96px;
+    }
+    .leadership-header-right {
+      padding-bottom: 6px;
+    }
+    .leadership-rule {
+      width: 64px; height: 1px;
+      background: var(--gold);
+      margin-bottom: 28px;
+    }
+    .leadership-intro {
+      font-family: var(--font-editorial);
+      font-size: clamp(17px, 2vw, 22px);
+      color: rgba(245,240,232,0.6);
+      line-height: 1.8;
+      font-weight: 300;
+      font-style: italic;
+    }
+    .leadership-headline-large {
+      font-family: var(--font-editorial);
+      font-size: clamp(56px, 9vw, 130px);
+      font-weight: 300;
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      color: rgba(245,240,232,0.06);
+      position: absolute;
+      top: 80px; right: 48px;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Leadership grid */
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 2px;
+    }
+    .leadership-grid-bottom {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+    }
+
+    /* Individual leader card */
+    .leader-card {
+      position: relative;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+      cursor: pointer;
+      aspect-ratio: 3/4;
+    }
+    .leader-card:hover .leader-photo-wrap { transform: scale(1.04); }
+    .leader-card:hover .leader-overlay { opacity: 1; }
+    .leader-card:hover .leader-bio-text { transform: translateY(0); opacity: 1; }
+    .leader-card:hover .leader-name { color: var(--gold-lt); }
+
+    .leader-photo-wrap {
+      width: 100%; height: 100%;
+      transition: transform 0.7s var(--ease-out);
+    }
+    .leader-photo {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Illustrated SVG placeholder when no photo */
+    .leader-avatar {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .leader-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,58,42,0.97) 0%, rgba(26,58,42,0.7) 50%, transparent 100%);
+      opacity: 0.82;
+      transition: opacity 0.5s var(--ease-out);
+    }
+    .leader-info {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 32px 28px;
+    }
+    .leader-role {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .leader-name {
+      font-family: var(--font-editorial);
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 600;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 4px;
+      transition: color 0.3s;
+    }
+    .leader-title {
+      font-size: 12.5px;
+      color: rgba(245,240,232,0.45);
+      margin-bottom: 16px;
+    }
+    .leader-bio-text {
+      font-size: 13px;
+      color: rgba(245,240,232,0.72);
+      line-height: 1.65;
+      transform: translateY(12px);
+      opacity: 0;
+      transition: transform 0.45s var(--ease-out) 0.05s, opacity 0.45s var(--ease-out) 0.05s;
+      max-height: 120px;
+      overflow: hidden;
+    }
+    .leader-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      transform: translateY(12px);
+      opacity: 0;
+      transition: transform 0.45s var(--ease-out) 0.1s, opacity 0.45s var(--ease-out) 0.1s;
+    }
+    .leader-card:hover .leader-links {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .leader-link-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 12px;
+      border: 1px solid rgba(212,175,106,0.35);
+      border-radius: 20px;
+      font-size: 11px;
+      color: var(--gold-lt);
+      font-weight: 500;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .leader-link-pill:hover {
+      background: rgba(212,175,106,0.12);
+      border-color: var(--gold-lt);
+    }
+    /* Featured (wider) card */
+    .leader-card.featured-leader {
+      grid-column: span 2;
+      aspect-ratio: 16/9;
+    }
+    .leader-card.featured-leader .leader-name { font-size: clamp(28px, 3.5vw, 48px); }
+
+    /* Founder mark */
+    .founder-mark {
+      position: absolute;
+      top: 20px; right: 20px;
+      padding: 5px 12px;
+      background: rgba(184,148,63,0.2);
+      border: 1px solid rgba(184,148,63,0.45);
+      border-radius: 20px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--gold-lt);
+      text-transform: uppercase;
+    }
+
+    /* ── Careers Section ──────────────────────────── */
+    .careers {
+      background: var(--ivory);
+      position: relative;
+    }
+    .careers::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: var(--cream-2);
+    }
+
+    .careers-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-bottom: 80px;
+    }
+    .careers-stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding-top: 32px;
+      border-top: 1px solid var(--cream-2);
+    }
+    .careers-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .careers-stat-num {
+      font-family: var(--font-editorial);
+      font-size: 42px;
+      font-weight: 600;
+      color: var(--forest);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .careers-stat-label {
+      font-size: 12px;
+      color: var(--light);
+      letter-spacing: 0.02em;
+    }
+
+    /* Values strip */
+    .careers-values {
+      display: flex;
+      gap: 0;
+      margin-bottom: 72px;
+      border: 1px solid var(--cream-2);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .careers-value {
+      flex: 1;
+      padding: 28px 24px;
+      border-right: 1px solid var(--cream-2);
+      transition: background 0.25s;
+    }
+    .careers-value:last-child { border-right: none; }
+    .careers-value:hover { background: var(--cream); }
+    .careers-value-icon {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .careers-value-name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 6px;
+    }
+    .careers-value-desc {
+      font-size: 12.5px;
+      color: var(--light);
+      line-height: 1.6;
+    }
+
+    /* Open roles */
+    .careers-roles-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .careers-roles-header h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--forest);
+    }
+    .roles-count-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      background: var(--forest);
+      color: var(--cream);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .roles-count-badge::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold-lt);
+      animation: pulse 2s ease infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    .roles-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .role-item {
+      background: var(--white);
+      border: 1px solid var(--cream-2);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color 0.25s;
+    }
+    .role-item:hover { border-color: var(--sage); }
+    .role-item.open .role-body { display: block; }
+    .role-item.open .role-chevron { transform: rotate(180deg); }
+    .role-item.open { border-color: var(--forest); }
+
+    .role-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 28px;
+      cursor: pointer;
+      gap: 16px;
+    }
+    .role-header-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .role-dept-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .role-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 3px;
+    }
+    .role-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .role-tag {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    .tag-volunteer { background: rgba(107,143,113,0.15); color: var(--forest-3); }
+    .tag-paid { background: rgba(184,148,63,0.15); color: var(--gold); }
+    .tag-remote { background: rgba(28,28,28,0.07); color: var(--mid); }
+    .tag-sg { background: rgba(46,99,71,0.1); color: var(--forest-2); }
+
+    .role-chevron {
+      width: 20px; height: 20px;
+      flex-shrink: 0;
+      color: var(--light);
+      transition: transform 0.3s var(--ease-out), color 0.2s;
+    }
+    .role-item:hover .role-chevron { color: var(--forest); }
+
+    .role-body {
+      display: none;
+      padding: 0 28px 28px;
+      border-top: 1px solid var(--cream-2);
+      margin-top: 0;
+    }
+    .role-body-inner {
+      padding-top: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .role-section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 12px;
+    }
+    .role-desc {
+      font-size: 14.5px;
+      color: var(--mid);
+      line-height: 1.75;
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+    .role-req-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .role-req-list li {
+      font-size: 13.5px;
+      color: var(--mid);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+    .role-req-list li::before {
+      content: '→';
+      color: var(--forest-3);
+      flex-shrink: 0;
+      font-size: 12px;
+      margin-top: 1px;
+    }
+    .role-apply-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      padding: 12px 26px;
+      background: var(--forest);
+      color: var(--cream);
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 13.5px;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .role-apply-btn:hover { background: var(--forest-2); transform: translateY(-1px); }
+
+    /* ── Responsive additions ─────────────────────── */
+    @media (max-width: 1024px) {
+      .leadership-grid { grid-template-columns: repeat(2, 1fr); }
+      .leadership-grid-bottom { grid-template-columns: repeat(2, 1fr); }
+      .leader-card.featured-leader { grid-column: span 1; aspect-ratio: 3/4; }
+      .leader-card.featured-leader .leader-name { font-size: 28px; }
+      .leadership-header { grid-template-columns: 1fr; gap: 32px; margin-bottom: 56px; }
+      .careers-header { grid-template-columns: 1fr; gap: 40px; }
+      .careers-values { flex-wrap: wrap; }
+      .careers-value { flex: 1 0 45%; }
+    }
+    @media (max-width: 768px) {
+      .leadership-grid { grid-template-columns: 1fr; }
+      .leadership-grid-bottom { grid-template-columns: 1fr; }
+      .leader-card { aspect-ratio: 4/5; }
+      .leader-card.featured-leader { aspect-ratio: 4/5; }
+      .leader-overlay { opacity: 1; }
+      .leader-bio-text { transform: translateY(0); opacity: 1; }
+      .leader-links { transform: translateY(0); opacity: 1; }
+      .role-body-inner { grid-template-columns: 1fr; gap: 24px; }
+      .careers-values { flex-direction: column; }
+      .careers-stat-row { grid-template-columns: 1fr 1fr; }
+      .leadership-headline-large { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -1288,6 +1816,8 @@
     <li><a href="#research">Research Hub</a></li>
     <li><a href="#impact">Impact Projects</a></li>
     <li><a href="#mentorship">Mentorship</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#careers">Careers</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact" class="nav-cta">Join YSP</a></li>
   </ul>
@@ -1303,19 +1833,22 @@
   <a href="#research" onclick="closeMobileNav()">Research Hub</a>
   <a href="#impact" onclick="closeMobileNav()">Impact Projects</a>
   <a href="#mentorship" onclick="closeMobileNav()">Mentorship</a>
+  <a href="#leadership" onclick="closeMobileNav()">Leadership</a>
+  <a href="#careers" onclick="closeMobileNav()">Careers</a>
   <a href="#about" onclick="closeMobileNav()">About</a>
   <a href="#contact" onclick="closeMobileNav()" class="btn-forest" style="font-size:20px; padding:16px 40px;">Join YSP</a>
 </nav>
 
 <!-- ── Hero ───────────────────────────────────────── -->
 <section class="hero" aria-labelledby="hero-headline">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <p class="hero-eyebrow">Youth for Sustainable Policy · Singapore &amp; ASEAN</p>
   <span class="hero-quote-mark" aria-hidden="true">"</span>
   <p class="hero-testimonial">I finally understood how my research could become real policy."</p>
 
   <h1 class="hero-headline" id="hero-headline">
     Stop Chasing Titles.<br />
-    Build One <em>Policy Initiative</em> That Matters.
+    Build One <em class="wave-text">Policy Initiative</em> That Matters.
   </h1>
   <p class="hero-sub">
     YSP helps youth aged 16–28 across Southeast Asia turn research, storytelling,
@@ -1663,6 +2196,596 @@
   </div>
 </div>
 
+<!-- ── Leadership Section ──────────────────────────── -->
+<section class="section leadership" id="leadership" aria-labelledby="leadership-title" style="position:relative;">
+  <span class="leadership-headline-large" aria-hidden="true">Team</span>
+  <div class="section-inner" style="position:relative; z-index:1;">
+
+    <div class="leadership-header">
+      <div class="reveal-left">
+        <p class="section-eyebrow">Our C-Suite</p>
+        <h2 class="section-title" id="leadership-title">The People <em style="color:var(--gold-lt);">Behind</em> the Mission</h2>
+        <p style="font-size:16px; color:rgba(245,240,232,0.5); line-height:1.75; font-weight:300; max-width:460px; margin-top:16px;">
+          YSP is led by a team of young changemakers who have lived the process — turning lived
+          experience into policy work, and policy work into lasting institutional impact across ASEAN.
+        </p>
+      </div>
+      <div class="leadership-header-right reveal-right">
+        <div class="leadership-rule"></div>
+        <p class="leadership-intro">
+          "We don't hire résumés. We build alongside people who are already doing the work —
+          and we make that work count."
+        </p>
+        <p style="font-size:12px; color:rgba(245,240,232,0.3); margin-top:16px; letter-spacing:0.08em; font-family:var(--font-mono);">— YSP FOUNDING CHARTER, 2024</p>
+      </div>
+    </div>
+
+    <!-- Row 1: Founder (wide) + 1 card -->
+    <div class="leadership-grid" style="margin-bottom:2px;">
+
+      <!-- Mei Tong — Founder -->
+      <div class="leader-card featured-leader reveal-scale" style="animation-delay:0s;">
+        <div class="leader-photo-wrap">
+          <div class="leader-avatar" style="background: linear-gradient(160deg, #1a3a2a 0%, #2e6347 50%, #1a3a2a 100%);">
+            <svg viewBox="0 0 240 320" width="240" height="320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Elegant portrait illustration -->
+              <defs>
+                <radialGradient id="skin1" cx="50%" cy="38%" r="45%">
+                  <stop offset="0%" stop-color="#d4a87a"/>
+                  <stop offset="100%" stop-color="#b8895a"/>
+                </radialGradient>
+                <radialGradient id="hair1" cx="50%" cy="20%" r="55%">
+                  <stop offset="0%" stop-color="#2a1a0a"/>
+                  <stop offset="100%" stop-color="#1a0f08"/>
+                </radialGradient>
+              </defs>
+              <!-- Hair -->
+              <ellipse cx="120" cy="105" rx="55" ry="60" fill="url(#hair1)" opacity="0.95"/>
+              <path d="M65 120 Q60 160 65 200 Q80 230 120 235 Q160 230 175 200 Q180 160 175 120" fill="url(#hair1)" opacity="0.3"/>
+              <!-- Face -->
+              <ellipse cx="120" cy="130" rx="44" ry="52" fill="url(#skin1)"/>
+              <!-- Subtle features -->
+              <path d="M103 125 Q107 121 111 125" stroke="rgba(90,55,30,0.4)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+              <path d="M129 125 Q133 121 137 125" stroke="rgba(90,55,30,0.4)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+              <path d="M112 142 Q120 148 128 142" stroke="rgba(90,55,30,0.35)" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+              <!-- Shoulder / jacket -->
+              <path d="M55 220 Q60 190 80 180 Q100 172 120 170 Q140 172 160 180 Q180 190 185 220 L200 320 H40 Z" fill="#1a3a2a" opacity="0.9"/>
+              <!-- Collar accent -->
+              <path d="M108 170 L120 195 L132 170" fill="rgba(212,175,106,0.2)" stroke="rgba(212,175,106,0.35)" stroke-width="0.8"/>
+              <!-- Gold accent line -->
+              <line x1="0" y1="310" x2="240" y2="310" stroke="rgba(212,175,106,0.3)" stroke-width="1"/>
+            </svg>
+          </div>
+        </div>
+        <div class="leader-overlay"></div>
+        <span class="founder-mark">Founder</span>
+        <div class="leader-info">
+          <span class="leader-role">Executive Leadership</span>
+          <div class="leader-name">Mei Tong</div>
+          <div class="leader-title">Founder &amp; Executive Director</div>
+          <p class="leader-bio-text">
+            Mei Tong founded YSP to build the institutional infrastructure that young Southeast Asian
+            policy advocates deserve — but rarely get. A researcher, storyteller, and multi-disciplinary
+            founder, she leads YSP's vision, strategic partnerships, and ASEAN expansion while building
+            alongside the community she serves.
+          </p>
+          <div class="leader-links">
+            <a href="mailto:hello@ysp-sg.org" class="leader-link-pill">
+              <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M2 4.5l6 4 6-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><rect x="1" y="3" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"/></svg>
+              Email
+            </a>
+            <a href="https://youthforsustainablepolicy.substack.com" target="_blank" rel="noopener" class="leader-link-pill">Substack ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Head of Research -->
+      <div class="leader-card reveal-scale" style="animation-delay:0.1s;">
+        <div class="leader-photo-wrap">
+          <div class="leader-avatar" style="background: linear-gradient(135deg, #234d38 0%, #1a3a2a 100%);">
+            <svg viewBox="0 0 200 280" width="200" height="280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <radialGradient id="skin2" cx="50%" cy="38%" r="45%">
+                  <stop offset="0%" stop-color="#c89070"/>
+                  <stop offset="100%" stop-color="#a0704a"/>
+                </radialGradient>
+              </defs>
+              <ellipse cx="100" cy="88" rx="42" ry="46" fill="#1a1408" opacity="0.9"/>
+              <ellipse cx="100" cy="108" rx="36" ry="44" fill="url(#skin2)"/>
+              <path d="M103 104 Q106 100 109 104" stroke="rgba(80,45,20,0.4)" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+              <path d="M91 104 Q94 100 97 104" stroke="rgba(80,45,20,0.4)" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+              <path d="M94 120 Q100 125 106 120" stroke="rgba(80,45,20,0.35)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+              <path d="M40 200 Q48 175 68 164 Q84 155 100 153 Q116 155 132 164 Q152 175 160 200 L175 280 H25 Z" fill="#234d38" opacity="0.95"/>
+            </svg>
+          </div>
+        </div>
+        <div class="leader-overlay"></div>
+        <div class="leader-info">
+          <span class="leader-role">Research &amp; Policy</span>
+          <div class="leader-name">Aisha Rahman</div>
+          <div class="leader-title">Head of Research &amp; Policy</div>
+          <p class="leader-bio-text">
+            Leads YSP's research framework and peer-review process. Previously a research
+            associate at the Lee Kuan Yew School of Public Policy. Specialises in climate
+            governance and cross-border regulatory frameworks across ASEAN.
+          </p>
+          <div class="leader-links">
+            <a href="#contact" class="leader-link-pill">Connect →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Head of Storytelling -->
+      <div class="leader-card reveal-scale" style="animation-delay:0.15s;">
+        <div class="leader-photo-wrap">
+          <div class="leader-avatar" style="background: linear-gradient(150deg, #2e6347 0%, #1a3a2a 100%);">
+            <svg viewBox="0 0 200 280" width="200" height="280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <radialGradient id="skin3" cx="50%" cy="38%" r="45%">
+                  <stop offset="0%" stop-color="#e8b890"/>
+                  <stop offset="100%" stop-color="#c49060"/>
+                </radialGradient>
+              </defs>
+              <!-- Long hair -->
+              <path d="M58 85 Q60 140 65 200 Q100 215 135 200 Q140 140 142 85 Q120 58 100 58 Q80 58 58 85Z" fill="#1a0d04" opacity="0.9"/>
+              <ellipse cx="100" cy="105" rx="36" ry="42" fill="url(#skin3)"/>
+              <path d="M93 101 Q96 97 99 101" stroke="rgba(100,60,20,0.4)" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+              <path d="M101 101 Q104 97 107 101" stroke="rgba(100,60,20,0.4)" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+              <path d="M94 118 Q100 124 106 118" stroke="rgba(100,60,20,0.35)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+              <path d="M38 200 Q45 178 65 165 Q82 156 100 154 Q118 156 135 165 Q155 178 162 200 L180 280 H20 Z" fill="#2e6347" opacity="0.9"/>
+            </svg>
+          </div>
+        </div>
+        <div class="leader-overlay"></div>
+        <div class="leader-info">
+          <span class="leader-role">Communications</span>
+          <div class="leader-name">Priya Nair</div>
+          <div class="leader-title">Head of Storytelling &amp; Comms</div>
+          <p class="leader-bio-text">
+            Shapes how YSP's work reaches the world. Former journalist and documentary producer
+            with bylines in regional media. Oversees the YSP Dispatch, podcast strategy, and
+            narrative frameworks for member policy briefs.
+          </p>
+          <div class="leader-links">
+            <a href="#contact" class="leader-link-pill">Connect →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2: two cards -->
+    <div class="leadership-grid-bottom">
+
+      <!-- Head of Partnerships -->
+      <div class="leader-card reveal-scale" style="animation-delay:0.2s;">
+        <div class="leader-photo-wrap">
+          <div class="leader-avatar" style="background: linear-gradient(135deg, #1a3a2a 0%, #2e6347 60%, #1a3a2a 100%);">
+            <svg viewBox="0 0 200 280" width="200" height="280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <radialGradient id="skin4" cx="50%" cy="38%" r="45%">
+                  <stop offset="0%" stop-color="#d0a878"/>
+                  <stop offset="100%" stop-color="#a07848"/>
+                </radialGradient>
+              </defs>
+              <ellipse cx="100" cy="85" rx="46" ry="50" fill="#0d0a08" opacity="0.9"/>
+              <ellipse cx="100" cy="108" rx="37" ry="44" fill="url(#skin4)"/>
+              <path d="M91 103 Q95 99 99 103" stroke="rgba(80,48,18,0.4)" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+              <path d="M101 103 Q105 99 109 103" stroke="rgba(80,48,18,0.4)" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+              <path d="M93 120 Q100 127 107 120" stroke="rgba(80,48,18,0.35)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+              <path d="M40 202 Q50 178 68 165 Q84 155 100 153 Q116 155 132 165 Q150 178 160 202 L178 280 H22 Z" fill="#1a3a2a" opacity="0.95"/>
+              <!-- Subtle jacket lapel detail -->
+              <path d="M90 153 L100 175 L110 153" fill="rgba(212,175,106,0.15)" stroke="rgba(212,175,106,0.3)" stroke-width="0.8"/>
+            </svg>
+          </div>
+        </div>
+        <div class="leader-overlay"></div>
+        <div class="leader-info">
+          <span class="leader-role">Partnerships &amp; Advocacy</span>
+          <div class="leader-name">Rafi Hakim</div>
+          <div class="leader-title">Head of Partnerships &amp; Advocacy</div>
+          <p class="leader-bio-text">
+            Builds YSP's institutional network across ASEAN governments, universities, and
+            international bodies. Leads delegation work, conference partnerships, and
+            ASEAN youth policy dialogues. Based between Singapore and Kuala Lumpur.
+          </p>
+          <div class="leader-links">
+            <a href="#contact" class="leader-link-pill">Connect →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Head of Operations -->
+      <div class="leader-card reveal-scale" style="animation-delay:0.25s;">
+        <div class="leader-photo-wrap">
+          <div class="leader-avatar" style="background: linear-gradient(160deg, #234d38 0%, #1a3a2a 80%);">
+            <svg viewBox="0 0 200 280" width="200" height="280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <radialGradient id="skin5" cx="50%" cy="38%" r="45%">
+                  <stop offset="0%" stop-color="#e0b898"/>
+                  <stop offset="100%" stop-color="#c09070"/>
+                </radialGradient>
+              </defs>
+              <!-- Short bob hair -->
+              <path d="M58 88 Q60 100 58 118 Q65 130 68 128 Q65 100 100 82 Q135 100 132 128 Q135 130 142 118 Q140 100 142 88 Q120 55 100 55 Q80 55 58 88Z" fill="#140a04" opacity="0.9"/>
+              <ellipse cx="100" cy="110" rx="36" ry="42" fill="url(#skin5)"/>
+              <path d="M91 105 Q95 101 99 105" stroke="rgba(100,62,22,0.38)" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+              <path d="M101 105 Q105 101 109 105" stroke="rgba(100,62,22,0.38)" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+              <path d="M93 122 Q100 129 107 122" stroke="rgba(100,62,22,0.33)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+              <path d="M36 205 Q45 180 66 167 Q83 157 100 155 Q117 157 134 167 Q155 180 164 205 L180 280 H20 Z" fill="#234d38" opacity="0.95"/>
+            </svg>
+          </div>
+        </div>
+        <div class="leader-overlay"></div>
+        <div class="leader-info">
+          <span class="leader-role">Operations</span>
+          <div class="leader-name">Siu Ling Chen</div>
+          <div class="leader-title">Head of Operations &amp; Finance</div>
+          <p class="leader-bio-text">
+            Runs the machine behind the mission — member systems, Ko-fi fundraising, donor
+            relations, and operational infrastructure. Ensures YSP stays lean, transparent,
+            and ready to scale across ASEAN without losing its youth-first soul.
+          </p>
+          <div class="leader-links">
+            <a href="#contact" class="leader-link-pill">Connect →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team CTA -->
+    <div style="margin-top:64px; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;" class="reveal-left">
+      <div>
+        <p style="font-family:var(--font-editorial); font-size:clamp(22px,3vw,36px); font-style:italic; color:rgba(245,240,232,0.9); line-height:1.2;">Want to join this team?</p>
+        <p style="font-size:14px; color:rgba(245,240,232,0.4); margin-top:6px;">We're always looking for builders who care deeply.</p>
+      </div>
+      <a href="#careers" class="btn-primary" style="flex-shrink:0;">See Open Roles →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Careers Section ──────────────────────────────── -->
+<section class="section careers" id="careers" aria-labelledby="careers-title">
+  <div class="section-inner">
+
+    <div class="careers-header">
+      <div class="reveal-left">
+        <p class="section-eyebrow">Join the Team</p>
+        <h2 class="section-title" id="careers-title">Build <em>Policy Infrastructure</em> for the Next Generation</h2>
+        <p class="section-body">
+          YSP is a lean, mission-driven team operating at the intersection of research,
+          storytelling, and ASEAN policy advocacy. We work with people who are already
+          doing meaningful work — and who want to do it at scale.
+        </p>
+      </div>
+      <div class="reveal-right">
+        <div class="careers-stat-row">
+          <div class="careers-stat">
+            <span class="careers-stat-num">16+</span>
+            <span class="careers-stat-label">Countries in our member network</span>
+          </div>
+          <div class="careers-stat">
+            <span class="careers-stat-num">100%</span>
+            <span class="careers-stat-label">Remote-first culture</span>
+          </div>
+          <div class="careers-stat">
+            <span class="careers-stat-num">Free</span>
+            <span class="careers-stat-label">Open to all youth 16–28</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Values -->
+    <div class="careers-values reveal-scale">
+      <div class="careers-value">
+        <div class="careers-value-icon">🌿</div>
+        <div class="careers-value-name">Mission-First</div>
+        <p class="careers-value-desc">The work is the point. Titles follow what you build, never the other way around.</p>
+      </div>
+      <div class="careers-value">
+        <div class="careers-value-icon">🔬</div>
+        <div class="careers-value-name">Evidence-Driven</div>
+        <p class="careers-value-desc">We don't advocate for anything we can't support with rigorous, cited research.</p>
+      </div>
+      <div class="careers-value">
+        <div class="careers-value-icon">🌏</div>
+        <div class="careers-value-name">ASEAN-Rooted</div>
+        <p class="careers-value-desc">Our perspective is unapologetically Southeast Asian. Global lens, local grounding.</p>
+      </div>
+      <div class="careers-value">
+        <div class="careers-value-icon">🤝</div>
+        <div class="careers-value-name">Radical Openness</div>
+        <p class="careers-value-desc">No gatekeeping. Every YSP tool, resource, and programme is free to access.</p>
+      </div>
+    </div>
+
+    <!-- Open Roles -->
+    <div class="roles-header-section">
+      <div class="careers-roles-header reveal-left">
+        <h3>Open Roles</h3>
+        <span class="roles-count-badge">6 Positions Open</span>
+      </div>
+
+      <div class="roles-list">
+
+        <!-- Role 1 -->
+        <div class="role-item reveal-scale" onclick="toggleRole(this)">
+          <div class="role-header">
+            <div class="role-header-left">
+              <span class="role-dept-dot" style="background:#6b8f71;"></span>
+              <div>
+                <div class="role-name">Research Fellow — Climate Policy</div>
+                <div class="role-meta">
+                  <span class="role-tag tag-paid">Stipend</span>
+                  <span class="role-tag tag-remote">Remote</span>
+                  <span class="role-tag tag-sg">ASEAN</span>
+                </div>
+              </div>
+            </div>
+            <svg class="role-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="role-body">
+            <div class="role-body-inner">
+              <div>
+                <p class="role-section-title">About the Role</p>
+                <p class="role-desc">
+                  We're looking for a sharp, curious research fellow to join YSP's policy research vertical.
+                  You'll lead a 6-month climate policy research sprint — identifying evidence gaps, producing
+                  a publishable brief, and presenting findings at our ASEAN Youth Policy Symposium.
+                </p>
+                <p class="role-desc">
+                  You'll work directly with our Head of Research and get access to YSP's full mentor network
+                  for feedback and guidance.
+                </p>
+                <a href="#contact" class="role-apply-btn">Apply Now →</a>
+              </div>
+              <div>
+                <p class="role-section-title">What We're Looking For</p>
+                <ul class="role-req-list">
+                  <li>Age 18–28, based anywhere in ASEAN</li>
+                  <li>Strong academic or self-directed research background in climate, environment, or public policy</li>
+                  <li>Ability to read and synthesise academic literature into accessible policy formats</li>
+                  <li>Comfortable working async in a remote-first team</li>
+                  <li>Bonus: prior publication, fellowship, or conference experience</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="role-item reveal-scale" style="animation-delay:0.05s;" onclick="toggleRole(this)">
+          <div class="role-header">
+            <div class="role-header-left">
+              <span class="role-dept-dot" style="background:#b8943f;"></span>
+              <div>
+                <div class="role-name">Storytelling Contributor — YSP Dispatch</div>
+                <div class="role-meta">
+                  <span class="role-tag tag-volunteer">Volunteer</span>
+                  <span class="role-tag tag-remote">Remote</span>
+                </div>
+              </div>
+            </div>
+            <svg class="role-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="role-body">
+            <div class="role-body-inner">
+              <div>
+                <p class="role-section-title">About the Role</p>
+                <p class="role-desc">
+                  Help shape YSP's voice. We're looking for sharp writers who can translate complex
+                  policy developments into compelling, accessible narratives for our 10,000+ subscriber
+                  Dispatch. Your words will land in the inboxes of young advocates, policymakers, and
+                  institutional partners across Southeast Asia.
+                </p>
+                <a href="#contact" class="role-apply-btn">Apply Now →</a>
+              </div>
+              <div>
+                <p class="role-section-title">What We're Looking For</p>
+                <ul class="role-req-list">
+                  <li>Excellent writing in English; Bahasa, Mandarin, or Thai a bonus</li>
+                  <li>Curiosity about Southeast Asian policy, sustainability, or social innovation</li>
+                  <li>Ability to write 600–900 word features with a clear argument</li>
+                  <li>Reliable deadline commitment (bi-weekly contribution)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Role 3 -->
+        <div class="role-item reveal-scale" style="animation-delay:0.1s;" onclick="toggleRole(this)">
+          <div class="role-header">
+            <div class="role-header-left">
+              <span class="role-dept-dot" style="background:#2e6347;"></span>
+              <div>
+                <div class="role-name">ASEAN Partnerships Coordinator</div>
+                <div class="role-meta">
+                  <span class="role-tag tag-volunteer">Volunteer</span>
+                  <span class="role-tag tag-remote">Remote</span>
+                  <span class="role-tag tag-sg">ASEAN</span>
+                </div>
+              </div>
+            </div>
+            <svg class="role-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="role-body">
+            <div class="role-body-inner">
+              <div>
+                <p class="role-section-title">About the Role</p>
+                <p class="role-desc">
+                  Help YSP build its regional network. You'll research and initiate outreach to youth
+                  policy organisations, university centres, and NGOs across ASEAN — forging partnerships
+                  that expand our reach and deepen our collaborative research capacity. This role is
+                  ideal for someone with existing connections in regional civil society.
+                </p>
+                <a href="#contact" class="role-apply-btn">Apply Now →</a>
+              </div>
+              <div>
+                <p class="role-section-title">What We're Looking For</p>
+                <ul class="role-req-list">
+                  <li>Strong relationship-building skills; existing ASEAN network a plus</li>
+                  <li>Understanding of regional civil society and youth advocacy landscape</li>
+                  <li>Experience with institutional outreach or partnership development</li>
+                  <li>Self-starter; comfortable managing your own pipeline</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Role 4 -->
+        <div class="role-item reveal-scale" style="animation-delay:0.15s;" onclick="toggleRole(this)">
+          <div class="role-header">
+            <div class="role-header-left">
+              <span class="role-dept-dot" style="background:#d4af6a;"></span>
+              <div>
+                <div class="role-name">Podcast Producer — YSP Audio</div>
+                <div class="role-meta">
+                  <span class="role-tag tag-volunteer">Volunteer</span>
+                  <span class="role-tag tag-remote">Remote</span>
+                </div>
+              </div>
+            </div>
+            <svg class="role-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="role-body">
+            <div class="role-body-inner">
+              <div>
+                <p class="role-section-title">About the Role</p>
+                <p class="role-desc">
+                  YSP is launching its first audio series — a policy interview podcast featuring young
+                  changemakers, senior practitioners, and cross-border advocates. We need a producer
+                  who can handle episode scheduling, guest research, light audio editing, and
+                  distribution across Spotify, Apple, and regional platforms.
+                </p>
+                <a href="#contact" class="role-apply-btn">Apply Now →</a>
+              </div>
+              <div>
+                <p class="role-section-title">What We're Looking For</p>
+                <ul class="role-req-list">
+                  <li>Experience with podcast production (recording, editing, show notes)</li>
+                  <li>Comfortable with Audacity, Descript, or similar tools</li>
+                  <li>Strong communication for guest coordination and scheduling</li>
+                  <li>Passion for policy, youth advocacy, or regional storytelling</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Role 5 -->
+        <div class="role-item reveal-scale" style="animation-delay:0.2s;" onclick="toggleRole(this)">
+          <div class="role-header">
+            <div class="role-header-left">
+              <span class="role-dept-dot" style="background:#a8c5a0;"></span>
+              <div>
+                <div class="role-name">Community Manager — Member Experience</div>
+                <div class="role-meta">
+                  <span class="role-tag tag-paid">Stipend</span>
+                  <span class="role-tag tag-remote">Remote</span>
+                  <span class="role-tag tag-sg">SG-Based Preferred</span>
+                </div>
+              </div>
+            </div>
+            <svg class="role-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="role-body">
+            <div class="role-body-inner">
+              <div>
+                <p class="role-section-title">About the Role</p>
+                <p class="role-desc">
+                  You'll be the connective tissue of the YSP community — onboarding new members,
+                  fielding enquiries, managing our member channels, and ensuring every young person
+                  who reaches out to YSP feels genuinely welcomed and supported. This is a high-touch,
+                  human-centred role.
+                </p>
+                <a href="#contact" class="role-apply-btn">Apply Now →</a>
+              </div>
+              <div>
+                <p class="role-section-title">What We're Looking For</p>
+                <ul class="role-req-list">
+                  <li>Warm, professional communicator across email and social channels</li>
+                  <li>Experience with community management, student orgs, or youth programmes</li>
+                  <li>Organised and reliable; can manage multiple member threads simultaneously</li>
+                  <li>Genuine care for youth wellbeing and inclusive spaces</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Role 6 -->
+        <div class="role-item reveal-scale" style="animation-delay:0.25s;" onclick="toggleRole(this)">
+          <div class="role-header">
+            <div class="role-header-left">
+              <span class="role-dept-dot" style="background:#6b8f71;"></span>
+              <div>
+                <div class="role-name">Mentor — Policy Research &amp; Advocacy</div>
+                <div class="role-meta">
+                  <span class="role-tag tag-volunteer">Volunteer</span>
+                  <span class="role-tag tag-remote">Remote</span>
+                </div>
+              </div>
+            </div>
+            <svg class="role-chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="role-body">
+            <div class="role-body-inner">
+              <div>
+                <p class="role-section-title">About the Role</p>
+                <p class="role-desc">
+                  Not a job listing — an invitation. If you're a policy professional, academic,
+                  NGO practitioner, or civil servant with 3+ years of experience in any sustainable
+                  development field, we'd love for you to mentor one YSP member per cohort.
+                  Commitment is approximately 2 hours per month for 6 months.
+                </p>
+                <a href="#contact" class="role-apply-btn">Volunteer as Mentor →</a>
+              </div>
+              <div>
+                <p class="role-section-title">What This Involves</p>
+                <ul class="role-req-list">
+                  <li>Guiding one member's Impact Project from question to published output</li>
+                  <li>Providing feedback on drafts, research methodology, and framing</li>
+                  <li>Optional: opening your network for introductions where appropriate</li>
+                  <li>All mentors are listed on YSP's platform with their institutional affiliation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /roles-list -->
+    </div><!-- /roles-header-section -->
+
+    <!-- Perks row -->
+    <div style="margin-top:72px; padding:40px; background:var(--forest); border-radius:var(--radius-lg); display:grid; grid-template-columns:repeat(4,1fr); gap:24px;" class="reveal-scale">
+      <div>
+        <p style="font-family:var(--font-mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:10px;">What You Get</p>
+        <p style="font-family:var(--font-display); font-size:18px; font-weight:700; color:var(--cream); margin-bottom:6px;">Real credentials</p>
+        <p style="font-size:13px; color:rgba(245,240,232,0.45); line-height:1.6;">Published work, LinkedIn endorsements, and a record of institutional impact.</p>
+      </div>
+      <div>
+        <p style="font-family:var(--font-mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:10px;">Who You'll Know</p>
+        <p style="font-family:var(--font-display); font-size:18px; font-weight:700; color:var(--cream); margin-bottom:6px;">The right network</p>
+        <p style="font-size:13px; color:rgba(245,240,232,0.45); line-height:1.6;">Access to YSP's mentor base across LKYSPP, NUS, UNDP, and ASEAN civil society.</p>
+      </div>
+      <div>
+        <p style="font-family:var(--font-mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:10px;">The Environment</p>
+        <p style="font-family:var(--font-display); font-size:18px; font-weight:700; color:var(--cream); margin-bottom:6px;">Async, flexible</p>
+        <p style="font-size:13px; color:rgba(245,240,232,0.45); line-height:1.6;">Remote-first. We care about what you produce, not the hours you log.</p>
+      </div>
+      <div>
+        <p style="font-family:var(--font-mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:10px;">One Rule</p>
+        <p style="font-family:var(--font-display); font-size:18px; font-weight:700; color:var(--cream); margin-bottom:6px;">Do the work</p>
+        <p style="font-size:13px; color:rgba(245,240,232,0.45); line-height:1.6;">We don't care about your university ranking. We care about what you build here.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ── Contact Section ────────────────────────────── -->
 <section class="section contact" id="contact" aria-labelledby="contact-title">
   <div class="section-inner">
@@ -1811,6 +2934,8 @@
           <li><a href="#impact">Impact Projects</a></li>
           <li><a href="#research">Research Hub</a></li>
           <li><a href="#mentorship">Mentorship</a></li>
+          <li><a href="#leadership">Leadership</a></li>
+          <li><a href="#careers">Careers</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -2237,8 +3362,140 @@
   });
 
   /* ─────────────────────────────────────────
-     REAL-TIME VALIDATION — remove invalid state on input
+     HERO CANVAS PARTICLE ANIMATION
   ───────────────────────────────────────── */
+  (function() {
+    const canvas = document.getElementById('hero-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let W, H, particles, animId;
+    const NUM = 80;
+    const CONNECT_DIST = 130;
+
+    const COLORS = [
+      'rgba(168,197,160,', // mint
+      'rgba(107,143,113,', // sage
+      'rgba(212,175,106,', // gold-lt
+      'rgba(184,148,63,',  // gold
+      'rgba(46,99,71,',    // forest-3
+    ];
+
+    function resize() {
+      W = canvas.width = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
+
+    function mkParticle() {
+      const c = COLORS[Math.floor(Math.random() * COLORS.length)];
+      return {
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.45,
+        vy: (Math.random() - 0.5) * 0.45,
+        r: Math.random() * 2.2 + 0.8,
+        color: c,
+        alpha: Math.random() * 0.5 + 0.2,
+      };
+    }
+
+    function init() {
+      resize();
+      particles = Array.from({ length: NUM }, mkParticle);
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      // Draw connection lines
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < CONNECT_DIST) {
+            const a = (1 - d / CONNECT_DIST) * 0.18;
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(184,148,63,${a})`;
+            ctx.lineWidth = 0.7;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      // Draw dots
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = p.color + p.alpha + ')';
+        ctx.fill();
+        // move
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < -10) p.x = W + 10;
+        if (p.x > W + 10) p.x = -10;
+        if (p.y < -10) p.y = H + 10;
+        if (p.y > H + 10) p.y = -10;
+      });
+    }
+
+    function loop() { draw(); animId = requestAnimationFrame(loop); }
+
+    init();
+    loop();
+
+    const ro = new ResizeObserver(() => { resize(); });
+    ro.observe(canvas.parentElement);
+  })();
+
+  /* ─────────────────────────────────────────
+     ENHANCED SCROLL REVEAL (multi-class)
+  ───────────────────────────────────────── */
+  (function() {
+    const classes = ['fade-in', 'reveal-left', 'reveal-right', 'reveal-scale', 'reveal-rotate'];
+    const observed = new Set();
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !observed.has(entry.target)) {
+          observed.add(entry.target);
+          // Small stagger based on DOM position among siblings
+          const siblings = [...entry.target.parentElement.children].filter(
+            el => classes.some(c => el.classList.contains(c))
+          );
+          const idx = siblings.indexOf(entry.target);
+          const baseDelay = parseFloat(entry.target.style.animationDelay || 0);
+          const stagger = Math.max(0, idx * 0.08);
+          entry.target.style.animationDelay = (baseDelay + stagger) + 's';
+          entry.target.style.transitionDelay = (baseDelay + stagger) + 's';
+          entry.target.classList.add('visible', 'in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    function observeAll() {
+      classes.forEach(cls => {
+        document.querySelectorAll('.' + cls).forEach(el => {
+          if (!observed.has(el)) io.observe(el);
+        });
+      });
+    }
+    observeAll();
+    // Re-observe after a tick for dynamically built content
+    setTimeout(observeAll, 500);
+  })();
+
+  /* ─────────────────────────────────────────
+     CAREERS ROLE ACCORDION
+  ───────────────────────────────────────── */
+  function toggleRole(item) {
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.role-item.open').forEach(el => {
+      el.classList.remove('open');
+    });
+    if (!isOpen) item.classList.add('open');
+  }
   document.querySelectorAll('#contact-form input, #contact-form textarea, #contact-form select').forEach(el => {
     el.addEventListener('input', () => clearInvalid(el));
   });

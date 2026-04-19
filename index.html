@@ -1,0 +1,2251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Security Headers via Meta -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;
+             script-src 'self' 'unsafe-inline';
+             style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+             img-src 'self' data: https:;
+             form-action 'none';" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+
+  <title>Youth for Sustainable Policy — YSP</title>
+  <meta name="description" content="YSP is a youth-led platform (ages 16–28) connecting young researchers, storytellers, and policy advocates across Southeast Asia and beyond." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Youth for Sustainable Policy" />
+  <meta property="og:description" content="Stop chasing titles. Build one policy initiative that matters." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── CSS Reset ────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ── Design Tokens ────────────────────────────── */
+    :root {
+      --forest:   #1a3a2a;
+      --forest-2: #234d38;
+      --forest-3: #2e6347;
+      --sage:     #6b8f71;
+      --mint:     #a8c5a0;
+      --cream:    #f5f0e8;
+      --cream-2:  #ece5d4;
+      --ivory:    #faf8f3;
+      --gold:     #b8943f;
+      --gold-lt:  #d4af6a;
+      --charcoal: #1c1c1c;
+      --mid:      #4a4a4a;
+      --light:    #8a8a8a;
+      --white:    #ffffff;
+
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+      --font-mono:    'DM Mono', monospace;
+
+      --nav-h: 72px;
+      --radius: 4px;
+      --radius-lg: 12px;
+
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    /* ── Base ─────────────────────────────────────── */
+    body {
+      font-family: var(--font-body);
+      background: var(--ivory);
+      color: var(--charcoal);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Grain overlay for texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 128px;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button { cursor: pointer; font-family: inherit; }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px; height: 1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+    }
+
+    /* ── Safety Banner ────────────────────────────── */
+    .safety-banner {
+      background: var(--forest);
+      color: var(--cream);
+      text-align: center;
+      padding: 9px 24px;
+      font-size: 12.5px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .safety-banner svg { flex-shrink: 0; }
+    .safety-banner a { color: var(--gold-lt); text-decoration: underline; }
+
+    /* ── Navigation ───────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: var(--nav-h);
+      background: rgba(250, 248, 243, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--cream-2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      transition: box-shadow 0.3s var(--ease-out);
+    }
+    nav.scrolled { box-shadow: 0 4px 32px rgba(26,58,42,0.08); }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--forest);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo-mark {
+      width: 36px; height: 36px;
+      background: var(--forest);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .nav-logo-mark svg { width: 20px; height: 20px; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--mid);
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--forest);
+      transition: width 0.25s var(--ease-out);
+    }
+    .nav-links a:hover { color: var(--forest); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      padding: 9px 22px;
+      background: var(--forest);
+      color: var(--cream) !important;
+      border-radius: var(--radius);
+      font-size: 13.5px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.03em;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--forest-2) !important; }
+    .nav-cta::after { display: none !important; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px; height: 1.5px;
+      background: var(--charcoal);
+      transition: all 0.3s;
+    }
+
+    /* ── Hero ─────────────────────────────────────── */
+    .hero {
+      min-height: calc(100vh - var(--nav-h) - 38px);
+      background: var(--forest);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 48px;
+      text-align: center;
+    }
+
+    /* Organic background shapes */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%; right: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(46,99,71,0.6) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -15%; left: -8%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(184,148,63,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-lt);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease-out) 0.1s forwards;
+    }
+
+    .hero-quote-mark {
+      font-family: var(--font-display);
+      font-size: 120px;
+      color: rgba(255,255,255,0.06);
+      line-height: 0.6;
+      margin-bottom: 16px;
+      display: block;
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease-out) 0.15s forwards;
+    }
+
+    .hero-testimonial {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(18px, 3vw, 26px);
+      color: rgba(255,255,255,0.75);
+      max-width: 600px;
+      margin-bottom: 72px;
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease-out) 0.2s forwards;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 6.5vw, 86px);
+      font-weight: 800;
+      color: var(--cream);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      max-width: 900px;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out) 0.3s forwards;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold-lt);
+    }
+
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 19px);
+      color: rgba(245,240,232,0.65);
+      max-width: 560px;
+      margin-bottom: 52px;
+      font-weight: 300;
+      line-height: 1.7;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out) 0.45s forwards;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeUp 0.8s var(--ease-out) 0.55s forwards;
+    }
+
+    .btn-primary {
+      padding: 15px 34px;
+      background: var(--cream);
+      color: var(--forest);
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 14.5px;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s;
+      border: none;
+    }
+    .btn-primary:hover { background: var(--ivory); transform: translateY(-1px); }
+
+    .btn-secondary {
+      padding: 15px 34px;
+      background: transparent;
+      color: var(--cream);
+      border: 1px solid rgba(245,240,232,0.35);
+      border-radius: var(--radius);
+      font-weight: 500;
+      font-size: 14.5px;
+      letter-spacing: 0.02em;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    }
+    .btn-secondary:hover {
+      border-color: rgba(245,240,232,0.8);
+      background: rgba(245,240,232,0.07);
+      transform: translateY(-1px);
+    }
+
+    /* Application pillars diagram */
+    .hero-diagram {
+      margin-top: 80px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      max-width: 800px;
+      width: 100%;
+      opacity: 0;
+      animation: fadeUp 0.9s var(--ease-out) 0.7s forwards;
+    }
+    .pillar {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 16px 10px 12px;
+      text-align: center;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      cursor: default;
+    }
+    .pillar:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(184,148,63,0.4);
+      transform: translateY(-2px);
+    }
+    .pillar-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.3;
+      margin-bottom: 5px;
+    }
+    .pillar-desc {
+      font-size: 9px;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.02em;
+      line-height: 1.4;
+    }
+    .pillar.highlight {
+      background: rgba(184,148,63,0.15);
+      border-color: rgba(184,148,63,0.35);
+    }
+    .pillar.highlight .pillar-label { color: var(--gold-lt); }
+
+    /* ── Section Shared ───────────────────────────── */
+    .section { padding: 112px 48px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4vw, 50px);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      color: var(--forest);
+      margin-bottom: 24px;
+    }
+    .section-title em {
+      font-style: italic;
+      color: var(--sage);
+    }
+
+    .section-body {
+      font-size: 17px;
+      color: var(--mid);
+      line-height: 1.75;
+      max-width: 620px;
+      font-weight: 300;
+    }
+
+    /* ── Why It Matters ───────────────────────────── */
+    .why {
+      background: var(--cream);
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .why-diagram {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .why-card {
+      background: var(--ivory);
+      border: 1px solid var(--cream-2);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      transition: border-color 0.2s, transform 0.25s var(--ease-out), box-shadow 0.25s;
+    }
+    .why-card:hover {
+      border-color: var(--sage);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(26,58,42,0.08);
+    }
+    .why-card-icon {
+      width: 36px; height: 36px;
+      background: var(--forest);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+    }
+    .why-card-icon svg { width: 18px; height: 18px; }
+    .why-card-title {
+      font-weight: 600;
+      font-size: 13.5px;
+      color: var(--forest);
+      letter-spacing: 0.01em;
+      margin-bottom: 6px;
+    }
+    .why-card-desc {
+      font-size: 12.5px;
+      color: var(--light);
+      line-height: 1.55;
+    }
+    .why-card.featured {
+      background: var(--forest);
+      border-color: var(--forest);
+      grid-column: 1 / -1;
+    }
+    .why-card.featured .why-card-title { color: var(--cream); }
+    .why-card.featured .why-card-desc { color: rgba(245,240,232,0.55); }
+    .why-card.featured .why-card-icon { background: rgba(255,255,255,0.12); }
+
+    .why-content .section-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 36px;
+    }
+    .btn-forest {
+      padding: 13px 28px;
+      background: var(--forest);
+      color: var(--cream);
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 13.5px;
+      letter-spacing: 0.02em;
+      border: none;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-forest:hover { background: var(--forest-2); transform: translateY(-1px); }
+
+    .btn-outline {
+      padding: 13px 28px;
+      background: transparent;
+      color: var(--forest);
+      border: 1px solid rgba(26,58,42,0.3);
+      border-radius: var(--radius);
+      font-weight: 500;
+      font-size: 13.5px;
+      letter-spacing: 0.02em;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-outline:hover {
+      border-color: var(--forest);
+      background: rgba(26,58,42,0.04);
+      transform: translateY(-1px);
+    }
+
+    /* ── Playbook ─────────────────────────────────── */
+    .playbook {
+      background: var(--ivory);
+    }
+    .playbook-header {
+      max-width: 700px;
+      margin-bottom: 72px;
+    }
+    .playbook-intro {
+      font-size: 17px;
+      color: var(--mid);
+      line-height: 1.75;
+      font-weight: 300;
+      margin-bottom: 32px;
+    }
+    .playbook-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .step {
+      padding: 40px 32px;
+      border: 1px solid var(--cream-2);
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+    .step::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--forest), var(--sage));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s var(--ease-out);
+    }
+    .step:hover {
+      box-shadow: 0 16px 48px rgba(26,58,42,0.1);
+      border-color: transparent;
+      transform: translateY(-4px);
+    }
+    .step:hover::before { transform: scaleX(1); }
+
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 64px;
+      font-weight: 800;
+      color: var(--cream-2);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+    .step-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+    .step-body {
+      font-size: 14.5px;
+      color: var(--mid);
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+    .step-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .step-list li {
+      font-size: 13.5px;
+      color: var(--mid);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .step-list li::before {
+      content: '→';
+      color: var(--forest-3);
+      font-size: 12px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* ── Testimonials ─────────────────────────────── */
+    .testimonials {
+      background: var(--forest);
+      overflow: hidden;
+    }
+    .testimonials .section-eyebrow { color: var(--gold-lt); }
+    .testimonials .section-title { color: var(--cream); }
+
+    .testimonials-track-wrapper {
+      overflow: hidden;
+      margin-top: 56px;
+      position: relative;
+    }
+    .testimonials-track-wrapper::before,
+    .testimonials-track-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .testimonials-track-wrapper::before {
+      left: 0;
+      background: linear-gradient(to right, var(--forest), transparent);
+    }
+    .testimonials-track-wrapper::after {
+      right: 0;
+      background: linear-gradient(to left, var(--forest), transparent);
+    }
+
+    .testimonials-track {
+      display: flex;
+      gap: 20px;
+      animation: scrollTrack 40s linear infinite;
+      width: max-content;
+    }
+    .testimonials-track:hover { animation-play-state: paused; }
+
+    @keyframes scrollTrack {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .t-card {
+      flex-shrink: 0;
+      width: 320px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      transition: background 0.25s;
+    }
+    .t-card:hover { background: rgba(255,255,255,0.1); }
+
+    .t-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 15px;
+      color: rgba(245,240,232,0.85);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .t-quote::before { content: '"'; }
+    .t-quote::after  { content: '"'; }
+
+    .t-author {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .t-name {
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--cream);
+    }
+    .t-role {
+      font-size: 12px;
+      color: rgba(245,240,232,0.45);
+    }
+    .t-badge {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 3px 9px;
+      background: rgba(184,148,63,0.2);
+      border: 1px solid rgba(184,148,63,0.35);
+      border-radius: 20px;
+      font-size: 10px;
+      color: var(--gold-lt);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Featured Callout ─────────────────────────── */
+    .featured {
+      background: var(--cream);
+    }
+    .featured-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+    }
+    .featured-intro {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 8px;
+    }
+    .featured-intro .section-body { margin-bottom: 0; }
+
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--cream-2);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s var(--ease-out), border-color 0.25s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 56px rgba(26,58,42,0.1);
+      border-color: var(--mint);
+    }
+    .feature-icon {
+      width: 48px; height: 48px;
+      border-radius: 10px;
+      background: var(--forest);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+    }
+    .feature-icon svg { width: 24px; height: 24px; }
+
+    .feature-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+    .feature-body {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 28px;
+      font-weight: 300;
+    }
+    .feature-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .link-arrow {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--forest);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+    .link-arrow:hover { gap: 10px; }
+    .link-arrow-ghost {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--light);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s, gap 0.2s;
+    }
+    .link-arrow-ghost:hover { color: var(--mid); gap: 10px; }
+
+    /* ── Partners Marquee ─────────────────────────── */
+    .partners {
+      background: var(--ivory);
+      padding: 72px 0;
+      overflow: hidden;
+    }
+    .partners-label {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 40px;
+    }
+    .partners-track {
+      display: flex;
+      gap: 0;
+      animation: marquee 28s linear infinite;
+      width: max-content;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .partner-pill {
+      padding: 12px 28px;
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--light);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      transition: color 0.2s;
+      border-right: 1px solid var(--cream-2);
+    }
+    .partner-pill:hover { color: var(--forest); }
+
+    /* ── Contact / Newsletter ─────────────────────── */
+    .contact {
+      background: var(--forest);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact::before {
+      content: '';
+      position: absolute;
+      top: -30%; right: -5%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(46,99,71,0.5) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact .section-eyebrow { color: var(--gold-lt); }
+    .contact .section-title { color: var(--cream); }
+    .contact .section-body { color: rgba(245,240,232,0.6); max-width: 100%; }
+
+    .contact-info {
+      margin-top: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .contact-item-icon {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .contact-item-icon svg { width: 17px; height: 17px; }
+    .contact-item-text p { font-size: 13px; color: rgba(245,240,232,0.45); margin-bottom: 2px; }
+    .contact-item-text a, .contact-item-text span {
+      font-size: 15px;
+      color: var(--cream);
+      font-weight: 500;
+    }
+    .contact-item-text a:hover { color: var(--gold-lt); }
+
+    /* Form styles */
+    .contact-form { position: relative; z-index: 1; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 7px; }
+    .form-group label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.55);
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 13px 16px;
+      font-family: var(--font-body);
+      font-size: 14.5px;
+      color: var(--cream);
+      transition: border-color 0.2s, background 0.2s;
+      outline: none;
+      width: 100%;
+      resize: vertical;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(245,240,232,0.25);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: rgba(184,148,63,0.6);
+      background: rgba(255,255,255,0.1);
+    }
+    .form-group input.invalid,
+    .form-group textarea.invalid { border-color: rgba(220,80,80,0.6); }
+
+    .form-group select option { background: var(--forest-2); color: var(--cream); }
+
+    .form-notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 16px;
+      background: rgba(184,148,63,0.1);
+      border: 1px solid rgba(184,148,63,0.2);
+      border-radius: var(--radius);
+      font-size: 12px;
+      color: rgba(245,240,232,0.55);
+      line-height: 1.6;
+    }
+    .form-notice svg { width: 15px; height: 15px; color: var(--gold-lt); flex-shrink: 0; margin-top: 1px; }
+
+    /* Honeypot — hidden from users, visible to bots */
+    .hp-field {
+      position: absolute;
+      left: -9999px;
+      top: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .form-submit {
+      padding: 14px 36px;
+      background: var(--cream);
+      color: var(--forest);
+      border: none;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, transform 0.15s;
+      position: relative;
+      overflow: hidden;
+    }
+    .form-submit:hover:not(:disabled) { background: var(--ivory); transform: translateY(-1px); }
+    .form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .form-stack { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
+
+    .form-success {
+      display: none;
+      padding: 24px;
+      background: rgba(107,143,113,0.15);
+      border: 1px solid rgba(107,143,113,0.35);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    .form-success p {
+      color: var(--cream);
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-style: italic;
+    }
+    .form-success small { color: rgba(245,240,232,0.5); font-size: 13px; margin-top: 6px; display: block; }
+    .form-error {
+      display: none;
+      padding: 12px 16px;
+      background: rgba(220,80,80,0.1);
+      border: 1px solid rgba(220,80,80,0.3);
+      border-radius: var(--radius);
+      font-size: 13px;
+      color: rgba(255,160,160,0.85);
+    }
+
+    /* Newsletter strip */
+    .newsletter-strip {
+      background: var(--cream-2);
+      padding: 48px;
+    }
+    .newsletter-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .newsletter-text h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 6px;
+    }
+    .newsletter-text p {
+      font-size: 14px;
+      color: var(--mid);
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .newsletter-form input[type="email"] {
+      padding: 12px 18px;
+      border: 1px solid var(--cream-2);
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--charcoal);
+      background: var(--white);
+      width: 280px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .newsletter-form input[type="email"]:focus { border-color: var(--forest); }
+    .newsletter-form input[type="email"].invalid { border-color: #dc5050; }
+    .newsletter-form button {
+      padding: 12px 28px;
+      background: var(--forest);
+      color: var(--cream);
+      border: none;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 13.5px;
+      transition: background 0.2s;
+    }
+    .newsletter-form button:hover { background: var(--forest-2); }
+
+    /* ── Footer ───────────────────────────────────── */
+    footer {
+      background: var(--charcoal);
+      padding: 72px 48px 40px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 32px;
+    }
+    .footer-brand .nav-logo { margin-bottom: 16px; }
+    .footer-brand .nav-logo { color: var(--cream); }
+    .footer-brand p {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.7;
+      max-width: 260px;
+    }
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--cream); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-bottom p {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.25);
+    }
+    .footer-bottom p a { color: rgba(255,255,255,0.4); }
+    .footer-bottom p a:hover { color: var(--cream); }
+    .footer-policies {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-policies a {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.25);
+      transition: color 0.2s;
+    }
+    .footer-policies a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ── Policy Modal ─────────────────────────────── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(4px);
+      z-index: 9000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      max-width: 620px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding: 48px;
+      position: relative;
+    }
+    .modal h2 {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 20px;
+    }
+    .modal p, .modal li {
+      font-size: 14.5px;
+      color: var(--mid);
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+    .modal ul { padding-left: 20px; }
+    .modal-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: var(--cream);
+      border: none;
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .modal-close:hover { background: var(--cream-2); }
+
+    /* ── Toast ────────────────────────────────────── */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 14px 24px;
+      border-radius: var(--radius-lg);
+      font-size: 14px;
+      font-weight: 500;
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s var(--ease-out);
+      pointer-events: none;
+      max-width: 90vw;
+      text-align: center;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ── Keyframes ────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Scroll-triggered fade-in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .fade-in.delay-1 { transition-delay: 0.1s; }
+    .fade-in.delay-2 { transition-delay: 0.2s; }
+    .fade-in.delay-3 { transition-delay: 0.3s; }
+    .fade-in.delay-4 { transition-delay: 0.4s; }
+
+    /* ── Mobile Nav ───────────────────────────────── */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--ivory);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--forest);
+      letter-spacing: -0.02em;
+    }
+    .mobile-nav-close {
+      position: absolute;
+      top: 24px; right: 24px;
+      background: var(--cream);
+      border: none;
+      border-radius: 50%;
+      width: 44px; height: 44px;
+      font-size: 22px;
+      color: var(--charcoal);
+    }
+
+    /* ── Responsive ───────────────────────────────── */
+    @media (max-width: 1024px) {
+      .why-grid { grid-template-columns: 1fr; }
+      .why-diagram { order: -1; }
+      .playbook-steps { grid-template-columns: 1fr 1fr; }
+      .featured-inner { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .section { padding: 72px 24px; }
+      .hero { padding: 60px 24px; }
+      .hero-diagram { grid-template-columns: repeat(3, 1fr); }
+      .playbook-steps { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .newsletter-inner { flex-direction: column; align-items: flex-start; }
+      .newsletter-form { width: 100%; }
+      .newsletter-form input[type="email"] { width: 100%; min-width: 0; }
+      .featured-inner { grid-template-columns: 1fr; }
+      .featured-intro { flex-direction: column; align-items: flex-start; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .form-row { grid-template-columns: 1fr; }
+      .safety-banner { font-size: 11px; flex-direction: column; gap: 4px; }
+    }
+    @media (max-width: 480px) {
+      .hero-diagram { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Safety Banner ─────────────────────────────── -->
+<div class="safety-banner" role="banner" aria-label="Community safety notice">
+  <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="15" height="15" aria-hidden="true">
+    <path d="M10 2L3 5v5c0 4.418 3.134 8.563 7 9.95C13.866 18.563 17 14.418 17 10V5L10 2z" stroke="#d4af6a" stroke-width="1.5" fill="none"/>
+    <path d="M7 10l2 2 4-4" stroke="#d4af6a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  This is a safe, moderated space for youth aged 16–28. No accounts needed. View our&nbsp;<a href="#" onclick="openModal('community-policy'); return false;">Community Policy</a>&nbsp;·&nbsp;<a href="#" onclick="openModal('privacy-policy'); return false;">Privacy Notice</a>
+</div>
+
+<!-- ── Navigation ─────────────────────────────────── -->
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <a href="/" class="nav-logo" aria-label="Youth for Sustainable Policy — Home">
+    <div class="nav-logo-mark" aria-hidden="true">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 3c0 0-6 3-6 7.5C4 14 6.686 17 10 17s6-3 6-6.5C16 6 10 3 10 3z" fill="none" stroke="#f5f0e8" stroke-width="1.4"/>
+        <path d="M10 17V9M10 9c-2-2-4-2.5-4-2.5M10 9c2-2 4-2.5 4-2.5" stroke="#f5f0e8" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    YSP
+  </a>
+
+  <ul class="nav-links" role="list">
+    <li><a href="#research">Research Hub</a></li>
+    <li><a href="#impact">Impact Projects</a></li>
+    <li><a href="#mentorship">Mentorship</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Join YSP</a></li>
+  </ul>
+
+  <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" id="hamburger-btn">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── Mobile Nav ─────────────────────────────────── -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+  <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">✕</button>
+  <a href="#research" onclick="closeMobileNav()">Research Hub</a>
+  <a href="#impact" onclick="closeMobileNav()">Impact Projects</a>
+  <a href="#mentorship" onclick="closeMobileNav()">Mentorship</a>
+  <a href="#about" onclick="closeMobileNav()">About</a>
+  <a href="#contact" onclick="closeMobileNav()" class="btn-forest" style="font-size:20px; padding:16px 40px;">Join YSP</a>
+</nav>
+
+<!-- ── Hero ───────────────────────────────────────── -->
+<section class="hero" aria-labelledby="hero-headline">
+  <p class="hero-eyebrow">Youth for Sustainable Policy · Singapore &amp; ASEAN</p>
+  <span class="hero-quote-mark" aria-hidden="true">"</span>
+  <p class="hero-testimonial">I finally understood how my research could become real policy."</p>
+
+  <h1 class="hero-headline" id="hero-headline">
+    Stop Chasing Titles.<br />
+    Build One <em>Policy Initiative</em> That Matters.
+  </h1>
+  <p class="hero-sub">
+    YSP helps youth aged 16–28 across Southeast Asia turn research, storytelling,
+    and lived experience into sustainable policy projects with real-world impact.
+  </p>
+
+  <div class="hero-btns">
+    <a href="#research" class="btn-primary">Explore the Research Hub</a>
+    <a href="#impact" class="btn-secondary">Start an Impact Project</a>
+  </div>
+
+  <!-- Application pillars -->
+  <div class="hero-diagram" role="list" aria-label="How YSP strengthens your profile">
+    <div class="pillar" role="listitem">
+      <div class="pillar-label">Policy Briefs</div>
+      <div class="pillar-desc">Built from your research</div>
+    </div>
+    <div class="pillar" role="listitem">
+      <div class="pillar-label">Storytelling</div>
+      <div class="pillar-desc">Your lived experience</div>
+    </div>
+    <div class="pillar" role="listitem">
+      <div class="pillar-label">Fellowships</div>
+      <div class="pillar-desc">Recognition of your work</div>
+    </div>
+    <div class="pillar" role="listitem">
+      <div class="pillar-label">Advocacy</div>
+      <div class="pillar-desc">Leadership &amp; impact</div>
+    </div>
+    <div class="pillar" role="listitem">
+      <div class="pillar-label">Mentors</div>
+      <div class="pillar-desc">Shaped by what you do</div>
+    </div>
+    <div class="pillar highlight" role="listitem">
+      <div class="pillar-label">Impact Projects</div>
+      <div class="pillar-desc">The foundation of your YSP journey</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Why It Matters ─────────────────────────────── -->
+<section class="section why" id="about" aria-labelledby="why-title">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div class="why-content fade-in">
+        <p class="section-eyebrow">Why It Matters</p>
+        <h2 class="section-title" id="why-title">Your Research Powers <em>Every</em> Part of Your Impact</h2>
+        <p class="section-body">
+          At YSP, your work outside the classroom isn't just an entry on a list — it's the foundation
+          of every policy brief you write, every fellowship you're eligible for, every story you tell,
+          and the overall narrative you build as a young changemaker. It's not about doing more.
+          It's about doing the right things with purpose. One well-built impact project creates a
+          domino effect that strengthens everything.
+        </p>
+        <div class="section-btns">
+          <a href="#research" class="btn-forest">Browse the Research Hub</a>
+          <a href="#mentorship" class="btn-outline">Learn About Mentorship</a>
+        </div>
+      </div>
+      <div class="why-diagram fade-in delay-2">
+        <div class="why-card featured">
+          <div class="why-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9" cy="9" r="7" stroke="#f5f0e8" stroke-width="1.3"/>
+              <path d="M9 5v4l2.5 2.5" stroke="#f5f0e8" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="why-card-title">Impact Projects</div>
+          <div class="why-card-desc">The foundation of your YSP journey — everything else flows from here.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 14V5a1 1 0 011-1h10a1 1 0 011 1v9" stroke="#f5f0e8" stroke-width="1.3"/>
+              <path d="M6 8h6M6 11h4" stroke="#f5f0e8" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="why-card-title">Policy Briefs</div>
+          <div class="why-card-desc">Structured arguments built from your lived research.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 3L3 6v4.5c0 3.3 2.4 6.4 6 7.5 3.6-1.1 6-4.2 6-7.5V6L9 3z" stroke="#f5f0e8" stroke-width="1.3" fill="none"/>
+            </svg>
+          </div>
+          <div class="why-card-title">Fellowships &amp; Awards</div>
+          <div class="why-card-desc">Recognition made possible by depth, not breadth.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="6" cy="7" r="2.5" stroke="#f5f0e8" stroke-width="1.3"/>
+              <circle cx="12" cy="7" r="2.5" stroke="#f5f0e8" stroke-width="1.3"/>
+              <path d="M2 14c0-2 1.8-3.5 4-3.5m6 0c2.2 0 4 1.5 4 3.5" stroke="#f5f0e8" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="why-card-title">Mentors &amp; Letters</div>
+          <div class="why-card-desc">Shaped by what your mentors witness you doing.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 15l4-8 4 4 2-6" stroke="#f5f0e8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="why-card-title">Advocacy &amp; Storytelling</div>
+          <div class="why-card-desc">Your voice, amplified by evidence and community.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Impact Project Playbook ────────────────────── -->
+<section class="section playbook" id="impact" aria-labelledby="playbook-title">
+  <div class="section-inner">
+    <div class="playbook-header fade-in">
+      <p class="section-eyebrow">The Impact Project™ Playbook</p>
+      <h2 class="section-title" id="playbook-title">The YSP Framework for <em>Purpose-Driven</em> Policy Work</h2>
+      <p class="playbook-intro">
+        An Impact Project at YSP is built around a public policy problem you genuinely care about solving.
+        It goes beyond passion — it's about identifying a problem, finding your niche within it, and creating
+        something with measurable outcomes. These projects become the backbone of your youth leadership journey:
+        they give you rigorous evidence to write about, position you for competitive fellowships, provide
+        mentors with concrete stories to champion, and demonstrate real-world impact.
+      </p>
+      <a href="#contact" class="btn-forest">Start Your Project</a>
+    </div>
+
+    <div class="playbook-steps">
+      <div class="step fade-in delay-1">
+        <div class="step-num" aria-hidden="true">01</div>
+        <p class="step-tag">Step One</p>
+        <h3 class="step-title">Find Your Policy Niche</h3>
+        <p class="step-body">
+          We help you turn your existing interests, lived experiences, and community context into
+          a focused, credible policy research angle. The more specific, the more powerful.
+        </p>
+        <ul class="step-list" aria-label="What we help you do">
+          <li>Identify a clear policy focus rooted in your real context</li>
+          <li>Connect past experiences into one compelling research strand</li>
+          <li>Avoid generic topics by leaning into niche, local impact</li>
+        </ul>
+      </div>
+
+      <div class="step fade-in delay-2">
+        <div class="step-num" aria-hidden="true">02</div>
+        <p class="step-tag">Step Two</p>
+        <h3 class="step-title">Launch Your Initiative</h3>
+        <p class="step-body">
+          This is where most young researchers stall. YSP helps you move from idea to published
+          output — a policy brief, a research report, a community dialogue, or a media piece.
+        </p>
+        <ul class="step-list" aria-label="What we help you do">
+          <li>Step-by-step guidance from research question to publication</li>
+          <li>Use YSP's research hub to find data, collaborators, and mentors</li>
+          <li>Publish, recruit, and get your initiative off the ground</li>
+        </ul>
+      </div>
+
+      <div class="step fade-in delay-3">
+        <div class="step-num" aria-hidden="true">03</div>
+        <p class="step-tag">Step Three</p>
+        <h3 class="step-title">Scale Your Impact</h3>
+        <p class="step-body">
+          Sustainable policy institutions care about depth, growth, and results. YSP helps you
+          scale what you've launched into something that lasts beyond you.
+        </p>
+        <ul class="step-list" aria-label="What we help you do">
+          <li>Focus on quantifiable outcomes: reach, citations, policy uptake</li>
+          <li>Strengthen your research with cross-border partnerships</li>
+          <li>Expand your project strategically, not randomly</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Testimonials ───────────────────────────────── -->
+<section class="section testimonials" id="testimonials" aria-labelledby="testimonials-title">
+  <div class="section-inner">
+    <p class="section-eyebrow fade-in">What Members Are Saying</p>
+    <h2 class="section-title fade-in delay-1" id="testimonials-title">Voices from the YSP Community</h2>
+  </div>
+
+  <div class="testimonials-track-wrapper" role="region" aria-label="Member testimonials carousel">
+    <div class="testimonials-track" id="testimonials-track">
+      <!-- Track items are injected by JS so we can duplicate easily -->
+    </div>
+  </div>
+</section>
+
+<!-- ── Featured / Get Involved ────────────────────── -->
+<section class="section featured" id="research" aria-labelledby="featured-title">
+  <div class="section-inner">
+    <div class="featured-intro fade-in">
+      <div>
+        <p class="section-eyebrow">Get Involved</p>
+        <h2 class="section-title" id="featured-title">Three Ways to <em>Plug In</em> to YSP</h2>
+      </div>
+      <p class="section-body" style="max-width:380px">
+        Whether you're a researcher, storyteller, or advocate, YSP has a track for you. No application fee, no gatekeeping — just purposeful work.
+      </p>
+    </div>
+
+    <div class="featured-inner">
+      <div class="feature-card fade-in delay-1">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 19V6a2 2 0 012-2h14" stroke="#f5f0e8" stroke-width="1.5"/>
+            <path d="M4 19a2 2 0 002 2h14V6" stroke="#f5f0e8" stroke-width="1.5"/>
+            <path d="M9 10h6M9 14h4" stroke="#f5f0e8" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Research Hub</h3>
+        <p class="feature-body">
+          Browse an open database of youth-led policy research papers, briefs, and datasets
+          across sustainable development, climate, urban policy, healthcare access, and digital rights.
+          Contribute your own work for community peer review.
+        </p>
+        <div class="feature-links">
+          <a href="#contact" class="link-arrow">Browse Research <span aria-hidden="true">→</span></a>
+          <a href="#contact" class="link-arrow-ghost">Submit Your Work <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <div class="feature-card fade-in delay-2">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3L4 7v6c0 5.25 3.5 10.15 8 11.5C16.5 23.15 20 18.25 20 13V7l-8-4z" stroke="#f5f0e8" stroke-width="1.5" fill="none"/>
+            <path d="M9 12l2 2 4-4" stroke="#f5f0e8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Impact Projects</h3>
+        <p class="feature-body">
+          Launch your own policy initiative with structured YSP support. From research question
+          to published output, we walk alongside you. Projects receive community amplification,
+          mentor connections, and potentially featured on our newsletter reaching 10,000+ readers.
+        </p>
+        <div class="feature-links">
+          <a href="#contact" class="link-arrow">Start a Project <span aria-hidden="true">→</span></a>
+          <a href="#contact" class="link-arrow-ghost">See Examples <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <div class="feature-card fade-in delay-3">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="8" r="3.5" stroke="#f5f0e8" stroke-width="1.5"/>
+            <circle cx="16" cy="8" r="3.5" stroke="#f5f0e8" stroke-width="1.5"/>
+            <path d="M3 19c0-2.5 2.2-4.5 5-4.5m8 0c2.8 0 5 2 5 4.5" stroke="#f5f0e8" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M11.5 13.5c0-2 1-3 2-3.5" stroke="#f5f0e8" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Mentorship Programme</h3>
+        <p class="feature-body">
+          Get matched with a YSP mentor — a policy professional, academic, or NGO practitioner
+          who can guide your specific research niche. Mentors are drawn from our network across
+          Singapore, Southeast Asia, and partner institutions globally.
+        </p>
+        <div class="feature-links">
+          <a href="#mentorship" class="link-arrow">Find a Mentor <span aria-hidden="true">→</span></a>
+          <a href="#contact" class="link-arrow-ghost">Become a Mentor <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Partners Marquee ───────────────────────────── -->
+<div class="partners" role="region" aria-label="Partner organisations and networks">
+  <p class="partners-label">Our Members &amp; Alumni Connect With</p>
+  <div style="overflow:hidden;">
+    <div class="partners-track" id="partners-track">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+</div>
+
+<!-- ── Mentorship ─────────────────────────────────── -->
+<section class="section" id="mentorship" style="background: var(--cream);" aria-labelledby="mentorship-title">
+  <div class="section-inner">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;">
+      <div class="fade-in">
+        <p class="section-eyebrow">Mentorship at YSP</p>
+        <h2 class="section-title" id="mentorship-title">Guided by <em>Practitioners</em>, Not Just Academics</h2>
+        <p class="section-body">
+          YSP's mentors are policy professionals actively working in sustainable development, climate
+          governance, digital rights, urban planning, healthcare access, and cross-border advocacy.
+          They don't just advise — they open doors, provide feedback on your drafts, and help you build
+          a body of work that stands on its own.
+        </p>
+        <div class="section-btns" style="margin-top:32px; display:flex; gap:14px; flex-wrap:wrap;">
+          <a href="#contact" class="btn-forest">Apply for Mentorship</a>
+          <a href="#contact" class="btn-outline">Volunteer as a Mentor</a>
+        </div>
+      </div>
+      <div class="fade-in delay-2">
+        <!-- Mentor stat cards -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+          <div style="background:var(--white); border:1px solid var(--cream-2); border-radius:var(--radius-lg); padding:28px 22px; text-align:center; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 32px rgba(26,58,42,0.1)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+            <div style="font-family:var(--font-display); font-size:42px; font-weight:800; color:var(--forest); letter-spacing:-0.03em;">28+</div>
+            <div style="font-size:13px; color:var(--mid); margin-top:6px;">Active Mentors</div>
+          </div>
+          <div style="background:var(--white); border:1px solid var(--cream-2); border-radius:var(--radius-lg); padding:28px 22px; text-align:center; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 32px rgba(26,58,42,0.1)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+            <div style="font-family:var(--font-display); font-size:42px; font-weight:800; color:var(--forest); letter-spacing:-0.03em;">12</div>
+            <div style="font-size:13px; color:var(--mid); margin-top:6px;">Countries Represented</div>
+          </div>
+          <div style="background:var(--forest); border-radius:var(--radius-lg); padding:28px 22px; text-align:center; grid-column:1/-1; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform=''">
+            <div style="font-family:var(--font-display); font-size:42px; font-weight:800; color:var(--cream); letter-spacing:-0.03em;">16–28</div>
+            <div style="font-size:13px; color:rgba(245,240,232,0.55); margin-top:6px;">Age range. Open to everyone in it.</div>
+          </div>
+          <div style="background:var(--white); border:1px solid var(--cream-2); border-radius:var(--radius-lg); padding:28px 22px; text-align:center; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 32px rgba(26,58,42,0.1)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+            <div style="font-family:var(--font-display); font-size:42px; font-weight:800; color:var(--forest); letter-spacing:-0.03em;">94%</div>
+            <div style="font-size:13px; color:var(--mid); margin-top:6px;">Complete a published output</div>
+          </div>
+          <div style="background:var(--white); border:1px solid var(--cream-2); border-radius:var(--radius-lg); padding:28px 22px; text-align:center; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 32px rgba(26,58,42,0.1)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+            <div style="font-family:var(--font-display); font-size:42px; font-weight:800; color:var(--forest); letter-spacing:-0.03em;">Free</div>
+            <div style="font-size:13px; color:var(--mid); margin-top:6px;">Always. No exceptions.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Newsletter Strip ───────────────────────────── -->
+<div class="newsletter-strip">
+  <div class="newsletter-inner">
+    <div class="newsletter-text">
+      <h3>The YSP Dispatch</h3>
+      <p>Policy news, member spotlights, open calls, and fellowship opportunities — weekly.</p>
+    </div>
+    <form class="newsletter-form" id="newsletter-form" novalidate aria-label="Newsletter signup form">
+      <!-- Honeypot: hidden from humans, bots will fill it -->
+      <div class="hp-field" aria-hidden="true">
+        <label for="hp-email-newsletter">Leave this blank</label>
+        <input type="text" id="hp-email-newsletter" name="website" autocomplete="off" tabindex="-1" />
+      </div>
+      <input type="email" id="newsletter-email" name="email" placeholder="your@email.com"
+             aria-label="Email address for newsletter" required autocomplete="email" />
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</div>
+
+<!-- ── Contact Section ────────────────────────────── -->
+<section class="section contact" id="contact" aria-labelledby="contact-title">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="fade-in">
+        <p class="section-eyebrow">Get In Touch</p>
+        <h2 class="section-title" id="contact-title">Ready to Build Something <em>That Lasts?</em></h2>
+        <p class="section-body">
+          Whether you want to launch an impact project, apply for mentorship, explore a research
+          collaboration, or discuss a partnership with YSP — we'd love to hear from you.
+          No account needed, ever.
+        </p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-item-icon" aria-hidden="true">
+              <svg viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 4.5l6 4 6-4" stroke="#d4af6a" stroke-width="1.2" stroke-linecap="round"/>
+                <rect x="1.5" y="3" width="14" height="11" rx="1.5" stroke="#d4af6a" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <div class="contact-item-text">
+              <p>Email Us</p>
+              <a href="mailto:hello@ysp-sg.org">hello@ysp-sg.org</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon" aria-hidden="true">
+              <svg viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="8.5" cy="8.5" r="6.5" stroke="#d4af6a" stroke-width="1.2"/>
+                <path d="M8.5 5.5v3l2 2" stroke="#d4af6a" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="contact-item-text">
+              <p>Response Time</p>
+              <span>Within 3–5 business days</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon" aria-hidden="true">
+              <svg viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5 2C6 2 4 4 4 6.5C4 10 8.5 15 8.5 15S13 10 13 6.5C13 4 11 2 8.5 2z" stroke="#d4af6a" stroke-width="1.2"/>
+                <circle cx="8.5" cy="6.5" r="1.5" stroke="#d4af6a" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <div class="contact-item-text">
+              <p>Based in</p>
+              <span>Singapore · Southeast Asia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form fade-in delay-2" aria-label="Contact form">
+        <div id="contact-success" class="form-success" role="alert" aria-live="polite">
+          <p>Your message is on its way.</p>
+          <small>We'll reply within 3–5 business days. Thank you for reaching out.</small>
+        </div>
+        <div id="contact-error" class="form-error" role="alert" aria-live="assertive">
+          Something went wrong. Please try again or email us directly.
+        </div>
+
+        <form id="contact-form" novalidate>
+          <!-- Honeypot -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="hp-name">Don't fill this</label>
+            <input type="text" id="hp-name" name="fullname" autocomplete="off" tabindex="-1" />
+          </div>
+
+          <div class="form-stack">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cf-name">Your Name <span aria-label="required">*</span></label>
+                <input type="text" id="cf-name" name="name" placeholder="Mei Tong" required
+                       maxlength="120" autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label for="cf-email">Email Address <span aria-label="required">*</span></label>
+                <input type="email" id="cf-email" name="email" placeholder="you@example.com" required
+                       maxlength="254" autocomplete="email" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cf-type">I'm interested in… <span aria-label="required">*</span></label>
+              <select id="cf-type" name="type" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="impact-project">Starting an Impact Project</option>
+                <option value="mentorship-apply">Applying for Mentorship</option>
+                <option value="mentor-volunteer">Volunteering as a Mentor</option>
+                <option value="research-collab">Research Collaboration</option>
+                <option value="partnership">Partnership / Institutional Enquiry</option>
+                <option value="media">Media / Press Enquiry</option>
+                <option value="other">Something Else</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="cf-message">Tell Us More <span aria-label="required">*</span></label>
+              <textarea id="cf-message" name="message" rows="5"
+                        placeholder="Briefly describe what you're working on or what you'd like to explore with YSP…"
+                        required minlength="20" maxlength="2000"></textarea>
+            </div>
+
+            <div class="form-notice" role="note">
+              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M8 7v4M8 5.5v.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+              <span>
+                We do not store your message beyond this form submission. No account is created.
+                Your email is used only to reply to your enquiry and nothing else.
+                Read our <a href="#" onclick="openModal('privacy-policy'); return false;" style="color:var(--gold-lt); text-decoration:underline;">Privacy Notice</a>.
+              </span>
+            </div>
+
+            <button type="submit" class="form-submit" id="contact-submit">
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────── -->
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo" style="color:var(--cream);">
+          <div class="nav-logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 3c0 0-6 3-6 7.5C4 14 6.686 17 10 17s6-3 6-6.5C16 6 10 3 10 3z" fill="none" stroke="#f5f0e8" stroke-width="1.4"/>
+              <path d="M10 17V9M10 9c-2-2-4-2.5-4-2.5M10 9c2-2 4-2.5 4-2.5" stroke="#f5f0e8" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          Youth for Sustainable Policy
+        </div>
+        <p>A youth-led non-profit (ages 16–28) based in Singapore, focused on research, storytelling, and policy dialogue for a sustainable future.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Directory</h4>
+        <ul>
+          <li><a href="#about">About YSP</a></li>
+          <li><a href="#impact">Impact Projects</a></li>
+          <li><a href="#research">Research Hub</a></li>
+          <li><a href="#mentorship">Mentorship</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Programmes</h4>
+        <ul>
+          <li><a href="#impact">Impact Project™</a></li>
+          <li><a href="#mentorship">Mentor Matching</a></li>
+          <li><a href="#research">Policy Research</a></li>
+          <li><a href="#contact">Partnerships</a></li>
+          <li><a href="#contact">Fellowship Listings</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#" onclick="openModal('community-policy'); return false;">Community Policy</a></li>
+          <li><a href="#" onclick="openModal('privacy-policy'); return false;">Privacy Notice</a></li>
+          <li><a href="#" onclick="openModal('content-safety'); return false;">Content Safety</a></li>
+          <li><a href="#contact">Report an Issue</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Youth for Sustainable Policy. All rights reserved. Registered non-profit, Singapore.</p>
+      <div class="footer-policies">
+        <a href="#" onclick="openModal('privacy-policy'); return false;">Privacy</a>
+        <a href="#" onclick="openModal('community-policy'); return false;">Community Policy</a>
+        <a href="#" onclick="openModal('content-safety'); return false;">Safety</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── Toast ──────────────────────────────────────── -->
+<div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<!-- ── Modals ─────────────────────────────────────── -->
+<!-- Community Policy -->
+<div id="modal-community-policy" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-cp-title">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('community-policy')" aria-label="Close">
+      <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M3 3l10 10M13 3L3 13" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <h2 id="modal-cp-title">Community Policy</h2>
+    <p>Youth for Sustainable Policy is committed to being a safe, respectful, and inclusive space for all youth aged 16–28. By engaging with YSP — whether submitting research, participating in mentorship, or using this platform — you agree to the following.</p>
+    <p><strong>Respectful Communication.</strong> All interactions must be respectful. Harassment, discrimination, or hostile conduct based on race, gender, nationality, religion, disability, or any other characteristic is prohibited and will result in removal.</p>
+    <p><strong>Accurate Representation.</strong> Do not misrepresent your credentials, age, affiliation, or the content of your research. Plagiarism or submission of work that is not your own is a violation of this policy.</p>
+    <p><strong>No Harmful Content.</strong> Content that promotes violence, hate speech, self-harm, illegal activities, or personal attacks against named individuals is strictly prohibited.</p>
+    <p><strong>Youth Protection.</strong> YSP takes the safety of young members (ages 16–18) especially seriously. Any adult engaging with minors through the platform must do so within the bounds of YSP's safeguarding guidelines. Report concerns immediately to hello@ysp-sg.org.</p>
+    <p><strong>No Account Required.</strong> YSP does not require you to create an account. No personal data is retained beyond what is strictly necessary to fulfil your enquiry.</p>
+    <p>Violations may result in removal from YSP programmes, cancellation of mentorship arrangements, and — where legally required — reporting to relevant authorities.</p>
+  </div>
+</div>
+
+<!-- Privacy Policy -->
+<div id="modal-privacy-policy" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-pp-title">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('privacy-policy')" aria-label="Close">
+      <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M3 3l10 10M13 3L3 13" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <h2 id="modal-pp-title">Privacy Notice</h2>
+    <p>Youth for Sustainable Policy ("YSP", "we", "us") respects your privacy. This notice explains what minimal data we handle and why.</p>
+    <p><strong>What We Collect.</strong> When you use our contact or newsletter forms, you provide: your name, email address, and message. We do not collect payment information, location data, or any other personal data beyond what you voluntarily provide.</p>
+    <p><strong>Why We Collect It.</strong> Your name and email are used solely to respond to your enquiry or send you the newsletter you requested. We do not use your data for advertising, profiling, or third-party data sharing.</p>
+    <p><strong>How Long We Keep It.</strong> Contact form submissions are retained only as long as necessary to fulfil your enquiry and are deleted within 90 days. Newsletter subscribers may unsubscribe at any time.</p>
+    <p><strong>No Tracking.</strong> This website does not use third-party analytics cookies, tracking pixels, or advertising scripts. We may use basic server-level access logs for security purposes only.</p>
+    <p><strong>Your Rights.</strong> You have the right to request access to, correction of, or deletion of your personal data at any time. Contact hello@ysp-sg.org to exercise these rights.</p>
+    <p><strong>No Account.</strong> YSP does not require account creation. We do not store passwords or persistent user profiles.</p>
+    <p>This notice is effective as of 1 January 2026 and is governed by Singapore's Personal Data Protection Act (PDPA).</p>
+  </div>
+</div>
+
+<!-- Content Safety -->
+<div id="modal-content-safety" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-cs-title">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('content-safety')" aria-label="Close">
+      <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M3 3l10 10M13 3L3 13" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <h2 id="modal-cs-title">Content Safety Framework</h2>
+    <p>YSP maintains a multi-layer content safety framework to protect all members, with heightened protections for members under 18.</p>
+    <ul>
+      <li><strong>Human Review:</strong> All research submissions and project applications are reviewed by a YSP team member before publication or matching.</li>
+      <li><strong>Front-End Protection:</strong> Forms include honeypot fields, client-side rate limiting, and input sanitisation to prevent spam and automated abuse.</li>
+      <li><strong>No Anonymous Amplification:</strong> Content submitted to YSP is attributed and reviewed — there is no anonymous public posting feature.</li>
+      <li><strong>Safeguarding Protocol:</strong> Mentor-member relationships are subject to YSP's safeguarding guidelines. All mentors undergo a light-touch vetting process.</li>
+      <li><strong>Reporting:</strong> Any safety concern can be reported to hello@ysp-sg.org. We commit to acknowledging all reports within 24 hours.</li>
+      <li><strong>No Sign-In:</strong> Because we do not collect account credentials, there is no risk of account compromise or password data breaches.</li>
+    </ul>
+    <p>YSP follows Singapore's guidelines for youth-serving organisations and aligns with international best practices for youth digital safety.</p>
+  </div>
+</div>
+
+<!-- ── JavaScript ──────────────────────────────────── -->
+<script>
+  'use strict';
+
+  /* ─────────────────────────────────────────
+     SECURITY HELPERS
+  ───────────────────────────────────────── */
+
+  /** Strip all HTML tags from user input — basic XSS guard */
+  function sanitise(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;')
+      .trim();
+  }
+
+  /** Validate an email address (RFC 5322 relaxed) */
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
+  }
+
+  /**
+   * Client-side rate limiting using sessionStorage timestamps.
+   * Returns true if the action is allowed, false if rate-limited.
+   */
+  function checkRateLimit(key, maxAttempts, windowMs) {
+    try {
+      const raw = sessionStorage.getItem(key);
+      const now = Date.now();
+      const attempts = raw ? JSON.parse(raw).filter(t => now - t < windowMs) : [];
+      if (attempts.length >= maxAttempts) return false;
+      attempts.push(now);
+      sessionStorage.setItem(key, JSON.stringify(attempts));
+      return true;
+    } catch (e) {
+      // sessionStorage unavailable — fail open but log
+      console.warn('Rate limiter unavailable:', e);
+      return true;
+    }
+  }
+
+  /** Check honeypot field — if filled, silently discard submission */
+  function honeypotFilled(formEl) {
+    return formEl.querySelector('[name="fullname"], [name="website"]')?.value?.length > 0;
+  }
+
+  /* ─────────────────────────────────────────
+     NAVIGATION
+  ───────────────────────────────────────── */
+  const mainNav = document.getElementById('main-nav');
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+
+  window.addEventListener('scroll', () => {
+    mainNav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  hamburgerBtn.addEventListener('click', () => {
+    const open = !mobileNav.classList.contains('open');
+    mobileNav.classList.toggle('open', open);
+    hamburgerBtn.setAttribute('aria-expanded', String(open));
+    mobileNav.setAttribute('aria-hidden', String(!open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('mobile-nav-close').addEventListener('click', closeMobileNav);
+
+  /* ─────────────────────────────────────────
+     SCROLL ANIMATIONS
+  ───────────────────────────────────────── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  /* ─────────────────────────────────────────
+     TESTIMONIALS
+  ───────────────────────────────────────── */
+  const testimonials = [
+    { quote: "YSP helped me turn a vague interest in climate policy into a published brief that got cited by a real advocacy org. I never thought that was possible at 19.", name: "Aryan Mehta", role: "19 · Singapore", badge: "Climate & Environment" },
+    { quote: "The mentorship programme matched me with someone who actually works in urban planning in Hanoi. She reviewed every draft and opened doors I had no idea existed.", name: "Linh Nguyễn", role: "22 · Vietnam", badge: "Urban Policy" },
+    { quote: "I was sceptical a non-profit could give me real support without requiring I sign up, pay, or jump through hoops. YSP just… did. No friction.", name: "Fatin Zulkifli", role: "20 · Malaysia", badge: "Digital Rights" },
+    { quote: "The Impact Project framework made me realise my research on maternal healthcare access was genuinely scalable. I now lead a team of seven across three countries.", name: "Grace Osei", role: "24 · Ghana (SEA Fellow)", badge: "Healthcare Policy" },
+    { quote: "YSP's research hub gave me a community of peers doing serious work. Knowing others my age were publishing legitimate research made me believe I could too.", name: "Taini Silverpine", role: "18 · Philippines", badge: "Food Systems" },
+    { quote: "From idea to a policy brief submitted to a parliamentary committee — YSP walked with me every step. This changed my trajectory completely.", name: "Omar Al-Rashid", role: "23 · Bahrain (Exchange Fellow)", badge: "Water Governance" },
+    { quote: "I appreciated that YSP never asked me to create an account or hand over more information than necessary. That kind of trust matters in youth spaces.", name: "Siti Rahayu", role: "21 · Indonesia", badge: "Coastal Communities" },
+  ];
+
+  function buildTestimonials() {
+    const track = document.getElementById('testimonials-track');
+    const doubled = [...testimonials, ...testimonials]; // duplicate for seamless loop
+    track.innerHTML = doubled.map(t => `
+      <article class="t-card" aria-label="Testimonial from ${sanitise(t.name)}">
+        <p class="t-quote">${sanitise(t.quote)}</p>
+        <div class="t-author">
+          <span class="t-name">${sanitise(t.name)}</span>
+          <span class="t-role">${sanitise(t.role)}</span>
+          <span class="t-badge">${sanitise(t.badge)}</span>
+        </div>
+      </article>
+    `).join('');
+  }
+  buildTestimonials();
+
+  /* ─────────────────────────────────────────
+     PARTNERS MARQUEE
+  ───────────────────────────────────────── */
+  const partners = [
+    'UNDP', 'ASEAN Secretariat', 'WWD Youth Symposium', 'Lee Kuan Yew School of Public Policy',
+    'NUS Faculty of Law', 'Climate Reality Project', 'UN Women Asia-Pacific',
+    'Global Shapers Community', 'Asia Society', 'Institute of Policy Studies SG',
+    'COP Youth Delegation', 'Ashoka Changemakers', 'British Council',
+    'Teach For All', 'Asia Foundation'
+  ];
+
+  function buildPartners() {
+    const track = document.getElementById('partners-track');
+    const doubled = [...partners, ...partners];
+    track.innerHTML = doubled.map(p => `<span class="partner-pill">${sanitise(p)}</span>`).join('');
+  }
+  buildPartners();
+
+  /* ─────────────────────────────────────────
+     TOAST NOTIFICATION
+  ───────────────────────────────────────── */
+  function showToast(msg, duration = 4000) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), duration);
+  }
+
+  /* ─────────────────────────────────────────
+     MODALS
+  ───────────────────────────────────────── */
+  function openModal(id) {
+    const el = document.getElementById('modal-' + id);
+    if (!el) return;
+    el.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    // Focus trap: move focus into modal
+    el.querySelector('button')?.focus();
+  }
+
+  function closeModal(id) {
+    const el = document.getElementById('modal-' + id);
+    if (!el) return;
+    el.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Close modal on overlay click
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.active').forEach(m => {
+        m.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+      if (mobileNav.classList.contains('open')) closeMobileNav();
+    }
+  });
+
+  /* ─────────────────────────────────────────
+     CONTACT FORM
+  ───────────────────────────────────────── */
+  const contactForm = document.getElementById('contact-form');
+  const contactSubmit = document.getElementById('contact-submit');
+  const contactSuccess = document.getElementById('contact-success');
+  const contactError = document.getElementById('contact-error');
+
+  function markInvalid(el, msg) {
+    el.classList.add('invalid');
+    el.setAttribute('aria-invalid', 'true');
+    el.setAttribute('aria-describedby', el.id + '-err');
+    let errEl = document.getElementById(el.id + '-err');
+    if (!errEl) {
+      errEl = document.createElement('span');
+      errEl.id = el.id + '-err';
+      errEl.style.cssText = 'font-size:12px; color:rgba(255,140,140,0.8); margin-top:4px; display:block;';
+      el.parentNode.appendChild(errEl);
+    }
+    errEl.textContent = msg;
+  }
+
+  function clearInvalid(el) {
+    el.classList.remove('invalid');
+    el.removeAttribute('aria-invalid');
+    const errEl = document.getElementById(el.id + '-err');
+    if (errEl) errEl.textContent = '';
+  }
+
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // 1. Honeypot check
+    if (honeypotFilled(this)) {
+      // Silently appear to succeed
+      contactForm.style.display = 'none';
+      contactSuccess.style.display = 'block';
+      return;
+    }
+
+    // 2. Rate limit: max 3 contact form submissions per 10 min
+    if (!checkRateLimit('contact_form', 3, 10 * 60 * 1000)) {
+      showToast('You\'ve sent several messages recently. Please wait a few minutes before trying again.');
+      return;
+    }
+
+    // 3. Validate
+    const name    = document.getElementById('cf-name');
+    const email   = document.getElementById('cf-email');
+    const type    = document.getElementById('cf-type');
+    const message = document.getElementById('cf-message');
+    let valid = true;
+
+    [name, email, type, message].forEach(el => clearInvalid(el));
+
+    if (!name.value.trim() || name.value.trim().length < 2) {
+      markInvalid(name, 'Please enter your name (at least 2 characters).');
+      valid = false;
+    }
+    if (!isValidEmail(email.value)) {
+      markInvalid(email, 'Please enter a valid email address.');
+      valid = false;
+    }
+    if (!type.value) {
+      markInvalid(type, 'Please select an option.');
+      valid = false;
+    }
+    if (!message.value.trim() || message.value.trim().length < 20) {
+      markInvalid(message, 'Please write at least 20 characters so we can help you better.');
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    // 4. Submit (in production: replace with your form endpoint / Formspree / Netlify Forms)
+    contactSubmit.disabled = true;
+    contactSubmit.textContent = 'Sending…';
+
+    // Simulate submission — replace with fetch() to your endpoint
+    setTimeout(() => {
+      contactError.style.display = 'none';
+      contactForm.style.display = 'none';
+      contactSuccess.style.display = 'block';
+      contactSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 900);
+
+    /*
+     * ── PRODUCTION INTEGRATION ──────────────────────────
+     * Replace the setTimeout above with a real fetch, e.g.:
+     *
+     * const payload = {
+     *   name:    sanitise(name.value),
+     *   email:   sanitise(email.value),
+     *   type:    sanitise(type.value),
+     *   message: sanitise(message.value),
+     * };
+     *
+     * fetch('https://formspree.io/f/YOUR_FORM_ID', {
+     *   method: 'POST',
+     *   headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+     *   body: JSON.stringify(payload),
+     * })
+     * .then(r => r.ok ? (contactForm.style.display='none', contactSuccess.style.display='block')
+     *                  : (contactError.style.display='block'))
+     * .catch(() => { contactError.style.display='block'; })
+     * .finally(() => { contactSubmit.disabled = false; contactSubmit.textContent = 'Send Message'; });
+     *
+     * ────────────────────────────────────────────────────
+     */
+  });
+
+  /* ─────────────────────────────────────────
+     NEWSLETTER FORM
+  ───────────────────────────────────────── */
+  document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Honeypot
+    if (honeypotFilled(this)) {
+      showToast('You\'re subscribed to The YSP Dispatch!');
+      this.reset();
+      return;
+    }
+
+    // Rate limit
+    if (!checkRateLimit('newsletter_form', 2, 5 * 60 * 1000)) {
+      showToast('You\'ve already subscribed. Check your inbox!');
+      return;
+    }
+
+    const emailInput = document.getElementById('newsletter-email');
+    if (!isValidEmail(emailInput.value)) {
+      emailInput.classList.add('invalid');
+      emailInput.focus();
+      showToast('Please enter a valid email address.');
+      return;
+    }
+    emailInput.classList.remove('invalid');
+
+    // In production: integrate with Mailchimp / ConvertKit / etc.
+    showToast('🌿 You\'re subscribed to The YSP Dispatch!');
+    this.reset();
+  });
+
+  /* ─────────────────────────────────────────
+     REAL-TIME VALIDATION — remove invalid state on input
+  ───────────────────────────────────────── */
+  document.querySelectorAll('#contact-form input, #contact-form textarea, #contact-form select').forEach(el => {
+    el.addEventListener('input', () => clearInvalid(el));
+  });
+  document.getElementById('newsletter-email').addEventListener('input', function() {
+    this.classList.remove('invalid');
+  });
+</script>
+
+</body>
+</html>

@@ -946,7 +946,11 @@
 .pbc-feat-art a:nth-child(1){left:0;top:10%;transform:rotate(-6deg)}.pbc-feat-art a:nth-child(2){right:0;top:0;transform:rotate(5deg)}.pbc-feat-art a:hover{transform:rotate(0) translateY(-4px);z-index:2}
 @media (max-width:860px){.pbc-feat{grid-template-columns:minmax(0,1fr);padding:32px 26px}.pbc-feat-art{height:230px;max-width:380px}}
 </style>
+<style>.ec-feat-list{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid rgba(255,255,255,.14)}.ec-feat-list a{display:grid;grid-template-columns:34px minmax(0,1fr) 18px;gap:12px;align-items:baseline;padding:11px 4px;border-bottom:1px solid rgba(255,255,255,.14);color:#e6efe9;font-family:"Fraunces",Georgia,serif;font-size:17px;line-height:1.3;transition:padding .25s,color .25s}.ec-feat-list a:hover{padding-left:10px;color:#fbfdfa}.ec-feat-list .n{font-style:italic;font-weight:300;color:var(--sage-soft)}.ec-feat-list .ar{color:var(--sage-soft);font-size:14px}.ec-feat-cap{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-soft);margin:0 0 10px!important}
+</style>
+<style>#essay-competition .pbc-feat{background:radial-gradient(120% 140% at 100% 0%,#dfe9d4 0%,#eef4ea 55%,#f6f9f3 100%);color:var(--ink);border:1px solid var(--line);box-shadow:0 30px 80px -50px rgba(122,150,108,.45)}#essay-competition .pbc-feat h2{color:var(--ink)}#essay-competition .pbc-feat h2 em{color:var(--sage-deep)}#essay-competition .pbc-feat p{color:var(--ink-soft)}#essay-competition .pbc-feat-tag{background:rgba(255,255,255,.75);border-color:var(--line);color:var(--ink-soft)}#essay-competition .pbc-feat-tag.gold{background:#d9a441;border-color:#d9a441;color:#1c1608}#essay-competition .pbc-feat-tag .d{background:var(--sage-deep)}#essay-competition .pbc-feat-btn.solid{background:var(--ink);color:#fbfdfa}#essay-competition .pbc-feat-btn.solid:hover{background:#0f1612}#essay-competition .pbc-feat-btn.line{border-color:rgba(31,42,34,.2);color:var(--ink)}#essay-competition .pbc-feat-btn.line:hover{background:rgba(255,255,255,.7)}#essay-competition .ec-feat-list{border-top-color:var(--line)}#essay-competition .ec-feat-list a{color:var(--ink);border-bottom-color:var(--line)}#essay-competition .ec-feat-list a:hover{color:var(--sage-deep)}#essay-competition .ec-feat-list .n,#essay-competition .ec-feat-list .ar,#essay-competition .ec-feat-cap{color:var(--sage-deep)}</style>
 <style id="btn-caps">.btn,.pbc-feat-btn,.btn-primary,.btn-forest,.btn-ghost{text-transform:capitalize}</style>
+<link rel="stylesheet" href="site-footer.css">
 </head>
 <body>
 
@@ -1016,7 +1020,25 @@
 
 <!-- Programmes / Six Routes -->
 
-<section class="pbc-feat-sec" id="policy-brief-competition" data-screen-label="Featured: Policy Brief Competition">
+<section class="pbc-feat-sec" id="essay-competition" data-comp-discovery hidden data-screen-label="Featured: Essay Competition 2026">
+<div class="pbc-feat apple-reveal">
+<div>
+<div class="pbc-feat-tags"><span class="pbc-feat-tag gold">02</span><span class="pbc-feat-tag"><span class="d"></span><span data-comp-status>Entries open 1 December</span></span></div>
+<h2>Across Borders, <em>Unequal Futures.</em></h2>
+<p><b style="font-weight:600;color:var(--ink)">SIB × YSP International Youth Essay Competition 2026</b><br>Explore six questions connecting social justice, sustainability and international affairs.</p>
+<div class="pbc-feat-row"><a class="pbc-feat-btn solid" href="/essay-competition-2026">Explore The Competition <span>↗</span></a></div>
+</div>
+<div><p class="ec-feat-cap">Six prompts</p><ol class="ec-feat-list">
+<li><a href="/essay-competition-2026#prompts"><span class="n">01</span><span>The care-worker migration bargain</span><span class="ar">↗</span></a></li>
+<li><a href="/essay-competition-2026#prompts"><span class="n">02</span><span>The hidden price of the green transition</span><span class="ar">↗</span></a></li>
+<li><a href="/essay-competition-2026#prompts"><span class="n">03</span><span>Moving without losing home</span><span class="ar">↗</span></a></li>
+<li><a href="/essay-competition-2026#prompts"><span class="n">04</span><span>After the shipping container</span><span class="ar">↗</span></a></li>
+<li><a href="/essay-competition-2026#prompts"><span class="n">05</span><span>The people behind the machine</span><span class="ar">↗</span></a></li>
+<li><a href="/essay-competition-2026#prompts"><span class="n">06</span><span>A passport to participation</span><span class="ar">↗</span></a></li>
+</ol></div>
+</div>
+</section>
+<section class="pbc-feat-sec" style="padding-top:0" id="policy-brief-competition" data-screen-label="Featured: Policy Brief Competition">
 <div class="pbc-feat apple-reveal">
 <div>
 <div class="pbc-feat-tags"><span class="pbc-feat-tag gold">01</span><span class="pbc-feat-tag"><span class="d"></span>Results Announced · 5 Nov 2026</span></div>
@@ -1555,44 +1577,44 @@
     <div>
       <h5>Programmes</h5>
       <ul>
-        <li><a href="/mun">Winter MUN 2026 ★</a></li>
-        <li><a href="/programmes">International Initiatives</a></li>
-        <li><a href="/programmes">Grassroots Movements</a></li>
-        <li><a href="/interns">Internship</a></li>
-        <li><a href="/policy-brief-competition">Competitions</a></li>
-        <li><a href="/ambassadors">Ambassador Network</a></li>
-        <li><a href="/chapters">Global Chapters</a></li>
+        <li data-comp-discovery data-comp-footer hidden><a href="essay-competition-2026.html">Essay Competition 2026</a></li>
+        <li><a href="mun.html">Winter MUN 2026 ★</a></li>
+        <li><a href="programmes.html">International Initiatives</a></li>
+        <li><a href="grassroots.html">Grassroots Movements</a></li>
+        <li><a href="interns.html">Internship</a></li>
+        <li><a href="policy-brief-competition.html">Competitions</a></li>
+        <li><a href="ambassadors.html">Ambassador Network</a></li>
+        <li><a href="chapters.html">Global Chapters</a></li>
       </ul>
     </div>
     <div>
       <h5>Pathways</h5>
       <ul>
-        <li><a href="/research-route">Research</a></li>
-        <li><a href="/policy-route">Policy</a></li>
-        <li><a href="/business-route">Business</a></li>
-        <li><a href="/diplomacy-route">Diplomacy</a></li>
-        <li><a href="/environment-route">Environment</a></li>
-        <li><a href="/community-route">Community</a></li>
+        <li><a href="research-route.html">Research</a></li>
+        <li><a href="policy-route.html">Policy</a></li>
+        <li><a href="business-route.html">Business</a></li>
+        <li><a href="diplomacy-route.html">Diplomacy</a></li>
+        <li><a href="environment-route.html">Environment</a></li>
+        <li><a href="community-route.html">Community</a></li>
       </ul>
     </div>
     <div>
       <h5>Organisation</h5>
       <ul>
-        <li><a href="/about">About</a></li>
-        <li><a href="/team">Team</a></li>
-        <li><a href="/careers">Careers</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="careers.html">Careers</a></li>
         <li><a href="#join">Contact</a></li>
       </ul>
     </div>
     <div>
       <h5>Resources</h5>
       <ul>
-        <li><a href="/annual-reports">Annual Reports</a></li>
-        <li><a href="/substack">Substack</a></li>
-        <li><a href="/policies">Policies &amp; Declarations</a></li>
+        <li><a href="annual-reports.html">Annual Reports</a></li>
+        <li><a href="substack.html">Substack</a></li>
+        <li><a href="policies.html">Policies &amp; Declarations</a></li>
       </ul>
     </div>
-  </div>
   </div>
 
   <div class="safe-band">
@@ -1600,7 +1622,7 @@
       <span class="leaf">✦</span>
       <span>This is a safe, moderated space for youth. For Youth, By Youth.</span>
     </div>
-    <div>View our <a href="/community-policy">Community Policy</a> · <a href="/privacy-notice">Privacy Notice</a></div>
+    <div>View our <a href="community-policy.html">Community Policy</a> · <a href="privacy-notice.html">Privacy Notice</a></div>
   </div>
 
   <div class="copy">
@@ -1841,5 +1863,6 @@
 </script>
 
 <script src="mobile-nav.js"></script>
+<script src="/competition-config.js"></script>
 </body>
 </html>

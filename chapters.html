@@ -429,6 +429,8 @@
   }
 </style>
 <style id="btn-caps">.btn,.pbc-feat-btn,.btn-primary,.btn-forest,.btn-ghost{text-transform:capitalize}</style>
+<link rel="stylesheet" href="site-footer.css">
+<style id="atlas-5">.atlas-grid{grid-template-columns:repeat(6,minmax(0,1fr))}.atlas-grid>.chap-card{grid-column:span 2}.atlas-grid>.chap-card:nth-child(-n+2){grid-column:span 3}@media(max-width:1080px){.atlas-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.atlas-grid>.chap-card,.atlas-grid>.chap-card:nth-child(-n+2){grid-column:span 1}.atlas-grid>.chap-card:first-child{grid-column:1/-1}}@media(max-width:640px){.atlas-grid{grid-template-columns:1fr}}</style>
 </head>
 <body>
 
@@ -495,8 +497,8 @@
     <div class="atlas-grid">
       <article class="chap-card is-active apple-reveal">
         <span class="num">SG</span>
-        <div class="meta"><span class="loc">Singapore</span><span class="status">Active</span></div>
-        <h3 class="serif">YSP <em>Singapore</em></h3>
+        <div class="meta"><span class="loc">Singapore · HQ</span><span class="status">Active</span></div>
+        <h3 class="serif">YSP <em>Singapore</em> (HQ)</h3>
         <p>The home cohort. Press desk, central programmes office, the room the rest of the network reports into.</p>
         <div class="foot"><a href="/about">About YSP <span class="arr">→</span></a><span>Est. March 2026</span></div>
       </article>
@@ -506,23 +508,31 @@
         <div class="meta"><span class="loc">Hong Kong 香港</span><span class="status">Launching · 2026</span></div>
         <h3 class="serif">YSP <em>Hong Kong</em></h3>
         <p>The gateway chapter. Five universities, one common-law society, the bridge between ASEAN and Greater China policy work.</p>
-        <div class="foot"><a href="#hk-feature">Read the chapter <span class="arr">→</span></a><span>Autumn 2026</span></div>
+        <div class="foot"><a href="#hk-feature">Read the chapter <span class="arr">→</span></a><span>Winter 2026</span></div>
       </article>
 
-      <article class="chap-card is-planned apple-reveal" style="transition-delay:.12s">
-        <span class="num">MO</span>
-        <div class="meta"><span class="loc">Macau 澳門</span><span class="status">Pioneer · in scoping</span></div>
-        <h3 class="serif">YSP <em>Macau</em></h3>
-        <p>The trilingual chapter — Cantonese, Portuguese, English. A small but symbolically important third pillar of the Greater Bay Area.</p>
-        <div class="foot"><span>Scoping with University of Macau</span><span>2027</span></div>
+      <article class="chap-card is-active apple-reveal" style="transition-delay:0.12s">
+        <span class="num">UK</span>
+        <div class="meta"><span class="loc">London</span><span class="status">Active</span></div>
+        <h3 class="serif">YSP <em>London</em></h3>
+        <p>YSP’s chapter in London, United Kingdom.</p>
+        <div class="foot"><a href="https://forms.gle/rKPHAxvj6NaM9Dd66" target="_blank" rel="noopener noreferrer">Join YSP <span class="arr">→</span></a><span>London</span></div>
       </article>
 
-      <article class="chap-card is-planned apple-reveal" style="transition-delay:.18s">
-        <span class="num">CN</span>
-        <div class="meta"><span class="loc">Mainland China 中国大陆</span><span class="status">Building quietly</span></div>
-        <h3 class="serif">YSP <em>Mainland</em></h3>
-        <p>An academic-led chapter aligned with Dual Carbon policy work. We will not launch publicly until a university supervisory body is confirmed.</p>
-        <div class="foot"><span>Subject to academic sponsorship</span><span>TBC</span></div>
+      <article class="chap-card is-active apple-reveal" style="transition-delay:0.18s">
+        <span class="num">IN</span>
+        <div class="meta"><span class="loc">India</span><span class="status">Active</span></div>
+        <h3 class="serif">YSP <em>India</em></h3>
+        <p>YSP’s chapter in India.</p>
+        <div class="foot"><a href="https://forms.gle/rKPHAxvj6NaM9Dd66" target="_blank" rel="noopener noreferrer">Join YSP <span class="arr">→</span></a><span>India</span></div>
+      </article>
+
+      <article class="chap-card is-active apple-reveal" style="transition-delay:0.24s">
+        <span class="num">OM</span>
+        <div class="meta"><span class="loc">Oman</span><span class="status">Active</span></div>
+        <h3 class="serif">YSP <em>Oman</em></h3>
+        <p>YSP’s chapter in Oman.</p>
+        <div class="foot"><a href="https://forms.gle/rKPHAxvj6NaM9Dd66" target="_blank" rel="noopener noreferrer">Join YSP <span class="arr">→</span></a><span>Oman</span></div>
       </article>
     </div>
   </div>
@@ -763,49 +773,70 @@
 </section>
 
 <!-- Footer -->
-<footer class="footer">
+<footer class="footer" id="site-footer">
   <div class="footer-grid">
     <div>
       <div class="brand">
         <img src="assets/ysp-logo.png" alt="" />
         <span class="word">Y<i>S</i>P</span>
       </div>
-      <p class="blurb">Youth for Sustainable Policy (YSP) is a youth-led initiative empowering the next generation to engage with global challenges through research, storytelling, and policy dialogue.</p>
+      <p class="blurb" style="font-family: system-ui">
+        Youth for Sustainable Policy (YSP) is an international youth-led policy organization advancing research, dialogue, and public engagement on sustainability, governance, and global affairs.
+      </p>
     </div>
     <div>
       <h5>Programmes</h5>
       <ul>
-        <li><a href="/programmes">Programme Overview</a></li>
-        <li><a href="/mun">Winter MUN 2026</a></li>
-        <li><a href="/research-route">Research Route</a></li>
-        <li><a href="/policy-route">Policy Route</a></li>
-        <li><a href="/business-route">Business Route</a></li>
-        <li><a href="/diplomacy-route">Diplomacy Route</a></li>
-        <li><a href="/environment-route">Environment Route</a></li>
-        <li><a href="/community-route">Community Route</a></li>
+        <li data-comp-discovery data-comp-footer hidden><a href="essay-competition-2026.html">Essay Competition 2026</a></li>
+        <li><a href="mun.html">Winter MUN 2026 ★</a></li>
+        <li><a href="programmes.html">International Initiatives</a></li>
+        <li><a href="grassroots.html">Grassroots Movements</a></li>
+        <li><a href="interns.html">Internship</a></li>
+        <li><a href="policy-brief-competition.html">Competitions</a></li>
+        <li><a href="ambassadors.html">Ambassador Network</a></li>
+        <li><a href="chapters.html">Global Chapters</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Pathways</h5>
+      <ul>
+        <li><a href="research-route.html">Research</a></li>
+        <li><a href="policy-route.html">Policy</a></li>
+        <li><a href="business-route.html">Business</a></li>
+        <li><a href="diplomacy-route.html">Diplomacy</a></li>
+        <li><a href="environment-route.html">Environment</a></li>
+        <li><a href="community-route.html">Community</a></li>
       </ul>
     </div>
     <div>
       <h5>Organisation</h5>
       <ul>
-        <li><a href="/about">About</a></li>
-        <li><a href="/team">Team</a></li>
-        <li><a href="/chapters">Chapters</a></li>
-        <li><a href="/careers">Careers</a></li>
-        <li><a href="/annual-reports">Annual Reports</a></li>
-        <li><a href="/policies">Policies &amp; Declarations</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="index.html#join">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Resources</h5>
+      <ul>
+        <li><a href="annual-reports.html">Annual Reports</a></li>
+        <li><a href="substack.html">Substack</a></li>
+        <li><a href="policies.html">Policies &amp; Declarations</a></li>
       </ul>
     </div>
   </div>
+
   <div class="safe-band">
     <div class="left">
       <span class="leaf">✦</span>
       <span>This is a safe, moderated space for youth. For Youth, By Youth.</span>
     </div>
-    <div>View our <a href="/community-policy">Community Policy</a> · <a href="/privacy-notice">Privacy Notice</a></div>
+    <div>View our <a href="community-policy.html">Community Policy</a> · <a href="privacy-notice.html">Privacy Notice</a></div>
   </div>
+
   <div class="copy">
-    <span>© 2026 Youth for Sustainable Policy. A registered non-profit.</span>
+    <span>© 2026 Youth for Sustainable Policy. A global youth organisation.</span>
     <span>Made slowly, in good company.</span>
   </div>
 </footer>
@@ -833,5 +864,6 @@
 </script>
 
 <script src="mobile-nav.js"></script>
+<script src="/competition-config.js"></script>
 </body>
 </html>

@@ -295,7 +295,7 @@
 
     <div class="stat-ribbon apple-reveal" style="transition-delay:.36s">
       <div class="stat-cell"><div class="n" id="sTotal">—</div><div class="l">Total ambassadors</div></div>
-      <div class="stat-cell"><div class="n">1<em>st</em></div><div class="l">Founding cohort</div></div>
+      <div class="stat-cell"><div class="n">3<em>rd</em></div><div class="l">Current cohort</div></div>
       <div class="stat-cell"><div class="n">Open</div><div class="l">Intake cadence</div></div>
       <div class="stat-cell"><div class="n">2026</div><div class="l">Programme year</div></div>
     </div>
@@ -400,7 +400,7 @@
     </div>
     <div class="pillars">
       <div class="pill apple-reveal"><div class="mk">◎</div><h4>Represent YSP Globally</h4><p>Carry the work of an international youth organisation into your own school, campus, or community.</p></div>
-      <div class="pill apple-reveal" style="transition-delay:.06s"><div class="mk">✎</div><h4>Publish Global Spotlights</h4><p>Write and publish educational spotlights on issues where you live, for a global youth audience.</p></div>
+      <div class="pill apple-reveal" style="transition-delay:.06s"><div class="mk">✎</div><h4>Publish Global Spotlights</h4><p>Write and publish educational spotlights on issues where you live, for a global youth audience.</p><a href="/global-spotlights" style="display:inline-block;margin-top:10px;font-size:13.5px;font-weight:500;color:var(--sage-deep)">Read The Spotlights →</a></div>
       <div class="pill apple-reveal" style="transition-delay:.12s"><div class="mk">◈</div><h4>Join The Community</h4><p>Work alongside an international network of youth leaders across time zones and disciplines.</p></div>
       <div class="pill apple-reveal" style="transition-delay:.18s"><div class="mk">↗</div><h4>Build The Skills</h4><p>Leadership, communication, and advocacy practice — developed through real programme work.</p></div>
       <div class="pill apple-reveal" style="transition-delay:.24s"><div class="mk">✦</div><h4>Certificate &amp; Badge</h4><p>An official appointment certificate and a digital ambassador badge for every appointee.</p></div>
@@ -485,6 +485,7 @@
 (function(){
   const A = window.YSP_AMBASSADORS || [];
   const TOTAL = A.length;
+  const HEADLINE = 661;
   const navWrap = document.getElementById('navWrap');
   window.addEventListener('scroll', () => {
     (window.scrollY > 40 ? navWrap.classList.add('scrolled') : navWrap.classList.remove('scrolled'));
@@ -493,8 +494,8 @@
   const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target);} }), {threshold:.1, rootMargin:'0px 0px -6% 0px'});
   document.querySelectorAll('.apple-reveal').forEach(el => io.observe(el));
 
-  document.getElementById('sTotal').textContent = TOTAL;
-  document.getElementById('swarmN').textContent = TOTAL;
+  document.getElementById('sTotal').textContent = HEADLINE;
+  document.getElementById('swarmN').textContent = HEADLINE;
 
   // Count up
   const big = document.getElementById('bigCount');
@@ -504,8 +505,8 @@
     const dur = 2200, t0 = performance.now();
     (function tick(now){
       const t = Math.min(1,(now-t0)/dur);
-      big.textContent = Math.round(ease(t)*TOTAL).toLocaleString();
-      if(t<1) requestAnimationFrame(tick); else big.textContent = TOTAL.toLocaleString();
+      big.textContent = Math.round(ease(t)*HEADLINE).toLocaleString();
+      if(t<1) requestAnimationFrame(tick); else big.textContent = HEADLINE.toLocaleString();
     })(t0);
   }), {threshold:.4});
   cio.observe(big);

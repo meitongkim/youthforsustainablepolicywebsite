@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>YSP Talks — Podcast — YSP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,1,300;9..144,1,400&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sage:#9ab078; --sage-deep:#89a36c; --sage-soft:#b9c99e;
+    --mist:#cfdfd8; --mist-pale:#e6efe9; --paper:#fbfdfa;
+    --ink:#1f2a22; --ink-soft:#3d4b40; --ink-mute:#67756a;
+    --line:rgba(31,42,34,.10);
+    --shadow-1: 0 1px 2px rgba(31,42,34,.04), 0 8px 24px -8px rgba(31,42,34,.10);
+    --shadow-2: 0 1px 2px rgba(31,42,34,.06), 0 24px 60px -20px rgba(122,150,108,.30);
+    --ease: cubic-bezier(.2,.7,.2,1);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Inter", system-ui, -apple-system, sans-serif;
+    color:var(--ink); background:var(--paper);
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    overflow-x:hidden; font-size:16px; line-height:1.55; letter-spacing:-0.005em;
+  }
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  .serif{font-family:"Fraunces", Georgia, serif; font-weight:400; letter-spacing:-0.02em}
+
+  /* Grain */
+  .grain{
+    position:fixed; inset:0; pointer-events:none; z-index:9999;
+    opacity:.06; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12  0 0 0 0 0.16  0 0 0 0 0.13  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  /* Mesh */
+  .mesh{ position:absolute; inset:-10%; pointer-events:none; z-index:0; filter:blur(60px) saturate(1.05); opacity:.8 }
+  .mesh::before, .mesh::after, .mesh > span{ content:""; position:absolute; border-radius:50% }
+  .mesh::before{ width:55%; aspect-ratio:1; left:-8%; top:-12%; background:radial-gradient(circle, rgba(207,223,216,.95), rgba(207,223,216,0) 70%) }
+  .mesh::after{ width:60%; aspect-ratio:1; right:-12%; bottom:-18%; background:radial-gradient(circle, rgba(137,163,108,.7), rgba(137,163,108,0) 70%) }
+  .mesh > span{ width:48%; aspect-ratio:1; left:30%; top:25%; background:radial-gradient(circle, rgba(154,176,120,.5), rgba(154,176,120,0) 70%) }
+
+  /* Nav */
+  .nav-wrap{ position:fixed; top:18px; left:0; right:0; z-index:100; display:flex; justify-content:center; pointer-events:none }
+  .nav{
+    pointer-events:auto; display:flex; align-items:center; gap:8px;
+    padding:8px 8px 8px 18px;
+    background:rgba(255,255,255,.42);
+    backdrop-filter: blur(14px) saturate(1.4); -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    border:1px solid rgba(255,255,255,.55); border-radius:999px;
+    box-shadow: 0 1px 1px rgba(255,255,255,.6) inset, 0 10px 30px -12px rgba(31,42,34,.18);
+    transition: all .35s var(--ease);
+  }
+  .scrolled .nav{
+    background:rgba(255,255,255,.65);
+    backdrop-filter: blur(22px) saturate(1.6);
+    box-shadow: 0 1px 1px rgba(255,255,255,.7) inset, 0 18px 50px -18px rgba(31,42,34,.22);
+  }
+  .nav .brand{ display:flex; align-items:center; gap:10px; padding-right:14px; border-right:1px solid var(--line) }
+  .nav .brand img{ width:28px; height:28px; border-radius:8px; object-fit:cover; box-shadow:0 2px 6px rgba(31,42,34,.15) }
+  .nav .brand .word{ font-weight:600; letter-spacing:.02em; font-size:14px }
+  .nav .brand .word i{ font-style:normal; color:var(--sage-deep) }
+  .nav-links{ display:flex; align-items:center; gap:2px; padding:0 6px }
+  .nav-links a{ padding:8px 14px; border-radius:999px; font-size:13.5px; font-weight:500; color:var(--ink-soft); transition: background .25s, color .25s }
+  .nav-links a:hover, .nav-links a.active{ background:rgba(255,255,255,.7); color:var(--ink) }
+  .btn{ display:inline-flex; align-items:center; gap:8px; padding:10px 18px; border-radius:999px; font-size:13.5px; font-weight:500; transition: transform .25s var(--ease), box-shadow .25s, background .25s, filter .25s }
+  .btn-primary{ background:var(--ink); color:#fbfdfa; box-shadow: 0 1px 1px rgba(255,255,255,.18) inset, 0 8px 22px -8px rgba(31,42,34,.45) }
+  .btn-primary:hover{ background:#0f1612 }
+  .btn-forest{ background: linear-gradient(180deg, var(--sage), var(--sage-deep)); color:#fbfdfa; box-shadow: 0 1px 1px rgba(255,255,255,.35) inset, 0 10px 26px -10px rgba(137,163,108,.6) }
+  .btn-forest:hover{ filter:brightness(1.04) }
+  .btn-ghost{ color:var(--ink); background:rgba(255,255,255,.55); border:1px solid rgba(255,255,255,.7); backdrop-filter:blur(10px) }
+  .btn-ghost:hover{ background:rgba(255,255,255,.8) }
+  .btn .arr{ display:inline-block; transition: transform .25s var(--ease) }
+  .btn:hover .arr{ transform: translate(2px,-2px) }
+
+  /* Hero */
+  .hero{
+    position:relative; min-height:72vh; padding:170px 24px 90px;
+    background:
+      radial-gradient(120% 70% at 50% 0%, var(--mist) 0%, rgba(207,223,216,0) 60%),
+      linear-gradient(180deg, #f3f8ef 0%, #fbfdfa 60%);
+    overflow:hidden; isolation:isolate;
+  }
+  .hero-inner{ position:relative; z-index:2; max-width:1180px; margin:0 auto; text-align:center; display:flex; flex-direction:column; align-items:center }
+  .eyebrow-pill{
+    display:inline-flex; align-items:center; gap:10px; padding:6px;
+    background:rgba(255,255,255,.6); backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,.75); border-radius:999px;
+    box-shadow: 0 1px 1px rgba(255,255,255,.6) inset, 0 6px 18px -8px rgba(31,42,34,.15);
+    font-size:12.5px; color:var(--ink-soft); margin-bottom:32px;
+  }
+  .eyebrow-pill .tag{ display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border-radius:999px; background:var(--ink); color:#fbfdfa; font-weight:500; font-size:11.5px; letter-spacing:.04em }
+  .eyebrow-pill .tag .dot{ width:5px; height:5px; border-radius:50%; background:var(--sage) }
+  .eyebrow-pill .meta{ padding-right:14px }
+  .hero h1{
+    margin:0 0 22px; font-size: clamp(48px, 7vw, 104px);
+    line-height:1.02; letter-spacing:-0.035em; font-weight:400; color:var(--ink); max-width:14ch;
+  }
+  .hero h1 em{ font-style:italic; font-weight:300; color:var(--sage-deep) }
+  .hero p.lede{ max-width:60ch; margin:0 auto; color:var(--ink-soft); font-size:17.5px; line-height:1.65 }
+  .hero-cta{ display:flex; gap:10px; margin-top:36px; flex-wrap:wrap; justify-content:center }
+
+  /* Section base */
+  section{ position:relative; padding:130px 24px; isolation:isolate }
+  .container{ max-width:1180px; margin:0 auto; position:relative; z-index:2 }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--sage-deep); font-weight:500 }
+  .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background:var(--sage) }
+  h2.section-title{ font-size: clamp(36px, 5vw, 64px); line-height:1.04; letter-spacing:-0.028em; font-weight:400; color:var(--ink); margin:16px 0 18px; max-width:22ch }
+  h2.section-title em{ font-style:italic; color:var(--sage-deep); font-weight:300 }
+  p.section-sub{ max-width:62ch; color:var(--ink-soft); font-size:17px; margin:0 0 48px; line-height:1.65 }
+  .bg-light{ background: linear-gradient(180deg, #fbfdfa 0%, #f3f8ef 100%) }
+  .bg-mid{ background: linear-gradient(180deg, #f3f8ef 0%, #eaf1e3 100%) }
+  .bg-sage{ background: linear-gradient(180deg, #eaf1e3 0%, #d9e6cf 100%) }
+  .bg-deep{ background: linear-gradient(180deg, #d9e6cf 0%, #eaf1e3 60%, #fbfdfa 100%) }
+
+  /* ── Why YSP Matters — editorial light slab ── */
+  .why-section{
+    background:
+      radial-gradient(70% 60% at 12% 8%, rgba(207,223,216,.5), transparent 55%),
+      radial-gradient(60% 55% at 92% 95%, rgba(154,176,120,.25), transparent 55%),
+      linear-gradient(180deg, #fbfdfa 0%, #f3f8ef 100%);
+    padding:150px 24px 140px;
+  }
+  .why-marker{
+    display:inline-flex; align-items:center; gap:14px; margin-bottom:36px;
+    font-size:11.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--sage-deep); font-weight:600;
+  }
+  .why-marker .asterism{
+    font-family:"Fraunces", serif; font-weight:300; font-style:italic;
+    font-size:22px; color:var(--sage-deep); line-height:1;
+  }
+  .why-marker .label::before{
+    content:''; display:inline-block; width:28px; height:1px;
+    background:rgba(137,163,108,.5); vertical-align:middle; margin-right:14px;
+  }
+  .why-grid{
+    display:grid; grid-template-columns: minmax(280px, .82fr) minmax(0, 1.18fr); gap: 80px;
+    align-items:start;
+  }
+  .why-headline h2{
+    margin:0; font-weight:400;
+    font-size: clamp(54px, 8.5vw, 116px); line-height:.94; letter-spacing:-0.038em;
+    color:var(--ink);
+  }
+  .why-headline h2 .line{ display:block }
+  .why-headline h2 em{ font-style:italic; font-weight:300; color: var(--sage-deep) }
+  .why-aside{
+    margin-top: 36px; padding-top: 28px;
+    border-top: 1px solid var(--line);
+    display:flex; align-items:flex-start; gap:14px;
+    max-width: 36ch;
+  }
+  .why-aside .pip{
+    width:8px; height:8px; border-radius:50%; flex-shrink:0; margin-top:7px;
+    background: var(--sage); box-shadow: 0 0 0 4px rgba(154,176,120,.18);
+  }
+  .why-aside p{
+    margin:0; font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color: var(--ink-mute); line-height:1.7;
+  }
+
+  .why-body{ display:flex; flex-direction:column; gap: 26px; padding-top: 18px; max-width: 62ch }
+  .why-body p{ margin:0; font-size: 17px; line-height: 1.75; color: var(--ink-soft) }
+  .why-body p.lede{
+    font-family:"Fraunces", serif; font-weight:400;
+    font-size: clamp(22px, 2.3vw, 30px); line-height: 1.35; letter-spacing:-0.012em;
+    color:var(--ink); padding-bottom: 8px;
+  }
+  .why-body p.lede em{ font-style:italic; font-weight:300; color: var(--sage-deep) }
+  .why-body p b{ color: var(--ink); font-weight:500 }
+
+  /* Mechanisms — editorial row of 4 */
+  .mech-band{
+    background: linear-gradient(180deg, #f3f8ef 0%, #eaf1e3 100%);
+    padding:140px 24px;
+  }
+  .mech-grid{
+    display:grid; grid-template-columns: repeat(4, 1fr); gap:14px; margin-top:8px;
+  }
+  .mech-card{
+    position:relative; padding:30px 26px 32px; border-radius:22px;
+    background:rgba(255,255,255,.78); backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,.9);
+    box-shadow: var(--shadow-1);
+    display:flex; flex-direction:column; gap:10px; min-height:240px;
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+  }
+  .mech-card:hover{ transform: translateY(-4px); box-shadow: var(--shadow-2) }
+  .mech-card .num{
+    font-family:"Fraunces", serif; font-style:italic; font-weight:300;
+    font-size:28px; color:var(--sage-deep); line-height:1; letter-spacing:-0.02em;
+  }
+  .mech-card .title{
+    font-family:"Fraunces", serif; font-weight:400; font-size:24px;
+    letter-spacing:-0.018em; line-height:1.15; color:var(--ink);
+  }
+  .mech-card .title em{ font-style:italic; color:var(--sage-deep); font-weight:300 }
+  .mech-card .desc{ color:var(--ink-soft); font-size:14px; line-height:1.6; margin:0 }
+  .mech-card .footer-tag{
+    margin-top:auto; padding-top:14px;
+    font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-mute); font-weight:500;
+    border-top: 1px dashed rgba(31,42,34,.1);
+  }
+
+  /* Identity strip — what YSP is */
+  .identity-band{
+    background: linear-gradient(180deg, #eaf1e3 0%, #d9e6cf 100%);
+    padding:130px 24px;
+  }
+  .id-grid{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; margin-top:8px;
+  }
+  .id-card{
+    padding:32px 28px; border-radius:22px;
+    background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.72));
+    border:1px solid rgba(255,255,255,.95);
+    box-shadow: 0 1px 1px rgba(255,255,255,.9) inset, var(--shadow-1);
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .id-card .label{
+    display:inline-flex; align-items:center; gap:8px; align-self:flex-start;
+    padding:5px 12px; border-radius:999px;
+    background: rgba(154,176,120,.16); border:1px solid rgba(154,176,120,.28);
+    font-size:11px; color:var(--sage-deep); font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+  }
+  .id-card h3{
+    font-family:"Fraunces", serif; font-weight:400; font-size:30px;
+    letter-spacing:-0.022em; line-height:1.1; margin:0;
+  }
+  .id-card h3 em{ font-style:italic; color:var(--sage-deep); font-weight:300 }
+  .id-card p{ margin:0; color:var(--ink-soft); font-size:14.5px; line-height:1.65 }
+
+  /* Closing CTA */
+  .closing{
+    background: linear-gradient(180deg, #d9e6cf 0%, #eaf1e3 60%, #fbfdfa 100%);
+    padding:140px 24px 160px; overflow:hidden;
+  }
+  .closing .card{ position:relative; max-width:980px; margin:0 auto; text-align:center }
+  .closing h2{
+    font-family:"Fraunces", serif; font-weight:400;
+    font-size: clamp(42px, 6vw, 80px); line-height:1.04; letter-spacing:-0.03em; margin:0 0 22px;
+  }
+  .closing h2 em{ font-style:italic; color:var(--sage-deep); font-weight:300 }
+  .closing p{ color:var(--ink-soft); font-size:17px; max-width:54ch; margin:0 auto 36px; line-height:1.65 }
+  .closing-cta{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap }
+
+  /* Footer */
+  .footer{ background:var(--ink); color:#d6dcd2; padding:72px 24px 36px }
+  .footer-grid{ max-width:1180px; margin:0 auto; display:grid; grid-template-columns: 2fr 1fr 1fr; gap:48px }
+  .footer .brand{ display:flex; align-items:center; gap:12px; margin-bottom:18px }
+  .footer .brand img{ width:36px; height:36px; border-radius:10px }
+  .footer .brand .word{ font-weight:600; font-size:16px; letter-spacing:.02em; color:#fbfdfa }
+  .footer .brand .word i{ font-style:normal; color:var(--sage-soft) }
+  .footer .blurb{ color:#aab1a3; font-size:14px; max-width:38ch; line-height:1.55 }
+  .footer h5{ color:#fbfdfa; font-size:12px; letter-spacing:.18em; text-transform:uppercase; margin:0 0 14px; font-weight:500 }
+  .footer ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; font-size:14px }
+  .footer ul a{ color:#aab1a3; transition: color .2s }
+  .footer ul a:hover{ color:#fbfdfa }
+  .safe-band{
+    max-width:1180px; margin:56px auto 0; padding:18px 22px; border-radius:16px;
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10);
+    display:flex; gap:14px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+    font-size:13px; color:#d6dcd2;
+  }
+  .safe-band .left{ display:flex; align-items:center; gap:12px }
+  .safe-band .leaf{ width:24px; height:24px; border-radius:50%; background:linear-gradient(140deg, var(--sage), var(--sage-deep)); display:inline-flex; align-items:center; justify-content:center; color:#fbfdfa; font-size:12px; flex-shrink:0 }
+  .safe-band a{ color:#fbfdfa; text-decoration:underline; text-decoration-color:rgba(251,253,250,.4); text-underline-offset:3px }
+  .copy{ max-width:1180px; margin:24px auto 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12px; color:#7d857a; letter-spacing:.04em }
+
+  /* Reveals */
+  .apple-reveal{ opacity:0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); will-change: transform, opacity }
+  .is-in.apple-reveal{ opacity:1; transform: translateY(0) }
+
+  @media (max-width: 980px){
+    .nav-links{ display:none }
+    .why-grid{ grid-template-columns: 1fr; gap: 32px }
+    .why-headline h2{ font-size: clamp(48px, 11vw, 84px) }
+    .mech-grid{ grid-template-columns: 1fr 1fr }
+    .id-grid{ grid-template-columns: 1fr }
+    .footer-grid{ grid-template-columns: 1fr 1fr; gap:32px }
+  }
+  @media (max-width: 640px){
+    .mech-grid{ grid-template-columns: 1fr }
+    .hero{ padding:140px 20px 70px }
+    .why-section{ padding:110px 20px 100px }
+  }
+</style>
+<style>
+.pbc-hero{padding:150px 24px 80px}.pbc-hero h1,.pbc-h2,.pbc-cat-head h3,.pbc-track h4,.pbc-crit h4,.pbc-prize h4,.pbc-faq summary{text-transform:capitalize}.pbc-hero .hero-cta .btn,.pbc-cta .btn{white-space:nowrap}.pbc-hero .hero-inner{max-width:1080px}
+.pbc-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:44px 0 0;border-top:1px solid var(--line)}
+.pbc-facts div{padding:22px 20px 0 0}.pbc-facts .k{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:6px}.pbc-facts .v{font-family:"Fraunces",Georgia,serif;font-size:clamp(28px,3vw,40px);letter-spacing:-.02em}.pbc-facts .v em{font-style:italic;color:var(--sage-deep);font-size:.6em}
+.pbc-sec{padding:96px 24px;border-top:1px solid var(--line)}.pbc-sec.alt{background:linear-gradient(180deg,#f6f9f3,#eef4ea)}
+.pbc-wrap{max-width:1080px;margin:0 auto}
+.pbc-eye{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:18px}.pbc-eye::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--sage-deep)}
+.pbc-h2{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:clamp(34px,4.4vw,56px);line-height:1.04;letter-spacing:-.025em;margin:0 0 22px;text-wrap:balance}.pbc-h2 em{font-style:italic;color:var(--sage-deep);font-weight:300}
+.pbc-p{max-width:62ch;color:var(--ink-soft);font-size:17px;line-height:1.65;margin:0 0 14px;text-wrap:pretty}
+.pbc-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+.pbc-ul{list-style:none;margin:0;padding:0;display:grid;gap:0}.pbc-ul li{padding:16px 0;border-top:1px solid var(--line);color:var(--ink-soft);font-size:16px;line-height:1.55;display:grid;grid-template-columns:34px minmax(0,1fr)}.pbc-ul li span{font-size:12px;color:var(--sage-deep);padding-top:3px;letter-spacing:.08em}
+.pbc-prompt{margin:8px 0 0;padding:36px 40px;border-radius:24px;background:#1f2a22;color:#eef4ea;font-family:"Fraunces",Georgia,serif;font-size:clamp(22px,2.4vw,30px);line-height:1.3;letter-spacing:-.015em;text-wrap:pretty}.pbc-prompt small{display:block;font-family:"Inter",system-ui,sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-soft);margin-bottom:16px}
+.pbc-tracks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}.pbc-track{padding:26px 28px;border-radius:20px;background:rgba(255,255,255,.75);border:1px solid var(--line)}.pbc-track h4{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:26px;margin:0 0 6px}.pbc-track p{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.55}
+.pbc-crit{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.pbc-crit div{padding:26px 22px;border-radius:20px;background:rgba(255,255,255,.8);border:1px solid var(--line)}.pbc-crit .n{font-family:"Fraunces",Georgia,serif;font-size:44px;line-height:1;color:var(--sage-deep);font-style:italic;font-weight:300}.pbc-crit h4{margin:14px 0 6px;font-size:16px;font-weight:600}.pbc-crit p{margin:0;color:var(--ink-mute);font-size:13.5px}
+.pbc-note{margin-top:18px;font-size:14px;color:var(--ink-mute)}
+.pbc-tl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--ink)}.pbc-tl li{padding:20px 20px 0 0;position:relative}.pbc-tl li::before{content:"";position:absolute;top:-7px;left:0;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}.pbc-tl li.done::before{background:var(--sage-deep);border-color:var(--sage-deep)}.pbc-tl .d{display:block;font-family:"Fraunces",Georgia,serif;font-size:22px;margin-bottom:4px}.pbc-tl .t{font-size:14px;color:var(--ink-soft)}
+.pbc-cat{margin-top:56px}.pbc-cat-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:24px}.pbc-cat-head h3{font-size:clamp(28px,3vw,38px);margin:0}.pbc-cat-head h3 em{font-style:italic;color:var(--sage-deep);font-weight:300}.pbc-count{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute)}
+.pbc-podium{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.pbc-win{border-radius:22px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-1);display:flex;flex-direction:column;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}.pbc-win:hover{transform:translateY(-3px);box-shadow:var(--shadow-2)}
+.pbc-badge{display:block;aspect-ratio:1/1;background:#12301f}.pbc-badge img{width:100%;height:100%;object-fit:cover;display:block}
+.pbc-win-body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:6px;flex:1}.pbc-win-body h4{font-size:24px;margin:2px 0 0;line-height:1.15}
+.pbc-place{align-self:flex-start;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:5px 10px;border-radius:999px;background:#f3ead4;color:#7a5a12}.pbc-place.p2{background:#eceff0;color:#4a5358}.pbc-place.p3{background:#f3e3d6;color:#7a4520}
+.pbc-country{font-size:13px;color:var(--ink-mute)}.pbc-title{margin:6px 0 0;font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:16px;line-height:1.4;color:var(--ink-soft);text-wrap:pretty;flex:1}.pbc-soon{margin-top:12px;font-size:12px;color:var(--sage-deep);letter-spacing:.04em}
+.pbc-list{list-style:none;margin:22px 0 0;padding:0}.pbc-list li{display:grid;grid-template-columns:40px 56px minmax(0,1fr) auto;gap:18px;align-items:center;padding:14px 0;border-top:1px solid var(--line)}.pbc-list li:last-child{border-bottom:1px solid var(--line)}
+.pbc-rank{font-family:"Fraunces",Georgia,serif;font-size:22px;color:var(--ink-mute)}.pbc-thumb{display:block;width:56px;height:56px;border-radius:12px;overflow:hidden;background:#12301f}.pbc-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.pbc-li-main{display:flex;flex-direction:column;gap:2px;min-width:0}.pbc-li-main b{font-weight:400;font-size:19px}.pbc-li-main span{font-size:14px;color:var(--ink-soft);font-style:italic}
+.pbc-prizes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.pbc-prize{padding:30px 26px;border-radius:22px;background:rgba(255,255,255,.8);border:1px solid var(--line)}.pbc-prize .i{font-size:12px;letter-spacing:.16em;color:var(--sage-deep)}.pbc-prize h4{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:28px;margin:14px 0 0}
+.pbc-faq{border-top:1px solid var(--line)}.pbc-faq details{border-bottom:1px solid var(--line)}.pbc-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-family:"Fraunces",Georgia,serif;font-size:21px}.pbc-faq summary::-webkit-details-marker{display:none}.pbc-faq summary::after{content:"+";color:var(--sage-deep);font-size:24px;line-height:1;transition:transform .25s}.pbc-faq details[open] summary::after{transform:rotate(45deg)}.pbc-faq p{margin:0 0 22px;max-width:66ch;color:var(--ink-soft);font-size:16px;line-height:1.65}
+.pbc-cta{padding:110px 24px;text-align:center;background:radial-gradient(80% 90% at 50% 0%,#dfe9d4,#f3f8ef 70%)}.pbc-cta .pbc-h2{margin-left:auto;margin-right:auto;max-width:18ch}.pbc-cta .pbc-p{margin:0 auto 28px}.pbc-cta .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+@media (max-width:900px){.pbc-facts,.pbc-crit,.pbc-tl{grid-template-columns:repeat(2,minmax(0,1fr))}.pbc-tl li{padding-bottom:20px}.pbc-two,.pbc-podium,.pbc-prizes,.pbc-tracks{grid-template-columns:minmax(0,1fr)}.pbc-two{gap:28px}.pbc-list li{grid-template-columns:32px 48px minmax(0,1fr);gap:12px}.pbc-list .pbc-country{grid-column:3}.pbc-thumb{width:48px;height:48px}}
+</style>
+<style id="btn-caps">.btn,.pbc-feat-btn,.btn-primary,.btn-forest,.btn-ghost{text-transform:capitalize}</style>
+<style>
+a{color:inherit}a:hover{color:var(--sage-deep)}
+.gs-list{display:grid;gap:18px}.gs-card{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:32px;align-items:start;padding:34px 36px;border-radius:24px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-1)}
+.gs-no{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:300;font-size:56px;line-height:.9;color:var(--sage-deep)}.gs-no small{display:block;font-family:"Inter",system-ui,sans-serif;font-style:normal;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px}
+.gs-card h3{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:clamp(24px,2.6vw,32px);line-height:1.12;letter-spacing:-.02em;margin:0 0 10px;text-wrap:balance}.gs-by{font-size:13px;letter-spacing:.04em;color:var(--ink-mute);margin:0 0 14px}.gs-by b{color:var(--ink);font-weight:600}.gs-card p.s{margin:0;color:var(--ink-soft);font-size:16px;line-height:1.65;max-width:60ch;text-wrap:pretty}
+.gs-topics{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.gs-topics span{padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.8);border:1px solid var(--line);font-size:13.5px;color:var(--ink-soft)}
+.yt-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.yt-card{padding:24px 24px 26px;border-radius:20px;background:rgba(255,255,255,.85);border:1px solid var(--line)}.yt-card h4{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:21px;margin:0 0 8px;line-height:1.2}.yt-card p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.55}
+.yt-roles{grid-template-columns:repeat(2,minmax(0,1fr))}
+.yt-sched{width:100%;border-collapse:collapse;background:#fff;border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-1)}.yt-sched th{text-align:left;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);font-weight:500;padding:18px 22px;border-bottom:1px solid var(--line)}.yt-sched td{padding:16px 22px;border-bottom:1px solid var(--line);vertical-align:top;font-size:15.5px;color:var(--ink-soft)}.yt-sched tr:last-child td{border-bottom:0}.yt-sched td.ep{font-family:"Fraunces",Georgia,serif;font-size:26px;color:var(--sage-deep);width:64px;line-height:1}.yt-sched td.dt{white-space:nowrap;width:130px;color:var(--ink);font-weight:500}
+.yt-tpl{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px 28px;box-shadow:var(--shadow-1)}.yt-tpl small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:10px}.yt-tpl dl{margin:0;display:grid;grid-template-columns:150px minmax(0,1fr)}.yt-tpl dt,.yt-tpl dd{margin:0;padding:12px 0;border-top:1px solid var(--line);font-size:15px}.yt-tpl dt{font-weight:600}.yt-tpl dd{color:var(--ink-soft)}
+.yt-join{list-style:none;margin:0;padding:0;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-1)}.yt-join li{padding:18px 26px;border-top:1px solid var(--line);font-size:16px}.yt-join li:first-child{border-top:0}
+.yt-dark{background:#1f2a22;color:#eef4ea;border-top:0}.yt-dark .pbc-h2{color:#eef4ea}.yt-dark .pbc-h2 em{color:var(--sage-soft)}.yt-dark .pbc-p{color:#c9d6c6}.yt-dark .pbc-eye{color:var(--sage-soft)}.yt-dark .pbc-eye::before{background:var(--sage-soft)}
+.yt-mail{display:inline-flex;margin-top:10px;padding:16px 28px;border-radius:999px;background:var(--sage);color:#1f2a22;font-weight:500;font-size:16px}.yt-mail:hover{color:#1f2a22;filter:brightness(1.06)}
+@media(max-width:860px){.gs-card{grid-template-columns:1fr;gap:14px;padding:28px 24px}.yt-cards,.yt-roles{grid-template-columns:1fr}.pbc-two{grid-template-columns:1fr;gap:24px}.yt-tpl dl{grid-template-columns:1fr}.yt-tpl dd{border-top:0;padding-top:0}.yt-sched td.dt{white-space:normal;width:auto}.yt-sched th:nth-child(1),.yt-sched td.ep{width:44px;padding-right:6px}.pbc-facts{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Nav -->
+<div class="nav-wrap" id="navWrap">
+  <nav class="nav">
+    <a class="brand" href="/">
+      <img src="assets/ysp-logo.png" alt="" />
+      <span class="word">Y<i>S</i>P</span>
+    </a>
+    <div class="nav-links">
+      <a href="/programmes">Programmes</a>
+      <a href="/team">Team</a>
+      <a href="/careers">Careers</a>
+      <a href="/about">About</a>
+    </div>
+    <a href="https://forms.gle/rKPHAxvj6NaM9Dd66" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-magnetic>Join YSP <span class="arr">↗</span></a>
+  </nav>
+</div>
+
+<section class="hero pbc-hero" data-screen-label="01 YSP Talks Hero">
+<div class="mesh" aria-hidden="true"><span></span></div>
+<div class="hero-inner">
+<div class="eyebrow-pill apple-reveal"><span class="tag"><span class="dot"></span>Podcast Crew Call — Open To Everyone</span><span class="meta">Season 1 · January – May 2027</span></div>
+<h1 class="serif apple-reveal" style="transition-delay:.1s">YSP Talks.<br/><em>Youth, Policy, and the World We're Inheriting.</em></h1>
+<p class="lede apple-reveal" style="transition-delay:.2s">The YSP Podcast is a youth-led conversation about the policy decisions that define our world. Each episode, we sit down with professionals to break down the ideas behind the policies that matter most to young people.</p>
+<div class="hero-cta apple-reveal" style="transition-delay:.28s"><a href="mailto:youthforsustainablepolicy@gmail.com?subject=YSP%20Talks%20Crew" class="btn btn-forest" data-magnetic>Join The Crew <span class="arr">↗</span></a><a href="#schedule" class="btn btn-ghost">See The Schedule ▸</a></div>
+<div class="pbc-facts apple-reveal" style="transition-delay:.36s;grid-template-columns:repeat(3,minmax(0,1fr))"><div><span class="k">Episodes</span><span class="v">10</span></div><div><span class="k">Between episodes</span><span class="v">2 <em>weeks</em></span></div><div><span class="k">Crew caps</span><span class="v">0</span></div></div>
+</div>
+</section>
+<section class="pbc-sec" id="show" data-screen-label="02 The Show">
+<div class="pbc-wrap pbc-two">
+<div><div class="pbc-eye apple-reveal">01 / The show</div><h2 class="pbc-h2 apple-reveal">New Episodes <em>Every Two Weeks.</em></h2></div>
+<div class="apple-reveal" style="transition-delay:.1s"><p class="pbc-p">Each episode, we sit down with researchers, policymakers, and practitioners to break down one policy issue in depth: climate, AI governance, migration, education, and more.</p><p class="pbc-p">The YSP Podcast is produced by Youth for Sustainable Policy, a global, youth-led non-profit empowering young people aged 16–28 to research and contribute to policy — for free.</p></div>
+</div>
+</section>
+<section class="pbc-sec alt" id="season" data-screen-label="03 Season At A Glance">
+<div class="pbc-wrap">
+<div class="pbc-eye apple-reveal">02 / The season at a glance</div><h2 class="pbc-h2 apple-reveal">10 Episodes, <em>January Through May.</em></h2>
+<div class="yt-cards"><div class="yt-card apple-reveal"><h4>Conversation or interview</h4><p>Each episode team picks the format that fits their guest and topic best.</p></div><div class="yt-card apple-reveal" style="transition-delay:.06s"><h4>No crew caps, no fixed seats</h4><p>Sign up by episode, not by season. Work the episodes you're actually excited about, skip the ones you're not — think shifts, not a job title you're locked into for the whole season.</p></div><div class="yt-card apple-reveal" style="transition-delay:.12s"><h4>New episode every 2 weeks</h4><p>Episodes release every two weeks from 9 January to 15 May 2027. See the schedule.</p></div></div>
+</div>
+</section>
+<section class="pbc-sec" id="schedule" data-screen-label="04 Episode Schedule">
+<div class="pbc-wrap">
+<div class="pbc-eye apple-reveal">03 / Episode schedule</div><h2 class="pbc-h2 apple-reveal">Ten Episodes, <em>Ten Working Dates.</em></h2>
+<div class="apple-reveal" style="overflow-x:auto"><table class="yt-sched"><thead><tr><th>Ep</th><th>Date</th><th>Theme</th></tr></thead><tbody><tr><td class="ep">1</td><td class="dt">Jan 9, 2027</td><td>Season opener — what "policy" actually means to someone your age</td></tr><tr><td class="ep">2</td><td class="dt">Jan 23, 2027</td><td>Climate &amp; environmental policy</td></tr><tr><td class="ep">3</td><td class="dt">Feb 6, 2027</td><td>AI governance &amp; digital rights</td></tr><tr><td class="ep">4</td><td class="dt">Feb 20, 2027</td><td>Youth political participation — can you actually change anything before you can vote?</td></tr><tr><td class="ep">5</td><td class="dt">Mar 6, 2027</td><td>Global health policy</td></tr><tr><td class="ep">6</td><td class="dt">Mar 20, 2027</td><td>Economic policy &amp; youth unemployment</td></tr><tr><td class="ep">7</td><td class="dt">Apr 3, 2027</td><td>Migration &amp; refugee policy</td></tr><tr><td class="ep">8</td><td class="dt">Apr 17, 2027</td><td>Education policy</td></tr><tr><td class="ep">9</td><td class="dt">May 1, 2027</td><td>Peace, security &amp; conflict resolution</td></tr><tr><td class="ep">10</td><td class="dt">May 15, 2027</td><td>Season close — a "year in policy" wrap, built from crew reflections and listener questions</td></tr></tbody></table></div>
+<p class="pbc-note apple-reveal">Themes are a starting scaffold, not a rulebook — if your episode team has a better idea or a guest who doesn't fit a slot, the slot moves. Dates are proposed working targets and can shift by a few days for a guest's schedule.</p>
+</div>
+</section>
+<section class="pbc-sec alt" id="crew" data-screen-label="05 The Crew">
+<div class="pbc-wrap">
+<div class="pbc-eye apple-reveal">04 / The crew — open call, no limits</div><h2 class="pbc-h2 apple-reveal">Every Role Is Open To As Many People <em>As Want To Do It.</em></h2>
+<p class="pbc-p apple-reveal" style="margin-bottom:28px">No "1 scriptwriter per episode" nonsense — if six people want to write questions for Episode 4, six people write questions for Episode 4. Pick your episode, pick your role, show up for that one. That's the whole commitment.</p>
+<div class="yt-cards yt-roles"><div class="yt-card apple-reveal"><h4>Hosts / Co-Hosts</h4><p>Lead the actual conversation. One host or two, your call.</p></div><div class="yt-card apple-reveal"><h4>Guest Researcher / Episode Lead</h4><p>Owns the episode: guest, research brief, host prep.</p></div><div class="yt-card apple-reveal"><h4>Scriptwriter / Question Writer</h4><p>Drafts the interview questions or conversation arc.</p></div><div class="yt-card apple-reveal"><h4>Audio Editor / Sound Producer</h4><p>Cleans up the recording, adds intro/outro.</p></div><div class="yt-card apple-reveal"><h4>Show Notes &amp; Transcript Writer</h4><p>Description, key takeaways, timestamps, full transcript.</p></div><div class="yt-card apple-reveal"><h4>Social Clips &amp; Promo Team</h4><p>Short clips for Instagram/TikTok, captions, promo push.</p></div><div class="yt-card apple-reveal"><h4>Translation &amp; Subtitling Team</h4><p>Brand new this season — see below.</p></div><div class="yt-card apple-reveal"><h4>Booking &amp; Outreach</h4><p>Reaches out to and coordinates with guests, scheduling.</p></div><div class="yt-card apple-reveal"><h4>Episode Cover Art</h4><p>Designs the episode-specific visual, in the YSP Talks look.</p></div><div class="yt-card apple-reveal"><h4>Listener Engagement</h4><p>Runs the Discord/Telegram thread, collects listener questions.</p></div></div>
+</div>
+</section>
+<section class="pbc-sec" id="guest" data-screen-label="06 Propose A Guest">
+<div class="pbc-wrap pbc-two">
+<div><div class="pbc-eye apple-reveal">05 / Propose a guest</div><h2 class="pbc-h2 apple-reveal">Anyone Can Pitch <em>Who We Should Talk To.</em></h2><p class="pbc-p apple-reveal">This is genuinely open — you don't have to be signed on as an episode's Guest Researcher to pitch a guest. Anyone can propose one for any open episode. If your pitch lands, you get first right of refusal on running that episode as its Guest Researcher.</p><p class="pbc-p apple-reveal">We're looking for professionals across the full range of policy work — researchers, policymakers, NGO and IGO staff, journalists covering policy, academics. Doesn't have to be someone famous. Someone doing real, specific work in the area is usually a better episode than someone with a big title and nothing new to say.</p></div>
+<div class="yt-tpl apple-reveal" style="transition-delay:.1s"><small>Guest pitch template</small><dl><dt>Who</dt><dd>Name and title/role</dd><dt>Why them</dt><dd>What they actually do, and why it connects to a policy issue young people should understand</dd><dt>Policy angle</dt><dd>Which theme or issue this conversation would dig into</dd><dt>One draft question</dt><dd>The thing you'd actually want to ask them</dd></dl></div>
+</div>
+</section>
+<section class="pbc-sec alt" id="translation" data-screen-label="07 Translation">
+<div class="pbc-wrap">
+<div class="pbc-eye apple-reveal">06 / Translation &amp; subtitling — new this season</div><h2 class="pbc-h2 apple-reveal">Every Episode, <em>In Your Language.</em></h2>
+<p class="pbc-p apple-reveal" style="margin-bottom:28px">YSP's ambassador base speaks dozens of languages between them, and right now every episode only reaches the people who understand English. That changes this season.</p>
+<div class="yt-cards"><div class="yt-card apple-reveal"><h4>Show notes translation</h4><p>Translate the episode description and key takeaways into your language</p></div><div class="yt-card apple-reveal" style="transition-delay:.06s"><h4>Transcript translation</h4><p>Full episode transcripts, translated</p></div><div class="yt-card apple-reveal" style="transition-delay:.12s"><h4>Subtitles</h4><p>Timed captions for the video/clip versions</p></div></div>
+<p class="pbc-p apple-reveal" style="margin-top:28px">Tell us which language(s) you can translate into when you sign up. You pick which episodes you want to translate — same shift-based system as every other role. No fixed workload, no obligation to do every episode.</p>
+<p class="pbc-note apple-reveal">If enough people sign up for a language, that language gets a standing "translation lead" who coordinates the others — but that's a "if it makes sense" structure, not a requirement to start.</p>
+</div>
+</section>
+<section class="pbc-sec yt-dark" id="join" data-screen-label="08 How To Join">
+<div class="pbc-wrap pbc-two">
+<div><div class="pbc-eye apple-reveal">07 / How to join</div><h2 class="pbc-h2 apple-reveal">Email Us So We Know <em>What You're Interested In.</em></h2><p class="pbc-p apple-reveal">Send your answers to youthforsustainablepolicy@gmail.com.</p><a class="yt-mail apple-reveal" href="mailto:youthforsustainablepolicy@gmail.com?subject=YSP%20Talks%20Crew">youthforsustainablepolicy@gmail.com</a></div>
+<ul class="yt-join apple-reveal" style="color:var(--ink);transition-delay:.1s"><li>Name</li><li>Preferred role(s) — pick as many as you want</li><li>Which episode(s) you're interested in (or "flexible — tell me what's open")</li><li>Languages you can translate into, if any</li><li>Guest pitch, if you have one (optional)</li></ul>
+</div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="brand">
+        <img src="assets/ysp-logo.png" alt="" />
+        <span class="word">Y<i>S</i>P</span>
+      </div>
+      <p class="blurb" style="font-family:system-ui">
+        Youth for Sustainable Policy (YSP) is a youth-led initiative empowering the next generation to engage with global challenges through research, storytelling, and policy dialogue.
+      </p>
+    </div>
+    <div>
+      <h5>Programmes</h5>
+      <ul>
+        <li><a href="/programmes">Programme Overview</a></li>
+        <li><a href="/mun">Winter MUN 2026</a></li>
+        <li><a href="/programmes#tracks">Six Tracks</a></li>
+        <li><a href="/programmes#how">How It Works</a></li>
+        <li><a href="/programmes#schools">For Schools</a></li>
+        <li><a href="/programmes#pledge">The YSP Pledge</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Organisation</h5>
+      <ul>
+        <li><a href="/about">About</a></li>
+        <li><a href="/team">Team</a></li>
+        <li><a href="/chapters">Chapters</a></li>
+        <li><a href="/careers">Careers</a></li>
+        <li><a href="/programmes#contact">Contact</a></li>
+              <li><a href="/annual-reports">Annual Reports</a></li>
+        <li><a href="/policies">Policies &amp; Declarations</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="safe-band">
+    <div class="left">
+      <span class="leaf">✦</span>
+      <span>This is a safe, moderated space for youth. For Youth, By Youth.</span>
+    </div>
+    <div>View our <a href="/community-policy">Community Policy</a> · <a href="/privacy-notice">Privacy Notice</a></div>
+  </div>
+  <div class="copy">
+    <span>© 2026 Youth for Sustainable Policy. A registered non-profit.</span>
+    <span>Made slowly, in good company.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Nav scroll state
+  const navWrap = document.getElementById('navWrap');
+  let lastScroll = -1;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY || window.pageYOffset;
+    if (y === lastScroll) return;
+    lastScroll = y;
+    if (y > 40) navWrap.classList.add('scrolled'); else navWrap.classList.remove('scrolled');
+  }, { passive:true });
+
+  // Magnetic buttons
+  document.querySelectorAll('[data-magnetic]').forEach(el => {
+    let raf=null, tx=0, ty=0, cx=0, cy=0;
+    const STR = 12;
+    function loop(){
+      tx += (cx-tx)*0.18; ty += (cy-ty)*0.18;
+      el.style.transform = 'translate(' + tx.toFixed(2) + 'px,' + ty.toFixed(2) + 'px)';
+      if (Math.abs(cx-tx)>0.05 || Math.abs(cy-ty)>0.05) raf = requestAnimationFrame(loop); else raf=null;
+    }
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      cx = ((e.clientX - (r.left + r.width/2)) / (r.width/2)) * STR;
+      cy = ((e.clientY - (r.top + r.height/2)) / (r.height/2)) * STR;
+      if (!raf) raf = requestAnimationFrame(loop);
+    });
+    el.addEventListener('mouseleave', () => { cx=0; cy=0; if (!raf) raf = requestAnimationFrame(loop); });
+  });
+
+  // Apple reveals
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting){
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.apple-reveal').forEach(el => io.observe(el));
+})();
+</script>
+<script src="mobile-nav.js"></script>
+</body>
+</html>

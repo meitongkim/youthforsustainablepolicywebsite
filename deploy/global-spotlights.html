@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Global Spotlights — YSP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,1,300;9..144,1,400&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sage:#9ab078; --sage-deep:#89a36c; --sage-soft:#b9c99e;
+    --mist:#cfdfd8; --mist-pale:#e6efe9; --paper:#fbfdfa;
+    --ink:#1f2a22; --ink-soft:#3d4b40; --ink-mute:#67756a;
+    --line:rgba(31,42,34,.10);
+    --shadow-1: 0 1px 2px rgba(31,42,34,.04), 0 8px 24px -8px rgba(31,42,34,.10);
+    --shadow-2: 0 1px 2px rgba(31,42,34,.06), 0 24px 60px -20px rgba(122,150,108,.30);
+    --ease: cubic-bezier(.2,.7,.2,1);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Inter", system-ui, -apple-system, sans-serif;
+    color:var(--ink); background:var(--paper);
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    overflow-x:hidden; font-size:16px; line-height:1.55; letter-spacing:-0.005em;
+  }
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  .serif{font-family:"Fraunces", Georgia, serif; font-weight:400; letter-spacing:-0.02em}
+
+  /* Grain */
+  .grain{
+    position:fixed; inset:0; pointer-events:none; z-index:9999;
+    opacity:.06; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12  0 0 0 0 0.16  0 0 0 0 0.13  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  /* Mesh */
+  .mesh{ position:absolute; inset:-10%; pointer-events:none; z-index:0; filter:blur(60px) saturate(1.05); opacity:.8 }
+  .mesh::before, .mesh::after, .mesh > span{ content:""; position:absolute; border-radius:50% }
+  .mesh::before{ width:55%; aspect-ratio:1; left:-8%; top:-12%; background:radial-gradient(circle, rgba(207,223,216,.95), rgba(207,223,216,0) 70%) }
+  .mesh::after{ width:60%; aspect-ratio:1; right:-12%; bottom:-18%; background:radial-gradient(circle, rgba(137,163,108,.7), rgba(137,163,108,0) 70%) }
+  .mesh > span{ width:48%; aspect-ratio:1; left:30%; top:25%; background:radial-gradient(circle, rgba(154,176,120,.5), rgba(154,176,120,0) 70%) }
+
+  /* Nav */
+  .nav-wrap{ position:fixed; top:18px; left:0; right:0; z-index:100; display:flex; justify-content:center; pointer-events:none }
+  .nav{
+    pointer-events:auto; display:flex; align-items:center; gap:8px;
+    padding:8px 8px 8px 18px;
+    background:rgba(255,255,255,.42);
+    backdrop-filter: blur(14px) saturate(1.4); -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    border:1px solid rgba(255,255,255,.55); border-radius:999px;
+    box-shadow: 0 1px 1px rgba(255,255,255,.6) inset, 0 10px 30px -12px rgba(31,42,34,.18);
+    transition: all .35s var(--ease);
+  }
+  .scrolled .nav{
+    background:rgba(255,255,255,.65);
+    backdrop-filter: blur(22px) saturate(1.6);
+    box-shadow: 0 1px 1px rgba(255,255,255,.7) inset, 0 18px 50px -18px rgba(31,42,34,.22);
+  }
+  .nav .brand{ display:flex; align-items:center; gap:10px; padding-right:14px; border-right:1px solid var(--line) }
+  .nav .brand img{ width:28px; height:28px; border-radius:8px; object-fit:cover; box-shadow:0 2px 6px rgba(31,42,34,.15) }
+  .nav .brand .word{ font-weight:600; letter-spacing:.02em; font-size:14px }
+  .nav .brand .word i{ font-style:normal; color:var(--sage-deep) }
+  .nav-links{ display:flex; align-items:center; gap:2px; padding:0 6px }
+  .nav-links a{ padding:8px 14px; border-radius:999px; font-size:13.5px; font-weight:500; color:var(--ink-soft); transition: background .25s, color .25s }
+  .nav-links a:hover, .nav-links a.active{ background:rgba(255,255,255,.7); color:var(--ink) }
+  .btn{ display:inline-flex; align-items:center; gap:8px; padding:10px 18px; border-radius:999px; font-size:13.5px; font-weight:500; transition: transform .25s var(--ease), box-shadow .25s, background .25s, filter .25s }
+  .btn-primary{ background:var(--ink); color:#fbfdfa; box-shadow: 0 1px 1px rgba(255,255,255,.18) inset, 0 8px 22px -8px rgba(31,42,34,.45) }
+  .btn-primary:hover{ background:#0f1612 }
+  .btn-forest{ background: linear-gradient(180deg, var(--sage), var(--sage-deep)); color:#fbfdfa; box-shadow: 0 1px 1px rgba(255,255,255,.35) inset, 0 10px 26px -10px rgba(137,163,108,.6) }
+  .btn-forest:hover{ filter:brightness(1.04) }
+  .btn-ghost{ color:var(--ink); background:rgba(255,255,255,.55); border:1px solid rgba(255,255,255,.7); backdrop-filter:blur(10px) }
+  .btn-ghost:hover{ background:rgba(255,255,255,.8) }
+  .btn .arr{ display:inline-block; transition: transform .25s var(--ease) }
+  .btn:hover .arr{ transform: translate(2px,-2px) }
+
+  /* Hero */
+  .hero{
+    position:relative; min-height:72vh; padding:170px 24px 90px;
+    background:
+      radial-gradient(120% 70% at 50% 0%, var(--mist) 0%, rgba(207,223,216,0) 60%),
+      linear-gradient(180deg, #f3f8ef 0%, #fbfdfa 60%);
+    overflow:hidden; isolation:isolate;
+  }
+  .hero-inner{ position:relative; z-index:2; max-width:1180px; margin:0 auto; text-align:center; display:flex; flex-direction:column; align-items:center }
+  .eyebrow-pill{
+    display:inline-flex; align-items:center; gap:10px; padding:6px;
+    background:rgba(255,255,255,.6); backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,.75); border-radius:999px;
+    box-shadow: 0 1px 1px rgba(255,255,255,.6) inset, 0 6px 18px -8px rgba(31,42,34,.15);
+    font-size:12.5px; color:var(--ink-soft); margin-bottom:32px;
+  }
+  .eyebrow-pill .tag{ display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border-radius:999px; background:var(--ink); color:#fbfdfa; font-weight:500; font-size:11.5px; letter-spacing:.04em }
+  .eyebrow-pill .tag .dot{ width:5px; height:5px; border-radius:50%; background:var(--sage) }
+  .eyebrow-pill .meta{ padding-right:14px }
+  .hero h1{
+    margin:0 0 22px; font-size: clamp(48px, 7vw, 104px);
+    line-height:1.02; letter-spacing:-0.035em; font-weight:400; color:var(--ink); max-width:14ch;
+  }
+  .hero h1 em{ font-style:italic; font-weight:300; color:var(--sage-deep) }
+  .hero p.lede{ max-width:60ch; margin:0 auto; color:var(--ink-soft); font-size:17.5px; line-height:1.65 }
+  .hero-cta{ display:flex; gap:10px; margin-top:36px; flex-wrap:wrap; justify-content:center }
+
+  /* Section base */
+  section{ position:relative; padding:130px 24px; isolation:isolate }
+  .container{ max-width:1180px; margin:0 auto; position:relative; z-index:2 }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--sage-deep); font-weight:500 }
+  .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background:var(--sage) }
+  h2.section-title{ font-size: clamp(36px, 5vw, 64px); line-height:1.04; letter-spacing:-0.028em; font-weight:400; color:var(--ink); margin:16px 0 18px; max-width:22ch }
+  h2.section-title em{ font-style:italic; color:var(--sage-deep); font-weight:300 }
+  p.section-sub{ max-width:62ch; color:var(--ink-soft); font-size:17px; margin:0 0 48px; line-height:1.65 }
+  .bg-light{ background: linear-gradient(180deg, #fbfdfa 0%, #f3f8ef 100%) }
+  .bg-mid{ background: linear-gradient(180deg, #f3f8ef 0%, #eaf1e3 100%) }
+  .bg-sage{ background: linear-gradient(180deg, #eaf1e3 0%, #d9e6cf 100%) }
+  .bg-deep{ background: linear-gradient(180deg, #d9e6cf 0%, #eaf1e3 60%, #fbfdfa 100%) }
+
+  /* ── Why YSP Matters — editorial light slab ── */
+  .why-section{
+    background:
+      radial-gradient(70% 60% at 12% 8%, rgba(207,223,216,.5), transparent 55%),
+      radial-gradient(60% 55% at 92% 95%, rgba(154,176,120,.25), transparent 55%),
+      linear-gradient(180deg, #fbfdfa 0%, #f3f8ef 100%);
+    padding:150px 24px 140px;
+  }
+  .why-marker{
+    display:inline-flex; align-items:center; gap:14px; margin-bottom:36px;
+    font-size:11.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--sage-deep); font-weight:600;
+  }
+  .why-marker .asterism{
+    font-family:"Fraunces", serif; font-weight:300; font-style:italic;
+    font-size:22px; color:var(--sage-deep); line-height:1;
+  }
+  .why-marker .label::before{
+    content:''; display:inline-block; width:28px; height:1px;
+    background:rgba(137,163,108,.5); vertical-align:middle; margin-right:14px;
+  }
+  .why-grid{
+    display:grid; grid-template-columns: minmax(280px, .82fr) minmax(0, 1.18fr); gap: 80px;
+    align-items:start;
+  }
+  .why-headline h2{
+    margin:0; font-weight:400;
+    font-size: clamp(54px, 8.5vw, 116px); line-height:.94; letter-spacing:-0.038em;
+    color:var(--ink);
+  }
+  .why-headline h2 .line{ display:block }
+  .why-headline h2 em{ font-style:italic; font-weight:300; color: var(--sage-deep) }
+  .why-aside{
+    margin-top: 36px; padding-top: 28px;
+    border-top: 1px solid var(--line);
+    display:flex; align-items:flex-start; gap:14px;
+    max-width: 36ch;
+  }
+  .why-aside .pip{
+    width:8px; height:8px; border-radius:50%; flex-shrink:0; margin-top:7px;
+    background: var(--sage); box-shadow: 0 0 0 4px rgba(154,176,120,.18);
+  }
+  .why-aside p{
+    margin:0; font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color: var(--ink-mute); line-height:1.7;
+  }
+
+  .why-body{ display:flex; flex-direction:column; gap: 26px; padding-top: 18px; max-width: 62ch }
+  .why-body p{ margin:0; font-size: 17px; line-height: 1.75; color: var(--ink-soft) }
+  .why-body p.lede{
+    font-family:"Fraunces", serif; font-weight:400;
+    font-size: clamp(22px, 2.3vw, 30px); line-height: 1.35; letter-spacing:-0.012em;
+    color:var(--ink); padding-bottom: 8px;
+  }
+  .why-body p.lede em{ font-style:italic; font-weight:300; color: var(--sage-deep) }
+  .why-body p b{ color: var(--ink); font-weight:500 }
+
+  /* Mechanisms — editorial row of 4 */
+  .mech-band{
+    background: linear-gradient(180deg, #f3f8ef 0%, #eaf1e3 100%);
+    padding:140px 24px;
+  }
+  .mech-grid{
+    display:grid; grid-template-columns: repeat(4, 1fr); gap:14px; margin-top:8px;
+  }
+  .mech-card{
+    position:relative; padding:30px 26px 32px; border-radius:22px;
+    background:rgba(255,255,255,.78); backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,.9);
+    box-shadow: var(--shadow-1);
+    display:flex; flex-direction:column; gap:10px; min-height:240px;
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+  }
+  .mech-card:hover{ transform: translateY(-4px); box-shadow: var(--shadow-2) }
+  .mech-card .num{
+    font-family:"Fraunces", serif; font-style:italic; font-weight:300;
+    font-size:28px; color:var(--sage-deep); line-height:1; letter-spacing:-0.02em;
+  }
+  .mech-card .title{
+    font-family:"Fraunces", serif; font-weight:400; font-size:24px;
+    letter-spacing:-0.018em; line-height:1.15; color:var(--ink);
+  }
+  .mech-card .title em{ font-style:italic; color:var(--sage-deep); font-weight:300 }
+  .mech-card .desc{ color:var(--ink-soft); font-size:14px; line-height:1.6; margin:0 }
+  .mech-card .footer-tag{
+    margin-top:auto; padding-top:14px;
+    font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-mute); font-weight:500;
+    border-top: 1px dashed rgba(31,42,34,.1);
+  }
+
+  /* Identity strip — what YSP is */
+  .identity-band{
+    background: linear-gradient(180deg, #eaf1e3 0%, #d9e6cf 100%);
+    padding:130px 24px;
+  }
+  .id-grid{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; margin-top:8px;
+  }
+  .id-card{
+    padding:32px 28px; border-radius:22px;
+    background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.72));
+    border:1px solid rgba(255,255,255,.95);
+    box-shadow: 0 1px 1px rgba(255,255,255,.9) inset, var(--shadow-1);
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .id-card .label{
+    display:inline-flex; align-items:center; gap:8px; align-self:flex-start;
+    padding:5px 12px; border-radius:999px;
+    background: rgba(154,176,120,.16); border:1px solid rgba(154,176,120,.28);
+    font-size:11px; color:var(--sage-deep); font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+  }
+  .id-card h3{
+    font-family:"Fraunces", serif; font-weight:400; font-size:30px;
+    letter-spacing:-0.022em; line-height:1.1; margin:0;
+  }
+  .id-card h3 em{ font-style:italic; color:var(--sage-deep); font-weight:300 }
+  .id-card p{ margin:0; color:var(--ink-soft); font-size:14.5px; line-height:1.65 }
+
+  /* Closing CTA */
+  .closing{
+    background: linear-gradient(180deg, #d9e6cf 0%, #eaf1e3 60%, #fbfdfa 100%);
+    padding:140px 24px 160px; overflow:hidden;
+  }
+  .closing .card{ position:relative; max-width:980px; margin:0 auto; text-align:center }
+  .closing h2{
+    font-family:"Fraunces", serif; font-weight:400;
+    font-size: clamp(42px, 6vw, 80px); line-height:1.04; letter-spacing:-0.03em; margin:0 0 22px;
+  }
+  .closing h2 em{ font-style:italic; color:var(--sage-deep); font-weight:300 }
+  .closing p{ color:var(--ink-soft); font-size:17px; max-width:54ch; margin:0 auto 36px; line-height:1.65 }
+  .closing-cta{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap }
+
+  /* Footer */
+  .footer{ background:var(--ink); color:#d6dcd2; padding:72px 24px 36px }
+  .footer-grid{ max-width:1180px; margin:0 auto; display:grid; grid-template-columns: 2fr 1fr 1fr; gap:48px }
+  .footer .brand{ display:flex; align-items:center; gap:12px; margin-bottom:18px }
+  .footer .brand img{ width:36px; height:36px; border-radius:10px }
+  .footer .brand .word{ font-weight:600; font-size:16px; letter-spacing:.02em; color:#fbfdfa }
+  .footer .brand .word i{ font-style:normal; color:var(--sage-soft) }
+  .footer .blurb{ color:#aab1a3; font-size:14px; max-width:38ch; line-height:1.55 }
+  .footer h5{ color:#fbfdfa; font-size:12px; letter-spacing:.18em; text-transform:uppercase; margin:0 0 14px; font-weight:500 }
+  .footer ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; font-size:14px }
+  .footer ul a{ color:#aab1a3; transition: color .2s }
+  .footer ul a:hover{ color:#fbfdfa }
+  .safe-band{
+    max-width:1180px; margin:56px auto 0; padding:18px 22px; border-radius:16px;
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10);
+    display:flex; gap:14px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+    font-size:13px; color:#d6dcd2;
+  }
+  .safe-band .left{ display:flex; align-items:center; gap:12px }
+  .safe-band .leaf{ width:24px; height:24px; border-radius:50%; background:linear-gradient(140deg, var(--sage), var(--sage-deep)); display:inline-flex; align-items:center; justify-content:center; color:#fbfdfa; font-size:12px; flex-shrink:0 }
+  .safe-band a{ color:#fbfdfa; text-decoration:underline; text-decoration-color:rgba(251,253,250,.4); text-underline-offset:3px }
+  .copy{ max-width:1180px; margin:24px auto 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12px; color:#7d857a; letter-spacing:.04em }
+
+  /* Reveals */
+  .apple-reveal{ opacity:0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); will-change: transform, opacity }
+  .is-in.apple-reveal{ opacity:1; transform: translateY(0) }
+
+  @media (max-width: 980px){
+    .nav-links{ display:none }
+    .why-grid{ grid-template-columns: 1fr; gap: 32px }
+    .why-headline h2{ font-size: clamp(48px, 11vw, 84px) }
+    .mech-grid{ grid-template-columns: 1fr 1fr }
+    .id-grid{ grid-template-columns: 1fr }
+    .footer-grid{ grid-template-columns: 1fr 1fr; gap:32px }
+  }
+  @media (max-width: 640px){
+    .mech-grid{ grid-template-columns: 1fr }
+    .hero{ padding:140px 20px 70px }
+    .why-section{ padding:110px 20px 100px }
+  }
+</style>
+<style>
+.pbc-hero{padding:150px 24px 80px}.pbc-hero h1,.pbc-h2,.pbc-cat-head h3,.pbc-track h4,.pbc-crit h4,.pbc-prize h4,.pbc-faq summary{text-transform:capitalize}.pbc-hero .hero-cta .btn,.pbc-cta .btn{white-space:nowrap}.pbc-hero .hero-inner{max-width:1080px}
+.pbc-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:44px 0 0;border-top:1px solid var(--line)}
+.pbc-facts div{padding:22px 20px 0 0}.pbc-facts .k{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:6px}.pbc-facts .v{font-family:"Fraunces",Georgia,serif;font-size:clamp(28px,3vw,40px);letter-spacing:-.02em}.pbc-facts .v em{font-style:italic;color:var(--sage-deep);font-size:.6em}
+.pbc-sec{padding:96px 24px;border-top:1px solid var(--line)}.pbc-sec.alt{background:linear-gradient(180deg,#f6f9f3,#eef4ea)}
+.pbc-wrap{max-width:1080px;margin:0 auto}
+.pbc-eye{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:18px}.pbc-eye::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--sage-deep)}
+.pbc-h2{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:clamp(34px,4.4vw,56px);line-height:1.04;letter-spacing:-.025em;margin:0 0 22px;text-wrap:balance}.pbc-h2 em{font-style:italic;color:var(--sage-deep);font-weight:300}
+.pbc-p{max-width:62ch;color:var(--ink-soft);font-size:17px;line-height:1.65;margin:0 0 14px;text-wrap:pretty}
+.pbc-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+.pbc-ul{list-style:none;margin:0;padding:0;display:grid;gap:0}.pbc-ul li{padding:16px 0;border-top:1px solid var(--line);color:var(--ink-soft);font-size:16px;line-height:1.55;display:grid;grid-template-columns:34px minmax(0,1fr)}.pbc-ul li span{font-size:12px;color:var(--sage-deep);padding-top:3px;letter-spacing:.08em}
+.pbc-prompt{margin:8px 0 0;padding:36px 40px;border-radius:24px;background:#1f2a22;color:#eef4ea;font-family:"Fraunces",Georgia,serif;font-size:clamp(22px,2.4vw,30px);line-height:1.3;letter-spacing:-.015em;text-wrap:pretty}.pbc-prompt small{display:block;font-family:"Inter",system-ui,sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-soft);margin-bottom:16px}
+.pbc-tracks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}.pbc-track{padding:26px 28px;border-radius:20px;background:rgba(255,255,255,.75);border:1px solid var(--line)}.pbc-track h4{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:26px;margin:0 0 6px}.pbc-track p{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.55}
+.pbc-crit{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.pbc-crit div{padding:26px 22px;border-radius:20px;background:rgba(255,255,255,.8);border:1px solid var(--line)}.pbc-crit .n{font-family:"Fraunces",Georgia,serif;font-size:44px;line-height:1;color:var(--sage-deep);font-style:italic;font-weight:300}.pbc-crit h4{margin:14px 0 6px;font-size:16px;font-weight:600}.pbc-crit p{margin:0;color:var(--ink-mute);font-size:13.5px}
+.pbc-note{margin-top:18px;font-size:14px;color:var(--ink-mute)}
+.pbc-tl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--ink)}.pbc-tl li{padding:20px 20px 0 0;position:relative}.pbc-tl li::before{content:"";position:absolute;top:-7px;left:0;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}.pbc-tl li.done::before{background:var(--sage-deep);border-color:var(--sage-deep)}.pbc-tl .d{display:block;font-family:"Fraunces",Georgia,serif;font-size:22px;margin-bottom:4px}.pbc-tl .t{font-size:14px;color:var(--ink-soft)}
+.pbc-cat{margin-top:56px}.pbc-cat-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:24px}.pbc-cat-head h3{font-size:clamp(28px,3vw,38px);margin:0}.pbc-cat-head h3 em{font-style:italic;color:var(--sage-deep);font-weight:300}.pbc-count{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute)}
+.pbc-podium{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.pbc-win{border-radius:22px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-1);display:flex;flex-direction:column;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}.pbc-win:hover{transform:translateY(-3px);box-shadow:var(--shadow-2)}
+.pbc-badge{display:block;aspect-ratio:1/1;background:#12301f}.pbc-badge img{width:100%;height:100%;object-fit:cover;display:block}
+.pbc-win-body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:6px;flex:1}.pbc-win-body h4{font-size:24px;margin:2px 0 0;line-height:1.15}
+.pbc-place{align-self:flex-start;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:5px 10px;border-radius:999px;background:#f3ead4;color:#7a5a12}.pbc-place.p2{background:#eceff0;color:#4a5358}.pbc-place.p3{background:#f3e3d6;color:#7a4520}
+.pbc-country{font-size:13px;color:var(--ink-mute)}.pbc-title{margin:6px 0 0;font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:16px;line-height:1.4;color:var(--ink-soft);text-wrap:pretty;flex:1}.pbc-soon{margin-top:12px;font-size:12px;color:var(--sage-deep);letter-spacing:.04em}
+.pbc-list{list-style:none;margin:22px 0 0;padding:0}.pbc-list li{display:grid;grid-template-columns:40px 56px minmax(0,1fr) auto;gap:18px;align-items:center;padding:14px 0;border-top:1px solid var(--line)}.pbc-list li:last-child{border-bottom:1px solid var(--line)}
+.pbc-rank{font-family:"Fraunces",Georgia,serif;font-size:22px;color:var(--ink-mute)}.pbc-thumb{display:block;width:56px;height:56px;border-radius:12px;overflow:hidden;background:#12301f}.pbc-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.pbc-li-main{display:flex;flex-direction:column;gap:2px;min-width:0}.pbc-li-main b{font-weight:400;font-size:19px}.pbc-li-main span{font-size:14px;color:var(--ink-soft);font-style:italic}
+.pbc-prizes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.pbc-prize{padding:30px 26px;border-radius:22px;background:rgba(255,255,255,.8);border:1px solid var(--line)}.pbc-prize .i{font-size:12px;letter-spacing:.16em;color:var(--sage-deep)}.pbc-prize h4{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:28px;margin:14px 0 0}
+.pbc-faq{border-top:1px solid var(--line)}.pbc-faq details{border-bottom:1px solid var(--line)}.pbc-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-family:"Fraunces",Georgia,serif;font-size:21px}.pbc-faq summary::-webkit-details-marker{display:none}.pbc-faq summary::after{content:"+";color:var(--sage-deep);font-size:24px;line-height:1;transition:transform .25s}.pbc-faq details[open] summary::after{transform:rotate(45deg)}.pbc-faq p{margin:0 0 22px;max-width:66ch;color:var(--ink-soft);font-size:16px;line-height:1.65}
+.pbc-cta{padding:110px 24px;text-align:center;background:radial-gradient(80% 90% at 50% 0%,#dfe9d4,#f3f8ef 70%)}.pbc-cta .pbc-h2{margin-left:auto;margin-right:auto;max-width:18ch}.pbc-cta .pbc-p{margin:0 auto 28px}.pbc-cta .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+@media (max-width:900px){.pbc-facts,.pbc-crit,.pbc-tl{grid-template-columns:repeat(2,minmax(0,1fr))}.pbc-tl li{padding-bottom:20px}.pbc-two,.pbc-podium,.pbc-prizes,.pbc-tracks{grid-template-columns:minmax(0,1fr)}.pbc-two{gap:28px}.pbc-list li{grid-template-columns:32px 48px minmax(0,1fr);gap:12px}.pbc-list .pbc-country{grid-column:3}.pbc-thumb{width:48px;height:48px}}
+</style>
+<style id="btn-caps">.btn,.pbc-feat-btn,.btn-primary,.btn-forest,.btn-ghost{text-transform:capitalize}</style>
+<style>
+a{color:inherit}a:hover{color:var(--sage-deep)}
+.gs-acts .btn{white-space:nowrap;justify-content:center}.gs-acts{display:flex;flex-direction:column;gap:10px;align-items:stretch}.gs-essay{max-width:720px}.gs-body p{font-family:"Fraunces",Georgia,serif;font-size:19px;line-height:1.7;color:var(--ink-soft);margin:0 0 20px;text-wrap:pretty}.gs-body p:first-child::first-letter{float:left;font-size:64px;line-height:.9;padding:6px 10px 0 0;color:var(--sage-deep)}.gs-doc{max-width:960px}.gs-body h3{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:24px;margin:34px 0 12px;color:var(--ink)}.gs-body ul{margin:0 0 20px;padding-left:20px;color:var(--ink-soft);font-size:17px;line-height:1.65}.gs-body li{margin-bottom:8px}.gs-doc .gs-body p:first-child::first-letter{float:none;font-size:inherit;padding:0;color:inherit}.gs-tbl{overflow-x:auto;margin:0 0 8px;border-radius:18px;border:1px solid var(--line);background:#fff}.gs-tbl table{width:100%;border-collapse:collapse;min-width:640px}.gs-tbl th{text-align:left;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);font-weight:500;padding:14px 18px;border-bottom:1px solid var(--line)}.gs-tbl td{padding:14px 18px;border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5;color:var(--ink-soft);vertical-align:top}.gs-tbl tr:last-child td{border-bottom:0}.gs-tbl td:first-child{color:var(--ink);font-weight:600;width:24%}
+.gs-refs{margin-top:36px;padding-top:22px;border-top:1px solid var(--line)}.gs-refs small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:10px}.gs-refs ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}.gs-refs .ref{display:inline-flex;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:14px;color:var(--ink-soft)}.gs-refs a{display:inline-flex;gap:6px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:14px}
+@media(max-width:860px){.gs-acts .btn{white-space:nowrap;justify-content:center}.gs-acts{flex-direction:row;flex-wrap:wrap}.gs-body p{font-size:17px}}
+.gs-list{display:grid;gap:18px}.gs-card{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:32px;align-items:start;padding:34px 36px;border-radius:24px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-1)}
+.gs-no{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:300;font-size:56px;line-height:.9;color:var(--sage-deep)}.gs-no small{display:block;font-family:"Inter",system-ui,sans-serif;font-style:normal;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px}
+.gs-card h3{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:clamp(24px,2.6vw,32px);line-height:1.12;letter-spacing:-.02em;margin:0 0 10px;text-wrap:balance}.gs-by{font-size:13px;letter-spacing:.04em;color:var(--ink-mute);margin:0 0 14px}.gs-by b{color:var(--ink);font-weight:600}.gs-card p.s{margin:0;color:var(--ink-soft);font-size:16px;line-height:1.65;max-width:60ch;text-wrap:pretty}
+.gs-topics{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.gs-topics span{padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.8);border:1px solid var(--line);font-size:13.5px;color:var(--ink-soft)}
+.yt-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.yt-card{padding:24px 24px 26px;border-radius:20px;background:rgba(255,255,255,.85);border:1px solid var(--line)}.yt-card h4{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:21px;margin:0 0 8px;line-height:1.2}.yt-card p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.55}
+.yt-roles{grid-template-columns:repeat(2,minmax(0,1fr))}
+.yt-sched{width:100%;border-collapse:collapse;background:#fff;border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-1)}.yt-sched th{text-align:left;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);font-weight:500;padding:18px 22px;border-bottom:1px solid var(--line)}.yt-sched td{padding:16px 22px;border-bottom:1px solid var(--line);vertical-align:top;font-size:15.5px;color:var(--ink-soft)}.yt-sched tr:last-child td{border-bottom:0}.yt-sched td.ep{font-family:"Fraunces",Georgia,serif;font-size:26px;color:var(--sage-deep);width:64px;line-height:1}.yt-sched td.dt{white-space:nowrap;width:130px;color:var(--ink);font-weight:500}
+.yt-tpl{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px 28px;box-shadow:var(--shadow-1)}.yt-tpl small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:10px}.yt-tpl dl{margin:0;display:grid;grid-template-columns:150px minmax(0,1fr)}.yt-tpl dt,.yt-tpl dd{margin:0;padding:12px 0;border-top:1px solid var(--line);font-size:15px}.yt-tpl dt{font-weight:600}.yt-tpl dd{color:var(--ink-soft)}
+.yt-join{list-style:none;margin:0;padding:0;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-1)}.yt-join li{padding:18px 26px;border-top:1px solid var(--line);font-size:16px}.yt-join li:first-child{border-top:0}
+.yt-dark{background:#1f2a22;color:#eef4ea;border-top:0}.yt-dark .pbc-h2{color:#eef4ea}.yt-dark .pbc-h2 em{color:var(--sage-soft)}.yt-dark .pbc-p{color:#c9d6c6}.yt-dark .pbc-eye{color:var(--sage-soft)}.yt-dark .pbc-eye::before{background:var(--sage-soft)}
+.yt-mail{display:inline-flex;margin-top:10px;padding:16px 28px;border-radius:999px;background:var(--sage);color:#1f2a22;font-weight:500;font-size:16px}.yt-mail:hover{color:#1f2a22;filter:brightness(1.06)}
+@media(max-width:860px){.gs-card{grid-template-columns:1fr;gap:14px;padding:28px 24px}.yt-cards,.yt-roles{grid-template-columns:1fr}.pbc-two{grid-template-columns:1fr;gap:24px}.yt-tpl dl{grid-template-columns:1fr}.yt-tpl dd{border-top:0;padding-top:0}.yt-sched td.dt{white-space:normal;width:auto}.yt-sched th:nth-child(1),.yt-sched td.ep{width:44px;padding-right:6px}.pbc-facts{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
+<style>
+.gs-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:26px}.gs-head .pbc-h2{margin:0}
+.gs-ctrl{display:flex;gap:8px;align-items:center}.gs-ctrl button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:18px;box-shadow:var(--shadow-1);transition:transform .2s var(--ease),opacity .2s}.gs-ctrl button:hover{transform:translateY(-2px)}.gs-ctrl button:disabled{opacity:.35;transform:none;cursor:default}.gs-ctrl .ct{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);min-width:64px;text-align:center}
+.gs-list{display:grid;grid-auto-flow:column;grid-auto-columns:min(400px,82%);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 2px;padding:6px 2px 26px;margin:0 -2px;scrollbar-width:none;overscroll-behavior-x:contain}.gs-list::-webkit-scrollbar{display:none}
+.gs-list .gs-card{scroll-snap-align:start;grid-template-columns:1fr;gap:16px;padding:28px 26px;align-content:start;transition:transform .45s var(--ease),box-shadow .45s var(--ease),opacity .45s var(--ease)}
+.gs-list .gs-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-2)}
+.gs-list .gs-card h3{font-size:24px}.gs-list .gs-card p.s{font-size:15px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.gs-list .gs-no{font-size:44px;display:flex;align-items:baseline;justify-content:space-between}.gs-list .gs-no small{margin:0}
+.gs-list .gs-acts{flex-direction:row;flex-wrap:wrap;margin-top:auto}
+.gs-list .gs-card>div:nth-child(2){flex:1}
+.gs-prog{height:2px;background:var(--line);border-radius:2px;overflow:hidden;margin-top:4px}.gs-prog i{display:block;height:100%;width:0;background:var(--sage-deep);transition:width .3s var(--ease)}
+.gs-arch{margin-top:56px}.gs-arch h3{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:28px;margin:0 0 16px}.gs-arch ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}.gs-arch a{display:grid;grid-template-columns:70px minmax(0,1fr) minmax(0,220px) 24px;gap:18px;align-items:baseline;padding:16px 4px;border-bottom:1px solid var(--line);transition:background .2s,padding .2s var(--ease)}.gs-arch a:hover{background:rgba(255,255,255,.7);padding-left:12px;color:var(--ink)}.gs-arch .n{font-family:"Fraunces",Georgia,serif;font-style:italic;color:var(--sage-deep);font-size:20px}.gs-arch .t{font-family:"Fraunces",Georgia,serif;font-size:18px;line-height:1.3}.gs-arch .a{font-size:13.5px;color:var(--ink-mute)}.gs-arch .ar{color:var(--sage-deep)}
+@media(max-width:700px){.gs-arch a{grid-template-columns:44px minmax(0,1fr)}.gs-arch .a{grid-column:2}.gs-arch .ar{display:none}}
+</style>
+<style>
+.gs-pull{margin:8px 0 30px;padding:0 0 0 0;font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:300;font-size:clamp(24px,2.8vw,34px);line-height:1.25;letter-spacing:-.015em;color:var(--sage-deep);text-wrap:balance}
+.gs-hook{font-family:"Fraunces",Georgia,serif!important;font-style:italic;font-size:18px!important;line-height:1.45!important;color:var(--ink)!important}
+.gs-essay .gs-body{transition:max-height .7s var(--ease)}
+.gs-essay.is-collapsed .gs-body{max-height:260px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 40%,transparent);mask-image:linear-gradient(180deg,#000 40%,transparent)}
+.gs-essay.is-collapsed .gs-refs{display:none}
+.gs-more{display:inline-flex;gap:8px;align-items:center;margin-top:8px;padding:12px 22px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:14px;font-weight:500;box-shadow:var(--shadow-1);transition:transform .2s var(--ease)}.gs-more:hover{transform:translateY(-2px)}.gs-more .arr{transition:transform .3s var(--ease)}.gs-essay:not(.is-collapsed) .gs-more .arr{transform:rotate(180deg)}
+</style>
+<link rel="stylesheet" href="site-footer.css">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Nav -->
+<div class="nav-wrap" id="navWrap">
+  <nav class="nav">
+    <a class="brand" href="/">
+      <img src="assets/ysp-logo.png" alt="" />
+      <span class="word">Y<i>S</i>P</span>
+    </a>
+    <div class="nav-links">
+      <a href="/programmes">Programmes</a>
+      <a href="/team">Team</a>
+      <a href="/careers">Careers</a>
+      <a href="/about">About</a>
+    </div>
+    <a href="https://forms.gle/rKPHAxvj6NaM9Dd66" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-magnetic>Join YSP <span class="arr">↗</span></a>
+  </nav>
+</div>
+
+<section class="hero pbc-hero" data-screen-label="01 Spotlights Hero">
+<div class="mesh" aria-hidden="true"><span></span></div>
+<div class="hero-inner">
+<div class="eyebrow-pill apple-reveal"><span class="tag"><span class="dot"></span>Ambassador Writing</span><span class="meta">Published monthly</span></div>
+<h1 class="serif apple-reveal" style="transition-delay:.1s">Global <em>Spotlights.</em></h1>
+<p class="lede apple-reveal" style="transition-delay:.2s">Global Spotlight is a monthly feature for Ambassador writing on policy, sustainability, civic engagement, education, youth leadership, climate action, and international affairs.</p>
+<div class="hero-cta apple-reveal" style="transition-delay:.28s"><a href="#essays" class="btn btn-forest" data-magnetic>Read The Spotlights <span class="arr">↘</span></a><a href="https://forms.gle/D93QBtq76J3QJGSM6" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Submit Your Spotlight ▸</a></div>
+</div>
+</section>
+<section class="pbc-sec" id="essays" data-screen-label="02 Spotlights">
+<div class="pbc-wrap">
+<div class="pbc-eye apple-reveal">01 / The Spotlights</div><div class="gs-head apple-reveal"><h2 class="pbc-h2">Essays From <em>Our Ambassadors.</em></h2><div class="gs-ctrl"><button type="button" id="gsPrev" aria-label="Previous">←</button><span class="ct" id="gsCt">1 / 8</span><button type="button" id="gsNext" aria-label="Next">→</button></div></div>
+<div class="gs-list">
+<article class="gs-card apple-reveal"><div class="gs-no"><small>Spotlight</small>No. 08</div><div><h3>From Policy to Action: Malaysian Youth Driving Sustainability</h3><p class="gs-by">By <b>Afiq Danial bin Nasir</b> · Ambassador · 20 · Malaysia</p><p class="s gs-hook">“In reality, it is also a governance issue, an education issue, and a participation issue.”</p></div><div class="gs-acts"><a class="btn btn-forest" href="#spotlight-08">Read The Essay <span class="arr">↘</span></a></div></article>
+<article class="gs-card apple-reveal"><div class="gs-no"><small>Spotlight</small>No. 07</div><div><h3>KPI Evaluation Framework for Members of Parliament in Zambia</h3><p class="gs-by">By <b>Cynthia Ng’andwe</b> · Ambassador · 23 · Zambia</p><p class="s gs-hook">“Vote Based on Performance, Not Promises – Assess MPs based on real achievements, not campaign rhetoric.”</p></div><div class="gs-acts"><a class="btn btn-forest" href="#spotlight-07">Read The Essay <span class="arr">↘</span></a></div></article>
+<article class="gs-card apple-reveal"><div class="gs-no"><small>Spotlight</small>No. 06</div><div><h3>What Is the UK Climate Change Act and Why Does It Matter?</h3><p class="gs-by">By <b>Aiyesha Kaur Swarnn</b> · Ambassador · 25 · United Kingdom</p><p class="s gs-hook">“Climate targets set the destination, but meaningful action determines whether we get there.”</p></div><div class="gs-acts"><a class="btn btn-forest" href="#spotlight-06">Read The Essay <span class="arr">↘</span></a></div></article>
+<article class="gs-card apple-reveal"><div class="gs-no"><small>Spotlight</small>No. 05</div><div><h3>The Melting Water Towers: Glacial Volatility and the Crisis of Governance in the Nepal Himalayas</h3><p class="gs-by">By <b>Ankur Koirala</b> · Ambassador · 28 · Nepal</p><p class="s gs-hook">“We are the first responders to a crisis we did not cause, using resources we did not have.”</p></div><div class="gs-acts"><a class="btn btn-forest" href="#spotlight-05">Read The Essay <span class="arr">↘</span></a></div></article>
+<article class="gs-card apple-reveal"><div class="gs-no"><small>Spotlight</small>No. 04</div><div><h3>Decent Work Isn't Just About Jobs: What Malawi's Young People Need from Sustainable Development Policy</h3><p class="gs-by">By <b>Mike Store</b> · Ambassador · 22 · Malawi</p><p class="s gs-hook">“What kind of work are we creating, and does it build dignified and meaningful lives for young people?”</p></div><div class="gs-acts"><a class="btn btn-forest" href="#spotlight-04">Read The Essay <span class="arr">↘</span></a></div></article>
+<article class="gs-card apple-reveal"><div class="gs-no"><small>Spotlight</small>No. 03</div><div><h3>The Future Is Sitting in Our Classrooms</h3><p class="gs-by">By <b>Tuyizere Schadrack</b> · Ambassador · 19 · Rwanda</p><p class="s gs-hook">“The future is not far away. It is sitting in our classrooms today.”</p></div><div class="gs-acts"><a class="btn btn-forest" href="#spotlight-03">Read The Essay <span class="arr">↘</span></a><a class="btn btn-ghost" href="https://lnkd.in/p/g_-d_Jcn" target="_blank" rel="noopener noreferrer">LinkedIn <span class="arr">↗</span></a></div></article>
+<article class="gs-card apple-reveal"><div class="gs-no"><small>Spotlight</small>No. 02</div><div><h3>From Climate Awareness to Climate Action: The Role of Rwanda’s Youth</h3><p class="gs-by">By <b>Ndatimana Fabrice</b> · Ambassador · 19 · Rwanda</p><p class="s gs-hook">“Climate action should not be something young people only learn about. It should be something they are empowered to help shape.”</p></div><div class="gs-acts"><a class="btn btn-forest" href="#spotlight-02">Read The Essay <span class="arr">↘</span></a><a class="btn btn-ghost" href="https://lnkd.in/p/gvH2C2Bh" target="_blank" rel="noopener noreferrer">LinkedIn <span class="arr">↗</span></a></div></article>
+<article class="gs-card apple-reveal"><div class="gs-no"><small>Spotlight</small>No. 01</div><div><h3>The Myth of the Personal Carbon Footprint</h3><p class="gs-by">By <b>Shubhanyu Chandra</b> · Ambassador · 15 · New Zealand</p><p class="s gs-hook">“Consumerism was spoonfed to humans for generations by companies who make billions of dollars off it.”</p></div><div class="gs-acts"><a class="btn btn-forest" href="#spotlight-01">Read The Essay <span class="arr">↘</span></a><a class="btn btn-ghost" href="https://lnkd.in/p/g-BwCM3D" target="_blank" rel="noopener noreferrer">LinkedIn <span class="arr">↗</span></a></div></article>
+</div>
+<div class="gs-prog"><i id="gsBar"></i></div>
+<div class="gs-arch apple-reveal"><h3>Archive</h3><ol id="gsArch"></ol></div>
+</div>
+</section>
+<section class="pbc-sec alt" id="spotlight-08" data-screen-label="Spotlight No. 08">
+<div class="pbc-wrap gs-essay is-collapsed">
+<div class="pbc-eye apple-reveal">Global Spotlight · No. 08</div><h2 class="pbc-h2 apple-reveal">From Policy to Action: <em>Malaysian Youth Driving Sustainability.</em></h2>
+<p class="gs-by apple-reveal">By <b>Afiq Danial bin Nasir</b> · Ambassador · 20 · Malaysia</p>
+<blockquote class="gs-pull apple-reveal">“In reality, it is also a governance issue, an education issue, and a participation issue.”</blockquote>
+<div class="gs-body"><p>Malaysia’s sustainability agenda is often considered as if it were prominently an environmental issue. In reality, it is also a governance issue, an education issue, and a participation issue. Malaysia does not simply require more awareness in regards to sustainable development, but a stronger public sense of responsibility about sustainability, with emphasis on the young people who will be the ones living in the future with the repercussions of today’s sustainable policy position.</p><p>First and foremost, Important roles in Malaysia's sustainable landscape are already occupied by the youth. They do not belong to the marginal group waiting to be referred to at the final part of the process, but a leading social electorate with the great potential to influence public priorities, social etiquette and long-term development of the culture. According to Ahmad et al. (2025), he argued that the youth stance deserve proper recognition as young people make up almost half of the population and are stationed to carry out the leadership roles in environmental sustainability. If the youth population of Malaysia are not meaningfully engaged in this important effort, sustainability remains as something proclaimed from an isolated decision makers rather than practiced across society.</p><p>Subsequently, there are suggestions that highlight the engagement of the Malaysian youth in the sustainability agenda with the emphasis on their uneven involvement in the effort. University students seem to possess a marginal comprehension of the Sustainable development Goals (SDG), with educational establishments and social media platforms performing as their primary sources of exposure (Ismail et al., 2022). Nevertheless, awareness alone does not guarantee depth of insight, also environment - related SDG’s still require greater attention than they currently receive.</p><p>Youth-led SDG programmes in Malaysia found that youth movements do engage national and global SDG collaborators, yet their engagement remains limited (Yusuf &amp; Harsono, 2022). More precisely, youth participation is present, however it is not yet fully incorporated into the wider system of decision-making and implementation.</p><p>Furthermore, volunteerism offers one practical and reliable bridge between youth energy and policy delivery. Malaysian work in SDG-based volunteerism describes volunteering as a channel that unites people into planning and decision-making processes while establishing interaction between government and the public (Thomas &amp; Ghazali, 2024). Simultaneously, youth engagement cannot be prolonged by structure alone as communication matters. This is due to the barriers established by limited access to policy information, as well as weak perceived agency. Clearer communication, mainstream youth spaces such as social media needed to be regarded as a better model of communication, with a shift from top to down authority to capacity-sharing that regards young people as partners rather than passive audiences.</p><p>Therefore, Malaysia’s sustainable future will depend not only on the existing policies, but also on who is trusted to carry them forward to a better outcome. An extremely reliable national approach should be the gamechanger in viewing youth as the hope of the nation in terms of sustainable future rather than viewing them as campaign audiences. Youth should be treated as important figures in governance and to the everyday culture that sustainable requires. The change would definitely not solve every policy gap, but it will definitely bring Malaysia closer to a sustainability model that is durable and better grounded in the society it is trying to transform.</p></div>
+<button type="button" class="gs-more" aria-expanded="false"><span>Read The Full Essay</span> <span class="arr">↓</span></button>
+<div class="gs-refs"><small>References</small><ul><li><a href="https://doi.org/10.32890/jeth2025.5.2" target="_blank" rel="noopener noreferrer">Ahmad, Yusof &amp; Ramely (2025) — Malaysian youth perceptions of solutions to environmental issues <span class="arr">↗</span></a></li><li><a href="https://doi.org/10.21834/ebpj.v7i19.3240" target="_blank" rel="noopener noreferrer">Ismail et al. (2022) — Youth and their knowledge on the SDGs <span class="arr">↗</span></a></li><li><a href="https://doi.org/10.54313/journalmp.v4i.128" target="_blank" rel="noopener noreferrer">Thomas &amp; Ghazali (2024) — Youth participation in SDG-oriented volunteerism <span class="arr">↗</span></a></li><li><a href="https://doi.org/10.21834/ebpj.v7i19.3214" target="_blank" rel="noopener noreferrer">Yusof &amp; Harsono (2022) — Stakeholder engagement in youth-led SDG programmes <span class="arr">↗</span></a></li></ul></div>
+</div>
+</section>
+<section class="pbc-sec" id="spotlight-07" data-screen-label="Spotlight No. 07">
+<div class="pbc-wrap gs-essay is-collapsed gs-doc">
+<div class="pbc-eye apple-reveal">Global Spotlight · No. 07</div><h2 class="pbc-h2 apple-reveal">KPI Evaluation Framework <em>for Members of Parliament in Zambia.</em></h2>
+<p class="gs-by apple-reveal">By <b>Cynthia Ng’andwe</b> · Ambassador · 23 · Zambia</p>
+<blockquote class="gs-pull apple-reveal">“Vote Based on Performance, Not Promises – Assess MPs based on real achievements, not campaign rhetoric.”</blockquote>
+<div class="gs-body"><h3>Introduction</h3><p>This framework is designed to assist voters, civil society organizations, and oversight bodies assess and evaluate the performance of Members of Parliament (MPs) in Zambia. It evaluates MPs based on legislative performance, constituency service, accountability, integrity, and public trust.</p>
+<h3>Key Performance Indicators (KPIs)</h3>
+<h3>1. Legislative Performance (30%)</h3><div class="gs-tbl"><table><thead><tr><th>KPI</th><th>Description</th><th>Target</th><th>Data source</th></tr></thead><tbody><tr><td>Bills Sponsored &amp; Passed</td><td>Number of bills introduced and successfully passed into law that benefit constituents.</td><td>Minimum of 2 per term</td><td>Parliamentary records</td></tr><tr><td>Parliamentary Attendance</td><td>Percentage of sessions attended.</td><td>At least 80% attendance</td><td>National Assembly attendance records</td></tr><tr><td>Committee Participation</td><td>Active involvement in parliamentary committees.</td><td>Member of at least 2 key committees</td><td>Committee reports</td></tr><tr><td>Policy Advocacy &amp; Debate Contributions</td><td>Number of times the MP contributes to important debates.</td><td>At least 5 major contributions per year</td><td>Hansard reports</td></tr></tbody></table></div>
+<h3>2. Constituency Service &amp; Development (30%)</h3><div class="gs-tbl"><table><thead><tr><th>KPI</th><th>Description</th><th>Target</th><th>Data source</th></tr></thead><tbody><tr><td>Constituency Engagement</td><td>Number of meetings/town halls held with constituents.</td><td>Minimum of 4 per year</td><td>Constituency reports</td></tr><tr><td>Development Projects Initiated</td><td>Infrastructure, health, and education projects facilitated.</td><td>Minimum of 2 major projects per term</td><td>Government &amp; NGO reports</td></tr><tr><td>Utilization of CDF (Constituency Development Fund)</td><td>Transparent and effective use of CDF in line with national development priorities.</td><td>At least 90% utilization</td><td>Ministry of Local Government &amp; CDF reports</td></tr><tr><td>Response to Constituents' Concerns</td><td>Time taken to address public complaints and service requests.</td><td>Within 30 days</td><td>Constituency office records</td></tr></tbody></table></div>
+<h3>3. Accountability &amp; Transparency (20%)</h3><div class="gs-tbl"><table><thead><tr><th>KPI</th><th>Description</th><th>Target</th><th>Data source</th></tr></thead><tbody><tr><td>Public Financial Reporting</td><td>Disclosure of how public funds (CDF) are utilized.</td><td>Annual financial report published</td><td>Auditor General’s reports</td></tr><tr><td>Conflict of Interest Declarations</td><td>Declaration of business interests to avoid corruption.</td><td>Annually submitted</td><td>Anti-Corruption Commission (ACC)</td></tr><tr><td>Whistleblower Responsiveness</td><td>Action taken on reported corruption and governance concerns.</td><td>100% response to valid complaints</td><td>ACC &amp; Transparency International Zambia reports</td></tr></tbody></table></div>
+<h3>4. Integrity &amp; Ethical Conduct (10%)</h3><div class="gs-tbl"><table><thead><tr><th>KPI</th><th>Description</th><th>Target</th><th>Data source</th></tr></thead><tbody><tr><td>No Record of Corruption</td><td>Absence of corruption charges or ethical violations.</td><td>0 corruption cases</td><td>ACC &amp; Judiciary reports</td></tr><tr><td>No Political Violence or Hate Speech</td><td>Maintaining peace and respectful discourse.</td><td>0 incidents</td><td>Electoral Commission of Zambia (ECZ) &amp; media reports</td></tr></tbody></table></div>
+<h3>5. Public Trust &amp; Media Perception (10%)</h3><div class="gs-tbl"><table><thead><tr><th>KPI</th><th>Description</th><th>Target</th><th>Data source</th></tr></thead><tbody><tr><td>Public Trust Rating</td><td>Citizen perception of MP’s performance.</td><td>At least 60% approval rating</td><td>Civil society &amp; opinion polls</td></tr><tr><td>Media Presence &amp; Policy Advocacy</td><td>Engagement in media to discuss development and policy issues.</td><td>At least 6 interviews/articles per year</td><td>Media houses &amp; social media</td></tr></tbody></table></div>
+<h3>Final Evaluation &amp; Scoring System</h3><p>Each MP’s performance is assessed based on the weightings above. The total score is calculated as follows:</p>
+<ul><li><b>Excellent (80–100%)</b> – High-performing MP with strong legislative, development, and accountability records.</li><li><b>Good (60–79%)</b> – Satisfactory performance with room for improvement.</li><li><b>Average (40–59%)</b> – Below expectations; needs better engagement and transparency.</li><li><b>Poor (Below 40%)</b> – Failing to serve the people effectively.</li></ul>
+<h3>How Zambian Voters Can Use This Framework</h3>
+<ul><li><b>Follow Parliamentary Reports</b> – Check the National Assembly of Zambia website for MP records.</li><li><b>Monitor CDF Usage</b> – Engage local council offices to verify CDF projects.</li><li><b>Engage in Public Discussions</b> – Attend town halls and community meetings to question MPs.</li><li><b>Use Media &amp; Social Platforms</b> – Follow news and social discussions on MP performance.</li><li><b>Vote Based on Performance, Not Promises</b> – Assess MPs based on real achievements, not campaign rhetoric.</li></ul>
+<p>This framework provides a structured way to evaluate Members of Parliaments in Zambia, ensuring voters make informed decisions during elections. This framework is subject to review and more recommendation from policy experts and other technocrats and will require a lot of effort by various stakeholders for it to become a tool that will leaders be accountable.</p></div>
+<button type="button" class="gs-more" aria-expanded="false"><span>Read The Full Essay</span> <span class="arr">↓</span></button>
+<div class="gs-refs"><small>References</small><ul><li><span class="ref">National Assembly of Zambia</span></li></ul></div>
+</div>
+</section>
+<section class="pbc-sec alt" id="spotlight-06" data-screen-label="Spotlight No. 06">
+<div class="pbc-wrap gs-essay is-collapsed">
+<div class="pbc-eye apple-reveal">Global Spotlight · No. 06</div><h2 class="pbc-h2 apple-reveal">What Is the UK Climate Change Act <em>and Why Does It Matter?</em></h2>
+<p class="gs-by apple-reveal">By <b>Aiyesha Kaur Swarnn</b> · Ambassador · 25 · United Kingdom</p>
+<blockquote class="gs-pull apple-reveal">“Climate targets set the destination, but meaningful action determines whether we get there.”</blockquote>
+<div class="gs-body"><p>The Climate Change Act 2008 is one of the UK's most important pieces of climate legislation. But what does it actually do?</p><p>Put simply, the Act created a legal framework for the UK to reduce greenhouse gas emissions and prepare for the impacts of climate change. It originally committed the UK to reducing greenhouse gas emissions by at least 80% by 2050. In 2019, this was strengthened to a net-zero emissions target by 2050.</p><p>One of the Act's most important features is the system of carbon budgets. Rather than only setting a long-term target, the UK sets limits on the amount of greenhouse gases that can be emitted over successive five-year periods. This creates a pathway towards the 2050 target and allows progress to be assessed along the way.</p><p>For example, if the UK wants to reach net zero by 2050, it cannot wait until 2049 to begin reducing emissions. Carbon budgets encourage action now across sectors such as energy, transport, buildings and industry.</p><p>The Act also established the Climate Change Committee (CCC), an independent body that advises the government on emissions targets and monitors progress. This provides an important mechanism for assessing whether government policies are consistent with the UK's climate commitments.</p><p>Why does this matter to young people? Climate policy is ultimately about shaping the conditions in which future generations will live. Decisions about energy, transport, housing and infrastructure made today will influence both the UK's emissions and the opportunities available to young people tomorrow.</p><p>The Climate Change Act demonstrates how legislation can turn climate ambitions into long-term policy commitments. However, having a legal target is only the beginning. The challenge is ensuring that government action, investment and everyday policies are strong enough to meet it.</p><p>Climate targets set the destination, but meaningful action determines whether we get there.</p></div>
+<button type="button" class="gs-more" aria-expanded="false"><span>Read The Full Essay</span> <span class="arr">↓</span></button>
+<div class="gs-refs"><small>References</small><ul><li><a href="https://www.theccc.org.uk/climate-action/" target="_blank" rel="noopener noreferrer">Climate Change Committee — Climate action <span class="arr">↗</span></a></li><li><a href="https://www.legislation.gov.uk/ukpga/2008/27/contents" target="_blank" rel="noopener noreferrer">Climate Change Act 2008 — legislation.gov.uk <span class="arr">↗</span></a></li><li><a href="https://bills.parliament.uk/bills/195" target="_blank" rel="noopener noreferrer">UK Parliament — Bill 195 <span class="arr">↗</span></a></li><li><a href="https://www.lse.ac.uk/granthaminstitute/explainers/what-is-the-2008-climate-change-act/" target="_blank" rel="noopener noreferrer">LSE Grantham Institute — What is the 2008 Climate Change Act? <span class="arr">↗</span></a></li><li><a href="https://www.theccc.org.uk/publication/progress-in-reducing-emissions-2026-report-to-parliament/" target="_blank" rel="noopener noreferrer">CCC — Progress in reducing emissions: 2026 report to Parliament <span class="arr">↗</span></a></li></ul></div>
+</div>
+</section>
+<section class="pbc-sec" id="spotlight-05" data-screen-label="Spotlight No. 05">
+<div class="pbc-wrap gs-essay is-collapsed">
+<div class="pbc-eye apple-reveal">Global Spotlight · No. 05 · Rasuwa District</div><h2 class="pbc-h2 apple-reveal">The Melting Water Towers: <em>Glacial Volatility and the Crisis of Governance in the Nepal Himalayas.</em></h2>
+<p class="gs-by apple-reveal">By <b>Ankur Koirala</b> · Ambassador · 28 · Nepal</p>
+<blockquote class="gs-pull apple-reveal">“We are the first responders to a crisis we did not cause, using resources we did not have.”</blockquote>
+<div class="gs-body"><p>From a young age, we in the mountain region are told that the Himalayas are the eternal “Water Towers of Asia”, a permanent source of life for the billions downstream. We are taught to take pride in their majesty. But as the climate crisis accelerates, that pride is being replaced by a profound sense of precarity. In Nepal, and specifically in the Rasuwa District, climate change is no longer a distant academic threat or a challenge for the future generations to navigate. That distance has vanished.</p><p>As glaciers in the Langtang and Ganesh Himal ranges undergo unprecedented thinning and the Trishuli River basin becomes increasingly volatile, we are forced to confront a blunt reality: a warming Himalaya is no longer just an ecological point of observation. It is a systemic crisis of governance, energy, and security, and with the recent destructive flooding – also a crisis of survival.</p><p>The instability unfolding in our high-altitude landscapes is driven by a phenomenon known as “Elevation Dependent Warming” (EDW). While global climate summits focus on the 1.5°C average, the reality is that high-altitude terrains like Rasuwa are warming at a significantly faster rate than the global mean. This is not a theoretical curiosity for the scientific community; it is an existential threat to the lifeblood of Nepal’s economy. The Trishuli River corridor – a vital artery for national hydropower and trans-border state – now sits directly in the path of the potential Glacial Lake Outburst Floods (GLOFs) and catastrophic debris flows. When these glaciers retreat, they leave behind unstable proglacial lakes and self-formed embankments, essentially ticking bombs held back by the fragile natural dams of ice and loose rock.</p><p>However, to actually grasp the crisis in Rasuwa, we must look at what lies beneath the surface of these “natural” disasters. Much like the concept of the “personal carbon footprint” that was famously popularized by British Petroleum to deflect systemic blame from the oil industry onto individuals, the discourse around Himalayan disasters often masquerades a deeper climate injustice. Nepal contributes less than 0.02% of global greenhouse gas emissions. Yet, we are the ones forced to divert our limited national budget towards mitigating disasters, fueled by the 80% of emissions produced by just 57 global fossil fuel and cement producers. In the high valleys of Rasuwa, we are effectively paying environmental and economic debt we did not accrue. We are the first responders to a crisis we did not cause, using resources we did not have.</p><p>The tragedy is compounded by a profound “static data” problem in our governance. A significant portion of Nepal’s national infrastructure, our bridges, roads and billion-dollar hydropower projects, was engineered based on the historical hydrological data that is now fundamentally obsolete. We are witnessing a dangerous “engineering lag” where the infrastructure being built today is designed for a climate that no longer exists. For example, the Upper Trishuli-1 and other cascade projects are the backbone of Nepal’s energy future, yet they are vulnerable to sediment loads and flood volumes that were previously considered “thousand-year events" but are now becoming decadal realities. When a flood wipes out a trekking trail or a landslide severs a trade route, it is often labeled as an “act of God". In reality, it is often an act of administrative negligence – the result of a policy gap where building codes have failed to catch up with the velocity of the melting ice.</p><p>Furthermore, we must address the “Embedded Risk" in our development models. Just as the American automotive industry lobbied to make cars a necessity, Nepal’s development has become heavily reliant on “corridor-based growth”. Our trade and energy are connected in narrow, high-risk valleys. When the Trishuli corridor is blocked by a climate-induced landslide, the entire nation feels the economic tremor. This concentration of risk is a governance choice. We have prioritized rapid infrastructure expansion over resilient, decentralized planning. The result is a system where a single glacial outburst at the source can trigger a national crisis and trade blockade.</p><p>Nepal’s policy response, while ambiguous on paper, reveals a persistent disconnect between the administrative center in Kathmandu and the frontline communities in the mountains. Our second Nationally Determined Contribution (NDC) claims for all 753 governments to implement the Local Adaptation Plans of Action (LAPA) by 2035. However, we must be clear: “paper adaptation” does not stop a GLOF. The challenge lies in turning these bureaucratic commitments into functioning, localized systems that are adequately funded and technically supported. Adaptation cannot remain a reactive measure initiated only after a valley has been devastated. It must be woven into the very being of land-use planning, disaster risk mapping, and automated early-warning systems, long before a crisis hits. This requires a radical shift from “disaster relief”, which is essentially just the management of tragedy, to “proactive governance”.</p><p>Crucially, the governance revolution requires a fundamental re-evaluation of the role of young people. We are often patronized as the “leaders of tomorrow", but in the context of the climate crisis in Rasuwa, we are the risk managers of today. Youth in these districts are not just passive victims of shifting landscapes; they are the primary observers. They are the ones using digital tools to track the impact and changes, trace-and-rescue, lead local relief efforts and question the safety of the infrastructure being built in their backyards. Our participation should not be limited to awareness campaigns or tokenistic youth councils. We need a meaningful seat at the decision-making table, with the power to audit infrastructural resilience and oversee the transparent use of climate finance.</p><p>The problem we face in the Himalayas is a microcosm of a global failure in accountability. The idea that we are “all in this together” is only true in the sense that the whole world goes down if even one part of it works against the others. If the “Water Towers of Asia” fail due to a combination of global corporate negligence and local administrative inertia, the impact will cascade down to over a billion people in the South Asian plains.</p><p>Nepal’s climate challenge is no longer about recognizing that the mountains are melting. It is about building institutions that are as dynamic as the landscape they serve. We must ensure our policies move as quickly as our retreating glaciers, for the stability of our basins and the safety of our downstream communities depend entirely on the courage and scientific integrity of our decisions today.</p></div>
+<button type="button" class="gs-more" aria-expanded="false"><span>Read The Full Essay</span> <span class="arr">↓</span></button>
+<div class="gs-refs"><small>References</small><ul><li><span class="ref">ICIMOD (2023): HI-WISE Report: Water, Ice, Society, and Ecosystems in the Hindu Kush Himalaya</span></li><li><span class="ref">Pepin, N., et al. (2015): Elevation-dependent warming in mountain regions of the world. Nature Climate Change</span></li><li><span class="ref">Ministry of Forests and Environment, Nepal (2020): Second Nationally Determined Contribution (NDC)</span></li><li><span class="ref">Asian Development Bank (2021): Climate Risk Country Profile: Nepal</span></li><li><span class="ref">The Guardian (2021): The ‘Carbon Footprint’ narrative and corporate accountability</span></li></ul></div>
+</div>
+</section>
+<section class="pbc-sec alt" id="spotlight-04" data-screen-label="Spotlight No. 04">
+<div class="pbc-wrap gs-essay is-collapsed">
+<div class="pbc-eye apple-reveal">Global Spotlight · No. 04</div><h2 class="pbc-h2 apple-reveal">Decent Work Isn't Just About Jobs: <em>What Malawi's Young People Need from Sustainable Development Policy.</em></h2>
+<p class="gs-by apple-reveal">By <b>Mike Store</b> · Ambassador · 22 · Malawi</p>
+<blockquote class="gs-pull apple-reveal">“What kind of work are we creating, and does it build dignified and meaningful lives for young people?”</blockquote>
+<div class="gs-body"><p>The transition into adulthood can be an exciting time for a lot of Malawian young men and women, bringing with it prospects of social and economic independence by having decent jobs. While securing any form of income can feel like a success for a lot of the youths, employment alone does not necessarily equate to decent work.</p><p>The ILO Director-General, Gilbert Houngbo said “Creating decent jobs for young people is not just a social imperative, but one of the smartest investments that a country can make” (ILO, 2026). When researchers, policy experts and groups in the academia converse on youth unemployment in Malawi, I have observed that such conversations often involve one generic question; “How many jobs can we create?” However, I feel the need of going deeper with the conversation by asking that “What kind of work are we creating, and does it build dignified and meaningful lives for young people?”</p><p>I conducted an independent research project titled Challenges to Gender Equality in the Malawi Decent Work Country Programme. During this study, I examined over 50 national and global labour policies and regulatory frameworks, engaged with the Malawi Tripartite Labour Advisory Council to verify labour administration, and also 30 female workers, whose significant portion were youthful. From this experience alone, I became exposed to how decisions made at policy level directly affects working conditions, rights and opportunities for the youth. Consequently, I understood that good policies fail to translate into meaningful outcomes if the intended youthful populations they are meant to serve are neither heard nor consulted. Malawian youth also need fair working conditions, social protection, enjoyment of working rights and equally participate in decision making processes in terms of policy making.</p><p>I understand meaningful youth participation as something that goes far beyond creating space for the youth to be present; is an intentional process of recognizing, nurturing and valuing young people’s vital contributions as agents of positive change by giving them opportunities to support decision making and offer practical solutions to numerous challenges facing them.</p><p>The Malawian youth should not merely be viewed as beneficiaries waiting for jobs, but also as entrepreneurs and innovators capable of shaping Malawi’s development aspirations and defining their own destiny. Youth development policies in Malawi must go beyond quantity of jobs, but also the quality of the jobs to provide opportunity, dignity and a sustainable future worth building for all.</p></div>
+<button type="button" class="gs-more" aria-expanded="false"><span>Read The Full Essay</span> <span class="arr">↓</span></button>
+<div class="gs-refs"><small>References</small><ul><li><a href="https://www.ilo.org/resource/news/youth-unemployment-rises-young-people-face-harder-road-decent-work" target="_blank" rel="noopener noreferrer">ILO — Youth unemployment rises <span class="arr">↗</span></a></li><li><a href="https://www.ilo.org/publications/malawis-second-decent-work-country-programme-dwcp-ii" target="_blank" rel="noopener noreferrer">ILO — Malawi’s Second Decent Work Country Programme <span class="arr">↗</span></a></li><li><a href="https://www.researchgate.net/publication/403843215_INTERNATIONAL_LABOUR_REGIMES_AND_SUSTAINABLE_EMPLOYMENT_CHALLENGES_TO_GENDER_EQUALITY_IN_THE_MALAWI_DECENT_WORK_COUNTRY_PROGRAMME_BY_MIKE_STORE" target="_blank" rel="noopener noreferrer">Store — Challenges to Gender Equality in the Malawi DWCP <span class="arr">↗</span></a></li><li><a href="https://www.researchgate.net/publication/403896221_REIMAGINING_DECENT_WORK_PEAK-LEVEL_SOCIAL_DIALOGUE_LABOUR_LAW_REFORMS_AND_CIRCULAR_ECONOMY_By_Mike_Micheas_Store" target="_blank" rel="noopener noreferrer">Store — Reimagining Decent Work <span class="arr">↗</span></a></li></ul></div>
+</div>
+</section>
+<section class="pbc-sec" id="spotlight-03" data-screen-label="Spotlight No. 03">
+<div class="pbc-wrap gs-essay is-collapsed">
+<div class="pbc-eye apple-reveal">Global Spotlight · No. 03</div><h2 class="pbc-h2 apple-reveal">The Future Is Sitting <em>in Our Classrooms.</em></h2>
+<p class="gs-by apple-reveal">By <b>Tuyizere Schadrack</b> · Ambassador · 19 · Rwanda</p>
+<blockquote class="gs-pull apple-reveal">“The future is not far away. It is sitting in our classrooms today.”</blockquote>
+<div class="gs-body"><p>When we talk about the future, we often imagine something far away—a better economy, stronger communities, new technologies, and a more peaceful world.</p><p>But perhaps we are looking in the wrong direction.</p><p>The future is not far away. It is sitting in our classrooms today.</p><p>It is the student raising a hand with a question. It is the young person learning a new skill on a phone. It is the student who dreams of becoming a doctor, teacher, engineer, entrepreneur, scientist, or community leader. It is the young person who sees a problem in their community and wonders, “What can I do about it?”</p><p>Young people are not simply waiting for their future to arrive. Many are already trying to build it.</p><p>Yet potential needs opportunity.</p><p>A young person may have determination but lack learning materials. They may have a brilliant idea but lack internet access. They may have knowledge but lack mentorship. They may have ambition but face financial barriers that make their dreams seem distant.</p><p>This is why education must be understood as more than examinations and certificates.</p><p>Education should give young people the ability to understand problems, question existing solutions, create new ideas, and take meaningful action.</p><p>In today's world, digital technology can make learning more accessible than ever. A smartphone can become a classroom, a library, a communication tool, and a window to opportunities around the world. But access to technology alone is not enough. Young people also need guidance to use it responsibly and productively.</p><p>We should therefore ask ourselves an important question:</p><p>What would happen if every young person had a genuine opportunity to develop their potential?</p><p>Perhaps a student interested in science could develop an idea that improves healthcare in their community. Perhaps a young person passionate about agriculture could discover a better way of supporting farmers. Perhaps someone who loves teaching could help another student discover their own ability.</p><p>The impact of one opportunity can travel much further than we imagine.</p><p>This is why investing in young people is not charity. It is an investment in the future of communities and the world.</p><p>Schools, governments, families, organizations, and communities all have a role to play. Young people need quality education, mentorship, digital skills, leadership opportunities, and spaces where their voices are taken seriously.</p><p>At the same time, young people must also recognize their own responsibility. We cannot wait for someone else to build the future for us. We must keep learning, asking questions, supporting one another, and using whatever opportunities we have to create positive change.</p><p>A classroom may look like an ordinary room, but inside it are people who could one day solve extraordinary problems.</p><p>The student learning today could become tomorrow's scientist.</p><p>The student practicing communication could become tomorrow's leader.</p><p>The student helping a classmate could become tomorrow's community builder.</p><p>And the young person who refuses to give up despite obstacles could inspire an entire generation.</p><p>So perhaps the question is not, “What will young people do for the future?”</p><p>Perhaps the better question is:</p><p>“What can we do today to give young people the opportunity to shape it?”</p><p>Because the future is already learning.</p><p><strong>The future is already dreaming.</strong></p><p><strong>And the future is sitting in our classrooms.</strong></p><p>What we choose to give those young people today will help determine the world we all live in tomorrow.</p></div>
+<button type="button" class="gs-more" aria-expanded="false"><span>Read The Full Essay</span> <span class="arr">↓</span></button>
+<div class="gs-refs"><small>References</small><ul><li><a href="https://www.unicef.org/education" target="_blank" rel="noopener noreferrer">UNICEF – Education <span class="arr">↗</span></a></li><li><a href="https://www.unicef.org/digitaleducation/" target="_blank" rel="noopener noreferrer">UNICEF – Digital Education <span class="arr">↗</span></a></li><li><a href="https://www.unicef.org/digitaleducation/reports/unicef-digital-education-strategy-2025-2030" target="_blank" rel="noopener noreferrer">UNICEF Digital Education Strategy 2025–2030 <span class="arr">↗</span></a></li></ul></div>
+</div>
+</section>
+<section class="pbc-sec" id="spotlight-02" data-screen-label="Spotlight No. 02">
+<div class="pbc-wrap gs-essay is-collapsed">
+<div class="pbc-eye apple-reveal">Global Spotlight · No. 02</div><h2 class="pbc-h2 apple-reveal">From Climate Awareness to Climate Action: <em>The Role of Rwanda’s Youth.</em></h2>
+<p class="gs-by apple-reveal">By <b>Ndatimana Fabrice</b> · Ambassador · 19 · Rwanda</p>
+<blockquote class="gs-pull apple-reveal">“Climate action should not be something young people only learn about. It should be something they are empowered to help shape.”</blockquote>
+<div class="gs-body"><p>Rwanda is often recognized for its efforts to protect the environment and promote sustainable development. Yet for young people, the challenge is not only understanding climate change—it is turning that understanding into meaningful action.</p><p>Young people represent a large part of Rwanda’s population and have the creativity, energy, and ability to influence their communities. Climate action does not always require large projects. It can begin with simple community initiatives: protecting trees, reducing waste, promoting clean environments, educating other young people, and developing innovative solutions to local environmental challenges.</p><p>However, youth participation should go beyond volunteering. Young people should also have opportunities to contribute their ideas to discussions about environmental policies and sustainable development. Schools, youth organizations, local communities, and policymakers can create spaces where young people learn how policies are made and can share perspectives from their communities.</p><p>Technology can also help. Rwanda’s young innovators can use digital platforms to raise awareness, organize environmental campaigns, share practical knowledge, and develop solutions suited to local needs. Connecting these initiatives with policy can make youth contributions even more effective.</p><p>The transition from climate awareness to climate action requires young people to see themselves not only as people affected by environmental challenges, but also as contributors to solving them. Rwanda’s progress toward sustainable development will be stronger when its youth are informed, included, and given opportunities to act.</p><p>Climate action should not be something young people only learn about. It should be something they are empowered to help shape.</p></div>
+<button type="button" class="gs-more" aria-expanded="false"><span>Read The Full Essay</span> <span class="arr">↓</span></button>
+<div class="gs-refs"><small>References</small><ul><li><span class="ref">Rwanda Environment Management Authority (REMA) — Environment &amp; Climate Change</span></li><li><span class="ref">Rwanda Green Fund — 2030 Strategy</span></li><li><span class="ref">Rwanda Revised Green Growth and Climate Resilience Strategy</span></li></ul></div>
+</div>
+</section>
+<section class="pbc-sec alt" id="spotlight-01" data-screen-label="03 Spotlight No. 01">
+<div class="pbc-wrap gs-essay is-collapsed">
+<div class="pbc-eye apple-reveal">Global Spotlight · No. 01</div><h2 class="pbc-h2 apple-reveal">The Myth of the <em>Personal Carbon Footprint.</em></h2>
+<p class="gs-by apple-reveal">By <b>Shubhanyu Chandra</b> · Ambassador · 15 · New Zealand</p>
+<blockquote class="gs-pull apple-reveal">“Consumerism was spoonfed to humans for generations by companies who make billions of dollars off it.”</blockquote>
+<div class="gs-body"><p>From a young age we are told that it is our responsibility to fight against climate change. Why? For two reasons: because it is the planet we inhabit to which there is no Planet B and because we are responsible for the state our planet has reached. Climate change could have been less disastrous if only we the people had done this or not. That is partially true. The problem arises when we are told that we are equally responsible for what's happened to our world. That all we need to do is EVs or switch to eco-friendly straws. For if you average how much individuals across the world emit in CO2 each year, it comes to around 4.5 tonnes. There are companies which produce this much in a matter of minutes. So how did the blame get passed onto us and the small actions we take? This misplacing of no blame is no accident and part of it can be attributed to the very entities who most benefit from it.</p><p>Let’s be clear, there are actions all of us take which we ought to cut back on. We as humans engage in this sort of consumerism where overconsumption has become the norm. What makes it easier is that most of us don’t see the waste we collate and the impact it has. But the 2.6 billion tonnes of solid waste we produce each year has to go somewhere. It certainly isn’t going off to outer space. All of us would do good to cut back on that alongside the dozens of tiny habits we should adopt. All of this is our reality. But there are two things we ought to remember alongside that:</p><p>The first is that for all the harm we do to the planet, it's still very minimal to what corporations are up to. Companies like Nestle and Coco Cola generate millions of tonnes in waste each year through their plastic companies. And that’s just one instance of the way they harm our environment. Out of all the greenhouse gas emissions produced each year, 80% of them can be attributed to 37 fossil fuel and cement producers. Companies which emit more than many countries do. And they don’t show any signs of stopping. Post-Paris agreement, 55% of privately-owned fossil fuel companies actually raised their emissions. That is just going off the information which has been provided to us. These publicly traded companies have a habit of underreporting their carbon emissions, with 58% of them engaging in misreporting. What are the emissions of your average human against that?</p><p>The second point is that many of the non-climate-friendly actions we commit are done because they are so embedded into our societies. Why are they so embedded into our society? Because companies made sure they were. The most egregious example of that can be found with the American Automotive Industry. They aggressively lobbied the government on every matter they would. Cars were reclassified from ‘luxury good’ to ‘vital economic tool’ which came with all sorts of tax breaks. A tax which was supposed to go towards public transit was redirected to road construction and highways were prioritized time and time again over car alternatives. More and more space was allocated for parking space, thus destroying the idea of the walkable city which made cars even more necessary. Now cars are one of the biggest ways humans produce emissions. All because the industry made it a necessity.</p><p>But we see every industry imaginable. The agriculture industry which got the government to heavily subsidise meat production so that people would spend more money on it. The fashion industry who launched successful marketing campaigns for all sorts of products. Technology companies who stop updating their products for a few years so that it’s necessary to get new devices, thus contributing to e-waste. Consumerism didn’t occur because it was the natural human instinct. Consumerism was spoonfed to humans for generations by companies who make billions of dollars off it. Even as they make us more wasteful beings along the way.</p><p>So how did the blame get passed onto us ordinary people? The idea of the ‘personal carbon footprint’ first graced the human lexicon in 2004. Who spread it? British Petroleum, the same company that emits 92,300 tonnes of CO2 daily. They launched a public relationships campaign on how each human should be tracking their personal carbon footprint. They were even kind enough to produce a carbon footprint calculator. Was this out of the goodness of their heart? As lovely as it would be to imagine that these companies did so out of care, it’s important to remember these were the same companies that spent millions of dollars on climate denial think tanks. All while ExxonMobil’s scientists estimated their contribution to global warming back in the 1970s. So why do they tell us to care about our carbon footprint? Because it benefits them in two ways.</p><p>The first part is that it alienates a large number of people from the climate effort. Most people aren’t too fond of being told what to do. Especially when it comes to changing their habits. And there are quite a lot of actions the climate-friendly camp encourages–like adopting plastic straws or going vegan-which don’t quite make sense as to what impact they make to better the planet. Now people can see the state of our world. They know that action needs to be taken. They just don’t know how giving up on the better parts of their life aligns with that. It can end up looking like a whole lot of virtue signalling that ends up alienating a significant number of people. And so would-be climate activists are lost.</p><p>The second reason the idea of the personal carbon footprint is beneficial is because of how easily it deflects blame from companies. Everybody is too focused, feeling guilty for their actions or being annoyed that climate change is being pinned on them. These people don’t have the resources to go up against fossil fuel companies. They aren’t even educated on how negatively impactful these companies are. Until now. There is a greater understanding of intersectionality as people are beginning to realise how much companies have contributed to climate change. This can scare companies which is why we’re seeing attempts to label these activists as radicals. But one can hope people are aware enough to not fall victim to that. They certainly deserve better.</p><p>This isn’t to say we shouldn’t appreciate people who give up on something dear to reduce their own carbon emissions. They might only have a small impact but it's an impact nonetheless. The problem is that such a stand is more about personal principles than it is about actually making an impact on climate change. For that we need to mitigate its worst offenders. The people who are responsible for 80% of the world’s emissions. Because the whole world is going down if even one part of it works against all the others.</p></div>
+<button type="button" class="gs-more" aria-expanded="false"><span>Read The Full Essay</span> <span class="arr">↓</span></button>
+<div class="gs-refs"><small>References</small><ul><li><a href="https://influencemap.org/insight/Vehicle-Manufacturer-s-Contribution-to-Regulatory-Instability-in-the-US-38064" target="_blank" rel="noopener noreferrer">InfluenceMap <span class="arr">↗</span></a></li><li><a href="https://www.theguardian.com/commentisfree/2021/aug/23/big-oil-coined-carbon-footprints-to-blame-us-for-their-greed-keep-them-on-the-hook" target="_blank" rel="noopener noreferrer">The Guardian <span class="arr">↗</span></a></li><li><a href="https://www.greenpeace.org/usa/climate/exxons-climate-denial-history-a-timeline/" target="_blank" rel="noopener noreferrer">Greenpeace USA <span class="arr">↗</span></a></li></ul></div>
+</div>
+</section>
+<section class="pbc-sec alt" id="submit" data-screen-label="04 Submit">
+<div class="pbc-wrap pbc-two">
+<div><div class="pbc-eye apple-reveal">02 / Submit</div><h2 class="pbc-h2 apple-reveal">Ambassadors, Submit Your Own <em>For Next Month.</em></h2><div class="apple-reveal" style="display:flex;gap:12px;flex-wrap:wrap"><a href="https://forms.gle/D93QBtq76J3QJGSM6" target="_blank" rel="noopener noreferrer" class="btn btn-forest" data-magnetic>Submit A Spotlight <span class="arr">↗</span></a><a href="/ambassadors" class="btn btn-ghost">Become An Ambassador ▸</a></div></div>
+<div class="apple-reveal" style="transition-delay:.1s"><p class="pbc-p">Spotlights cover:</p><div class="gs-topics"><span>Policy</span><span>Sustainability</span><span>Civic engagement</span><span>Education</span><span>Youth leadership</span><span>Climate action</span><span>International affairs</span></div></div>
+</div>
+</section>
+
+<footer class="footer" id="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="brand">
+        <img src="assets/ysp-logo.png" alt="" />
+        <span class="word">Y<i>S</i>P</span>
+      </div>
+      <p class="blurb" style="font-family: system-ui">
+        Youth for Sustainable Policy (YSP) is an international youth-led policy organization advancing research, dialogue, and public engagement on sustainability, governance, and global affairs.
+      </p>
+    </div>
+    <div>
+      <h5>Programmes</h5>
+      <ul>
+        <li data-comp-discovery data-comp-footer hidden><a href="essay-competition-2026.html">Essay Competition 2026</a></li>
+        <li><a href="mun.html">Winter MUN 2026 ★</a></li>
+        <li><a href="programmes.html">International Initiatives</a></li>
+        <li><a href="grassroots.html">Grassroots Movements</a></li>
+        <li><a href="interns.html">Internship</a></li>
+        <li><a href="policy-brief-competition.html">Competitions</a></li>
+        <li><a href="ambassadors.html">Ambassador Network</a></li>
+        <li><a href="chapters.html">Global Chapters</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Pathways</h5>
+      <ul>
+        <li><a href="research-route.html">Research</a></li>
+        <li><a href="policy-route.html">Policy</a></li>
+        <li><a href="business-route.html">Business</a></li>
+        <li><a href="diplomacy-route.html">Diplomacy</a></li>
+        <li><a href="environment-route.html">Environment</a></li>
+        <li><a href="community-route.html">Community</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Organisation</h5>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="index.html#join">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Resources</h5>
+      <ul>
+        <li><a href="annual-reports.html">Annual Reports</a></li>
+        <li><a href="substack.html">Substack</a></li>
+        <li><a href="policies.html">Policies &amp; Declarations</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="safe-band">
+    <div class="left">
+      <span class="leaf">✦</span>
+      <span>This is a safe, moderated space for youth. For Youth, By Youth.</span>
+    </div>
+    <div>View our <a href="community-policy.html">Community Policy</a> · <a href="privacy-notice.html">Privacy Notice</a></div>
+  </div>
+
+  <div class="copy">
+    <span>© 2026 Youth for Sustainable Policy. A global youth organisation.</span>
+    <span>Made slowly, in good company.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Nav scroll state
+  const navWrap = document.getElementById('navWrap');
+  let lastScroll = -1;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY || window.pageYOffset;
+    if (y === lastScroll) return;
+    lastScroll = y;
+    if (y > 40) navWrap.classList.add('scrolled'); else navWrap.classList.remove('scrolled');
+  }, { passive:true });
+
+  // Magnetic buttons
+  document.querySelectorAll('[data-magnetic]').forEach(el => {
+    let raf=null, tx=0, ty=0, cx=0, cy=0;
+    const STR = 12;
+    function loop(){
+      tx += (cx-tx)*0.18; ty += (cy-ty)*0.18;
+      el.style.transform = 'translate(' + tx.toFixed(2) + 'px,' + ty.toFixed(2) + 'px)';
+      if (Math.abs(cx-tx)>0.05 || Math.abs(cy-ty)>0.05) raf = requestAnimationFrame(loop); else raf=null;
+    }
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      cx = ((e.clientX - (r.left + r.width/2)) / (r.width/2)) * STR;
+      cy = ((e.clientY - (r.top + r.height/2)) / (r.height/2)) * STR;
+      if (!raf) raf = requestAnimationFrame(loop);
+    });
+    el.addEventListener('mouseleave', () => { cx=0; cy=0; if (!raf) raf = requestAnimationFrame(loop); });
+  });
+
+  // Apple reveals
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting){
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.apple-reveal').forEach(el => io.observe(el));
+})();
+</script>
+<script>
+(function(){const L=document.querySelector('.gs-list');if(!L)return;const cards=[...L.querySelectorAll('.gs-card')];const P=document.getElementById('gsPrev'),N=document.getElementById('gsNext'),C=document.getElementById('gsCt'),B=document.getElementById('gsBar');
+const step=()=>cards[0].getBoundingClientRect().width+18;
+const upd=()=>{const max=L.scrollWidth-L.clientWidth;const i=Math.min(cards.length,Math.round(L.scrollLeft/step())+1);C.textContent=i+' / '+cards.length;P.disabled=L.scrollLeft<4;N.disabled=L.scrollLeft>max-4;B.style.width=(max>0?((L.scrollLeft+L.clientWidth)/L.scrollWidth*100):100)+'%';};
+P.onclick=()=>L.scrollBy({left:-step(),behavior:'smooth'});N.onclick=()=>L.scrollBy({left:step(),behavior:'smooth'});
+L.addEventListener('scroll',()=>requestAnimationFrame(upd),{passive:true});window.addEventListener('resize',upd);
+L.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();N.click()}if(e.key==='ArrowLeft'){e.preventDefault();P.click()}});L.tabIndex=0;
+let down=false,sx=0,sl=0,moved=false;L.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse'||e.target.closest('a,button'))return;down=true;moved=false;sx=e.clientX;sl=L.scrollLeft;L.style.scrollSnapType='none';L.setPointerCapture(e.pointerId)});
+L.addEventListener('pointermove',e=>{if(!down)return;const dx=e.clientX-sx;if(Math.abs(dx)>3)moved=true;L.scrollLeft=sl-dx});
+const end=()=>{if(!down)return;down=false;const t=Math.round(L.scrollLeft/step())*step();L.style.scrollSnapType='';L.scrollTo({left:t,behavior:'smooth'})};L.addEventListener('pointerup',end);L.addEventListener('pointercancel',end);
+const A=document.getElementById('gsArch');A.innerHTML=cards.slice().sort((a,b)=>a.querySelector('.gs-no').textContent.localeCompare(b.querySelector('.gs-no').textContent)).reverse().map(c=>{const n=c.querySelector('.gs-no').lastChild.textContent.trim();const t=c.querySelector('h3').textContent;const by=c.querySelector('.gs-by');const nm=by.querySelector('b').textContent;const ct=by.textContent.split('·').pop().trim();const href=c.querySelector('.gs-acts a').getAttribute('href');return '<li><a href="'+href+'"><span class="n">'+n+'</span><span class="t">'+t+'</span><span class="a">'+nm+' · '+ct+'</span><span class="ar">↘</span></a></li>'}).join('');
+upd();})();
+</script>
+<script>
+(function(){const open=(w,scroll)=>{if(!w)return;w.classList.remove('is-collapsed');const b=w.querySelector('.gs-more');b.setAttribute('aria-expanded','true');b.firstElementChild.textContent='Collapse Essay';};
+document.querySelectorAll('.gs-more').forEach(b=>b.addEventListener('click',()=>{const w=b.closest('.gs-essay');if(w.classList.contains('is-collapsed'))open(w);else{w.classList.add('is-collapsed');b.setAttribute('aria-expanded','false');b.firstElementChild.textContent='Read The Full Essay';const s=w.closest('section');window.scrollTo({top:s.getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'})}}));
+const fromHash=()=>{const s=location.hash&&document.querySelector(location.hash);if(s&&s.id.startsWith('spotlight-'))open(s.querySelector('.gs-essay'))};window.addEventListener('hashchange',fromHash);fromHash();
+document.querySelectorAll('a[href^="#spotlight-"]').forEach(a=>a.addEventListener('click',()=>{const s=document.querySelector(a.getAttribute('href'));if(s)open(s.querySelector('.gs-essay'))}));})();
+</script>
+<script src="mobile-nav.js"></script>
+<script src="/competition-config.js"></script>
+</body>
+</html>

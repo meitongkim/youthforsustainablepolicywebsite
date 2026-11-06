@@ -3,7 +3,7 @@
 window.YSP_COMP = {
   // Go-live switch. While false, the competition page and every link to it stay hidden on the live domain.
   // Set to true only after the organiser confirms the terms (see "Handover - Essay Competition 2026.md").
-  published: false,
+  published: true,
   liveHosts: ['youthforsustainablepolicy.org', 'www.youthforsustainablepolicy.org'],
   // Singapore time (UTC+8). All page states change at these instants.
   dates: {

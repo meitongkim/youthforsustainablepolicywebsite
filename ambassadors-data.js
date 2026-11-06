@@ -1,6 +1,8 @@
 /* YSP Global Ambassador Programme — Founding Cohort 2026 roster.
    Format per line: Legal Name | Preferred Name
    Emails are intentionally not published. */
+window.YSP_INTAKE_FROM = 599;
+window.YSP_INTAKE = ["October 2026","October 2026","September 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","September 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","September 2026","October 2026","October 2026","October 2026","October 2026","September 2026","September 2026","October 2026","October 2026","September 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026","October 2026"];
 window.YSP_ROSTER_RAW = `
 Sandra Keya|Sandra
 Philipp Henssler|Philipp
@@ -181,7 +183,6 @@ Vanessa Mukanire|Vanessa
 Shamsu Yahaya|
 Md. Wasek Faisal Abir|Abir
 Meha Sinha|Meha
-Akanksha|
 Nimisha Seechurn|Nimisha
 Kwizera Abel|Abel
 Rebecca Oegerli|
@@ -268,7 +269,6 @@ Hashim Kamal|
 Krisha Dua|
 Chiara Krah|Chiara
 Abijuru Clementine|
-Evelyn Mwale|
 Lwazi Sikoti|Lwazi
 Kajal Khandekar|Kajal
 Iqra Ishtiaq|
@@ -495,7 +495,6 @@ Benitte Ishimwe|Benitte
 Nzasabimana Epaphrodite|
 Murwanashyaka Tresor Pacifique|
 Jalene Gedefa Guta|Jalene
-Maheen Rehan|
 Niyomugenga Christophe|Christophe
 Saja Samer Amin Samy Eid|Saja Samer Amin
 Uwayezu Gilbert|
@@ -604,6 +603,64 @@ Nabihah Khan|Nabihah
 Conn Butler|
 Emna Mbazaia|Emna
 Maristela Carrera|Missy Carrera
+Afreen mansoor|
+Agrima Khanduri|Agrima
+Ahana Virmani|Ahana
+Aishwarya|
+Aishwarya Das|
+Aladedunye Emmanuel Adetoye|Emmanuel
+Alhassan Dalhatu Zailani|Alhassan
+Animisha verma|
+Ankita Paul|
+Areeba Habib Arain|Areeba Habib
+Arianna Shay S. Zafra|Ari
+Arianne Christell Mendez|Arianne Mendez
+Ata Ullah|Ata
+AYA AIT EL MADANI|AYA
+Blessing Ada Olofu|Blessing
+Cara Kennedy|Cara
+Chung Hoi Ying, Elly|Elly Chung
+Edouard BUGINGO|Edouard
+Emely Ceballos|Emely
+Farzana Chowdhury|Farzana
+Hassan Abdullahi Mohaned|Hassan beldajee
+Hoang Ngoc Bach|Ngoc Bach Hoang
+Imara Ahmed|
+IRABIZI|Philemon
+Jawad Ali|
+Kirellos Abdelmalak Shehata Abdelmalak|Kirellos Abdelmalak
+Kirti Dubey|
+María Carolina González Blanco|Carolina González
+Mary Dada|Mary
+Mashal Kasi|Mashal
+Mpore Ornella|Ornella
+MS Maung Maung Thein|
+Muhammad Bilal Qamar|Bilal Qamar
+Naomi Romain|Naomi
+Natalia Shifeta|Natalia
+Nayituriki Diane|Diane
+Nitya Vijaybhai Kakadiya|Nitya
+Onyeke Emmanuel Edache|Edache
+Rafshia Mahbuba Ayshe|
+Rashad Aiken Alvaro|Aiken
+Ritesh Vijayakumar|Ritesh
+Sahaj Sabharwal|
+Saif Ali|
+Shaghanaa Rahkesh|Shaghanaa
+Shahzeb Hassan|Shahzeb
+Shasta William|Shasta
+Tabassum Zarin|N/a
+Tabu Monika|Tabu
+Tamima Islam Tonny|
+UWIRINGIYIMANA|Josue
+Victoria Ojebo Alagi|Ojebo
+Zaid Kotwal|
+Toluwani Oladapo|
+Emmanuel Kwasi Xonu|Emmanuel
+Olalekan Khalilah Adesola|Khalilah
+Suraiya Rahman Etu|Etu
+Karinganire Anne|Annah
+Noor Jahan|
 `;
 
 (function(){
@@ -637,9 +694,9 @@ Maristela Carrera|Missy Carrera
       goesBy: pref && pref.toLowerCase() !== name.toLowerCase() ? pref : '',
       slug,
       initials: initials(name),
-      cohort: 'Founding Cohort 2026',
+      cohort: i >= window.YSP_INTAKE_FROM ? (window.YSP_INTAKE[i - window.YSP_INTAKE_FROM] + ' Intake') : 'Founding Cohort 2026',
       role: 'Global Youth Ambassador',
-      appointed: 'August 2026',
+      appointed: i >= window.YSP_INTAKE_FROM ? window.YSP_INTAKE[i - window.YSP_INTAKE_FROM] : 'August 2026',
       gender: clean(d[0]),
       languages: clean(d[1]),
       education: clean(d[2]),

@@ -371,15 +371,15 @@ a{color:inherit}a:hover{color:var(--sage-deep)}
 <!-- Nav -->
 <div class="nav-wrap" id="navWrap">
   <nav class="nav">
-    <a class="brand" href="/">
+    <a class="brand" href="index.html">
       <img src="assets/ysp-logo.png" alt="" />
       <span class="word">Y<i>S</i>P</span>
     </a>
     <div class="nav-links">
-      <a href="/programmes">Programmes</a>
-      <a href="/team">Team</a>
-      <a href="/careers">Careers</a>
-      <a href="/about">About</a>
+      <a href="programmes.html">Programmes</a>
+      <a href="team.html">Team</a>
+      <a href="careers.html">Careers</a>
+      <a href="about.html">About</a>
     </div>
     <a href="https://forms.gle/rKPHAxvj6NaM9Dd66" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-magnetic>Join YSP <span class="arr">↗</span></a>
   </nav>
@@ -504,7 +504,7 @@ a{color:inherit}a:hover{color:var(--sage-deep)}
 </section>
 <section class="pbc-sec alt" id="submit" data-screen-label="04 Submit">
 <div class="pbc-wrap pbc-two">
-<div><div class="pbc-eye apple-reveal">02 / Submit</div><h2 class="pbc-h2 apple-reveal">Ambassadors, Submit Your Own <em>For Next Month.</em></h2><div class="apple-reveal" style="display:flex;gap:12px;flex-wrap:wrap"><a href="https://forms.gle/D93QBtq76J3QJGSM6" target="_blank" rel="noopener noreferrer" class="btn btn-forest" data-magnetic>Submit A Spotlight <span class="arr">↗</span></a><a href="/ambassadors" class="btn btn-ghost">Become An Ambassador ▸</a></div></div>
+<div><div class="pbc-eye apple-reveal">02 / Submit</div><h2 class="pbc-h2 apple-reveal">Ambassadors, Submit Your Own <em>For Next Month.</em></h2><div class="apple-reveal" style="display:flex;gap:12px;flex-wrap:wrap"><a href="https://forms.gle/D93QBtq76J3QJGSM6" target="_blank" rel="noopener noreferrer" class="btn btn-forest" data-magnetic>Submit A Spotlight <span class="arr">↗</span></a><a href="ambassadors.html" class="btn btn-ghost">Become An Ambassador ▸</a></div></div>
 <div class="apple-reveal" style="transition-delay:.1s"><p class="pbc-p">Spotlights cover:</p><div class="gs-topics"><span>Policy</span><span>Sustainability</span><span>Civic engagement</span><span>Education</span><span>Youth leadership</span><span>Climate action</span><span>International affairs</span></div></div>
 </div>
 </section>
@@ -639,6 +639,6 @@ const fromHash=()=>{const s=location.hash&&document.querySelector(location.hash)
 document.querySelectorAll('a[href^="#spotlight-"]').forEach(a=>a.addEventListener('click',()=>{const s=document.querySelector(a.getAttribute('href'));if(s)open(s.querySelector('.gs-essay'))}));})();
 </script>
 <script src="mobile-nav.js"></script>
-<script src="/competition-config.js"></script>
+<script src="competition-config.js"></script>
 </body>
 </html>

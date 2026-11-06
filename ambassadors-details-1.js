@@ -1,4 +1,4 @@
-/* Founding Cohort 2026 — application details, rows 1–150 (roster order).
+/* Founding Cohort 2026 — application details, rows 1–220 (roster order).
    Fields per line, ¦-delimited: gender ¦ languages ¦ education ¦ field ¦ linkedin ¦ pathway */
 window.YSP_DETAILS_1 = `
 Female¦English¦MSc Information Science Candidate at Kirinyaga University (Kenya)¦Information Science, Data Research, AI for Climate, Climate Policy, Digital Information Systems¦https://www.linkedin.com/in/sandrakeya¦Chapter Support Ambassador
@@ -148,4 +148,77 @@ Male¦English¦PGD in Liberal Studies Interdisciplinary Program, Ashoka Universi
 Female¦English¦Master of Social Sciences in Sustainability Leadership and Governance at The University of Hong Kong (commencing September 2026)¦Education¦https://www.linkedin.com/in/justina-c-094894219¦Global Ambassador
 Female¦English, Vietnamese¦9th Grader at Đằng Lâm Secondary School, Haiphong, Vietnam¦Social Sciences & Literature¦https://www.linkedin.com/in/ngankhanhlh/¦Global Ambassador
 Male¦Urdu and English¦University of Veterinary and Animal Sciences Lahore¦BS Hons Environmental Sciences¦www.linkedin.com/in/fahad-abid-3a6b88318¦YSP Learns Ambassador
+Female¦English¦Undergraduate at Jomo Kenyatta University of Agriculture and Technology¦Bachelor of Science in Development Studies¦https://www.linkedin.com/in/alice-kimberly-8b1b53333/¦
+Male¦English, Urdu¦Year 3 Bachelors Student at Sukkur IBA University¦B.Ed¦https://www.linkedin.com/in/danish-kumar-8240822ab/¦
+Female¦English¦Year 3 Bachelor of Arts student at Delhi University¦Business Economics¦¦
+Male¦English, Telugu¦B.Tech graduate in Computer Science and Engineering from Sri Venkateswara College of Engineering (SVCE), Tirupati, India¦International Relations, Public Policy, Sustainable Development, Global Governance, Youth Leadership and Diplomacy¦https://www.linkedin.com/in/yaswanth-kumar-530621396¦
+Male¦English¦Graduate of Kaduna State University, Kaduna, Nigeria¦Quality Assurance & Control Chemist¦https://www.linkedin.com/in/yashim-john¦
+Female¦English, Swahili¦Year 3, Bachelor of Arts in Social Work student at The University of Nairobi¦Social Work¦¦
+Female¦English¦Recent graduate of the University of Ibadan¦Mechanical Engineering¦https://www.linkedin.com/in/oreoluwaajayi¦
+Female¦English¦MBA second year student¦Operations and Marketing¦www.linkedin.com/in/ukriyamehra¦
+Male¦English, Bengali, Burmese¦High School Student, Parami High School at Bangladesh Rohingya Refugee Camp¦Media and Communication — Photography, Visual Storytelling, Youth Leadership, Community Engagement¦https://www.linkedin.com/in/ro-harez-khan¦
+Male¦English, Bangla, Urdu¦Year 2 Bachelors Student at University of Dhaka¦Public Health, Demography¦¦
+Male¦English, Arabic, Hausa¦Graduate at Umaru Musa Yaradua University, Katsina State, Nigeria; undergraduate at International Open University Gambia¦Economics and Islamic Economics, Banking and Finance¦https://www.linkedin.com/in/jamilu-muhammad-sani-729b01176/¦
+Female¦English, Hindi¦Postgraduate in Zoology, India¦Zoology — Life Sciences with Biotechnology, Genetics, Molecular Biology, Biochemistry¦www.linkedin.com/in/kirty05¦
+Female¦English¦Graduate from the National University of Lesotho¦Bachelor of Laws¦¦
+Female¦English¦Year 2 Bachelors student at Jesus and Mary College, University of Delhi¦Political Science and Sociology¦https://www.linkedin.com/in/khushi-arora-66a01032a/¦
+Female¦English¦Graduated from University of Veterinary and Animal Sciences, Lahore¦BS (Hons) Environmental Sciences¦www.linkedin.com/in/isha-hussain-b0a6ab37a¦
+Female¦English, Chichewa¦Bachelors degree holder at DMI St John the Baptist University¦Social Work in Project Management, Monitoring & Evaluation¦https://www.linkedin.com/in/natalia-pedroh-b42530331¦
+Male¦English, Hausa¦Civil Engineering graduate¦Graphic design and art work¦https://www.linkedin.com/in/muhammad-sulaiman-34bb1624b¦
+Male¦English¦Year 2 bachelor student at the University of the Punjab, Lahore, Pakistan¦Law, human rights, child rights and deepfake law¦¦
+Male¦English¦Secondary School Certificate at Bumba¦Languages¦¦
+Male¦English¦Graduate of Usmanu Danfodiyo University Sokoto¦Health and Public Health¦https://www.linkedin.com/in/abdulazeez-faruk-597a1136b¦
+Female¦English, Bangla¦Year 4 Bachelors Student at Bangladesh University of Professionals (Bangladesh)¦Environmental Science¦https://www.linkedin.com/in/nanjiba-chowdhury-5441b82a9¦
+Male¦Kinyarwanda, English¦Year 4 bachelors student at University of Rwanda¦University of Rwanda, Huye campus¦¦
+Female¦English, Kinyarwanda¦Postgraduate (University of Rwanda, Busogo campus)¦Food Science and Technology¦¦
+Male¦English, Bangla¦Undergraduate at East Delta University, BSc in CSE¦BSc in Computer Science and Engineering¦https://www.linkedin.com/in/zedanul-kabir-zedan-b401443a6¦
+Male¦French, English¦Master's Program at the International Relations Institute of Cameroon (IRIC)¦International Communication and Public Action¦https://www.linkedin.com/in/pregavi-roxy-sydney-gakoua-0b7007300¦
+Male¦English, Kiswahili¦Bachelor's degree in Education from the National University of Rwanda (College of Education)¦History and Geography with Education¦¦
+Male¦English¦Year 1 Bachelor of Education student at University of Technology and Arts of Byumba¦Mathematics–Computer¦¦
+Male¦Bangla, English¦Undergraduate at East Delta University in Computer Science and Engineering¦Computer Science and Engineering¦https://www.linkedin.com/in/md-ashraful-alam-4b51723b6¦
+Female¦English, French¦Undergraduate at Daystar University, Environmental Health¦Environmental Health¦¦
+Male¦English, Hausa, Kanuri¦Higher National Diploma¦Dental therapy¦¦
+Male¦Bengali, English¦Master's Graduate in Forestry and Wood Technology at Khulna University, Bangladesh¦Forestry and Wood Technology¦www.linkedin.com/in/md-wasek-faisal-488bbb390¦
+Female¦English¦Year 2 Master in Public Administration at Indira Gandhi National Open University¦Public Administration¦https://www.linkedin.com/in/meha-s-13250a207¦
+Female¦English¦Undergraduate Student at Middlesex University, Business Management with Marketing¦Business Management with Marketing¦www.linkedin.com/in/nimisha-seechurn¦
+Male¦English, French, Kiswahili, Kinyarwanda¦Year 3 Bachelors Student at University of Rwanda (Rwanda)¦Economics¦www.linkedin.com/in/abelkwi1¦
+Female¦German, English¦Year 2 Master Student at University of Basel¦Political Science¦¦
+Male¦English, Kinyarwanda¦Bachelor's degree in Education at the National University of Rwanda¦Education¦¦
+Male¦Kinyarwanda¦Undergraduate, University of Rwanda, Social Work¦Social Work¦¦
+Male¦English¦Graduate, University of Ibadan, Nigeria (Wood Products and Biomaterials Engineering)¦Biomass Energy, Biofuels, Circular Economy¦¦
+Female¦English, Kinyarwanda¦Advanced Diploma A1 holder¦Hospitality management; works in community-based programs¦https://www.linkedin.com/in/josine-abahire-280b94363¦
+Female¦English¦Undergraduate at the University of Cambridge, Politics and History¦Politics and History¦www.linkedin.com/in/malak-alsweirki¦
+Male¦English¦Postgraduate student at Abubakar Tafawa Balewa University¦Humanitarian and Development work¦¦
+Male¦English¦Bachelor's graduate in Peacebuilding and Development at the Protestant University of Rwanda (PUR)¦Peacebuilding and Development¦¦
+Female¦English, Hindi¦MSc Finance, University of Edinburgh Business School (2022)¦Sustainability, Climate Change Advocacy¦http://linkedin.com/in/shailyranveria¦
+Female¦English, Hindi¦Final Year Postgraduate Student at Kurukshetra University¦Economics¦¦
+Female¦English¦Postgraduate at IILM University (MSc Psychology)¦MSc Psychology¦https://www.linkedin.com/in/wonchipem-maria-ngasainao-403b88326¦
+Male¦Bangla, English¦Year 4 Bachelors Student at Khulna University (Khulna)¦Development Studies¦https://www.linkedin.com/in/abdul-aziz-56026a318¦
+Female¦English¦Graduated December 2023¦Visual Communication and Events¦¦
+Male¦English¦M.S.S student at University of Chittagong¦Sociology¦¦
+Male¦English¦Undergraduate at Pwani University, BSc Environmental Studies (Community Development)¦Community Development¦¦
+Female¦English¦Graduate, Miranda House, University of Delhi¦Political Science¦www.linkedin.com/in/shivanshi-19338b297¦
+Male¦English, Kiswahili¦MSc in Forestry and Environmental Management at Mzuzu University (Malawi)¦Forestry and Environmental Management; Natural Resource Management; climate writer and editor¦https://linkedin.com/in/brian-nduw¦
+Male¦English¦High School Junior at Newlands College, New Zealand¦Humanities¦https://www.linkedin.com/in/shubhanyu-chandra-14888431b/¦
+Male¦English¦Four-year Bachelor at University of Somalia¦Business Information Technology¦¦
+Female¦English¦Recent Bachelor's Degree Graduate from Bard College, New York¦Liberal Arts¦www.linkedin.com/in/moe-thiri-myat-802a5b314¦
+Male¦English, French¦Postgraduate from Cambridge International Qualifications¦Education and Leadership¦https://cm.linkedin.com/in/fomukwin-ayenui-noel¦
+Female¦English¦University of Birmingham graduate, BA Politics and International Relations¦Politics and International Relations¦www.linkedin.com/in/isabellaavanzato¦
+Male¦English¦Postgraduate at Mehran University of Engineering and Technology¦Environmental Engineering¦¦
+Male¦English¦Undergraduate at Kurukshetra University, B.Tech Mechanical Engineering¦Research¦https://www.linkedin.com/in/divyansh-tiwari-54b9311b9¦
+Female¦English¦Graduate¦Law¦¦
+Female¦English¦Year 2 Bachelors student at University of Lahore (Pakistan)¦Cardiovascular Technology¦https://www.linkedin.com/in/marwa-sangar-558a11275¦
+Female¦English, French, Swahili¦Masters in Communication Studies, University of Nairobi¦Communications¦linkedin.com/in/julie-ambani-6b2078105¦
+Female¦English, Kinyarwanda¦High school¦¦¦
+Male¦English, Hindi, German¦MSc Bioeconomy at University of Hohenheim (Germany)¦Sustainability Analyst¦https://www.linkedin.com/in/shakibakramkhan¦
+Male¦English¦Advanced Diploma A2¦Literature in English, Kiswahili and Kinyarwanda¦¦
+Male¦English¦Year 3 Bachelor student at University of Nairobi¦Law¦https://www.linkedin.com/in/samuel-muteti-259758369¦
+Male¦English¦Bachelor's Graduate in Agriculture (B.Sc. Ag.) at Tribhuvan University (Nepal)¦Agriculture¦www.linkedin.com/in/sushil-thakur-588916395¦
+Female¦English, Turkish¦Year 3 Bachelors Student at Bilkent University (Türkiye)¦International Relations¦https://www.linkedin.com/in/cemre-u%C4%9Furlu-7139bb330¦
+Male¦English¦High school junior at Dhaka College, Bangladesh¦¦¦
+Male¦English, Arabic¦Year 2 bachelors student at the American University in Cairo¦Economics and Political Science (double major)¦www.linkedin.com/in/ahmed-ayman-733297279¦
+Female¦English¦Undergraduate at University of Rwanda, School of Mining and Geology¦¦¦
+Male¦English¦Graduate, Umaru Ali Shinkafi Polytechnic Sokoto¦HND Computer Science¦https://www.linkedin.com/in/aminu-saidu-muhammad-a70229ab¦
+Male¦English, Bangla¦Undergraduate at Dhaka College, Department of Sociology¦Sociology¦¦
+Male¦English, Kinyarwanda¦Recent bachelor's degree holder¦Agricultural Economics¦https://www.linkedin.com/in/jean-d-amour-tuyizere-4355a72a6¦
 `;

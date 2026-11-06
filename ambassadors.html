@@ -109,8 +109,8 @@
   .intake{display:flex;flex-direction:column;gap:14px}
   .intake .row{display:grid;grid-template-columns:96px 1fr auto;gap:14px;align-items:center;font-size:13px}
   .intake .mo{color:var(--ink-mute);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
-  .intake .track{height:12px;border-radius:999px;background:rgba(31,42,34,.07);overflow:hidden}
-  .intake .fill{position:relative;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--mist),var(--sage-soft) 38%,var(--sage) 70%,var(--sage-deep));width:0;transition:width 1.4s var(--ease);box-shadow:0 0 12px -2px rgba(137,163,108,.55)}
+  .intake .track{display:block;height:12px;border-radius:999px;background:rgba(31,42,34,.07);overflow:hidden}
+  .intake .fill{display:block;position:relative;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--mist),var(--sage-soft) 38%,var(--sage) 70%,var(--sage-deep));width:0;transition:width 1.4s var(--ease);box-shadow:0 0 12px -2px rgba(137,163,108,.55)}
   .intake .fill:not(.open)::after{content:"";position:absolute;inset:0;border-radius:999px;background:linear-gradient(100deg,transparent 20%,rgba(255,255,255,.55) 50%,transparent 80%);background-size:220% 100%;animation:sheen 2.8s var(--ease) infinite}
   @keyframes sheen{0%{background-position:-120% 0}100%{background-position:220% 0}}
   .intake .fill.open{background:repeating-linear-gradient(115deg,rgba(137,163,108,.6) 0 7px,rgba(207,223,216,.5) 7px 14px);background-size:200% 100%;animation:drift 2.6s linear infinite}
@@ -123,8 +123,8 @@
   .hbar{display:flex;flex-direction:column;gap:11px}
   .hbar .r{display:grid;grid-template-columns:minmax(96px,34%) 1fr auto;gap:14px;align-items:center;font-size:13px}
   .hbar .k{color:var(--ink-soft);line-height:1.35;overflow-wrap:anywhere}
-  .hbar .track{height:10px;border-radius:999px;background:rgba(31,42,34,.07);overflow:hidden}
-  .hbar .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--sage),var(--sage-deep));width:0;transition:width 1.1s var(--ease)}
+  .hbar .track{display:block;height:10px;border-radius:999px;background:rgba(31,42,34,.07);overflow:hidden}
+  .hbar .fill{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--sage),var(--sage-deep));width:0;transition:width 1.1s var(--ease)}
   .hbar .v{font-variant-numeric:tabular-nums;color:var(--ink-soft);font-weight:500;min-width:52px;text-align:right;font-size:12.5px}
   .stack{display:flex;height:44px;border-radius:12px;overflow:hidden;background:rgba(31,42,34,.07)}
   .stack span{width:0;transition:width 1.1s var(--ease);display:block}
@@ -261,18 +261,19 @@
 </style>
 <style id="btn-caps">.btn,.pbc-feat-btn,.btn-primary,.btn-forest,.btn-ghost{text-transform:capitalize}</style>
 <link rel="stylesheet" href="site-footer.css">
+<style id="types-grid">#types .pillars{grid-template-columns:repeat(4,minmax(0,1fr))}@media(max-width:1080px){#types .pillars{grid-template-columns:repeat(2,minmax(0,1fr))}#types .pill:last-child{grid-column:1/-1}}@media(max-width:640px){#types .pillars{grid-template-columns:1fr}}</style>
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
 
 <div class="nav-wrap" id="navWrap">
   <nav class="nav">
-    <a class="brand" href="/"><img src="assets/ysp-logo.png" alt="" /><span class="word">Y<i>S</i>P</span></a>
+    <a class="brand" href="index.html"><img src="assets/ysp-logo.png" alt="" /><span class="word">Y<i>S</i>P</span></a>
     <div class="nav-links">
-      <a href="/programmes">Programmes</a>
-      <a href="/ambassadors" class="active">Ambassadors</a>
-      <a href="/team">Team</a>
-      <a href="/about">About</a>
+      <a href="programmes.html">Programmes</a>
+      <a href="ambassadors.html" class="active">Ambassadors</a>
+      <a href="team.html">Team</a>
+      <a href="about.html">About</a>
     </div>
     <a href="https://lnkd.in/gkn3irPp" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Apply <span class="arr">↗</span></a>
   </nav>
@@ -291,7 +292,7 @@
     <div class="counter apple-reveal" style="transition-delay:.28s">
       <div class="big" id="bigCount" data-count="0">0</div>
       <div class="cap">Ambassadors appointed</div>
-      <div class="live"><span class="d"></span><span>Intake open monthly — and counting</span></div>
+      <div class="live"><span class="d"></span><span>Intake Open Monthly - And Counting</span></div>
     </div>
 
     <div class="stat-ribbon apple-reveal" style="transition-delay:.36s">
@@ -401,11 +402,29 @@
     </div>
     <div class="pillars">
       <div class="pill apple-reveal"><div class="mk">◎</div><h4>Represent YSP Globally</h4><p>Carry the work of an international youth organisation into your own school, campus, or community.</p></div>
-      <div class="pill apple-reveal" style="transition-delay:.06s"><div class="mk">✎</div><h4>Publish Global Spotlights</h4><p>Write and publish educational spotlights on issues where you live, for a global youth audience.</p><a href="/global-spotlights" style="display:inline-block;margin-top:10px;font-size:13.5px;font-weight:500;color:var(--sage-deep)">Read The Spotlights →</a></div>
+      <div class="pill apple-reveal" style="transition-delay:.06s"><div class="mk">✎</div><h4>Publish Global Spotlights</h4><p>Write and publish educational spotlights on issues where you live, for a global youth audience.</p><a href="global-spotlights.html" style="display:inline-block;margin-top:10px;font-size:13.5px;font-weight:500;color:var(--sage-deep)">Read The Spotlights →</a></div>
       <div class="pill apple-reveal" style="transition-delay:.12s"><div class="mk">◈</div><h4>Join The Community</h4><p>Work alongside an international network of youth leaders across time zones and disciplines.</p></div>
       <div class="pill apple-reveal" style="transition-delay:.18s"><div class="mk">↗</div><h4>Build The Skills</h4><p>Leadership, communication, and advocacy practice — developed through real programme work.</p></div>
       <div class="pill apple-reveal" style="transition-delay:.24s"><div class="mk">✦</div><h4>Certificate &amp; Badge</h4><p>An official appointment certificate and a digital ambassador badge for every appointee.</p></div>
       <div class="pill apple-reveal" style="transition-delay:.3s"><div class="mk">★</div><h4>The Honours Programme</h4><p>Monthly awards, achievement badges, and leadership recognition across the ambassador cohort.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="types" data-screen-label="05b Ambassador Types">
+  <div class="wrap">
+    <div class="sec-head apple-reveal">
+      <div class="kicker">Pathways</div>
+      <h2 class="serif">Types Of Ambassador</h2>
+    </div>
+    <div class="pillars" id="typeGrid">
+      <div class="pill apple-reveal" style="transition-delay:0.00s" data-type="Global Ambassador"><div class="mk">◎</div><h4>Global Ambassador</h4><p>Represents YSP internationally and supports outreach across the global network.</p><span class="tcount" style="display:inline-block;margin-top:10px;font-size:13px;font-weight:500;color:var(--sage-deep)"></span></div>
+      <div class="pill apple-reveal" style="transition-delay:0.06s" data-type="Regional Ambassador"><div class="mk">◈</div><h4>Regional Ambassador</h4><p>Builds YSP’s presence and connections within a country or region.</p><span class="tcount" style="display:inline-block;margin-top:10px;font-size:13px;font-weight:500;color:var(--sage-deep)"></span></div>
+      <div class="pill apple-reveal" style="transition-delay:0.12s" data-type="Campus Ambassador"><div class="mk">✎</div><h4>Campus Ambassador</h4><p>Brings YSP programmes and opportunities to their school or university.</p><span class="tcount" style="display:inline-block;margin-top:10px;font-size:13px;font-weight:500;color:var(--sage-deep)"></span></div>
+      <div class="pill apple-reveal" style="transition-delay:0.18s" data-type="Digital Ambassador"><div class="mk">↗</div><h4>Digital Ambassador</h4><p>Grows YSP’s online community through social media and digital outreach.</p><span class="tcount" style="display:inline-block;margin-top:10px;font-size:13px;font-weight:500;color:var(--sage-deep)"></span></div>
+      <div class="pill apple-reveal" style="transition-delay:0.24s" data-type="Community Clubs Ambassador"><div class="mk">✦</div><h4>Community Clubs Ambassador</h4><p>Supports YSP Community Clubs and helps members get involved.</p><span class="tcount" style="display:inline-block;margin-top:10px;font-size:13px;font-weight:500;color:var(--sage-deep)"></span></div>
+      <div class="pill apple-reveal" style="transition-delay:0.30s" data-type="Chapter Support Ambassador"><div class="mk">★</div><h4>Chapter Support Ambassador</h4><p>Helps start or support a YSP chapter in their city or country.</p><span class="tcount" style="display:inline-block;margin-top:10px;font-size:13px;font-weight:500;color:var(--sage-deep)"></span></div>
+      <div class="pill apple-reveal" style="transition-delay:0.36s" data-type="YSP Learns Ambassador"><div class="mk">❖</div><h4>YSP Learns Ambassador</h4><p>Promotes YSP Learns and shares learning opportunities with young people.</p><span class="tcount" style="display:inline-block;margin-top:10px;font-size:13px;font-weight:500;color:var(--sage-deep)"></span></div>
     </div>
   </div>
 </section>
@@ -512,6 +531,7 @@
 
 <script src="ambassadors-details-1.js"></script>
 <script src="ambassadors-details-2.js"></script>
+<script src="ambassadors-details-3.js"></script>
 <script src="ambassadors-countries.js"></script>
 <script src="ambassadors-data.js"></script>
 <script>
@@ -574,16 +594,20 @@
   aio.observe(az);
 
   // Intake windows
+  const FOUNDING = 602;
+  const SEP = 6;
+  const OCT = HEADLINE - FOUNDING - SEP;
+  const wPct = v => Math.max(6, Math.round(v / FOUNDING * 100));
   const windows = [
-    {mo:'Founding', v:TOTAL, open:false, label:TOTAL.toLocaleString()},
-    {mo:'Sep 2026', v:null, open:true, label:'<span class="od"></span>Open'},
-    {mo:'Oct 2026', v:null, open:true, label:'<span class="od"></span>Open'},
-    {mo:'Nov 2026', v:null, open:true, label:'<span class="od"></span>Open'},
-    {mo:'Dec 2026', v:null, open:true, label:'<span class="od"></span>Open'}
+    {mo:'Founding', v:FOUNDING, open:false, w:100, label:FOUNDING.toLocaleString()},
+    {mo:'Sep 2026', v:SEP, open:false, w:wPct(SEP), label:SEP.toLocaleString()},
+    {mo:'Oct 2026', v:OCT, open:false, w:wPct(OCT), label:OCT.toLocaleString()},
+    {mo:'Nov 2026', v:null, open:true, w:34, label:'<span class="od"></span>Open'},
+    {mo:'Dec 2026', v:null, open:true, w:34, label:'<span class="od"></span>Open'}
   ];
   const intake = document.getElementById('intake');
   intake.innerHTML = windows.map(w =>
-    '<div class="row"><span class="mo">'+w.mo+'</span><span class="track"><span class="fill'+(w.open?' open':'')+'" data-w="'+(w.open?34:100)+'"></span></span><span class="v'+(w.v?' count" data-n="'+w.v:'')+'">'+w.label+'</span></div>'
+    '<div class="row"><span class="mo">'+w.mo+'</span><span class="track"><span class="fill'+(w.open?' open':'')+'" data-w="'+w.w+'"></span></span><span class="v'+(w.v?' count" data-n="'+w.v:'')+'">'+w.label+'</span></div>'
   ).join('');
   const iio = new IntersectionObserver(es => es.forEach(e => {
     if(!e.isIntersecting) return; iio.unobserve(e.target);
@@ -609,8 +633,9 @@
     const o = new IntersectionObserver(es => es.forEach(e => {
       if(!e.isIntersecting) return; o.unobserve(e.target);
       el.querySelectorAll('.fill').forEach((f,i) => setTimeout(() => f.style.width = f.dataset.w + '%', i*80));
-    }), {threshold:.25});
+    }), {threshold:.05});
     o.observe(el);
+    setTimeout(() => el.querySelectorAll('.fill').forEach(f => { if(!f.style.width) f.style.width = f.dataset.w + '%'; }), 2500);
   }
   const cov = n => n + ' of ' + TOTAL + ' ambassadors reporting';
 
@@ -869,6 +894,10 @@
 })();
 </script>
 <script src="mobile-nav.js"></script>
-<script src="/competition-config.js"></script>
+<script src="competition-config.js"></script>
+<script>
+(function(){const A=window.YSP_AMBASSADORS||[];const c={};A.forEach(a=>{c[a.pathway]=(c[a.pathway]||0)+1;});
+document.querySelectorAll('#typeGrid [data-type]').forEach(el=>{const n=c[el.dataset.type]||0;el.querySelector('.tcount').textContent=n?n+' ambassador'+(n===1?'':'s'):'';});})();
+</script>
 </body>
 </html>

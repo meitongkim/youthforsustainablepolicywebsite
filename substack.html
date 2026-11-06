@@ -330,14 +330,14 @@
 <!-- Nav -->
 <div class="nav-wrap" id="navWrap">
   <nav class="nav">
-    <a class="brand" href="/">
+    <a class="brand" href="index.html">
       <img src="assets/ysp-logo.png" alt="" />
       <span class="word">Y<i>S</i>P</span>
     </a>
     <div class="nav-links">
-      <a href="/programmes">Programmes</a>
-      <a href="/team">Team</a>
-      <a href="/about">About</a>
+      <a href="programmes.html">Programmes</a>
+      <a href="team.html">Team</a>
+      <a href="about.html">About</a>
     </div>
     <a href="https://forms.gle/rKPHAxvj6NaM9Dd66" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Join YSP <span class="arr">↗</span></a>
   </nav>
@@ -681,7 +681,7 @@
     document.getElementById('featuredTag').textContent = (cats[0] || 'Latest work') + ' · Latest';
     document.getElementById('featuredTitle').querySelector('a').textContent = top.title || 'Untitled';
     const slug = slugify(top.title);
-    const articleHref = `/substack-article?slug=${encodeURIComponent(slug)}`;
+    const articleHref = `substack-article.html?slug=${encodeURIComponent(slug)}`;
     document.getElementById('featuredLink').href = articleHref;
     document.getElementById('featuredCta').href = articleHref;
     document.getElementById('featuredExcerpt').textContent = stripHtml(top.description || top.content || '').slice(0, 240) + '…';
@@ -732,7 +732,7 @@
     items.forEach((item, idx) => {
       const cs = classify(item);
       const slug2 = slugify(item.title);
-      const href = `/substack-article?slug=${encodeURIComponent(slug2)}`;
+      const href = `substack-article.html?slug=${encodeURIComponent(slug2)}`;
       const thumb = item.thumbnail || item.enclosure?.link || firstImage(item.content);
       const card = document.createElement('a');
       card.className = 'card apple-reveal';
@@ -864,6 +864,6 @@ function SubstackTweaks(){
 </script>
 
 <script src="mobile-nav.js"></script>
-<script src="/competition-config.js"></script>
+<script src="competition-config.js"></script>
 </body>
 </html>

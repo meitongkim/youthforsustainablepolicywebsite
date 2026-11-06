@@ -19,7 +19,7 @@
   btn.innerHTML='<span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span>Menu</span>';
   nav.appendChild(btn);
   var panel=document.createElement('div');panel.className='mnav-panel';panel.id='mnavPanel';
-  var home=document.createElement('a');home.href='/';home.textContent='Home';panel.appendChild(home);
+  var home=document.createElement('a');home.href='index.html';home.textContent='Home';panel.appendChild(home);
   links.querySelectorAll('a').forEach(function(a){var c=a.cloneNode(true);c.removeAttribute('data-om-id');panel.appendChild(c)});
   if(cta){var c=document.createElement('a');c.href=cta.getAttribute('href');if(cta.target)c.target=cta.target;c.rel='noopener noreferrer';c.className='mnav-cta';c.textContent=cta.textContent.replace(/[\u2197\u2192\u25b8]/g,'').trim();panel.appendChild(c)}
   var scrim=document.createElement('div');scrim.className='mnav-scrim';

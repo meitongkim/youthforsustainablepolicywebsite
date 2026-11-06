@@ -176,14 +176,14 @@
 <!-- Nav -->
 <div class="nav-wrap" id="navWrap">
   <nav class="nav">
-    <a class="brand" href="/">
+    <a class="brand" href="index.html">
       <img src="assets/ysp-logo.png" alt="" />
       <span class="word">Y<i>S</i>P</span>
     </a>
     <div class="nav-links">
-      <a href="/programmes">Programmes</a>
-      <a href="/team">Team</a>
-      <a href="/about">About</a>
+      <a href="programmes.html">Programmes</a>
+      <a href="team.html">Team</a>
+      <a href="about.html">About</a>
     </div>
     <a href="https://forms.gle/rKPHAxvj6NaM9Dd66" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Join YSP <span class="arr">↗</span></a>
   </nav>
@@ -322,7 +322,7 @@
     document.getElementById('main').innerHTML = `
       <section class="a-hero">
         <div class="container">
-          <div class="crumbs"><a href="/substack">← All dispatches</a></div>
+          <div class="crumbs"><a href="substack.html">← All dispatches</a></div>
           <span class="cat">${cats[0] || 'Essay'}</span>
           <h1>${item.title || 'Untitled'}</h1>
           <div class="meta">
@@ -354,8 +354,8 @@
       </section>
 
       <nav class="pn">
-        ${prev ? `<a href="/substack-article?slug=${encodeURIComponent(slugify(prev.title))}"><span class="dir">← Older</span><h5>${prev.title}</h5></a>` : `<a href="/substack"><span class="dir">← Back</span><h5>All dispatches</h5></a>`}
-        ${next ? `<a class="next" href="/substack-article?slug=${encodeURIComponent(slugify(next.title))}"><span class="dir">Newer →</span><h5>${next.title}</h5></a>` : `<a class="next" href="${SUBSTACK}" target="_blank" rel="noopener"><span class="dir">Follow →</span><h5>YSP on Substack</h5></a>`}
+        ${prev ? `<a href="substack-article.html?slug=${encodeURIComponent(slugify(prev.title))}"><span class="dir">← Older</span><h5>${prev.title}</h5></a>` : `<a href="substack.html"><span class="dir">← Back</span><h5>All dispatches</h5></a>`}
+        ${next ? `<a class="next" href="substack-article.html?slug=${encodeURIComponent(slugify(next.title))}"><span class="dir">Newer →</span><h5>${next.title}</h5></a>` : `<a class="next" href="${SUBSTACK}" target="_blank" rel="noopener"><span class="dir">Follow →</span><h5>YSP on Substack</h5></a>`}
       </nav>
     `;
 
@@ -370,7 +370,7 @@
     const params = new URLSearchParams(location.search);
     const slug = params.get('slug') || '';
     if(!slug){
-      renderState(`<h1 class="serif">No article selected</h1><p>Head back to the dispatch index to pick one.</p><a class="btn btn-substack" href="/substack">All dispatches</a>`);
+      renderState(`<h1 class="serif">No article selected</h1><p>Head back to the dispatch index to pick one.</p><a class="btn btn-substack" href="substack.html">All dispatches</a>`);
       return;
     }
 
@@ -396,7 +396,7 @@
 
     const idx = findIndex(items, slug);
     if(idx < 0){
-      renderState(`<h1 class="serif">Couldn't find that essay</h1><p>It may have been renamed or moved. Try the full index.</p><a class="btn btn-substack" href="/substack">All dispatches</a>`);
+      renderState(`<h1 class="serif">Couldn't find that essay</h1><p>It may have been renamed or moved. Try the full index.</p><a class="btn btn-substack" href="substack.html">All dispatches</a>`);
       return;
     }
     renderArticle(items[idx], idx, items);
@@ -407,6 +407,6 @@
 </script>
 
 <script src="mobile-nav.js"></script>
-<script src="/competition-config.js"></script>
+<script src="competition-config.js"></script>
 </body>
 </html>

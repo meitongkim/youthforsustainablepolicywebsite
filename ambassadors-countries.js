@@ -1,4 +1,4 @@
-/* Founding Cohort 2026 — country of residence, rows 1–485 (roster order). One per line. */
+/* Founding Cohort 2026 — country of residence, rows 1–657 (roster order). One per line. */
 window.YSP_COUNTRIES = `
 Kenya
 Germany
@@ -179,7 +179,6 @@ DR Congo
 Nigeria
 Bangladesh
 India
-India
 Mauritius
 Rwanda
 Switzerland
@@ -266,7 +265,6 @@ Russia
 India
 United Kingdom
 Rwanda
-Zambia
 South Africa
 India
 Pakistan
@@ -485,12 +483,186 @@ Rwanda
 Rwanda
 Rwanda
 Rwanda
+Bangladesh
+Rwanda
+Rwanda
+Pakistan
+Rwanda
+Rwanda
+Rwanda
+Ethiopia
+Rwanda
+Egypt
+Rwanda
+Rwanda
+Rwanda
+Australia
+Rwanda
+Rwanda
+Ghana
+Rwanda
+Rwanda
+Rwanda
+Rwanda
+Rwanda
+Rwanda
+Rwanda
+Rwanda
+Ghana
+Rwanda
+Rwanda
+Madagascar
+Rwanda
+Rwanda
+Nigeria
+Ghana
+Ghana
+Rwanda
+Ghana
+Ghana
+Rwanda
+Rwanda
+Rwanda
+Rwanda
+Mexico
+India
+Ghana
+Rwanda
+Rwanda
+Rwanda
+Nepal
+Sweden
+Zimbabwe
+Pakistan
+Pakistan
+Rwanda
+Pakistan
+Rwanda
+Ghana
+Rwanda
+Rwanda
+Ghana
+United Kingdom
+Uganda
+Uzbekistan
+Zambia
+Mexico
+France
+India
+Rwanda
+Nigeria
+United States
+Rwanda
+Rwanda
+Pakistan
+United States
+Egypt
+Ghana
+Ghana
+Rwanda
+Afghanistan
+Cameroon
+Kenya
+United Kingdom
+Kenya
+Rwanda
+Pakistan
+Egypt
+Rwanda
+Uzbekistan
+Colombia
+Rwanda
+Nigeria
+Italy
+India
+United States
+Canada
+Nigeria
+United Kingdom
+United States
+India
+Ghana
+Rwanda
+Rwanda
+Pakistan
+United Kingdom
+Namibia
+India
+United Kingdom
+Nigeria
+Rwanda
+India
+United States
+United States
+United States
+United States
+Ireland
+Tunisia
+United States
+India
+India
+Canada
+India
+India
+Nigeria
+Nigeria
+India
+India
+Pakistan
+Philippines
+Trinidad and Tobago
+Bangladesh
+Morocco
+Nigeria
+United Kingdom
+Hong Kong
+Rwanda
+United States
+United Kingdom
+Kenya
+Singapore
+India
+Rwanda
+Pakistan
+Egypt
+India
+Costa Rica
+United States
+Sweden
+Rwanda
+Bangladesh
+Pakistan
+United Kingdom
+Namibia
+Rwanda
+New Zealand
+Nigeria
+Bangladesh
+Japan
+Singapore
+India
+Pakistan
+United Kingdom
+Pakistan
+Malaysia
+Canada
+Italy
+Bangladesh
+Rwanda
+Nigeria
+United Kingdom
+Nigeria
+United States
+Nigeria
+Bangladesh
+Rwanda
+United States
 `;
 
 window.YSP_REGIONS = {
-  Africa: ['Kenya','Cameroon','Ghana','Zambia','Rwanda','Ethiopia','Malawi','Tunisia','Somalia','Nigeria','Zimbabwe','Sierra Leone','Egypt','Benin','Lesotho','Central African Republic','DR Congo','Angola','Mauritius','South Africa','Tanzania','Guinea','Guinea-Bissau','Algeria','Morocco',"Côte d'Ivoire",'Mauritania','Chad'],
-  Asia: ['Malaysia','South Korea','Uzbekistan','Bangladesh','India','Pakistan','Syria','Georgia','Lebanon','Mongolia','Saudi Arabia','Indonesia','Sri Lanka','Singapore','Hong Kong','Vietnam','Nepal','Thailand','Afghanistan','Azerbaijan','Kazakhstan','Yemen','Cambodia','Jordan','Iraq','United Arab Emirates','Philippines','Türkiye'],
+  Africa: ["Côte d'Ivoire",'Madagascar','Uganda','Namibia','Kenya','Cameroon','Ghana','Zambia','Rwanda','Ethiopia','Malawi','Tunisia','Somalia','Nigeria','Zimbabwe','Sierra Leone','Egypt','Benin','Lesotho','Central African Republic','DR Congo','Angola','Mauritius','South Africa','Tanzania','Guinea','Guinea-Bissau','Algeria','Morocco',"Côte d'Ivoire",'Mauritania','Chad'],
+  Asia: ['Japan','Malaysia','South Korea','Uzbekistan','Bangladesh','India','Pakistan','Syria','Georgia','Lebanon','Mongolia','Saudi Arabia','Indonesia','Sri Lanka','Singapore','Hong Kong','Vietnam','Nepal','Thailand','Afghanistan','Azerbaijan','Kazakhstan','Yemen','Cambodia','Jordan','Iraq','United Arab Emirates','Philippines','Türkiye'],
   Europe: ['Germany','United Kingdom','Greece','Netherlands','Belgium','Switzerland','Ireland','Sweden','Slovenia','Spain','Estonia','Russia','France','Italy'],
-  Americas: ['Canada','United States','Mexico','Trinidad and Tobago','Peru','Costa Rica','Nicaragua'],
+  Americas: ['Colombia','Canada','United States','Mexico','Trinidad and Tobago','Peru','Costa Rica','Nicaragua'],
   Oceania: ['Australia','New Zealand','Fiji']
 };

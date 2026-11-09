@@ -12,6 +12,7 @@ window.YSP_COMP = {
     results: '2027-01-15T00:00:00+08:00'
   },
   formUrl: 'https://forms.gle/jADkhJtDEN1tBQcU7',      // Google Form URL. Required before "Submit Your Essay" can appear.
+  registerUrl: 'https://forms.gle/tfecxe9F1V5MFRCY7',  // Registration Google Form. While set, the pre-opening button reads "Register Now" and links here.
   resultsUrl: '',   // Published results page or section. Until set, results day reads "Results announcement pending".
   enquiriesEmail: '', // Verified competition inbox. Never fill with a guessed address.
   approved: { rules: false, privacy: false, enquiries: false }, // Turn on each draft link once its content is approved.
@@ -43,12 +44,12 @@ window.YSP_COMP = {
   };
   C.status = function (s) {
     s = s || C.state();
-    return { before: 'Entries open 1 December', open: 'Entries open · closes 31 December', closed: 'Entries closed', results: C.resultsUrl ? 'Results published' : 'Results announcement pending' }[s];
+    return { before: C.registerUrl ? 'Registration open · entries open 1 December' : 'Entries open 1 December', open: 'Entries open · closes 31 December', closed: 'Entries closed', results: C.resultsUrl ? 'Results published' : 'Results announcement pending' }[s];
   };
   // Returns {label, href} for a live link, or {label} for a non-interactive status.
   C.cta = function (s) {
     s = s || C.state();
-    if (s === 'before') return { label: 'Entries Open 1 December' };
+    if (s === 'before') return C.registerUrl ? { label: 'Register Now', href: C.registerUrl, external: true } : { label: 'Entries Open 1 December' };
     if (s === 'open') return C.formUrl ? { label: 'Submit Your Essay', href: C.formUrl, external: true } : { label: 'Submission Link Coming Soon' };
     if (s === 'closed') return { label: 'Entries Closed' };
     return C.resultsUrl ? { label: 'Results', href: C.resultsUrl } : { label: 'Results announcement pending' };

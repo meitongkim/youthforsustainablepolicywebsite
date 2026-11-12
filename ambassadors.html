@@ -103,14 +103,17 @@
   .card .sub{margin:0 0 26px;font-size:13px;color:var(--ink-mute)}
   .az{display:flex;align-items:flex-end;gap:5px;height:190px}
   .az .col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;height:100%}
-  .az .bar{width:100%;border-radius:6px 6px 3px 3px;background:linear-gradient(180deg,var(--sage-soft),var(--sage-deep));height:0;transition:height 1.1s var(--ease);min-height:2px}
+  .az .bar{position:relative;width:100%;border-radius:6px 6px 3px 3px;background:linear-gradient(180deg,var(--sage-soft),var(--sage-deep) 70%,#5f7d4c);height:0;transition:height 1.2s cubic-bezier(.34,1.4,.5,1);min-height:2px;box-shadow:0 6px 14px -8px rgba(95,125,76,.6)}
+  .az .bar.peak{background:linear-gradient(180deg,var(--sage),#5f7d4c 60%,var(--ink))}
+  .az .bar b{position:absolute;left:50%;bottom:100%;transform:translate(-50%,4px);margin-bottom:4px;font-size:10px;font-weight:600;color:var(--ink-soft);font-variant-numeric:tabular-nums;opacity:0;transition:opacity .4s,transform .4s var(--ease)}
+  .az.in .bar.peak b,.az .col:hover .bar b{opacity:1;transform:translate(-50%,0)}
   .az .lt{font-size:10px;color:var(--ink-mute);letter-spacing:.04em}
   .az .col:hover .bar{filter:brightness(1.08)}
   .intake{display:flex;flex-direction:column;gap:14px}
   .intake .row{display:grid;grid-template-columns:96px 1fr auto;gap:14px;align-items:center;font-size:13px}
   .intake .mo{color:var(--ink-mute);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
   .intake .track{display:block;height:12px;border-radius:999px;background:rgba(31,42,34,.07);overflow:hidden}
-  .intake .fill{display:block;position:relative;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--mist),var(--sage-soft) 38%,var(--sage) 70%,var(--sage-deep));width:0;transition:width 1.4s var(--ease);box-shadow:0 0 12px -2px rgba(137,163,108,.55)}
+  .intake .fill{display:block;position:relative;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--sage-soft),var(--sage) 45%,var(--sage-deep) 75%,#5f7d4c);width:0;transition:width 1.4s var(--ease);box-shadow:0 0 12px -2px rgba(137,163,108,.55)}
   .intake .fill:not(.open)::after{content:"";position:absolute;inset:0;border-radius:999px;background:linear-gradient(100deg,transparent 20%,rgba(255,255,255,.55) 50%,transparent 80%);background-size:220% 100%;animation:sheen 2.8s var(--ease) infinite}
   @keyframes sheen{0%{background-position:-120% 0}100%{background-position:220% 0}}
   .intake .fill.open{background:repeating-linear-gradient(115deg,rgba(137,163,108,.6) 0 7px,rgba(207,223,216,.5) 7px 14px);background-size:200% 100%;animation:drift 2.6s linear infinite}
@@ -273,6 +276,7 @@
       <a href="programmes.html">Programmes</a>
       <a href="ambassadors.html" class="active">Ambassadors</a>
       <a href="team.html">Team</a>
+      <a href="publications.html">Publications</a>
       <a href="about.html">About</a>
     </div>
     <a href="https://lnkd.in/gkn3irPp" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Apply <span class="arr">↗</span></a>
@@ -433,7 +437,7 @@
   <div class="wrap">
     <div class="sec-head apple-reveal">
       <div class="kicker">The Directory</div>
-      <h2 class="serif">Say Hello To Our Ambassadors</h2>
+      <h2 class="serif">Meet Our Global Youth Ambassadors</h2>
       <p>Search for a name or jump to a letter. Every ambassador has their own profile page — go say hello.</p>
     </div>
     <div class="dir-bar apple-reveal">
@@ -587,10 +591,15 @@
   A.forEach(a => { const c = norm(a.name)[0]; if(counts[c]!==undefined) counts[c]++; else other++; });
   const max = Math.max(...LET.map(l=>counts[l]));
   const az = document.getElementById('azChart');
-  az.innerHTML = LET.map(l => '<div class="col" title="'+l+' — '+counts[l]+'"><div class="bar" data-h="'+Math.round(counts[l]/max*100)+'"></div><div class="lt">'+l+'</div></div>').join('');
+  az.innerHTML = LET.map(l => '<div class="col" title="'+l+' — '+counts[l]+'"><div class="bar'+(counts[l]>=max*.85?' peak':'')+'" data-h="'+Math.round(counts[l]/max*100)+'" data-n="'+counts[l]+'"><b>0</b></div><div class="lt">'+l+'</div></div>').join('');
   const aio = new IntersectionObserver(es => es.forEach(e => {
     if(!e.isIntersecting) return; aio.unobserve(e.target);
-    az.querySelectorAll('.bar').forEach((b,i) => setTimeout(() => b.style.height = b.dataset.h + '%', i*28));
+    az.querySelectorAll('.bar').forEach((b,i) => setTimeout(() => {
+      b.style.height = b.dataset.h + '%';
+      const lab = b.querySelector('b'), n = +b.dataset.n, t0 = performance.now();
+      (function tick(now){ const t = Math.min(1,(now-t0)/1200); lab.textContent = Math.round(ease(t)*n); if(t<1) requestAnimationFrame(tick); })(t0);
+    }, i*45));
+    setTimeout(() => az.classList.add('in'), 26*45 + 600);
   }), {threshold:.3});
   aio.observe(az);
 

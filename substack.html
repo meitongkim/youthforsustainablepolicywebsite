@@ -232,7 +232,7 @@
   .sections-head h2{ font-family:"Fraunces",serif; font-weight:400; font-size: clamp(28px,3.4vw,44px); letter-spacing:-.02em; line-height:1.04; margin:10px 0 12px }
   .sections-head h2 em{ font-style:italic; color:var(--sage-deep) }
   .sections-head p{ color:var(--ink-soft); font-size:15.5px; line-height:1.6; margin:0 }
-  .sec-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:18px }
+  .sec-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:18px }.sec-soon{grid-column:1/-1}
   .sec-card{ position:relative; display:flex; flex-direction:column; gap:11px; padding:26px 26px 24px; background:#fff; border:1px solid var(--line); border-radius:20px; box-shadow:var(--shadow-1); cursor:pointer; transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s, border-color .35s; text-align:left }
   .sec-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-2); border-color:rgba(31,42,34,.16) }
   .sec-card .mark{ width:40px; height:40px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-family:ui-monospace,Menlo,monospace; font-size:12px; font-weight:600; letter-spacing:.03em; color:#fff }
@@ -243,10 +243,10 @@
   .sec-card .go .arr{ transition: transform .25s }
   .sec-card:hover .go{ color:var(--ink) }
   .sec-card:hover .go .arr{ transform: translateX(3px) }
-  .sec-card .cadence{ position:absolute; top:24px; right:24px; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-mute) }
+  .sec-soon{cursor:default}.sec-soon:hover{transform:none;box-shadow:var(--shadow-1);border-color:var(--line)}.sec-soon .cadence{color:#6b5fa0;font-weight:600}.sec-card .cadence{ position:absolute; top:24px; right:24px; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-mute) }
 
   /* About-this-publication panel */
-  .about-pub{ max-width:1100px; margin: 84px auto 0; padding: 0 24px }
+  .about-pub{ max-width:1100px; margin: 84px auto 0; padding: 0 24px 96px }
   .about-pub .inner{ background: linear-gradient(180deg,#ffffff 0%, #f6f9f2 100%); border:1px solid var(--line); border-radius:28px; padding: 52px; box-shadow: var(--shadow-1) }
   .about-pub h3{ font-family:"Fraunces",serif; font-weight:400; font-size:clamp(26px,3vw,40px); letter-spacing:-.02em; line-height:1.06; margin: 16px 0 20px; max-width: 20ch }
   .about-pub h3 em{ font-style:italic; color:var(--sage-deep) }
@@ -412,60 +412,39 @@
   <div class="sections-head apple-reveal">
     <div class="h-left">
       <span class="eyebrow"><span class="substack-dot"></span>What you'll find here</span>
-      <h2 class="serif">Six ways in, <em>one publication.</em></h2>
-      <p>From a youth-led podcast to forensic data columns, every section of the YSP Substack has its own remit. Pick a lane — or read straight through the dispatch feed below.</p>
+      <h2 class="serif">Four series, <em>one publication.</em></h2>
+      <p>Every series on the YSP Substack has its own remit. Pick a lane — or read straight through the dispatch feed below.</p>
     </div>
   </div>
   <div class="sec-grid">
-    <button class="sec-card apple-reveal" data-cat="Podcast">
-      <span class="cadence">Every 2–3 wks</span>
-      <span class="mark" style="background:#FF6719">POD</span>
-      <span class="s-title serif">Podcast · YSP Talks</span>
-      <p class="tagline">Youth, policy, and the world we're inheriting.</p>
-      <p>A youth-led conversation about the decisions that define our world. Each episode we sit down with professionals to break down the ideas behind the policies that matter most to young people.</p>
-      <span class="go">Browse episodes <span class="arr">→</span></span>
+    <button class="sec-card apple-reveal" data-cat="Action Desk">
+      <span class="mark" style="background:#4d7c8a">AD</span>
+      <span class="s-title serif">Action Desk</span>
+      <p class="tagline">From thought to impact.</p>
+      <p>A practical corner of the publication that turns awareness into direction. It focuses on tools, guides, opportunities, and actionable ideas—how to get involved, what to build, where to start, and how to move from thought to impact. Less theory, more “here’s what you can actually do next.”</p>
+      <span class="go">Get to work <span class="arr">→</span></span>
     </button>
-
     <button class="sec-card apple-reveal" data-cat="Youth Voices" style="transition-delay:.05s">
       <span class="mark" style="background:#89a36c">YV</span>
       <span class="s-title serif">Youth Voices</span>
       <p class="tagline">Unfiltered, unperformed.</p>
-      <p>A space where young people speak without filters or performance — stories, reflections, and perspectives that usually go unheard, across identity, place, and experience. Connection through honesty.</p>
+      <p>A space where young people speak without filters or performance. It holds stories, reflections, and perspectives that usually go unheard—across identity, place, and experience. This section is about connection through honesty: building a shared archive of what it feels like to grow up right now.</p>
       <span class="go">Read the voices <span class="arr">→</span></span>
     </button>
-
-    <button class="sec-card apple-reveal" data-cat="Action Desk" style="transition-delay:.1s">
-      <span class="mark" style="background:#4d7c8a">AD</span>
-      <span class="s-title serif">Action Desk</span>
-      <p class="tagline">From thought to impact.</p>
-      <p>Tools, guides, opportunities, and actionable ideas — how to get involved, what to build, where to start. Less theory, more “here's what you can actually do next.”</p>
-      <span class="go">Get to work <span class="arr">→</span></span>
-    </button>
-
-    <button class="sec-card apple-reveal" data-cat="Policy Breakdown" style="transition-delay:.05s">
+    <button class="sec-card apple-reveal" data-cat="Policy Breakdown" style="transition-delay:.1s">
       <span class="mark" style="background:#1f3a5f">PB</span>
       <span class="s-title serif">Policy Breakdown</span>
       <p class="tagline">What it means, why it matters.</p>
-      <p>Clear, concise explanations of complex policies shaping our world — what they mean, why they matter, and how they affect you.</p>
+      <p>Clear, concise explanations of complex policies shaping our world. We break down what they mean, why they matter, and how they affect you.</p>
       <span class="go">Break it down <span class="arr">→</span></span>
     </button>
-
-    <button class="sec-card apple-reveal" data-cat="The Rinse" style="transition-delay:.1s">
-      <span class="mark" style="background:#3f8f6b">RNS</span>
-      <span class="s-title serif">The Rinse</span>
-      <p class="tagline">They greenwash. We rinse.</p>
-      <p>YSP's recurring column on environmental claims — what they say, what the evidence shows, and what the policy response has been. Each issue examines a theme through documented cases, regulatory findings, and structural analysis.</p>
-      <span class="go">Read the column <span class="arr">→</span></span>
-    </button>
-
-    <button class="sec-card apple-reveal" data-cat="The Record" style="transition-delay:.15s">
-      <span class="cadence">Monthly</span>
+    <div class="sec-card sec-soon apple-reveal" style="transition-delay:.15s" aria-disabled="true">
+      <span class="cadence">Coming soon</span>
       <span class="mark" style="background:#6b5fa0">REC</span>
       <span class="s-title serif">The Record</span>
       <p class="tagline">A finding is not a fact.</p>
-      <p>Most statistics in policy coverage are borrowed twice. The Record goes back to check — taking one finding and reading it properly: where it came from, what the methodology measures, and what changes if it holds. Written by the YSP Research Track.</p>
-      <span class="go">Check the record <span class="arr">→</span></span>
-    </button>
+      <p>Most statistics you read in policy coverage are borrowed twice, from a journalist who borrowed them from a think tank who borrowed them from a dataset that nobody went back to check. The Record goes back to check. Each issue takes one finding, one data point, or one research paper that has entered the policy conversation and reads it properly. Where did this number come from? What does the methodology actually measure, and what does it not? What changes if the finding holds, and what should we do with it if it doesn't? The Record exists so that YSP's researchers, and our readers, know the difference between a finding and a fact, and between a statistic and a story someone wanted to tell. Written by members of the YSP Research Track. Published monthly.</p>
+    </div>
   </div>
 </section>
 
@@ -807,7 +786,7 @@
   }
 
   // ===== Section cards → filter the dispatch feed =====
-  document.querySelectorAll('.sec-card').forEach(card => {
+  document.querySelectorAll('button.sec-card').forEach(card => {
     card.addEventListener('click', () => {
       const cat = card.dataset.cat;
       const chip = [...chipRow.querySelectorAll('.chip')].find(c => c.dataset.cat === cat);

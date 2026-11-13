@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>YSP Global Policy Pitch Competition 2026 — YSP</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="From Evidence to Action. A global youth policy innovation and pitching competition. Launching 15 November 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,1,300;9..144,1,400&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sage:#9ab078; --sage-deep:#89a36c; --sage-soft:#b9c99e;
+    --mist:#cfdfd8; --mist-pale:#e6efe9; --paper:#fbfdfa;
+    --ink:#1f2a22; --ink-soft:#3d4b40; --ink-mute:#67756a;
+    --line:rgba(31,42,34,.10);
+    --shadow-1: 0 1px 2px rgba(31,42,34,.04), 0 8px 24px -8px rgba(31,42,34,.10);
+    --shadow-2: 0 1px 2px rgba(31,42,34,.06), 0 24px 60px -20px rgba(122,150,108,.30);
+    --ease: cubic-bezier(.2,.7,.2,1);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Inter", system-ui, -apple-system, sans-serif;
+    color:var(--ink); background:var(--paper);
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    overflow-x:hidden; font-size:16px; line-height:1.55; letter-spacing:-0.005em;
+  }
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  .serif{font-family:"Fraunces", Georgia, serif; font-weight:400; letter-spacing:-0.02em}
+
+  /* Grain */
+  .grain{
+    position:fixed; inset:0; pointer-events:none; z-index:9999;
+    opacity:.06; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12  0 0 0 0 0.16  0 0 0 0 0.13  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  /* Mesh */
+  .mesh{ position:absolute; inset:-10%; pointer-events:none; z-index:0; filter:blur(60px) saturate(1.05); opacity:.8 }
+  .mesh::before, .mesh::after, .mesh > span{ content:""; position:absolute; border-radius:50% }
+  .mesh::before{ width:55%; aspect-ratio:1; left:-8%; top:-12%; background:radial-gradient(circle, rgba(207,223,216,.95), rgba(207,223,216,0) 70%) }
+  .mesh::after{ width:60%; aspect-ratio:1; right:-12%; bottom:-18%; background:radial-gradient(circle, rgba(137,163,108,.7), rgba(137,163,108,0) 70%) }
+  .mesh > span{ width:48%; aspect-ratio:1; left:30%; top:25%; background:radial-gradient(circle, rgba(154,176,120,.5), rgba(154,176,120,0) 70%) }
+
+  /* Nav */
+  .nav-wrap{ position:fixed; top:18px; left:0; right:0; z-index:100; display:flex; justify-content:center; pointer-events:none }
+  .nav{
+    pointer-events:auto; display:flex; align-items:center; gap:8px;
+    padding:8px 8px 8px 18px;
+    background:rgba(255,255,255,.42);
+    backdrop-filter: blur(14px) saturate(1.4); -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    border:1px solid rgba(255,255,255,.55); border-radius:999px;
+    box-shadow: 0 1px 1px rgba(255,255,255,.6) inset, 0 10px 30px -12px rgba(31,42,34,.18);
+    transition: all .35s var(--ease);
+  }
+  .scrolled .nav{
+    background:rgba(255,255,255,.65);
+    backdrop-filter: blur(22px) saturate(1.6);
+    box-shadow: 0 1px 1px rgba(255,255,255,.7) inset, 0 18px 50px -18px rgba(31,42,34,.22);
+  }
+  .nav .brand{ display:flex; align-items:center; gap:10px; padding-right:14px; border-right:1px solid var(--line) }
+  .nav .brand img{ width:28px; height:28px; border-radius:8px; object-fit:cover; box-shadow:0 2px 6px rgba(31,42,34,.15) }
+  .nav .brand .word{ font-weight:600; letter-spacing:.02em; font-size:14px }
+  .nav .brand .word i{ font-style:normal; color:var(--sage-deep) }
+  .nav-links{ display:flex; align-items:center; gap:2px; padding:0 6px }
+  .nav-links a{ padding:8px 14px; border-radius:999px; font-size:13.5px; font-weight:500; color:var(--ink-soft); transition: background .25s, color .25s }
+  .nav-links a:hover, .nav-links a.active{ background:rgba(255,255,255,.7); color:var(--ink) }
+  .btn{ display:inline-flex; align-items:center; gap:8px; padding:10px 18px; border-radius:999px; font-size:13.5px; font-weight:500; transition: transform .25s var(--ease), box-shadow .25s, background .25s, filter .25s }
+  .btn-primary{ background:var(--ink); color:#fbfdfa; box-shadow: 0 1px 1px rgba(255,255,255,.18) inset, 0 8px 22px -8px rgba(31,42,34,.45) }
+  .btn-primary:hover{ background:#0f1612 }
+  .btn-forest{ background: linear-gradient(180deg, var(--sage), var(--sage-deep)); color:#fbfdfa; box-shadow: 0 1px 1px rgba(255,255,255,.35) inset, 0 10px 26px -10px rgba(137,163,108,.6) }
+  .btn-forest:hover{ filter:brightness(1.04) }
+  .btn-ghost{ color:var(--ink); background:rgba(255,255,255,.55); border:1px solid rgba(255,255,255,.7); backdrop-filter:blur(10px) }
+  .btn-ghost:hover{ background:rgba(255,255,255,.8) }
+  .btn .arr{ display:inline-block; transition: transform .25s var(--ease) }
+  .btn:hover .arr{ transform: translate(2px,-2px) }
+
+  /* Hero */
+  .hero{
+    position:relative; min-height:72vh; padding:170px 24px 90px;
+    background:
+      radial-gradient(120% 70% at 50% 0%, var(--mist) 0%, rgba(207,223,216,0) 60%),
+      linear-gradient(180deg, #f3f8ef 0%, #fbfdfa 60%);
+    overflow:hidden; isolation:isolate;
+  }
+  .hero-inner{ position:relative; z-index:2; max-width:1180px; margin:0 auto; text-align:center; display:flex; flex-direction:column; align-items:center }
+  .eyebrow-pill{
+    display:inline-flex; align-items:center; gap:10px; padding:6px;
+    background:rgba(255,255,255,.6); backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,.75); border-radius:999px;
+    box-shadow: 0 1px 1px rgba(255,255,255,.6) inset, 0 6px 18px -8px rgba(31,42,34,.15);
+    font-size:12.5px; color:var(--ink-soft); margin-bottom:32px;
+  }
+  .eyebrow-pill .tag{ display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border-radius:999px; background:var(--ink); color:#fbfdfa; font-weight:500; font-size:11.5px; letter-spacing:.04em }
+  .eyebrow-pill .tag .dot{ width:5px; height:5px; border-radius:50%; background:var(--sage) }
+  .eyebrow-pill .meta{ padding-right:14px }
+  .hero h1{
+    margin:0 0 22px; font-size: clamp(48px, 7vw, 104px);
+    line-height:1.02; letter-spacing:-0.035em; font-weight:400; color:var(--ink); max-width:14ch;
+  }
+  .hero h1 em{ font-style:italic; font-weight:300; color:var(--sage-deep) }
+  .hero p.lede{ max-width:60ch; margin:0 auto; color:var(--ink-soft); font-size:17.5px; line-height:1.65 }
+  .hero-cta{ display:flex; gap:10px; margin-top:36px; flex-wrap:wrap; justify-content:center }
+
+  /* Section base */
+  section{ position:relative; padding:130px 24px; isolation:isolate }
+  .container{ max-width:1180px; margin:0 auto; position:relative; z-index:2 }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--sage-deep); font-weight:500 }
+  .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background:var(--sage) }
+  h2.section-title{ font-size: clamp(36px, 5vw, 64px); line-height:1.04; letter-spacing:-0.028em; font-weight:400; color:var(--ink); margin:16px 0 18px; max-width:22ch }
+  h2.section-title em{ font-style:italic; color:var(--sage-deep); font-weight:300 }
+  p.section-sub{ max-width:62ch; color:var(--ink-soft); font-size:17px; margin:0 0 48px; line-height:1.65 }
+  .bg-light{ background: linear-gradient(180deg, #fbfdfa 0%, #f3f8ef 100%) }
+  .bg-mid{ background: linear-gradient(180deg, #f3f8ef 0%, #eaf1e3 100%) }
+  .bg-sage{ background: linear-gradient(180deg, #eaf1e3 0%, #d9e6cf 100%) }
+  .bg-deep{ background: linear-gradient(180deg, #d9e6cf 0%, #eaf1e3 60%, #fbfdfa 100%) }
+
+  /* ── Why YSP Matters — editorial light slab ── */
+  .why-section{
+    background:
+      radial-gradient(70% 60% at 12% 8%, rgba(207,223,216,.5), transparent 55%),
+      radial-gradient(60% 55% at 92% 95%, rgba(154,176,120,.25), transparent 55%),
+      linear-gradient(180deg, #fbfdfa 0%, #f3f8ef 100%);
+    padding:150px 24px 140px;
+  }
+  .why-marker{
+    display:inline-flex; align-items:center; gap:14px; margin-bottom:36px;
+    font-size:11.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--sage-deep); font-weight:600;
+  }
+  .why-marker .asterism{
+    font-family:"Fraunces", serif; font-weight:300; font-style:italic;
+    font-size:22px; color:var(--sage-deep); line-height:1;
+  }
+  .why-marker .label::before{
+    content:''; display:inline-block; width:28px; height:1px;
+    background:rgba(137,163,108,.5); vertical-align:middle; margin-right:14px;
+  }
+  .why-grid{
+    display:grid; grid-template-columns: minmax(280px, .82fr) minmax(0, 1.18fr); gap: 80px;
+    align-items:start;
+  }
+  .why-headline h2{
+    margin:0; font-weight:400;
+    font-size: clamp(54px, 8.5vw, 116px); line-height:.94; letter-spacing:-0.038em;
+    color:var(--ink);
+  }
+  .why-headline h2 .line{ display:block }
+  .why-headline h2 em{ font-style:italic; font-weight:300; color: var(--sage-deep) }
+  .why-aside{
+    margin-top: 36px; padding-top: 28px;
+    border-top: 1px solid var(--line);
+    display:flex; align-items:flex-start; gap:14px;
+    max-width: 36ch;
+  }
+  .why-aside .pip{
+    width:8px; height:8px; border-radius:50%; flex-shrink:0; margin-top:7px;
+    background: var(--sage); box-shadow: 0 0 0 4px rgba(154,176,120,.18);
+  }
+  .why-aside p{
+    margin:0; font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color: var(--ink-mute); line-height:1.7;
+  }
+
+  .why-body{ display:flex; flex-direction:column; gap: 26px; padding-top: 18px; max-width: 62ch }
+  .why-body p{ margin:0; font-size: 17px; line-height: 1.75; color: var(--ink-soft) }
+  .why-body p.lede{
+    font-family:"Fraunces", serif; font-weight:400;
+    font-size: clamp(22px, 2.3vw, 30px); line-height: 1.35; letter-spacing:-0.012em;
+    color:var(--ink); padding-bottom: 8px;
+  }
+  .why-body p.lede em{ font-style:italic; font-weight:300; color: var(--sage-deep) }
+  .why-body p b{ color: var(--ink); font-weight:500 }
+
+  /* Mechanisms — editorial row of 4 */
+  .mech-band{
+    background: linear-gradient(180deg, #f3f8ef 0%, #eaf1e3 100%);
+    padding:140px 24px;
+  }
+  .mech-grid{
+    display:grid; grid-template-columns: repeat(4, 1fr); gap:14px; margin-top:8px;
+  }
+  .mech-card{
+    position:relative; padding:30px 26px 32px; border-radius:22px;
+    background:rgba(255,255,255,.78); backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,.9);
+    box-shadow: var(--shadow-1);
+    display:flex; flex-direction:column; gap:10px; min-height:240px;
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+  }
+  .mech-card:hover{ transform: translateY(-4px); box-shadow: var(--shadow-2) }
+  .mech-card .num{
+    font-family:"Fraunces", serif; font-style:italic; font-weight:300;
+    font-size:28px; color:var(--sage-deep); line-height:1; letter-spacing:-0.02em;
+  }
+  .mech-card .title{
+    font-family:"Fraunces", serif; font-weight:400; font-size:24px;
+    letter-spacing:-0.018em; line-height:1.15; color:var(--ink);
+  }
+  .mech-card .title em{ font-style:italic; color:var(--sage-deep); font-weight:300 }
+  .mech-card .desc{ color:var(--ink-soft); font-size:14px; line-height:1.6; margin:0 }
+  .mech-card .footer-tag{
+    margin-top:auto; padding-top:14px;
+    font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-mute); font-weight:500;
+    border-top: 1px dashed rgba(31,42,34,.1);
+  }
+
+  /* Identity strip — what YSP is */
+  .identity-band{
+    background: linear-gradient(180deg, #eaf1e3 0%, #d9e6cf 100%);
+    padding:130px 24px;
+  }
+  .id-grid{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; margin-top:8px;
+  }
+  .id-card{
+    padding:32px 28px; border-radius:22px;
+    background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.72));
+    border:1px solid rgba(255,255,255,.95);
+    box-shadow: 0 1px 1px rgba(255,255,255,.9) inset, var(--shadow-1);
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .id-card .label{
+    display:inline-flex; align-items:center; gap:8px; align-self:flex-start;
+    padding:5px 12px; border-radius:999px;
+    background: rgba(154,176,120,.16); border:1px solid rgba(154,176,120,.28);
+    font-size:11px; color:var(--sage-deep); font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+  }
+  .id-card h3{
+    font-family:"Fraunces", serif; font-weight:400; font-size:30px;
+    letter-spacing:-0.022em; line-height:1.1; margin:0;
+  }
+  .id-card h3 em{ font-style:italic; color:var(--sage-deep); font-weight:300 }
+  .id-card p{ margin:0; color:var(--ink-soft); font-size:14.5px; line-height:1.65 }
+
+  /* Closing CTA */
+  .closing{
+    background: linear-gradient(180deg, #d9e6cf 0%, #eaf1e3 60%, #fbfdfa 100%);
+    padding:140px 24px 160px; overflow:hidden;
+  }
+  .closing .card{ position:relative; max-width:980px; margin:0 auto; text-align:center }
+  .closing h2{
+    font-family:"Fraunces", serif; font-weight:400;
+    font-size: clamp(42px, 6vw, 80px); line-height:1.04; letter-spacing:-0.03em; margin:0 0 22px;
+  }
+  .closing h2 em{ font-style:italic; color:var(--sage-deep); font-weight:300 }
+  .closing p{ color:var(--ink-soft); font-size:17px; max-width:54ch; margin:0 auto 36px; line-height:1.65 }
+  .closing-cta{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap }
+
+  /* Footer */
+  .footer{ background:var(--ink); color:#d6dcd2; padding:72px 24px 36px }
+  .footer-grid{ max-width:1180px; margin:0 auto; display:grid; grid-template-columns: 2fr 1fr 1fr; gap:48px }
+  .footer .brand{ display:flex; align-items:center; gap:12px; margin-bottom:18px }
+  .footer .brand img{ width:36px; height:36px; border-radius:10px }
+  .footer .brand .word{ font-weight:600; font-size:16px; letter-spacing:.02em; color:#fbfdfa }
+  .footer .brand .word i{ font-style:normal; color:var(--sage-soft) }
+  .footer .blurb{ color:#aab1a3; font-size:14px; max-width:38ch; line-height:1.55 }
+  .footer h5{ color:#fbfdfa; font-size:12px; letter-spacing:.18em; text-transform:uppercase; margin:0 0 14px; font-weight:500 }
+  .footer ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; font-size:14px }
+  .footer ul a{ color:#aab1a3; transition: color .2s }
+  .footer ul a:hover{ color:#fbfdfa }
+  .safe-band{
+    max-width:1180px; margin:56px auto 0; padding:18px 22px; border-radius:16px;
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10);
+    display:flex; gap:14px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+    font-size:13px; color:#d6dcd2;
+  }
+  .safe-band .left{ display:flex; align-items:center; gap:12px }
+  .safe-band .leaf{ width:24px; height:24px; border-radius:50%; background:linear-gradient(140deg, var(--sage), var(--sage-deep)); display:inline-flex; align-items:center; justify-content:center; color:#fbfdfa; font-size:12px; flex-shrink:0 }
+  .safe-band a{ color:#fbfdfa; text-decoration:underline; text-decoration-color:rgba(251,253,250,.4); text-underline-offset:3px }
+  .copy{ max-width:1180px; margin:24px auto 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12px; color:#7d857a; letter-spacing:.04em }
+
+  /* Reveals */
+  .apple-reveal{ opacity:0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); will-change: transform, opacity }
+  .is-in.apple-reveal{ opacity:1; transform: translateY(0) }
+
+  @media (max-width: 980px){
+    .nav-links{ display:none }
+    .why-grid{ grid-template-columns: 1fr; gap: 32px }
+    .why-headline h2{ font-size: clamp(48px, 11vw, 84px) }
+    .mech-grid{ grid-template-columns: 1fr 1fr }
+    .id-grid{ grid-template-columns: 1fr }
+    .footer-grid{ grid-template-columns: 1fr 1fr; gap:32px }
+  }
+  @media (max-width: 640px){
+    .mech-grid{ grid-template-columns: 1fr }
+    .hero{ padding:140px 20px 70px }
+    .why-section{ padding:110px 20px 100px }
+  }
+</style>
+<style>
+.pbc-hero{padding:150px 24px 80px}.pbc-hero h1,.pbc-h2,.pbc-cat-head h3,.pbc-track h4,.pbc-crit h4,.pbc-prize h4,.pbc-faq summary{text-transform:capitalize}.pbc-hero .hero-cta .btn,.pbc-cta .btn{white-space:nowrap}.pbc-hero .hero-inner{max-width:1080px}
+.pbc-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:44px 0 0;border-top:1px solid var(--line)}
+.pbc-facts div{padding:22px 20px 0 0}.pbc-facts .k{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:6px}.pbc-facts .v{font-family:"Fraunces",Georgia,serif;font-size:clamp(28px,3vw,40px);letter-spacing:-.02em}.pbc-facts .v em{font-style:italic;color:var(--sage-deep);font-size:.6em}
+.pbc-sec{padding:96px 24px;border-top:1px solid var(--line)}.pbc-sec.alt{background:linear-gradient(180deg,#f6f9f3,#eef4ea)}
+.pbc-wrap{max-width:1080px;margin:0 auto}
+.pbc-eye{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:18px}.pbc-eye::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--sage-deep)}
+.pbc-h2{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:clamp(34px,4.4vw,56px);line-height:1.04;letter-spacing:-.025em;margin:0 0 22px;text-wrap:balance}.pbc-h2 em{font-style:italic;color:var(--sage-deep);font-weight:300}
+.pbc-p{max-width:62ch;color:var(--ink-soft);font-size:17px;line-height:1.65;margin:0 0 14px;text-wrap:pretty}
+.pbc-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+.pbc-ul{list-style:none;margin:0;padding:0;display:grid;gap:0}.pbc-ul li{padding:16px 0;border-top:1px solid var(--line);color:var(--ink-soft);font-size:16px;line-height:1.55;display:grid;grid-template-columns:34px minmax(0,1fr)}.pbc-ul li span{font-size:12px;color:var(--sage-deep);padding-top:3px;letter-spacing:.08em}
+.pbc-prompt{margin:8px 0 0;padding:36px 40px;border-radius:24px;background:#1f2a22;color:#eef4ea;font-family:"Fraunces",Georgia,serif;font-size:clamp(22px,2.4vw,30px);line-height:1.3;letter-spacing:-.015em;text-wrap:pretty}.pbc-prompt small{display:block;font-family:"Inter",system-ui,sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-soft);margin-bottom:16px}
+.pbc-tracks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}.pbc-track{padding:26px 28px;border-radius:20px;background:rgba(255,255,255,.75);border:1px solid var(--line)}.pbc-track h4{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:26px;margin:0 0 6px}.pbc-track p{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.55}
+.pbc-crit{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.pbc-crit div{padding:26px 22px;border-radius:20px;background:rgba(255,255,255,.8);border:1px solid var(--line)}.pbc-crit .n{font-family:"Fraunces",Georgia,serif;font-size:44px;line-height:1;color:var(--sage-deep);font-style:italic;font-weight:300}.pbc-crit h4{margin:14px 0 6px;font-size:16px;font-weight:600}.pbc-crit p{margin:0;color:var(--ink-mute);font-size:13.5px}
+.pbc-note{margin-top:18px;font-size:14px;color:var(--ink-mute)}
+.pbc-tl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--ink)}.pbc-tl li{padding:20px 20px 0 0;position:relative}.pbc-tl li::before{content:"";position:absolute;top:-7px;left:0;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}.pbc-tl li.done::before{background:var(--sage-deep);border-color:var(--sage-deep)}.pbc-tl .d{display:block;font-family:"Fraunces",Georgia,serif;font-size:22px;margin-bottom:4px}.pbc-tl .t{font-size:14px;color:var(--ink-soft)}
+.pbc-cat{margin-top:56px}.pbc-cat-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:24px}.pbc-cat-head h3{font-size:clamp(28px,3vw,38px);margin:0}.pbc-cat-head h3 em{font-style:italic;color:var(--sage-deep);font-weight:300}.pbc-count{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute)}
+.pbc-podium{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.pbc-win{border-radius:22px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-1);display:flex;flex-direction:column;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}.pbc-win:hover{transform:translateY(-3px);box-shadow:var(--shadow-2)}
+.pbc-badge{display:block;aspect-ratio:1/1;background:#12301f}.pbc-badge img{width:100%;height:100%;object-fit:cover;display:block}
+.pbc-win-body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:6px;flex:1}.pbc-win-body h4{font-size:24px;margin:2px 0 0;line-height:1.15}
+.pbc-place{align-self:flex-start;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:5px 10px;border-radius:999px;background:#f3ead4;color:#7a5a12}.pbc-place.p2{background:#eceff0;color:#4a5358}.pbc-place.p3{background:#f3e3d6;color:#7a4520}
+.pbc-country{font-size:13px;color:var(--ink-mute)}.pbc-title{margin:6px 0 0;font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:16px;line-height:1.4;color:var(--ink-soft);text-wrap:pretty;flex:1}.pbc-soon{margin-top:12px;font-size:12px;color:var(--sage-deep);letter-spacing:.04em}
+.pbc-list{list-style:none;margin:22px 0 0;padding:0}.pbc-list li{display:grid;grid-template-columns:40px 56px minmax(0,1fr) auto;gap:18px;align-items:center;padding:14px 0;border-top:1px solid var(--line)}.pbc-list li:last-child{border-bottom:1px solid var(--line)}
+.pbc-rank{font-family:"Fraunces",Georgia,serif;font-size:22px;color:var(--ink-mute)}.pbc-thumb{display:block;width:56px;height:56px;border-radius:12px;overflow:hidden;background:#12301f}.pbc-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.pbc-li-main{display:flex;flex-direction:column;gap:2px;min-width:0}.pbc-li-main b{font-weight:400;font-size:19px}.pbc-li-main span{font-size:14px;color:var(--ink-soft);font-style:italic}
+.pbc-prizes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.pbc-prize{padding:30px 26px;border-radius:22px;background:rgba(255,255,255,.8);border:1px solid var(--line)}.pbc-prize .i{font-size:12px;letter-spacing:.16em;color:var(--sage-deep)}.pbc-prize h4{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:28px;margin:14px 0 0}
+.pbc-faq{border-top:1px solid var(--line)}.pbc-faq details{border-bottom:1px solid var(--line)}.pbc-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-family:"Fraunces",Georgia,serif;font-size:21px}.pbc-faq summary::-webkit-details-marker{display:none}.pbc-faq summary::after{content:"+";color:var(--sage-deep);font-size:24px;line-height:1;transition:transform .25s}.pbc-faq details[open] summary::after{transform:rotate(45deg)}.pbc-faq p{margin:0 0 22px;max-width:66ch;color:var(--ink-soft);font-size:16px;line-height:1.65}
+.pbc-cta{padding:110px 24px;text-align:center;background:radial-gradient(80% 90% at 50% 0%,#dfe9d4,#f3f8ef 70%)}.pbc-cta .pbc-h2{margin-left:auto;margin-right:auto;max-width:18ch}.pbc-cta .pbc-p{margin:0 auto 28px}.pbc-cta .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+@media (max-width:900px){.pbc-facts,.pbc-crit,.pbc-tl{grid-template-columns:repeat(2,minmax(0,1fr))}.pbc-tl li{padding-bottom:20px}.pbc-two,.pbc-podium,.pbc-prizes,.pbc-tracks{grid-template-columns:minmax(0,1fr)}.pbc-two{gap:28px}.pbc-list li{grid-template-columns:32px 48px minmax(0,1fr);gap:12px}.pbc-list .pbc-country{grid-column:3}.pbc-thumb{width:48px;height:48px}}
+</style>
+<style id="btn-caps">.btn,.pbc-feat-btn,.btn-primary,.btn-forest,.btn-ghost{text-transform:capitalize}</style>
+<style>
+a{color:inherit}a:hover{color:var(--sage-deep)}
+.gs-acts .btn{white-space:nowrap;justify-content:center}.gs-acts{display:flex;flex-direction:column;gap:10px;align-items:stretch}.gs-essay{max-width:720px}.gs-body p{font-family:"Fraunces",Georgia,serif;font-size:19px;line-height:1.7;color:var(--ink-soft);margin:0 0 20px;text-wrap:pretty}.gs-body p:first-child::first-letter{float:left;font-size:64px;line-height:.9;padding:6px 10px 0 0;color:var(--sage-deep)}.gs-doc{max-width:960px}.gs-body h3{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:24px;margin:34px 0 12px;color:var(--ink)}.gs-body ul{margin:0 0 20px;padding-left:20px;color:var(--ink-soft);font-size:17px;line-height:1.65}.gs-body li{margin-bottom:8px}.gs-doc .gs-body p:first-child::first-letter{float:none;font-size:inherit;padding:0;color:inherit}.gs-tbl{overflow-x:auto;margin:0 0 8px;border-radius:18px;border:1px solid var(--line);background:#fff}.gs-tbl table{width:100%;border-collapse:collapse;min-width:640px}.gs-tbl th{text-align:left;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);font-weight:500;padding:14px 18px;border-bottom:1px solid var(--line)}.gs-tbl td{padding:14px 18px;border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5;color:var(--ink-soft);vertical-align:top}.gs-tbl tr:last-child td{border-bottom:0}.gs-tbl td:first-child{color:var(--ink);font-weight:600;width:24%}
+.gs-refs{margin-top:36px;padding-top:22px;border-top:1px solid var(--line)}.gs-refs small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:10px}.gs-refs ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}.gs-refs .ref{display:inline-flex;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:14px;color:var(--ink-soft)}.gs-refs a{display:inline-flex;gap:6px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:14px}
+@media(max-width:860px){.gs-acts .btn{white-space:nowrap;justify-content:center}.gs-acts{flex-direction:row;flex-wrap:wrap}.gs-body p{font-size:17px}}
+.gs-list{display:grid;gap:18px}.gs-card{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:32px;align-items:start;padding:34px 36px;border-radius:24px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-1)}
+.gs-no{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:300;font-size:56px;line-height:.9;color:var(--sage-deep)}.gs-no small{display:block;font-family:"Inter",system-ui,sans-serif;font-style:normal;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:8px}
+.gs-card h3{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:clamp(24px,2.6vw,32px);line-height:1.12;letter-spacing:-.02em;margin:0 0 10px;text-wrap:balance}.gs-by{font-size:13px;letter-spacing:.04em;color:var(--ink-mute);margin:0 0 14px}.gs-by b{color:var(--ink);font-weight:600}.gs-card p.s{margin:0;color:var(--ink-soft);font-size:16px;line-height:1.65;max-width:60ch;text-wrap:pretty}
+.gs-topics{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.gs-topics span{padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.8);border:1px solid var(--line);font-size:13.5px;color:var(--ink-soft)}
+.yt-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.yt-card{padding:24px 24px 26px;border-radius:20px;background:rgba(255,255,255,.85);border:1px solid var(--line)}.yt-card h4{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:21px;margin:0 0 8px;line-height:1.2}.yt-card p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.55}
+.yt-roles{grid-template-columns:repeat(2,minmax(0,1fr))}
+.yt-sched{width:100%;border-collapse:collapse;background:#fff;border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-1)}.yt-sched th{text-align:left;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);font-weight:500;padding:18px 22px;border-bottom:1px solid var(--line)}.yt-sched td{padding:16px 22px;border-bottom:1px solid var(--line);vertical-align:top;font-size:15.5px;color:var(--ink-soft)}.yt-sched tr:last-child td{border-bottom:0}.yt-sched td.ep{font-family:"Fraunces",Georgia,serif;font-size:26px;color:var(--sage-deep);width:64px;line-height:1}.yt-sched td.dt{white-space:nowrap;width:130px;color:var(--ink);font-weight:500}
+.yt-tpl{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px 28px;box-shadow:var(--shadow-1)}.yt-tpl small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:10px}.yt-tpl dl{margin:0;display:grid;grid-template-columns:150px minmax(0,1fr)}.yt-tpl dt,.yt-tpl dd{margin:0;padding:12px 0;border-top:1px solid var(--line);font-size:15px}.yt-tpl dt{font-weight:600}.yt-tpl dd{color:var(--ink-soft)}
+.yt-join{list-style:none;margin:0;padding:0;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-1)}.yt-join li{padding:18px 26px;border-top:1px solid var(--line);font-size:16px}.yt-join li:first-child{border-top:0}
+.yt-dark{background:#1f2a22;color:#eef4ea;border-top:0}.yt-dark .pbc-h2{color:#eef4ea}.yt-dark .pbc-h2 em{color:var(--sage-soft)}.yt-dark .pbc-p{color:#c9d6c6}.yt-dark .pbc-eye{color:var(--sage-soft)}.yt-dark .pbc-eye::before{background:var(--sage-soft)}
+.yt-mail{display:inline-flex;margin-top:10px;padding:16px 28px;border-radius:999px;background:var(--sage);color:#1f2a22;font-weight:500;font-size:16px}.yt-mail:hover{color:#1f2a22;filter:brightness(1.06)}
+@media(max-width:860px){.gs-card{grid-template-columns:1fr;gap:14px;padding:28px 24px}.yt-cards,.yt-roles{grid-template-columns:1fr}.pbc-two{grid-template-columns:1fr;gap:24px}.yt-tpl dl{grid-template-columns:1fr}.yt-tpl dd{border-top:0;padding-top:0}.yt-sched td.dt{white-space:normal;width:auto}.yt-sched th:nth-child(1),.yt-sched td.ep{width:44px;padding-right:6px}.pbc-facts{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
+<style>
+.gs-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:26px}.gs-head .pbc-h2{margin:0}
+.gs-ctrl{display:flex;gap:8px;align-items:center}.gs-ctrl button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:18px;box-shadow:var(--shadow-1);transition:transform .2s var(--ease),opacity .2s}.gs-ctrl button:hover{transform:translateY(-2px)}.gs-ctrl button:disabled{opacity:.35;transform:none;cursor:default}.gs-ctrl .ct{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);min-width:64px;text-align:center}
+.gs-list{display:grid;grid-auto-flow:column;grid-auto-columns:min(400px,82%);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 2px;padding:6px 2px 26px;margin:0 -2px;scrollbar-width:none;overscroll-behavior-x:contain}.gs-list::-webkit-scrollbar{display:none}
+.gs-list .gs-card{scroll-snap-align:start;grid-template-columns:1fr;gap:16px;padding:28px 26px;align-content:start;transition:transform .45s var(--ease),box-shadow .45s var(--ease),opacity .45s var(--ease)}
+.gs-list .gs-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-2)}
+.gs-list .gs-card h3{font-size:24px}.gs-list .gs-card p.s{font-size:15px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.gs-list .gs-no{font-size:44px;display:flex;align-items:baseline;justify-content:space-between}.gs-list .gs-no small{margin:0}
+.gs-list .gs-acts{flex-direction:row;flex-wrap:wrap;margin-top:auto}
+.gs-list .gs-card>div:nth-child(2){flex:1}
+.gs-prog{height:2px;background:var(--line);border-radius:2px;overflow:hidden;margin-top:4px}.gs-prog i{display:block;height:100%;width:0;background:var(--sage-deep);transition:width .3s var(--ease)}
+.gs-arch{margin-top:56px}.gs-arch h3{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:28px;margin:0 0 16px}.gs-arch ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}.gs-arch a{display:grid;grid-template-columns:70px minmax(0,1fr) minmax(0,220px) 24px;gap:18px;align-items:baseline;padding:16px 4px;border-bottom:1px solid var(--line);transition:background .2s,padding .2s var(--ease)}.gs-arch a:hover{background:rgba(255,255,255,.7);padding-left:12px;color:var(--ink)}.gs-arch .n{font-family:"Fraunces",Georgia,serif;font-style:italic;color:var(--sage-deep);font-size:20px}.gs-arch .t{font-family:"Fraunces",Georgia,serif;font-size:18px;line-height:1.3}.gs-arch .a{font-size:13.5px;color:var(--ink-mute)}.gs-arch .ar{color:var(--sage-deep)}
+@media(max-width:700px){.gs-arch a{grid-template-columns:44px minmax(0,1fr)}.gs-arch .a{grid-column:2}.gs-arch .ar{display:none}}
+</style>
+<style>
+.gs-pull{margin:8px 0 30px;padding:0 0 0 0;font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:300;font-size:clamp(24px,2.8vw,34px);line-height:1.25;letter-spacing:-.015em;color:var(--sage-deep);text-wrap:balance}
+.gs-hook{font-family:"Fraunces",Georgia,serif!important;font-style:italic;font-size:18px!important;line-height:1.45!important;color:var(--ink)!important}
+.gs-essay .gs-body{transition:max-height .7s var(--ease)}
+.gs-essay.is-collapsed .gs-body{max-height:260px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 40%,transparent);mask-image:linear-gradient(180deg,#000 40%,transparent)}
+.gs-essay.is-collapsed .gs-refs{display:none}
+.gs-more{display:inline-flex;gap:8px;align-items:center;margin-top:8px;padding:12px 22px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:14px;font-weight:500;box-shadow:var(--shadow-1);transition:transform .2s var(--ease)}.gs-more:hover{transform:translateY(-2px)}.gs-more .arr{transition:transform .3s var(--ease)}.gs-essay:not(.is-collapsed) .gs-more .arr{transform:rotate(180deg)}
+</style>
+<style>
+.ec-facts{grid-template-columns:repeat(3,minmax(0,1fr));text-align:left;width:100%}.ec-facts .v{font-size:clamp(22px,2.4vw,30px)}
+.ec-status{display:inline-flex;align-items:center;gap:8px}.ec-status .dot{width:6px;height:6px;border-radius:50%;background:var(--sage)}
+.ec-prompts{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ec-prompt{padding:30px 30px 32px;border-radius:22px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-1);display:flex;flex-direction:column;gap:12px;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}.ec-prompt:hover{transform:translateY(-4px);box-shadow:var(--shadow-2)}
+.ec-prompt .n{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute)}.ec-prompt .n b{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:300;font-size:34px;letter-spacing:-.02em;color:var(--sage-deep);text-transform:none;margin-left:6px}
+.ec-prompt h3{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:26px;line-height:1.15;letter-spacing:-.018em;margin:0;text-wrap:balance}
+.ec-prompt .q{margin:0;font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:18px;line-height:1.45;color:var(--ink);text-wrap:pretty}
+.ec-prompt .d{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.6;text-wrap:pretty}
+.ec-rubric{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}.ec-rubric li{display:grid;grid-template-columns:minmax(0,1.1fr) 70px minmax(0,1.6fr);gap:24px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}
+.ec-rubric h4{margin:0;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:21px;line-height:1.2}.ec-rubric .w{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:300;font-size:34px;color:var(--sage-deep);line-height:1}
+.ec-rubric .bar{display:block;height:4px;border-radius:4px;background:var(--line);margin-top:12px;overflow:hidden}.ec-rubric .bar i{display:block;height:100%;background:var(--sage-deep);border-radius:4px}
+.ec-rubric p{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.55}
+.ec-box{padding:28px 30px;border-radius:22px;background:rgba(255,255,255,.8);border:1px solid var(--line)}.ec-box h3{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:24px;margin:0 0 10px}.ec-box p{margin:0;color:var(--ink-soft);font-size:15.5px;line-height:1.65}
+.ec-steps{grid-template-columns:repeat(4,minmax(0,1fr))}.ec-steps h4{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:21px;margin:12px 0 6px;line-height:1.2}.ec-steps .n{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-deep);font-family:"Inter",sans-serif;font-style:normal;font-weight:500}
+.ec-submit{display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:36px;padding:28px 30px;border-radius:22px;background:#1f2a22;color:#eef4ea}.ec-submit p{margin:0;max-width:60ch;font-size:15.5px;line-height:1.6;color:#c9d6c6}.ec-submit p b{color:#fbfdfa;font-weight:500}
+.btn[aria-disabled="true"]{opacity:.55;pointer-events:none;filter:grayscale(.3)}
+.ec-tl{grid-template-columns:repeat(4,minmax(0,1fr))}.ec-tl li.now::before{background:var(--sage);border-color:var(--sage-deep);box-shadow:0 0 0 5px rgba(154,176,120,.25)}.ec-tl li .now-tag{display:none;margin-top:8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-deep);font-weight:600}.ec-tl li.now .now-tag{display:block}
+.ec-orgs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.ec-org{padding:30px;border-radius:22px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-1)}.ec-org .mark{display:flex;align-items:center;gap:12px;height:44px;margin-bottom:18px;font-weight:600;letter-spacing:.02em}.ec-org .mark img{width:40px;height:40px;border-radius:10px}.ec-org .mark .txt{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:26px;letter-spacing:-.01em}.ec-org h3{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:26px;margin:0 0 10px}.ec-org p{margin:0;color:var(--ink-soft);font-size:15.5px;line-height:1.65}
+@media(max-width:900px){.ec-prompts,.ec-orgs{grid-template-columns:minmax(0,1fr)}.ec-rubric li{grid-template-columns:minmax(0,1fr) auto;gap:10px 18px}.ec-rubric p{grid-column:1/-1}.ec-steps,.ec-tl{grid-template-columns:repeat(2,minmax(0,1fr))}.ec-facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.ec-steps,.ec-facts{grid-template-columns:minmax(0,1fr)}}
+</style>
+<style>
+.ec-hero{text-align:left;padding:150px 24px 80px}.ec-hero .hero-inner{max-width:1180px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:56px;align-items:center;text-align:left}.ec-hero .hero-inner>div{display:flex;flex-direction:column;align-items:flex-start}.ec-hero h1{max-width:14ch}.ec-hero p.lede{margin:0;max-width:56ch}.ec-hero .hero-cta{justify-content:flex-start}.ec-hero .ec-facts{grid-column:1/-1}
+.ec-hero .hero-inner{grid-template-columns:minmax(0,1fr)}.ec-hero .eyebrow-pill .meta{white-space:nowrap}.ec-hero h1{max-width:none}.ec-hero p.lede{max-width:68ch}
+.ec-sub{margin:0 0 18px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);font-weight:500}
+.ec-art{position:relative;border-radius:24px;overflow:hidden;background:#e6efe9;border:1px solid var(--line);box-shadow:var(--shadow-1)}.ec-art img{display:block;width:100%;height:100%;object-fit:cover}
+.ec-art.is-slot{display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(135deg,#eef4ea 0 14px,#e6efe9 14px 28px);border:1px dashed rgba(137,163,108,.6);box-shadow:none}.ec-art.is-slot span{padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.85);font-size:12px;color:var(--ink-mute);text-align:center;max-width:90%}
+.ec-hero .ec-art{aspect-ratio:4/5;max-height:560px;width:100%}
+.ec-prompt{padding:0;overflow:hidden}.ec-prompt .ec-art{aspect-ratio:16/10;border-radius:0;border:0;border-bottom:1px solid var(--line);box-shadow:none}.ec-prompt .ec-pbody{padding:26px 30px 30px;display:flex;flex-direction:column;gap:12px}
+.ec-pill{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;background:rgba(255,255,255,.7);border:1px solid var(--line);font-size:14px;font-weight:500;color:var(--ink);cursor:default}.ec-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--sage-deep)}
+.ec-submit .ec-pill{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fbfdfa}.ec-submit .ec-pill .dot{background:var(--sage-soft)}
+.ec-final{padding:110px 24px;background:radial-gradient(80% 90% at 50% 0%,#dfe9d4,#f3f8ef 70%)}.ec-final .pbc-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}.ec-final .pbc-wrap:not(:has(.ec-art)){grid-template-columns:minmax(0,1fr);text-align:center}.ec-final .pbc-wrap:not(:has(.ec-art)) .row{justify-content:center}.ec-final .pbc-wrap:not(:has(.ec-art)) .pbc-p,.ec-final .pbc-wrap:not(:has(.ec-art)) .pbc-h2{margin-left:auto;margin-right:auto}.ec-final .ec-art{aspect-ratio:3/2}.ec-final .row{display:flex;gap:10px;flex-wrap:wrap}
+.ec-org .mark img.sib{width:40px;height:40px;border-radius:10px}
+.ec-preview{position:sticky;top:0;z-index:120;background:#1f2a22;color:#eef4ea;font-size:13px;padding:10px 20px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center}.ec-preview b{color:#d9a441;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:11px}.ec-preview a{text-decoration:underline;text-underline-offset:3px}.ec-preview{white-space:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none;height:44px;flex-wrap:nowrap}.ec-preview::-webkit-scrollbar{display:none}.ec-preview>*{flex-shrink:0}.ec-preview ~ .nav-wrap{top:58px}@media(min-width:1100px){.ec-preview{justify-content:center}}
+.ec-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.ec-links a{display:inline-flex;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:14px}
+@media(max-width:900px){.ec-hero .hero-inner,.ec-final .pbc-wrap{grid-template-columns:minmax(0,1fr);gap:32px}.ec-hero .ec-art{aspect-ratio:4/3;order:-1}.ec-final .ec-art{order:-1}}
+</style>
+<link rel="stylesheet" href="site-footer.css">
+<style id="ec-facts-fix">.ec-hero .hero-inner>.ec-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,auto);grid-auto-flow:column;column-gap:48px}@media(max-width:560px){.ec-hero .hero-inner>.ec-facts{grid-template-columns:minmax(0,1fr);grid-template-rows:none;grid-auto-flow:row}}</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Nav -->
+<div class="nav-wrap" id="navWrap">
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <img src="assets/ysp-logo.png" alt="" />
+      <span class="word">Y<i>S</i>P</span>
+    </a>
+    <div class="nav-links">
+      <a href="programmes.html">Programmes</a>
+      <a href="team.html">Team</a>
+      <a href="careers.html">Careers</a>
+      <a href="publications.html">Publications</a>
+      <a href="about.html">About</a>
+    </div>
+    <a href="https://forms.gle/rKPHAxvj6NaM9Dd66" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-magnetic>Join YSP <span class="arr">↗</span></a>
+  </nav>
+</div>
+
+<style>.pp-tl{grid-template-columns:repeat(5,minmax(0,1fr))}.pp-tl .w{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:6px}.pp-tl h4{margin:0 0 6px;font-size:15px;font-weight:600}.pp-themes{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}.pp-themes li{padding:26px 26px 28px;border-radius:20px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-1);display:flex;flex-direction:column;gap:10px}.pp-themes .n{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:300;font-size:30px;color:var(--sage-deep);line-height:1}.pp-themes h3{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:22px;line-height:1.2;margin:0;text-wrap:balance}.pp-themes p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.55}.pp-themes li.open{background:#1f2a22;color:#eef4ea}.pp-themes li.open p{color:#c9d6c6}.pp-themes li.open .n{color:var(--sage-soft)}@media(max-width:900px){.pp-tl{grid-template-columns:repeat(2,minmax(0,1fr))}}</style>
+<style>.pp-deck{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}.pp-slide{aspect-ratio:16/10;padding:18px 18px 20px;border-radius:14px;background:#1f2a22;color:#eef4ea;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow-1)}.pp-slide small{font-size:9.5px;letter-spacing:.16em;color:var(--sage-soft)}.pp-slide b{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:300;font-size:28px;color:var(--sage-soft);line-height:1;margin-top:auto}.pp-slide h3{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:19px;margin:0;line-height:1.15}.pp-deck p{margin:12px 2px 0;font-size:14px;line-height:1.5;color:var(--ink-soft)}
+.pp-rub .ec-rubric li{grid-template-columns:minmax(0,1fr) 60px}.pp-rub .ec-rubric p{display:none}.pp-rub h3{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:24px;margin:0 0 4px}.pp-rub .pbc-count{display:block;margin-bottom:18px}
+.pp-form{max-width:640px;margin:32px auto 0;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-2);overflow:hidden}.pp-form header{padding:26px 30px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#f3f8ef,#fff)}.pp-form header small{font-size:11px;letter-spacing:.16em;color:var(--sage-deep)}.pp-form header h3{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:26px;margin:6px 0 4px}.pp-form header p{margin:0;font-size:13.5px;color:var(--ink-mute)}.pp-form form{padding:26px 30px 30px;display:flex;flex-direction:column;gap:20px}.pp-form fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}.pp-form legend,.pp-form label.l{font-size:13px;font-weight:600;margin-bottom:8px}.pp-form .rad{display:flex;gap:10px;align-items:center;font-size:15px;color:var(--ink-soft)}.pp-form input[type=text],.pp-form select,.pp-form textarea{font:inherit;font-size:15px;width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(31,42,34,.18);background:var(--paper);color:var(--ink)}.pp-form textarea{min-height:110px;resize:vertical}.pp-form .wc{font-size:12px;color:var(--ink-mute);text-align:right;margin-top:4px}.pp-form .ack{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--ink-soft)}.pp-form .foot{display:flex;gap:14px;align-items:center;flex-wrap:wrap}.pp-form .foot span{font-size:13px;color:var(--ink-mute);flex:1;min-width:200px}
+.pp-rules{max-width:820px}.pp-rules .pbc-faq p,.pp-rules .pbc-faq li{color:var(--ink-soft);font-size:16px;line-height:1.65}.pp-rules .pbc-faq ul,.pp-rules .pbc-faq ol{margin:0 0 16px;padding-left:22px}.pp-rules .pbc-faq p{margin:0 0 14px}.pp-rules .pbc-faq summary{text-transform:none}.pp-rules .pbc-faq summary i{font-style:normal;color:var(--sage-deep);margin-right:14px}
+@media(max-width:900px){.pp-deck{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.pp-deck{grid-template-columns:minmax(0,1fr)}}</style><div class="ec-preview"><b>Launch preparation</b><span>Proposed identity and dates for organiser approval · launch 15 November 2026</span></div>
+<section class="hero pbc-hero ec-hero" data-screen-label="01 Hero">
+<div class="mesh" aria-hidden="true"><span></span></div>
+<div class="hero-inner"><div>
+<div class="eyebrow-pill apple-reveal"><span class="tag"><span class="dot"></span>YSP 2026</span><span class="meta">Launches Sunday 15 November</span></div>
+<h1 class="serif apple-reveal" style="transition-delay:.1s">From Evidence <em>to Action.</em></h1>
+<p class="ec-sub apple-reveal" style="transition-delay:.14s">YSP Global Policy Pitch Competition 2026</p>
+<p class="lede apple-reveal" style="transition-delay:.18s">A global youth policy innovation and pitching competition. Your idea. Your policy. Your chance to make a case for change.</p>
+<div class="hero-cta apple-reveal" style="transition-delay:.26s"><a href="#themes" class="btn btn-forest" data-magnetic>Explore The Themes <span class="arr">↘</span></a><a href="#requirements" class="btn btn-ghost">Entry Requirements ▸</a></div>
+</div>
+<div class="pbc-facts ec-facts apple-reveal" style="transition-delay:.32s"><div><span class="k">Launch</span><span class="v">15 Nov 2026</span></div><div><span class="k">Deadline</span><span class="v">10 Jan 2027 <em>11:59 pm SGT</em></span></div><div><span class="k">Finals</span><span class="v">7 Feb 2027</span></div><div><span class="k">Entry</span><span class="v">Free</span></div><div><span class="k">Who</span><span class="v">Ages 16–30 <em>worldwide</em></span></div><div><span class="k">Teams</span><span class="v">Up to 3</span></div></div>
+</div></section>
+<section class="pbc-sec" id="about" data-screen-label="02 About"><div class="pbc-wrap pbc-two">
+<div><div class="pbc-eye apple-reveal">01 / About</div><h2 class="pbc-h2 apple-reveal">Make The Case <em>For Change.</em></h2></div>
+<div class="apple-reveal" style="transition-delay:.1s"><p class="pbc-p" style="font-family:'Fraunces',Georgia,serif;font-size:21px;line-height:1.45;color:var(--ink)">This competition builds directly on the Global Policy Brief Competition, but creates a different experience.</p><p class="pbc-p">Instead of writing a conventional policy brief, participants must identify a real problem, propose a feasible intervention, and persuade a judging panel that their solution deserves serious consideration.</p><p class="pbc-p">The competition can also become an entry point into the planned YSP Global Policy Lab and Civic Innovation Hub.</p></div>
+</div></section>
+<section class="pbc-sec alt" id="calendar" data-screen-label="03 Calendar"><div class="pbc-wrap">
+<div class="pbc-eye apple-reveal">02 / Calendar</div><h2 class="pbc-h2 apple-reveal" style="margin-bottom:44px">Mark The <em>Dates.</em></h2>
+<ol class="pbc-tl pp-tl apple-reveal"><li><span class="d">15 Nov 2026</span><span class="w">Sunday</span><h4>Competition launches</h4><span class="t">Official announcement, rules, submission portal and entries open</span></li><li><span class="d">10 Jan 2027</span><span class="w">Sunday</span><h4>Submissions close</h4><span class="t">11:59 pm Singapore Time (UTC+8)</span></li><li><span class="d">24 Jan 2027</span><span class="w">Sunday</span><h4>Finalists announced</h4><span class="t">Selected participants invited to the pitching round</span></li><li><span class="d">7 Feb 2027</span><span class="w">Sunday</span><h4>Global Policy Pitch Finals</h4><span class="t">Online presentations and judging, subject to panel availability</span></li><li><span class="d">14 Feb 2027</span><span class="w">Sunday</span><h4>Winners announced</h4><span class="t">Results published, certificates and contributor profiles initiated</span></li></ol>
+<p class="pbc-note apple-reveal" style="margin-top:36px">Recommended dates for organiser approval. The full calendar will be published once the judging panel and administrative capacity are confirmed.</p>
+</div></section>
+<section class="pbc-sec" id="structure" data-screen-label="04 Structure"><div class="pbc-wrap">
+<div class="pbc-eye apple-reveal">03 / Structure</div><h2 class="pbc-h2 apple-reveal">Two Rounds. <em>One Proposal.</em></h2>
+<div class="pbc-tracks"><div class="pbc-track apple-reveal"><span class="pbc-count">Round 1</span><h4>Open Submissions</h4><p>Participants submit a five-slide policy pitch deck and a concise written summary.</p></div><div class="pbc-track apple-reveal" style="transition-delay:.08s"><span class="pbc-count">Round 2</span><h4>Finalist Pitch</h4><p>Finalists deliver a four-minute pitch followed by a moderated question-and-answer session.</p></div></div>
+</div></section>
+<section class="pbc-sec alt" id="requirements" data-screen-label="05 Requirements"><div class="pbc-wrap">
+<div class="pbc-eye apple-reveal">04 / Entry Requirements</div><h2 class="pbc-h2 apple-reveal">What To <em>Submit.</em></h2>
+<div class="gs-tbl apple-reveal" style="margin-top:28px"><table><thead><tr><th>Element</th><th>Requirement</th></tr></thead><tbody><tr><td>Eligibility</td><td>Ages 16–30, international</td></tr><tr><td>Entry fee</td><td>Free</td></tr><tr><td>Participation</td><td>Individuals or teams of up to 3</td></tr><tr><td>Submission language</td><td>English</td></tr><tr><td>Core submission</td><td>Maximum 5 content slides in PDF</td></tr><tr><td>Written summary</td><td>250–400 words</td></tr><tr><td>Video at initial submission</td><td>Not required</td></tr><tr><td>Finalist presentation</td><td>4-minute live or approved recorded pitch</td></tr><tr><td>Topic</td><td>One specific public policy problem and a feasible proposed solution</td></tr><tr><td>Closing deadline</td><td>10 January 2027, 23:59 SGT</td></tr></tbody></table></div>
+<div class="ec-box apple-reveal" style="margin-top:18px"><h3>No introductory video</h3><p>Participants with limited internet access, equipment, or speaking confidence should have a fair opportunity to reach the finals based on the substance of their policy proposal.</p></div>
+</div></section>
+<section class="pbc-sec" id="themes" data-screen-label="06 Themes"><div class="pbc-wrap">
+<div class="pbc-eye apple-reveal">05 / Themes</div><h2 class="pbc-h2 apple-reveal">Six Policy Areas. <em>Plus One Open.</em></h2>
+<p class="pbc-p apple-reveal">Propose a solution in one of six policy areas, or in the interdisciplinary category.</p>
+<ol class="pp-themes"><li class="apple-reveal"><span class="n">01</span><h3>Climate &amp; Environmental Policy</h3><p>Climate adaptation, energy, waste, water, biodiversity and circular economy</p></li><li class="apple-reveal"><span class="n">02</span><h3>Education &amp; Youth Development</h3><p>Access to education, skills, youth employment and civic participation</p></li><li class="apple-reveal"><span class="n">03</span><h3>Economic &amp; Social Policy</h3><p>Inequality, affordable living, labour, inclusion and sustainable growth</p></li><li class="apple-reveal"><span class="n">04</span><h3>Technology &amp; Digital Governance</h3><p>AI governance, digital accessibility, privacy and responsible innovation</p></li><li class="apple-reveal"><span class="n">05</span><h3>Public Health &amp; Community Wellbeing</h3><p>Healthcare access, prevention, environmental health and community care</p></li><li class="apple-reveal"><span class="n">06</span><h3>Governance &amp; International Cooperation</h3><p>Public accountability, institutions, international development and policy coordination</p></li><li class="apple-reveal open"><span class="n">07</span><h3>Open / Interdisciplinary</h3><p>Evidence-based ideas connecting multiple public policy fields</p></li></ol>
+<p class="pbc-note apple-reveal" style="margin-top:28px">The strongest pitches address a specific jurisdiction or community and demonstrate an understanding of implementation constraints. Proposals are evaluated for their evidence and feasibility, not their political alignment.</p>
+</div></section>
+<section class="pbc-sec alt" id="deck" data-screen-label="07 Pitch Deck"><div class="pbc-wrap">
+<div class="pbc-eye apple-reveal">06 / Pitch Deck</div><h2 class="pbc-h2 apple-reveal">Five Slides. <em>One Clear Case.</em></h2>
+<p class="pbc-p apple-reveal">Required five-slide pitch deck.</p>
+<ol class="pp-deck"><li class="apple-reveal" style="transition-delay:0s"><div class="pp-slide"><small>YSP POLICY PITCH</small><b>01</b><h3>The Problem</h3></div><p>What is the policy problem, who is affected, and why does it require action?</p></li><li class="apple-reveal" style="transition-delay:0.06s"><div class="pp-slide"><small>YSP POLICY PITCH</small><b>02</b><h3>The Evidence</h3></div><p>What do reliable sources and existing policies tell us about the issue?</p></li><li class="apple-reveal" style="transition-delay:0.12s"><div class="pp-slide"><small>YSP POLICY PITCH</small><b>03</b><h3>The Policy Proposal</h3></div><p>What specific intervention are you recommending, and who would implement it?</p></li><li class="apple-reveal" style="transition-delay:0.18s"><div class="pp-slide"><small>YSP POLICY PITCH</small><b>04</b><h3>Implementation</h3></div><p>What are the steps, stakeholders, resources, costs and foreseeable challenges?</p></li><li class="apple-reveal" style="transition-delay:0.24s"><div class="pp-slide"><small>YSP POLICY PITCH</small><b>05</b><h3>Impact &amp; Evaluation</h3></div><p>What outcomes are expected, how would success be measured, and what limitations remain?</p></li></ol>
+<p class="pbc-note apple-reveal" style="margin-top:24px">Illustrative slide structure. A title slide and references page may be added without counting toward the five content slides.</p>
+</div></section>
+<section class="pbc-sec" id="judging" data-screen-label="08 Judging"><div class="pbc-wrap">
+<div class="pbc-eye apple-reveal">07 / Judging</div><h2 class="pbc-h2 apple-reveal">A Transparent <em>100-Point Rubric.</em></h2>
+<div class="pbc-two pp-rub" style="margin-top:28px"><div class="apple-reveal"><h3>Round 1</h3><span class="pbc-count">Written proposal and pitch deck · 100 pts</span><ol class="ec-rubric"><li><div><h4>Problem definition &amp; policy relevance</h4><span class="bar" aria-hidden="true"><i style="width:60%"></i></span></div><span class="w">15</span><p></p></li><li><div><h4>Evidence quality &amp; policy understanding</h4><span class="bar" aria-hidden="true"><i style="width:80%"></i></span></div><span class="w">20</span><p></p></li><li><div><h4>Originality &amp; substantive contribution</h4><span class="bar" aria-hidden="true"><i style="width:60%"></i></span></div><span class="w">15</span><p></p></li><li><div><h4>Feasibility &amp; implementation</h4><span class="bar" aria-hidden="true"><i style="width:100%"></i></span></div><span class="w">25</span><p></p></li><li><div><h4>Expected impact &amp; evaluation</h4><span class="bar" aria-hidden="true"><i style="width:60%"></i></span></div><span class="w">15</span><p></p></li><li><div><h4>Clarity &amp; accessibility</h4><span class="bar" aria-hidden="true"><i style="width:40%"></i></span></div><span class="w">10</span><p></p></li></ol></div><div class="apple-reveal" style="transition-delay:.08s"><h3>Finals</h3><span class="pbc-count">Live or recorded pitch · 100 pts</span><ol class="ec-rubric"><li><div><h4>Policy substance</h4><span class="bar" aria-hidden="true"><i style="width:100%"></i></span></div><span class="w">30</span><p></p></li><li><div><h4>Feasibility and implementation</h4><span class="bar" aria-hidden="true"><i style="width:83.33333333333334%"></i></span></div><span class="w">25</span><p></p></li><li><div><h4>Expected impact</h4><span class="bar" aria-hidden="true"><i style="width:66.66666666666666%"></i></span></div><span class="w">20</span><p></p></li><li><div><h4>Clarity of presentation</h4><span class="bar" aria-hidden="true"><i style="width:50%"></i></span></div><span class="w">15</span><p></p></li><li><div><h4>Response to questions</h4><span class="bar" aria-hidden="true"><i style="width:33.33333333333333%"></i></span></div><span class="w">10</span><p></p></li></ol></div></div>
+<div class="pbc-two" style="margin-top:36px"><div class="ec-box apple-reveal"><h3>Recorded pitches</h3><p>A submitted recording is evaluated on the same substantive criteria as a live pitch, with an equivalent written-question option.</p></div><div class="ec-box apple-reveal" style="transition-delay:.08s"><h3>Fair review</h3><p>Judges should declare conflicts of interest. Where possible, initial screening should be anonymised, use at least two independent reviewers per entry, and have a documented process for resolving large scoring differences.</p></div></div>
+</div></section>
+<section class="pbc-sec alt" id="form" data-screen-label="09 Form Preview"><div class="pbc-wrap">
+<div class="pbc-eye apple-reveal">08 / Submission Form</div><h2 class="pbc-h2 apple-reveal">Form <em>Blueprint.</em></h2>
+<p class="pbc-p apple-reveal">A preview of how the Google Form should be organised. This is an illustration, not a live submission form.</p>
+<div class="pp-form apple-reveal"><header><small>YSP · 2026</small><h3>Global Policy Pitch Competition</h3><p>Entry information · Example form</p></header>
+<form id="ppForm" onsubmit="return false">
+<fieldset><legend>Participation type</legend><label class="rad"><input type="radio" name="pt" checked> Individual entry</label><label class="rad"><input type="radio" name="pt"> Team entry (2–3 participants)</label></fieldset>
+<div><label class="l" for="ppTheme">Competition theme</label><select id="ppTheme"><option>Climate &amp; Environmental Policy</option><option>Education &amp; Youth Development</option><option>Economic &amp; Social Policy</option><option>Technology &amp; Digital Governance</option><option>Public Health &amp; Community Wellbeing</option><option>Governance &amp; International Cooperation</option><option>Open / Interdisciplinary</option></select></div>
+<div><label class="l" for="ppT">Policy proposal title</label><input type="text" id="ppT"></div>
+<div><label class="l" for="ppC">Country or jurisdiction addressed</label><input type="text" id="ppC"></div>
+<div><label class="l" for="ppS">Brief policy summary</label><textarea id="ppS"></textarea><div class="wc" id="ppWc">0 / 250–400 words</div></div>
+<label class="ack"><input type="checkbox" id="ppAck"> I understand this preview is not an official submission.</label>
+<div class="foot"><button type="button" class="btn btn-primary" id="ppCopy">Copy form outline</button><span>The actual form should also collect contact details, consent, uploaded files, authorship declarations, and eligibility information.</span></div>
+</form></div>
+<p class="pbc-note apple-reveal" style="max-width:640px;margin:20px auto 0">For the real Google Form, include a clear privacy notice, restricted access to submissions, and a mechanism for under-18 participants to provide guardian consent where applicable. A file-upload question may require a Google login, so allow an alternative accessible submission route.</p>
+</div></section>
+<section class="pbc-sec" id="rules" data-screen-label="10 Rules"><div class="pbc-wrap pp-rules">
+<div class="pbc-eye apple-reveal">09 / Rules</div><h2 class="pbc-h2 apple-reveal">Competition <em>Rules.</em></h2>
+<p class="pbc-p apple-reveal">YSP Global Policy Pitch Competition 2026 · Draft for organiser approval.</p>
+<div class="pbc-faq apple-reveal" style="margin-top:24px"><details open><summary><span><i>1.</i>Organiser</span></summary><p>The YSP Global Policy Pitch Competition 2026 is organised by Youth for Sustainable Policy (YSP).</p></details><details><summary><span><i>2.</i>Purpose</span></summary><p>The competition invites young people to develop evidence-based, practical public policy proposals addressing social, environmental, economic, governance, or technological challenges.</p></details><details><summary><span><i>3.</i>Important dates</span></summary><ul><li>Opens: 15 November 2026, 00:00 SGT (UTC+8)</li><li>Closes: 10 January 2027, 23:59 SGT (UTC+8)</li><li>Finalists announced: 24 January 2027</li><li>Online finals: 7 February 2027</li><li>Results announced: 14 February 2027</li></ul><p>These dates are provisional until formally approved and published by YSP.</p></details><details><summary><span><i>4.</i>Eligibility</span></summary><p>Proposed: Open internationally to participants aged 16–30 on 15 November 2026, subject to applicable legal restrictions.</p><p>Participants may enter individually or in teams of two or three. All team members must satisfy the eligibility requirements.</p><p>Entrants under 18 may be required to provide parent or guardian consent before participating in finalist events or having identifiable information published.</p></details><details><summary><span><i>5.</i>Entry fee</span></summary><p>Participation is free.</p></details><details><summary><span><i>6.</i>Submission requirements</span></summary><p>Each entry must include:</p><ol><li>One PDF policy pitch deck, containing no more than five content slides.</li><li>A written policy summary of 250–400 words.</li><li>References supporting key factual claims and any externally sourced content.</li><li>The designated submission form and required declarations.</li></ol><p>A separate title slide and reference slide are permitted.</p><p>Participants must identify a specific policy problem, present a proposed intervention, explain implementation considerations, and describe expected outcomes.</p></details><details><summary><span><i>7.</i>Originality, sources and AI use</span></summary><p>Entries must be original work produced by the declared participants.</p><p>Generative AI tools may be used for limited assistance with research organisation, language editing, or visual design, provided such use is disclosed.</p><p>Entrants remain responsible for factual accuracy, verification of references, originality of analysis, and the final submission.</p><p>Fabricated sources, plagiarism, undisclosed substantive AI-generated work, and misrepresentation of evidence may result in disqualification following review.</p></details><details><summary><span><i>8.</i>Assessment</span></summary><p>Entries will be assessed using the published criteria for problem definition, evidence, originality, feasibility, impact and clarity.</p><p>Finalists will be invited to present their proposals to a judging panel. Reasonable remote and asynchronous participation alternatives will be provided where possible.</p></details><details><summary><span><i>9.</i>Conflicts of interest</span></summary><p>Organisers, judges, and individuals directly involved in competition administration may not evaluate entries in which they have a personal, supervisory, financial, or other material conflict of interest.</p><p>Any further entrant eligibility exclusions must be approved and published before submissions open.</p></details><details><summary><span><i>10.</i>Intellectual property</span></summary><p>Participants retain ownership of their original work.</p><p>Submission does not automatically transfer copyright to YSP.</p><p>YSP will obtain separate permission before publishing, adapting, or promoting entrants' full proposals beyond what is necessary to administer and announce the competition.</p></details><details><summary><span><i>11.</i>Recognition</span></summary><p>Finalists and winners may receive digital recognition, certificates, and invitations to optional contributor profiles.</p><p>Any prizes, financial awards, mentoring benefits, or publication opportunities must be confirmed before being advertised.</p></details><details><summary><span><i>12.</i>Privacy</span></summary><p>Participant information will be used for competition administration, assessment and necessary communications, in accordance with a published privacy notice.</p><p>Public display of portraits, biographies, professional links, and extended profiles requires appropriate consent.</p></details><details><summary><span><i>13.</i>Changes and enquiries</span></summary><p>Any material changes to competition rules or dates will be communicated transparently to participants.</p><p>The final published rules must identify an official enquiry contact, submission method, privacy notice and procedure for questions or complaints.</p></details></div>
+</div></section>
+<section class="ec-final" data-screen-label="11 Final CTA"><div class="pbc-wrap"><div><h2 class="pbc-h2 apple-reveal">Your Idea. <em>Your Policy.</em></h2><p class="pbc-p apple-reveal">Submissions open on launch day, Sunday 15 November 2026.</p><div class="row apple-reveal"><span class="ec-pill"><span class="dot"></span>Opens 15 Nov 2026</span><a href="#themes" class="btn btn-ghost">Review The Themes ▸</a></div></div></div></section>
+<footer class="footer" id="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="brand">
+        <img src="assets/ysp-logo.png" alt="" />
+        <span class="word">Y<i>S</i>P</span>
+      </div>
+      <p class="blurb" style="font-family: system-ui">
+        Youth for Sustainable Policy (YSP) is an international youth-led policy organization advancing research, dialogue, and public engagement on sustainability, governance, and global affairs.
+      </p>
+    </div>
+    <div>
+      <h5>Programmes</h5>
+      <ul>
+        <li data-comp-discovery data-comp-footer hidden><a href="essay-competition-2026.html">SIB x YSP Essay Competition</a></li>
+        <li><a href="mun.html">Winter MUN 2026 ★</a></li>
+        <li><a href="programmes.html">International Initiatives</a></li>
+        <li><a href="grassroots.html">Grassroots Movements</a></li>
+        <li><a href="interns.html">Internship</a></li>
+        <li><a href="policy-brief-competition.html">Competitions</a></li>
+        <li><a href="ambassadors.html">Ambassador Network</a></li>
+        <li><a href="chapters.html">Global Chapters</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Pathways</h5>
+      <ul>
+        <li><a href="research-route.html">Research</a></li>
+        <li><a href="policy-route.html">Policy</a></li>
+        <li><a href="business-route.html">Business</a></li>
+        <li><a href="diplomacy-route.html">Diplomacy</a></li>
+        <li><a href="environment-route.html">Environment</a></li>
+        <li><a href="community-route.html">Community</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Organisation</h5>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="partners.html">Partners</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="index.html#join">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Resources</h5>
+      <ul>
+        <li><a href="annual-reports.html">Annual Reports</a></li>
+        <li><a href="substack.html">Substack</a></li>
+        <li><a href="policies.html">Policies &amp; Declarations</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="safe-band">
+    <div class="left">
+      <span class="leaf">✦</span>
+      <span>This is a safe, moderated space for youth. For Youth, By Youth.</span>
+    </div>
+    <div>View our <a href="community-policy.html">Community Policy</a> · <a href="privacy-notice.html">Privacy Notice</a></div>
+  </div>
+
+  <div class="copy">
+    <span>© 2026 Youth for Sustainable Policy. A global youth organisation.</span>
+    <span>Made slowly, in good company.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Nav scroll state
+  const navWrap = document.getElementById('navWrap');
+  let lastScroll = -1;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY || window.pageYOffset;
+    if (y === lastScroll) return;
+    lastScroll = y;
+    if (y > 40) navWrap.classList.add('scrolled'); else navWrap.classList.remove('scrolled');
+  }, { passive:true });
+
+  // Magnetic buttons
+  document.querySelectorAll('[data-magnetic]').forEach(el => {
+    let raf=null, tx=0, ty=0, cx=0, cy=0;
+    const STR = 12;
+    function loop(){
+      tx += (cx-tx)*0.18; ty += (cy-ty)*0.18;
+      el.style.transform = 'translate(' + tx.toFixed(2) + 'px,' + ty.toFixed(2) + 'px)';
+      if (Math.abs(cx-tx)>0.05 || Math.abs(cy-ty)>0.05) raf = requestAnimationFrame(loop); else raf=null;
+    }
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      cx = ((e.clientX - (r.left + r.width/2)) / (r.width/2)) * STR;
+      cy = ((e.clientY - (r.top + r.height/2)) / (r.height/2)) * STR;
+      if (!raf) raf = requestAnimationFrame(loop);
+    });
+    el.addEventListener('mouseleave', () => { cx=0; cy=0; if (!raf) raf = requestAnimationFrame(loop); });
+  });
+
+  // Apple reveals
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting){
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.apple-reveal').forEach(el => io.observe(el));
+})();
+</script>
+
+
+<script>(function(){const s=document.getElementById('ppS'),w=document.getElementById('ppWc');s&&s.addEventListener('input',()=>{const n=(s.value.trim().match(/\S+/g)||[]).length;w.textContent=n+' / 250–400 words';w.style.color=n&&(n<250||n>400)?'#a5532a':''});const b=document.getElementById('ppCopy');b&&b.addEventListener('click',()=>{const t=['Global Policy Pitch Competition — form outline','1. Participation type: Individual entry / Team entry (2–3 participants)','2. Competition theme: '+[...document.querySelectorAll('#ppTheme option')].map(o=>o.textContent).join(' / '),'3. Policy proposal title','4. Country or jurisdiction addressed','5. Brief policy summary (250–400 words)','Also collect: contact details, consent, uploaded files, authorship declarations, eligibility information'].join('\n');navigator.clipboard.writeText(t).then(()=>{b.textContent='Copied ✓';setTimeout(()=>b.textContent='Copy form outline',1800)})})})();</script><script src="mobile-nav.js"></script>
+</body>
+</html>

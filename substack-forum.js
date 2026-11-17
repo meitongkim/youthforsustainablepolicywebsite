@@ -33,7 +33,7 @@
     .disc-head .count{ font-size:13px; color:var(--ink-mute); background:#f3f8ef; border:1px solid var(--line); padding:3px 11px; border-radius:999px }
     .disc-head .acct{ margin-left:auto; display:flex; align-items:center; gap:10px; font-size:13px; color:var(--ink-mute) }
     .disc-head .acct b{ color:var(--ink); font-weight:500 }
-    .disc-link{ color:var(--ink); font-weight:500; cursor:pointer; text-decoration:underline; text-decoration-color:var(--substack); text-underline-offset:3px; background:none; border:0; font:inherit; padding:0 }
+    .disc-link{ color:var(--ink); font-weight:500; cursor:var(--ysp-cursor-pointer,pointer); text-decoration:underline; text-decoration-color:var(--substack); text-underline-offset:3px; background:none; border:0; font:inherit; padding:0 }
     .disc-link:hover{ color:var(--sage-deep) }
 
     .disc-compose{ display:flex; gap:14px; margin:22px 0 8px; align-items:flex-start; position:relative }
@@ -43,7 +43,7 @@
     .disc-compose textarea:focus{ outline:none; border-color:var(--sage-deep); box-shadow:0 0 0 3px rgba(137,163,108,.16) }
     .disc-compose .row{ display:flex; justify-content:space-between; align-items:center; margin-top:10px; gap:12px }
     .disc-compose .hint{ font-size:12.5px; color:var(--ink-mute) }
-    .disc-btn{ display:inline-flex; align-items:center; gap:7px; padding:10px 18px; border-radius:999px; font-size:13.5px; font-weight:500; cursor:pointer; border:0; transition:filter .2s, background .2s, transform .2s }
+    .disc-btn{ display:inline-flex; align-items:center; gap:7px; padding:10px 18px; border-radius:999px; font-size:13.5px; font-weight:500; cursor:var(--ysp-cursor-pointer,pointer); border:0; transition:filter .2s, background .2s, transform .2s }
     .disc-btn[disabled]{ opacity:.5; cursor:not-allowed }
     .disc-btn-primary{ background:var(--substack); color:#fff }
     .disc-btn-primary:not([disabled]):hover{ filter:brightness(1.05) }
@@ -65,7 +65,7 @@
     .disc-item .meta .mine{ font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--sage-deep); background:#eef4e7; border-radius:999px; padding:2px 8px }
     .disc-item .text{ font-size:15px; line-height:1.6; color:var(--ink-soft); white-space:pre-wrap; word-wrap:break-word }
     .disc-item .actions{ display:flex; gap:14px; margin-top:8px }
-    .disc-item .act{ background:none; border:0; cursor:pointer; font:inherit; font-size:12.5px; color:var(--ink-mute); display:inline-flex; align-items:center; gap:5px; padding:0 }
+    .disc-item .act{ background:none; border:0; cursor:var(--ysp-cursor-pointer,pointer); font:inherit; font-size:12.5px; color:var(--ink-mute); display:inline-flex; align-items:center; gap:5px; padding:0 }
     .disc-item .act:hover{ color:var(--ink) }
     .disc-item .act.liked{ color:var(--substack) }
 
@@ -76,7 +76,7 @@
     @keyframes discpop{ from{ opacity:0; transform:translateY(14px) scale(.98) } to{ opacity:1; transform:none } }
     .disc-card .top{ padding:24px 26px 0 }
     .disc-tabs{ display:flex; gap:4px; background:#f3f8ef; border-radius:999px; padding:4px; margin-bottom:20px }
-    .disc-tabs button{ flex:1; padding:9px; border-radius:999px; border:0; background:none; font:inherit; font-size:13.5px; font-weight:500; color:var(--ink-mute); cursor:pointer }
+    .disc-tabs button{ flex:1; padding:9px; border-radius:999px; border:0; background:none; font:inherit; font-size:13.5px; font-weight:500; color:var(--ink-mute); cursor:var(--ysp-cursor-pointer,pointer) }
     .disc-tabs button.on{ background:#fff; color:var(--ink); box-shadow:0 1px 3px rgba(31,42,34,.12) }
     .disc-card h4{ font-family:"Fraunces",serif; font-weight:400; font-size:24px; margin:0 0 6px; letter-spacing:-.01em }
     .disc-card .sub{ font-size:13.5px; color:var(--ink-mute); margin:0 0 18px; line-height:1.5 }
@@ -87,7 +87,7 @@
     .disc-err{ font-size:13px; color:#b3402e; margin:2px 0 0; min-height:1px }
     .disc-card .foot{ padding:18px 26px 26px; display:flex; gap:10px; align-items:center }
     .disc-card .foot .disc-btn{ flex:1; justify-content:center }
-    .disc-x{ position:absolute; top:18px; right:20px; width:30px; height:30px; border-radius:50%; border:0; background:#f3f8ef; color:var(--ink-mute); cursor:pointer; font-size:16px; line-height:1 }
+    .disc-x{ position:absolute; top:18px; right:20px; width:30px; height:30px; border-radius:50%; border:0; background:#f3f8ef; color:var(--ink-mute); cursor:var(--ysp-cursor-pointer,pointer); font-size:16px; line-height:1 }
     .disc-x:hover{ background:#e7efe0; color:var(--ink) }
     .disc-note{ padding:0 26px 22px; font-size:11.5px; color:var(--ink-mute); line-height:1.5 }
     @media (max-width:560px){ .disc-head .acct{ width:100%; margin-left:0 } }

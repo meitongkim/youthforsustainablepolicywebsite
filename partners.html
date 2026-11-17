@@ -345,6 +345,27 @@ a{color:inherit}a:hover{color:var(--ink)}
 .pt-sec{max-width:1040px;margin:0 auto;padding:56px 24px 24px}.pt-sec h2{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:clamp(28px,3vw,38px);margin:0 0 24px;letter-spacing:-.015em}.pt-sec h2 em{font-style:italic;color:var(--sage-deep)}
 .pt-cta{max-width:1040px;margin:0 auto;padding:40px 24px 110px}.pt-cta>div{padding:44px;border-radius:26px;background:var(--ink);color:#eef4ea;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center}.pt-cta h2{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:clamp(26px,2.8vw,36px);margin:0 0 10px;color:#fbfdfa}.pt-cta h2 em{font-style:italic;color:var(--sage-soft)}.pt-cta p{margin:0;color:#cfdccf;font-size:16px;line-height:1.6;max-width:56ch}.pt-cta a.pt-mail{color:#fbfdfa;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:760px){.pt-cta>div{grid-template-columns:minmax(0,1fr);padding:32px}}
+
+/* interviews */
+.iv-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.iv-card{display:flex;flex-direction:column;gap:16px;padding:30px;border-radius:22px;background:linear-gradient(160deg,#f4f8f2 0%,#fff 70%);border:1px solid var(--line);box-shadow:var(--shadow-1);text-decoration:none;color:inherit;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.iv-card:hover{transform:translateY(-3px)}
+.iv-card:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.iv-org{display:flex;align-items:center;gap:14px}
+.iv-mark{flex:none;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:#fff;color:#4f6638;padding:7px;font-family:"Fraunces",Georgia,serif;font-size:24px;border:1px solid var(--line);overflow:hidden}
+.iv-mark img{width:100%;height:100%;object-fit:contain;display:block}
+.iv-org b{display:block;font-weight:600;font-size:15px;color:var(--ink)}
+.iv-org div span{display:block;font-size:13px;color:#5c6653}
+.iv-card small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#4f6638;font-weight:600}
+.iv-card q{quotes:none;font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:clamp(21px,2.2vw,26px);line-height:1.28;letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+.iv-card q em{font-style:italic;color:#66804c}
+.iv-card p{margin:0;font-size:15px;line-height:1.6;color:#39422f}
+.iv-go{margin-top:auto;font-size:14px;font-weight:500;color:var(--ink)}
+.iv-strip-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.iv-strip-head h2{margin:0}
+.iv-all{font-size:14px;font-weight:500;color:var(--ink);text-underline-offset:4px}
+.iv-note{margin:0 0 24px;max-width:62ch;font-size:15.5px;line-height:1.6;color:#39422f}
+@media(max-width:760px){.iv-grid{grid-template-columns:minmax(0,1fr)}.iv-card{padding:24px}}
 </style>
 </head>
 <body>
@@ -387,7 +408,14 @@ a{color:inherit}a:hover{color:var(--ink)}
 <article class="pt-card apple-reveal" style="transition-delay:.08s"><img src="assets/partners/brainink.png" alt="BrainInk Magazine logo" /><div><small>Organisational Partner</small><h3>BrainInk <em>Magazine</em></h3><p>BrainInk Magazine is a student-led magazine on psychology, mental health and human stories. Students write, research, edit and design each issue, with the aim of making psychological knowledge accessible, amplifying unheard voices and giving young writers, researchers and creators a place to share their work.</p></div></article>
 </div>
 </section>
-<section class="pt-cta" data-screen-label="03 Become a Partner"><div>
+<section class="pt-sec" id="in-conversation" data-screen-label="03 In Conversation">
+<div class="iv-strip-head"><h2>In <em>Conversation</em></h2><a class="iv-all" href="interviews.html">All interviews →</a></div>
+<p class="iv-note">Organisations we have interviewed for YSP Publications. They are voices we learn from, not partners, and appearing here does not imply an endorsement either way.</p>
+<div class="iv-grid">
+<a class="iv-card apple-reveal" href="interview-spca-selangor.html"><div class="iv-org"><span class="iv-mark"><img src="assets/interviews/spca-selangor.png" width="400" height="378" alt="SPCA Selangor logo" loading="lazy" decoding="async"></span><div><b>SPCA Selangor</b><span>Animal welfare · Malaysia</span></div></div><small>Interview · June 2026 · 8 min read</small><q>“It's not about animals. It's about <em>systems under strain.</em>”</q><p>Why rescue alone doesn't work, where Malaysia's animal-welfare framework breaks, and why the most useful young people in this field are operations thinkers.</p><span class="iv-go">Read the conversation →</span></a>
+</div>
+</section>
+<section class="pt-cta" data-screen-label="04 Become a Partner"><div>
 <div><h2>Become A <em>Partner.</em></h2><p>Institutions and organisations interested in working with YSP can write to <a class="pt-mail" href="mailto:youthforsustainablepolicy@gmail.com?subject=Partnership%20enquiry">youthforsustainablepolicy@gmail.com</a>.</p></div>
 <a href="mailto:youthforsustainablepolicy@gmail.com?subject=Partnership%20enquiry" class="btn btn-primary">Get in touch <span class="arr">↗</span></a>
 </div></section>
@@ -442,6 +470,7 @@ a{color:inherit}a:hover{color:var(--ink)}
       <ul>
         <li><a href="annual-reports.html">Annual Reports</a></li>
         <li><a href="substack.html">Substack</a></li>
+        <li><a href="interviews.html">Interviews</a></li>
         <li><a href="policies.html">Policies &amp; Declarations</a></li>
       </ul>
     </div>

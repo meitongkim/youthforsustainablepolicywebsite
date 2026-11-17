@@ -98,6 +98,11 @@
     font-family: ui-monospace, Menlo, monospace; font-size:12px; letter-spacing:.12em; text-transform:uppercase;
     color:var(--ink-soft); background:rgba(255,255,255,.6); padding:9px 16px; border-radius:999px; border:1px solid rgba(255,255,255,.8);
   }
+  .a-cover .frame.duo{ display:grid; grid-template-columns:1fr 1fr; gap:6px; background:#fff; padding:6px; aspect-ratio:auto }
+  .a-cover .frame.duo picture{ display:block; border-radius:16px; overflow:hidden; aspect-ratio:2.1/1 }
+  .a-cover .frame.duo img{ width:100%; height:100%; object-fit:cover; display:block }
+  .a-cover .credit{ margin:12px 6px 0; font-size:12.5px; color:var(--ink-mute); text-align:right }
+  @media(max-width:640px){ .a-cover .frame.duo{ grid-template-columns:1fr } }
 
   /* Body */
   article.post{
@@ -157,7 +162,7 @@
 
   /* Subject card */
   .subject{
-    max-width: 720px; margin: 8px auto 0; padding: 0 24px;
+    max-width: 720px; margin: 44px auto 0; padding: 0 24px;
   }
   .subject .card{
     padding: 28px 30px; border-radius:22px;
@@ -170,6 +175,8 @@
     background: linear-gradient(140deg, var(--mist), var(--sage)); color:#fbfdfa;
     font-family:"Fraunces",serif; font-size:22px; box-shadow:0 4px 12px -4px rgba(31,42,34,.3);
   }
+  .subject .mark{ background:#fff; padding:8px; border:1px solid rgba(31,42,34,.08); box-shadow:0 4px 12px -6px rgba(31,42,34,.18) }
+  .subject .mark img{ width:100%; height:100%; object-fit:contain; display:block }
   .subject h4{ margin:0 0 4px; font-family:"Fraunces",serif; font-weight:400; font-size:21px; letter-spacing:-.015em }
   .subject .role{ font-size:13px; color:var(--ink-mute); letter-spacing:.03em; margin-bottom:12px }
   .subject p{ margin:0; font-size:14.5px; color:var(--ink-soft); line-height:1.6 }
@@ -261,15 +268,17 @@
 
 <!-- Cover -->
 <div class="a-cover">
-  <div class="frame">
-    <span class="ph">photo — SPCA Selangor (drop in here)</span>
+  <div class="frame duo">
+    <picture><source type="image/webp" srcset="assets/interviews/spca-dogs.webp"><img src="assets/interviews/spca-dogs.jpg" width="988" height="398" alt="Dogs resting in the shaded outdoor kennel area at SPCA Selangor" decoding="async"></picture>
+    <picture><source type="image/webp" srcset="assets/interviews/spca-cats.webp"><img src="assets/interviews/spca-cats.jpg" width="988" height="398" alt="The cat adoption room at SPCA Selangor, with climbing frames and cages" loading="lazy" decoding="async"></picture>
   </div>
+  <p class="credit">Photos: SPCA Selangor</p>
 </div>
 
 <!-- Subject card -->
 <div class="subject">
   <div class="card">
-    <div class="mark serif">S</div>
+    <div class="mark"><img src="assets/interviews/spca-selangor.png" width="400" height="378" alt="SPCA Selangor logo" decoding="async"></div>
     <div>
       <h4 class="serif">SPCA Selangor</h4>
       <div class="role">Society for the Prevention of Cruelty to Animals, Selangor · Malaysia</div>
@@ -466,6 +475,7 @@
       <ul>
         <li><a href="annual-reports.html">Annual Reports</a></li>
         <li><a href="substack.html">Substack</a></li>
+        <li><a href="interviews.html">Interviews</a></li>
         <li><a href="policies.html">Policies &amp; Declarations</a></li>
       </ul>
     </div>

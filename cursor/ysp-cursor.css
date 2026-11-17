@@ -1,0 +1,39 @@
+@layer ysp-cursor {
+  @media (hover: hover) and (pointer: fine) {
+    :where(html.ysp-cursor) {
+      --ysp-cursor-default: url("./ysp-cursor-default.png") 4 3, default;
+      --ysp-cursor-pointer: url("./ysp-cursor-pointer.png") 12 3, pointer;
+      cursor: var(--ysp-cursor-default);
+    }
+
+    :where(.ysp-cursor) :where(
+      p, h1, h2, h3, h4, h5, h6, li, dt, dd, blockquote, pre,
+      code, figcaption, td, th, input, textarea, select, [contenteditable]
+    ) {
+      cursor: auto;
+    }
+
+    :where(.ysp-cursor) :where(
+      a[href], button:enabled, summary,
+      [role="button"]:not([aria-disabled="true"]),
+      [role="link"]:not([aria-disabled="true"])
+    ) {
+      cursor: var(--ysp-cursor-pointer);
+
+      & * {
+        cursor: inherit;
+      }
+    }
+
+    :where(.ysp-cursor) :where(:disabled, [aria-disabled="true"]) {
+      cursor: auto;
+    }
+  }
+
+  @media (forced-colors: active) {
+    :where(html.ysp-cursor) {
+      --ysp-cursor-default: auto;
+      --ysp-cursor-pointer: pointer;
+    }
+  }
+}

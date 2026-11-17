@@ -32,9 +32,10 @@ html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
   #ysp-loader .ldr-bar i{transform:scaleX(.82)}
   #ysp-loader.out .ldr-mark{transform:none}
 }
+.ir-tracks.ir-tracks3{grid-template-columns:repeat(3,minmax(0,1fr))}.ir-tdesc{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.55}.ir-placements{flex:none;align-content:start;grid-auto-rows:min-content}.ir-placements .ir-role{padding:14px 18px;height:auto}.ir-placements .ir-role h4{margin:0;font-size:15.5px}@media(max-width:900px){.ir-tracks.ir-tracks3{grid-template-columns:1fr}}
 </style>
 <script id="ysp-loader-boot">(function(){var h=document.documentElement,s=false;try{s=!!sessionStorage.getItem('ysp-loaded')}catch(e){}if(!s){h.classList.add('ysp-loading','ysp-hold')}})();</script>
-<title>Greenhouse Internship — Intake Open · YSP</title>
+<title>GreenHouse Internship Programme · YSP</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
@@ -962,9 +963,71 @@ html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.yf *{transition:none!important;animation:none!important}}
 </style>
 <link id="ysp-cursor-css" rel="stylesheet" href="assets/cursor/ysp-cursor.css">
+<style id="interns-v2">
+.page-hero .ih-title{font-size:clamp(40px,6.4vw,88px);line-height:1;letter-spacing:-.035em;margin-top:18px;max-width:none}
+.page-hero .ih-title span{display:block}
+.page-hero .ih-title em{display:block;font-weight:300;padding-right:.06em;background:linear-gradient(100deg,#6f8c4d 0%,#9ab078 40%,#4f6638 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ih-chips{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.ih-chips li{font-size:12.5px;font-weight:600;letter-spacing:.04em;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.7);border:1px solid var(--line);color:var(--ink-soft);box-shadow:0 1px 0 rgba(255,255,255,.8) inset}
+.it-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:8px}
+.it-card{position:relative;display:flex;flex-direction:column;gap:14px;padding:30px 28px 28px;border-radius:24px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-1);overflow:hidden}
+.it-card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,#9ab078,#6f8c4d)}
+.it-card.g::before{background:linear-gradient(90deg,#b5cf7a,#8fa86b)}
+.it-card.c::before{background:linear-gradient(90deg,#8fb8a6,#5f8f7c)}
+.it-n{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:300;font-size:38px;line-height:1;color:var(--sage-deep)}
+.it-card h3{margin:0;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:30px;line-height:1.1;letter-spacing:-.02em}
+.it-card>p{margin:0;color:var(--ink-soft);font-size:15.5px;line-height:1.6;text-wrap:pretty}
+.it-focus{margin-top:auto;padding-top:18px;border-top:1px solid var(--line)}
+.it-focus>span{display:block;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:12px}
+.it-focus ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.it-focus li{font-size:13px;padding:6px 12px;border-radius:999px;background:var(--mist-pale);color:var(--sage-deep);border:1px solid rgba(137,163,108,.28)}
+.it-card.c .it-focus li{background:#eef5f1;color:#3f6b5a;border-color:rgba(95,143,124,.28)}
+@media(max-width:900px){.it-cards{grid-template-columns:1fr}.page-hero .ih-title{max-width:none}}
+</style>
+<style id="interns-tl-anim">
+@media (prefers-reduced-motion:no-preference){
+html.tl-anim #timeline .tl-bar>div{opacity:0;transform:scaleX(.2) translateY(8px);transform-origin:left center;transition:opacity .6s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+html.tl-anim #timeline .tl-bar>div:nth-child(2){transition-delay:.18s}html.tl-anim #timeline .tl-bar>div:nth-child(3){transition-delay:.36s}html.tl-anim #timeline .tl-bar>div:nth-child(4){transition-delay:.54s}
+html.tl-anim #timeline .tl-row{opacity:0;transform:translateX(-14px);transition:opacity .5s ease,transform .6s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--r,0)*70ms + .3s)}
+html.tl-anim #timeline .tl-status li{opacity:0;transform:translateY(10px) scale(.98);transition:opacity .45s ease,transform .5s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--r,0)*80ms)}
+html.tl-anim #timeline.tl-go .tl-bar>div,html.tl-anim #timeline.tl-go .tl-row,html.tl-anim #timeline.tl-go .tl-status li{opacity:1;transform:none}
+#timeline.tl-go .tl-key{animation:tlPulse 1.8s ease 1.4s 2}
+}
+@keyframes tlPulse{0%,100%{box-shadow:inset 3px 0 0 #9ab078,0 0 0 0 rgba(154,176,120,0)}50%{box-shadow:inset 3px 0 0 #6f8c4d,0 0 0 6px rgba(154,176,120,.18)}}
+</style>
+<style id="interns-tl">
+.tl-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.7);overflow:hidden;margin:8px 0 22px}
+.tl-stats>div{padding:22px 24px;display:flex;flex-direction:column;gap:8px}.tl-stats>div+div{border-left:1px solid var(--line)}
+.tl-stats span{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);font-weight:500}
+.tl-stats b{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:clamp(22px,2.6vw,32px);letter-spacing:-.02em;line-height:1.1;color:var(--ink)}
+.tl-bar{display:flex;gap:6px;margin-bottom:28px}
+.tl-bar>div{padding:16px 18px;border-radius:16px;background:linear-gradient(135deg,#eaf1e3,#dbe7cf);border:1px solid rgba(137,163,108,.3);display:flex;flex-direction:column;gap:4px;min-width:0}
+.tl-bar>div:nth-child(2){background:linear-gradient(135deg,#dbe7cf,#c9dbb6)}.tl-bar>div:nth-child(3){background:linear-gradient(135deg,#c9dbb6,#b3cc9a)}.tl-bar>div:nth-child(4){background:linear-gradient(135deg,#b3cc9a,#9ab078);color:#fff}
+.tl-bar span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.75}.tl-bar b{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:20px}
+.tl-list{list-style:none;margin:0;padding:0;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-1);overflow:hidden}
+.tl-row{display:grid;grid-template-columns:170px 250px 1fr;gap:20px;align-items:baseline;padding:16px 26px;border-bottom:1px solid var(--line)}
+.tl-row:last-child{border-bottom:0}
+.tl-d{font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:19px;color:var(--sage-deep)}
+.tl-row b{font-weight:600;font-size:15.5px}.tl-a{color:var(--ink-soft);font-size:15px;line-height:1.5}
+.tl-key{background:linear-gradient(90deg,#eef4ea,#fff)}
+.tl-h{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:26px;letter-spacing:-.02em;margin:40px 0 16px}
+.tl-status{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px}
+.tl-status li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border:1px solid var(--line);border-radius:14px;background:#fff;font-size:15px}
+.tl-pill{font-style:normal;font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;white-space:nowrap}
+.tl-pill.p{background:#eef4ea;color:#4f6638}.tl-pill.u{background:#e6f0f5;color:#2f5f78}.tl-pill.w{background:#fbf1de;color:#8a5a12}
+@media(max-width:900px){.tl-stats{grid-template-columns:1fr 1fr}.tl-stats>div:nth-child(3){border-left:0}.tl-stats>div:nth-child(n+3){border-top:1px solid var(--line)}.tl-bar{flex-direction:column}.tl-row{grid-template-columns:1fr;gap:4px;padding:16px 20px}.tl-status{grid-template-columns:1fr}.tl-status li{flex-wrap:wrap}}
+</style>
+<style id="interns-tighten">
+.sec{padding:44px 0 40px}
+.page-hero{padding-bottom:36px}
+.ir-head{margin:10px 0 22px}
+.tl-stats{margin-bottom:16px}.tl-bar{margin-bottom:20px}
+.tl-h{margin:26px 0 12px}
+@media(max-width:700px){.sec{padding:36px 0 32px}.page-hero{padding-bottom:28px}}
+</style>
 </head>
 <body>
-<div id="ysp-loader" role="status" aria-live="polite"><span class="ldr-mark"><picture><source type="image/webp" srcset="assets/loader/ysp-mark.webp"><img src="assets/loader/ysp-mark.png" width="192" height="192" alt=""></picture></span><p class="ldr-word">Youth for Sustainable <em>Policy</em></p><span class="ldr-bar" aria-hidden="true"><i></i></span><span class="ldr-sr">Loading Youth for Sustainable Policy</span></div>
+<div id="ysp-loader" role="status" aria-live="polite"><span class="ldr-mark"><img src="data:image/webp;base64,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" width="192" height="192" alt=""></span><p class="ldr-word">Youth for Sustainable <em>Policy</em></p><span class="ldr-bar" aria-hidden="true"><i></i></span><span class="ldr-sr">Loading Youth for Sustainable Policy</span></div>
 <script id="ysp-loader-run">(function(){var h=document.documentElement;if(!h.classList.contains('ysp-loading'))return;
 var l=document.getElementById('ysp-loader'),t0=Date.now(),MIN=1100,MAX=3200,done=false;
 function finish(){if(done)return;done=true;try{sessionStorage.setItem('ysp-loaded','1')}catch(e){}
@@ -1231,34 +1294,39 @@ a.prog:hover .go .arr{transform:translate(3px,-3px)}
   <div class="mesh" aria-hidden="true"><span></span></div>
   <div class="wrap">
     <span class="eyeb apple-reveal"><i></i>YSP Greenhouse Intensive</span>
-    <h1 class="apple-reveal" style="transition-delay:.1s">Greenhouse <em>Internship</em><br/>intake is open.</h1>
-    <p class="apple-reveal" style="transition-delay:.2s">Applications are reviewed on a rolling basis. Interns work remotely across research, policy, data, communications, and growth on YSP's flagship mentorship-led programme.</p>
+    <h1 class="apple-reveal ih-title" style="transition-delay:.1s"><span>The GreenHouse</span> <em>Internship Programme.</em></h1>
+    <ul class="ih-chips apple-reveal" style="transition-delay:.16s"><li>12 weeks</li><li>Remote</li><li>Unpaid</li><li>Mentor-led</li><li>Final capstone</li></ul>
+    <p class="apple-reveal" style="transition-delay:.2s">Relaunching 14 December 2026. Interns work remotely across research, growth, and communications on YSP's flagship mentorship-led programme.</p>
     <div class="apple-reveal" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;transition-delay:.3s">
-      <a href="https://forms.gle/Pu8p2ucZDrAxLzLz5" target="_blank" rel="noopener noreferrer" class="btn btn-forest" data-magnetic>Apply now <span class="arr">↗</span></a>
+      <a href="https://forms.gle/Pu8p2ucZDrAxLzLz5" target="_blank" rel="noopener noreferrer" class="btn btn-forest" data-magnetic>Register interest <span class="arr">↗</span></a>
       <a href="programmes.html" class="btn btn-ghost">Programme details ▸</a>
     </div>
   </div>
 </section>
 
-<section class="sec" id="roles" style="padding-top:40px">
+<section class="sec" id="roles" style="padding-top:16px">
   <div class="wrap">
     <span class="eyeb apple-reveal"><i></i>Roles &amp; Tracks</span>
-    <div class="ir-head apple-reveal"><h2>Four roles across <em>two tracks.</em></h2><p>Each intern joins one role within the Research or Growth track and works alongside a mentor on live YSP projects.</p></div>
-    <div class="ir-tracks">
-      <div class="ir-track apple-reveal">
-        <h3><span class="tagpill">Research</span>Research track</h3>
-        <div class="ir-roles">
-          <article class="ir-role"><span class="n">01</span><h4>Research &amp; Policy Intern</h4><p>Researches sustainability and governance issues and helps draft policy briefs and recommendations.</p></article>
-          <article class="ir-role"><span class="n">02</span><h4>Research &amp; Data Intern</h4><p>Gathers, cleans and analyses data to support YSP research and evidence-based outputs.</p></article>
-          <article class="ir-role"><span class="n">03</span><h4>Research &amp; Communications Intern</h4><p>Turns research into clear written and digital content for YSP's audiences.</p></article>
-        </div>
-      </div>
-      <div class="ir-track apple-reveal" style="transition-delay:.08s">
-        <h3><span class="tagpill growth">Growth</span>Growth track</h3>
-        <div class="ir-roles">
-          <article class="ir-role"><span class="n">04</span><h4>Growth &amp; Partnerships Intern</h4><p>Supports outreach, partnerships and programme growth across YSP's network.</p></article>
-        </div>
-      </div>
+    <div class="ir-head apple-reveal"><h2>Three Tracks, <em>One Cohort.</em></h2><p>Each intern joins the Research, Growth or Communications track and works alongside a mentor on live YSP projects.</p></div>
+    <div class="it-cards">
+      <article class="it-card apple-reveal">
+        <span class="it-n">01</span>
+        <h3>Research</h3>
+        <p>Research interns review evidence, analyse data, and develop policy briefs and explainers.</p>
+        <div class="it-focus"><span>Focus areas</span><ul><li>Policy</li><li>Data</li><li>Communications</li><li>Health Policy</li><li>Growth</li><li>Digital Policy</li><li>Policy Engagement</li></ul></div>
+      </article>
+      <article class="it-card g apple-reveal" style="transition-delay:0.08s">
+        <span class="it-n">02</span>
+        <h3>Growth</h3>
+        <p>Growth interns support outreach and build relationships with potential partners.</p>
+        <div class="it-focus"><span>Focus areas</span><ul><li>Partnerships</li><li>Sustainability Partnerships</li><li>Global Partnerships</li></ul></div>
+      </article>
+      <article class="it-card c apple-reveal" style="transition-delay:0.16s">
+        <span class="it-n">03</span>
+        <h3>Communications</h3>
+        <p>Communications interns work on editorial content, social media, and community engagement.</p>
+        <div class="it-focus"><span>Focus areas</span><ul><li>Editorial</li><li>Social Media</li><li>Community Engagement</li></ul></div>
+      </article>
     </div>
   </div>
 </section>
@@ -1266,13 +1334,25 @@ a.prog:hover .go .arr{transform:translate(3px,-3px)}
 <section class="sec sec-alt" id="programme">
   <div class="wrap">
     <span class="eyeb apple-reveal"><i></i>The Programme</span>
-    <div class="ir-head apple-reveal"><h2>About the <em>Greenhouse</em> Internship.</h2><p>The Greenhouse Internship is YSP's flagship mentorship-led programme for young people interested in research, policy and sustainability.</p></div>
+    <div class="ir-head apple-reveal"><h2>About the <em>GreenHouse</em> Internship Programme.</h2><p>The GreenHouse Internship Programme is a 12-week, remote, unpaid internship for young people interested in sustainability, public policy, and youth-led civic work. Interns contribute to YSP projects, receive feedback on their work, and collaborate on a final capstone.</p></div>
     <ul class="ir-facts apple-reveal">
-      <li><b>Remote</b><span>Interns work remotely and join from countries around the world.</span></li>
+      <li><b>12 weeks</b><span>A remote, unpaid internship open to young people around the world.</span></li>
       <li><b>Mentorship</b><span>Each intern is supported by a mentor throughout the internship.</span></li>
-      <li><b>Capstones</b><span>Interns contribute to structured projects and capstone work.</span></li>
-      <li><b>Rolling intake</b><span>Applications are open and reviewed on a rolling basis.</span></li>
+      <li><b>Capstone</b><span>Interns contribute to YSP projects and collaborate on a final capstone.</span></li>
+      <li><b>Starts 14 Dec</b><span>Relaunching 14 December 2026. New applications are in progress.</span></li>
     </ul>
+  </div>
+</section>
+
+<section class="sec" id="timeline">
+  <div class="wrap">
+    <span class="eyeb apple-reveal"><i></i>Timeline · 2026/27</span>
+    <div class="ir-head apple-reveal"><h2>Programme <em>Timeline.</em></h2><p>The GreenHouse Internship Programme relaunches in December 2026. All dates are in Singapore time (SGT) and may be adjusted.</p></div>
+    <div class="tl-stats apple-reveal"><div><span>Start date</span><b>14 Dec 2026</b></div><div><span>End date</span><b>7 Mar 2027</b></div><div><span>Duration</span><b>12 weeks</b></div><div><span>Format</span><b>Remote · Volunteer</b></div></div>
+    <div class="tl-bar apple-reveal" role="img" aria-label="14 December 2026 to 7 March 2027: weeks 1–2 training, weeks 3–6 assignments, weeks 7–10 capstone, weeks 11–12 showcase"><div style="flex:2"><span>Weeks 1–2</span><b>Training</b></div><div style="flex:4"><span>Weeks 3–6</span><b>Assignments</b></div><div style="flex:4"><span>Weeks 7–10</span><b>Capstone</b></div><div style="flex:2"><span>Weeks 11–12</span><b>Showcase</b></div></div>
+    <ol class="tl-list apple-reveal"><li class="tl-row"><span class="tl-d">1–6 Dec</span><b>Onboarding</b><span class="tl-a">Agreements, safeguarding, orientation materials and platform access.</span></li><li class="tl-row"><span class="tl-d">7–13 Dec</span><b>Orientation week</b><span class="tl-a">Welcome briefing, mentor introductions and project allocation.</span></li><li class="tl-row tl-key"><span class="tl-d">14 Dec</span><b>Official commencement</b><span class="tl-a">Internship assignments begin.</span></li><li class="tl-row"><span class="tl-d">14–27 Dec</span><b>Weeks 1–2</b><span class="tl-a">Training, research standards and project planning.</span></li><li class="tl-row"><span class="tl-d">28 Dec–24 Jan</span><b>Weeks 3–6</b><span class="tl-a">Department assignments and initial deliverables.</span></li><li class="tl-row"><span class="tl-d">25 Jan–21 Feb</span><b>Weeks 7–10</b><span class="tl-a">Capstone development and mentor review.</span></li><li class="tl-row"><span class="tl-d">22 Feb–7 Mar</span><b>Weeks 11–12</b><span class="tl-a">Final outputs, presentations and evaluation.</span></li><li class="tl-row"><span class="tl-d">12 Mar</span><b>Completion recognition</b><span class="tl-a">Certificates, feedback and portfolio guidance.</span></li></ol>
+    <h3 class="tl-h apple-reveal">Programme Status</h3>
+    <ul class="tl-status apple-reveal"><li><span>Programme Start</span><em class="tl-pill p">14 December 2026</em></li><li><span>New Applications</span><em class="tl-pill w">In Progress</em></li><li><span>Orientation Week</span><em class="tl-pill p">7–13 Dec 2026</em></li><li><span>Internship Delivery</span><em class="tl-pill u">14 Dec – 7 Mar</em></li><li><span>Final Showcase</span><em class="tl-pill p">22 Feb – 7 Mar 2027</em></li></ul>
   </div>
 </section>
 
@@ -1295,10 +1375,10 @@ a.prog:hover .go .arr{transform:translate(3px,-3px)}
 <section class="sec sec-alt">
   <div class="wrap">
     <span class="eyeb apple-reveal"><i></i>Applications</span>
-    <h2 class="serif apple-reveal" style="font-weight:400;font-size:clamp(28px,3.6vw,46px);letter-spacing:-.025em;line-height:1.06;margin:12px 0 20px">Intake is open. Rolling basis.</h2>
+    <h2 class="serif apple-reveal" style="font-weight:400;font-size:clamp(28px,3.6vw,46px);letter-spacing:-.025em;line-height:1.06;margin:12px 0 20px">New Applications: <em>In Progress.</em></h2>
     <div class="apple-reveal" style="display:flex;gap:12px;flex-wrap:wrap">
       <a href="programmes.html" class="btn btn-forest" data-magnetic>Programme details <span class="arr">↗</span></a>
-      <a href="https://forms.gle/Pu8p2ucZDrAxLzLz5" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Apply now ▸</a>
+      <a href="mailto:youthforsustainablepolicy@gmail.com?subject=GreenHouse%20Internship%20Programme" class="btn btn-ghost">Email YSP ▸</a>
     </div>
   </div>
 </section>
@@ -1618,5 +1698,10 @@ a.prog:hover .go .arr{transform:translate(3px,-3px)}
 </script>
 
 <script src="competition-config.js"></script>
+<script id="interns-tl-anim-js">(function(){var t=document.getElementById('timeline');if(!t||!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+t.querySelectorAll('.tl-row,.tl-status li').forEach(function(e,i){e.style.setProperty('--r',e.classList.contains('tl-row')?i:i%4)});
+document.documentElement.classList.add('tl-anim');
+var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){t.classList.add('tl-go');io.disconnect()}})},{threshold:.15});io.observe(t);
+setTimeout(function(){t.classList.add('tl-go')},9000);})();</script>
 </body>
 </html>

@@ -3,6 +3,37 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<style id="ysp-loader-css">
+#ysp-loader{display:none}
+html.ysp-loading #ysp-loader{display:flex;position:fixed;inset:0;z-index:2147483000;flex-direction:column;align-items:center;justify-content:center;gap:22px;
+  background:radial-gradient(120% 90% at 50% 42%,#fbfdfa 0%,#eef4ea 58%,#dde8d3 100%);opacity:1;visibility:visible;
+  transition:opacity .45s cubic-bezier(.2,.7,.2,1),visibility 0s linear .45s;animation:yspLdrFailsafe .45s ease 4s forwards}
+#ysp-loader.out{opacity:0;visibility:hidden;pointer-events:none}
+#ysp-loader .ldr-mark{display:block;width:84px;height:84px;border-radius:24px;overflow:hidden;
+  box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 22px 44px -22px rgba(31,42,34,.45);animation:yspLdrBreathe 1.6s ease-in-out infinite;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+#ysp-loader .ldr-mark img{display:block;width:100%;height:100%}
+#ysp-loader.out .ldr-mark{transform:scale(1.08)}
+#ysp-loader .ldr-word{margin:0;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:clamp(22px,3.2vw,30px);letter-spacing:-.02em;color:#1c231d;text-align:center;padding:0 16px}
+#ysp-loader .ldr-word em{font-style:italic;font-weight:300;padding-right:.06em;
+  background:linear-gradient(100deg,#7d9a5a 0%,#b5cf7a 25%,#6f8c4d 50%,#b5cf7a 75%,#7d9a5a 100%);background-size:200% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:yspLdrFlow 2.4s linear infinite}
+#ysp-loader .ldr-bar{display:block;width:168px;height:2px;border-radius:2px;background:rgba(31,42,34,.1);overflow:hidden}
+#ysp-loader .ldr-bar i{display:block;height:100%;background:linear-gradient(90deg,#9ab078,#4f6638);transform-origin:left;transform:scaleX(0);
+  animation:yspLdrFill 1.1s cubic-bezier(.3,.7,.2,1) forwards}
+#ysp-loader.out .ldr-bar i{animation:none;transform:scaleX(1);transition:transform .2s ease}
+#ysp-loader .ldr-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
+@keyframes yspLdrBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+@keyframes yspLdrFlow{from{background-position:0% 50%}to{background-position:200% 50%}}
+@keyframes yspLdrFill{0%{transform:scaleX(0)}100%{transform:scaleX(.82)}}
+@keyframes yspLdrFailsafe{to{opacity:0;visibility:hidden;pointer-events:none}}
+@media (prefers-reduced-motion:reduce){
+  #ysp-loader .ldr-mark,#ysp-loader .ldr-word em,#ysp-loader .ldr-bar i{animation:none}
+  #ysp-loader .ldr-bar i{transform:scaleX(.82)}
+  #ysp-loader.out .ldr-mark{transform:none}
+}
+</style>
+<script id="ysp-loader-boot">(function(){var h=document.documentElement,s=false;try{s=!!sessionStorage.getItem('ysp-loaded')}catch(e){}if(!s){h.classList.add('ysp-loading','ysp-hold')}})();</script>
 <title>YSP Winter MUN 2026 — Youth for Sustainable Policy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -588,6 +619,14 @@
 <link id="ysp-cursor-css" rel="stylesheet" href="assets/cursor/ysp-cursor.css">
 </head>
 <body>
+<div id="ysp-loader" role="status" aria-live="polite"><span class="ldr-mark"><picture><source type="image/webp" srcset="assets/loader/ysp-mark.webp"><img src="assets/loader/ysp-mark.png" width="192" height="192" alt=""></picture></span><p class="ldr-word">Youth for Sustainable <em>Policy</em></p><span class="ldr-bar" aria-hidden="true"><i></i></span><span class="ldr-sr">Loading Youth for Sustainable Policy</span></div>
+<script id="ysp-loader-run">(function(){var h=document.documentElement;if(!h.classList.contains('ysp-loading'))return;
+var l=document.getElementById('ysp-loader'),t0=Date.now(),MIN=1100,MAX=3200,done=false;
+function finish(){if(done)return;done=true;try{sessionStorage.setItem('ysp-loaded','1')}catch(e){}
+h.classList.remove('ysp-hold');l.classList.add('out');l.setAttribute('aria-hidden','true');l.removeAttribute('aria-live');
+setTimeout(function(){h.classList.remove('ysp-loading')},480)}
+window.addEventListener('load',function(){setTimeout(finish,Math.max(0,MIN-(Date.now()-t0)))});
+setTimeout(finish,MAX);})();</script>
 
 <div class="grain" aria-hidden="true"></div>
 

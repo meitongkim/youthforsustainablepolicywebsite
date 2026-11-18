@@ -34,8 +34,8 @@ html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
 }
 </style>
 <script id="ysp-loader-boot">(function(){var h=document.documentElement,s=false;try{s=!!sessionStorage.getItem('ysp-loaded')}catch(e){}if(!s){h.classList.add('ysp-loading','ysp-hold')}})();</script>
-<title>Youth Policy Barometer — YSP · Youth for Sustainable Policy</title>
-<meta name="description" content="The Youth Policy Barometer is a proposed YSP research initiative exploring how young people experience and understand public policy across different communities. Launching soon.">
+<title>YSP Barometer — The Youth Policy Pulse · Youth for Sustainable Policy</title>
+<meta name="description" content="YSP Barometer, the Youth Policy Pulse: a recurring, cross-country YSP research programme measuring how young people experience policy, participation and the future. Pilot edition 2027.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,1,300;9..144,1,400&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
@@ -414,6 +414,64 @@ a.yb-way:hover{transform:translateY(-2px);box-shadow:0 20px 44px -26px rgba(31,4
 @media (max-width:640px){.yb-band{padding:52px 16px}}
 </style>
 <style id="hero-cta-gap">.hero .hero-inner > .closing-cta{margin-top:34px}@media (max-width:640px){.hero .hero-inner > .closing-cta{margin-top:26px}}</style>
+<style id="yb2-style">
+.yb-band .section-title{max-width:none;text-wrap:balance}
+.b2-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.b2-chips span{padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.75);border:1px solid rgba(46,74,52,.12);font-size:12.5px;font-weight:600;letter-spacing:.04em;color:var(--sage-deep)}
+.b2-quote{max-width:900px;margin:0 auto;text-align:center}
+.b2-quote p{margin:16px 0 14px;font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:clamp(24px,2.8vw,36px);line-height:1.3;letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+.b2-quote em{font-style:italic;color:var(--sage-deep)}
+.b2-qs{color:var(--ink-soft);font-size:15.5px}
+.b2-dims{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+.b2-dim{padding:24px;border-radius:20px;background:#fff;border:1px solid rgba(46,74,52,.10)}
+.b2-dim b{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;border-radius:50%;background:#1f2a22;color:#e8eee2;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:15px;margin-bottom:12px}
+.b2-dim h3{margin:0 0 6px;font-size:17px;font-weight:600}.b2-dim p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.55}
+.b2-rq{margin-top:22px;padding:26px 28px;border-radius:22px;background:#1f2a22;color:#e8eee2}
+.b2-rq small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#b9c99e;font-weight:600}
+.b2-rq p{margin:8px 0 0;font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:clamp(20px,2.2vw,27px);line-height:1.35;color:#fbfdfa}
+.b2-specs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.b2-specs div{padding:18px 20px;border-radius:18px;background:rgba(137,163,108,.10);border:1px solid rgba(137,163,108,.2)}
+.b2-specs small{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-deep);font-weight:600;margin-bottom:6px}
+.b2-specs b{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:21px}
+.b2-note{margin:12px 0 0;font-size:13px;color:var(--ink-soft);font-style:italic}
+.b2-qbox{margin-top:26px;padding:26px 28px;border-radius:22px;background:#fff;border:1px solid rgba(46,74,52,.10)}
+.b2-qbox h3{margin:0 0 12px;font-size:18px;font-weight:600}
+.b2-qbox ol{margin:0;padding-left:22px;display:grid;grid-template-columns:1fr 1fr;gap:10px 32px}
+.b2-qbox li{color:var(--ink);font-size:15px;line-height:1.5}.b2-qbox li::marker{color:var(--sage-deep);font-weight:600}
+.b2-outs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:26px}
+.b2-out{padding:26px;border-radius:22px;background:#fff;border:1px solid rgba(46,74,52,.10);position:relative;overflow:hidden}
+.b2-out::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--sage-deep),rgba(185,201,158,.5))}
+.b2-out small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-deep);font-weight:600}
+.b2-out h3{margin:6px 0 8px;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:24px}.b2-out p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.6}
+.b2-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
+.b2-std{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.b2-std li{position:relative;padding:14px 16px 14px 46px;border-radius:16px;background:#fff;border:1px solid rgba(46,74,52,.10);font-size:14.5px;line-height:1.5}
+.b2-std li::before{content:"✓";position:absolute;left:14px;top:13px;width:22px;height:22px;border-radius:50%;background:rgba(137,163,108,.18);color:var(--sage-deep);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.b2-roles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
+.b2-role{padding:20px;border-radius:18px;background:#fff;border:1px solid rgba(46,74,52,.10);display:flex;flex-direction:column;gap:6px}
+.b2-role b{font-size:15px}.b2-role span{color:var(--ink-soft);font-size:13.5px;line-height:1.5}
+.b2-tl{list-style:none;margin:26px 0 0;padding:0;border-left:2px solid rgba(137,163,108,.35)}
+.b2-tl li{position:relative;display:grid;grid-template-columns:190px minmax(0,1fr) minmax(0,1fr);gap:16px;padding:14px 0 14px 26px;border-bottom:1px solid rgba(46,74,52,.08)}
+.b2-tl li::before{content:"";position:absolute;left:-7px;top:20px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--sage-deep)}
+.b2-tl li:last-child::before{background:var(--sage-deep)}
+.b2-tl .d{font-size:13.5px;font-weight:600;color:var(--sage-deep)}.b2-tl b{font-size:15px}.b2-tl .o{color:var(--ink-soft);font-size:14px}
+@media (max-width:1000px){.b2-dims,.b2-roles{grid-template-columns:repeat(2,1fr)}.b2-specs{grid-template-columns:repeat(2,1fr)}.b2-two{grid-template-columns:1fr;gap:20px}.b2-qbox ol{grid-template-columns:1fr}}
+@media (max-width:640px){.b2-dims,.b2-roles,.b2-outs{grid-template-columns:1fr}.b2-tl li{grid-template-columns:1fr;gap:2px}}
+</style>
+
+<style id="hm-style">.hm-host{position:relative;overflow:hidden;isolation:isolate}
+.hm-svg{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 46% 60% at 50% 45%,transparent 30%,#000 75%);mask-image:radial-gradient(ellipse 46% 60% at 50% 45%,transparent 30%,#000 75%)}
+.hm-host>*:not(.hm-svg){position:relative;z-index:1}
+@media (prefers-reduced-motion:no-preference){
+.hm-flow{stroke-dasharray:6 10;animation:hmflow 28s linear infinite}
+.hm-pulse{animation:hmpulse 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.hm-float{animation:hmfloat 14s ease-in-out infinite}
+.hm-sway{animation:hmsway 18s ease-in-out infinite;transform-origin:50% 100%}}
+@keyframes hmflow{to{stroke-dashoffset:-320}}
+@keyframes hmpulse{0%,100%{opacity:.55;transform:scale(.92)}50%{opacity:1;transform:scale(1.06)}}
+@keyframes hmfloat{0%,100%{translate:0 0}50%{translate:0 -10px}}
+@keyframes hmsway{0%,100%{rotate:0deg}50%{rotate:1.2deg}}
+@media (max-width:760px){.hm-svg{opacity:.55}}html,body{overflow-x:clip}.br-hero.hm-host{padding-bottom:clamp(90px,14vh,150px)!important}header.top.hm-host{padding-bottom:clamp(70px,10vh,120px)}</style>
 <style id="nav2-style">
 .nav .nav-links{gap:2px}
 .nav-dd{position:relative;display:inline-flex}
@@ -431,8 +489,12 @@ a.yb-way:hover{transform:translateY(-2px);box-shadow:0 20px 44px -26px rgba(31,4
 .nav-dd-menu small{font-size:11.5px;font-weight:400;color:#7d857a}
 .nav-mega{flex-direction:row!important;gap:6px!important;min-width:0!important;width:max-content;padding:12px!important;left:0!important;transform:translate(0,-6px)!important}
 .nav-dd:hover .nav-mega,.nav-dd:focus-within .nav-mega,.nav-dd.open .nav-mega{transform:none!important}
+.nav-mega{display:grid!important;grid-template-columns:repeat(3,auto)}.nav-mega>[hidden]{display:none}
+.nav-links .nav-dd-menu a.nm-all{grid-column:1/-1;flex-direction:row;justify-content:flex-end;gap:6px;margin-top:6px;padding:10px 14px!important;border-top:1px solid rgba(31,42,34,.08);border-radius:0 0 12px 12px!important;font-size:13px;color:var(--sage-deep,#5d7a45)}
 .nm-col{display:flex;flex-direction:column;gap:1px;min-width:220px}
-.nm-col+.nm-col{border-left:1px solid rgba(31,42,34,.08);padding-left:6px}
+.nm-col+.nav-mega{display:grid!important;grid-template-columns:repeat(3,auto)}.nav-mega>[hidden]{display:none}
+.nav-links .nav-dd-menu a.nm-all{grid-column:1/-1;flex-direction:row;justify-content:flex-end;gap:6px;margin-top:6px;padding:10px 14px!important;border-top:1px solid rgba(31,42,34,.08);border-radius:0 0 12px 12px!important;font-size:13px;color:var(--sage-deep,#5d7a45)}
+.nm-col{border-left:1px solid rgba(31,42,34,.08);padding-left:6px}
 .nm-h{padding:8px 14px 6px;font:600 10.5px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
 .mnav-panel .mnav-h{padding:14px 18px 4px;font:600 11px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
 .mnav-panel.grouped a:not(.mnav-cta){min-height:44px;font-size:19px}
@@ -462,35 +524,47 @@ setTimeout(finish,MAX);})();</script>
     <div class="nav-links">
       <div class="nav-dd is-active"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Programmes <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Programmes"><div class="nm-col">
         <span class="nm-h">Initiatives</span>
-        <a role="menuitem" href="programmes.html">International Initiatives<small>All YSP programmes</small></a>
-        <a role="menuitem" href="mun.html">Winter MUN 2026 ★<small>5–7 Dec 2026 · virtual</small></a>
         <a role="menuitem" href="grassroots.html">Grassroots Movements<small>Community action</small></a>
-        <a role="menuitem" href="barometer.html" class="active" aria-current="page">Youth Policy Barometer<small>Launching soon</small></a>
-        <a role="menuitem" href="studios.html">Studios<small>Creative production</small></a>
+        <a role="menuitem" href="learns.html">YSP Learns<small>Free learning portal</small></a>
+        <a role="menuitem" href="policy-circles.html">YSP Policy Circles<small>Youth dialogue · Pilot planned</small></a>
+        <a role="menuitem" href="programmes.html#civic-innovation-hub">YSP Civic Innovation Hub<small>Six-week project cycle</small></a>
+        <a role="menuitem" href="studios.html">YSP Studios<small>Creative production</small></a>
+        <a role="menuitem" href="barometer.html" class="active" aria-current="page">YSP Barometer<small>Pilot edition 2027</small></a>
         </div><div class="nm-col">
         <span class="nm-h">Competitions</span>
+        <a role="menuitem" href="mun.html">YSP Model United Nations<small>2027 · dates to be announced</small></a>
         <a role="menuitem" href="essay-competition-2026.html">SIB × YSP Essay Competition<small>Entries open 1 Dec</small></a>
         <a role="menuitem" href="policy-pitch-competition-2026.html">YSP Policy Pitch Competition<small>In development</small></a>
-        <a role="menuitem" href="policy-brief-competition.html">Policy Brief Competition<small>2026 results</small></a>
+        <a role="menuitem" href="policy-data-challenge.html">YSP Policy Data Challenge<small>Proposed 2027</small></a>
+        <a role="menuitem" href="youth-policy-debate-open.html">YSP Youth Policy Debate Open<small>Proposed 2027</small></a>
+        <a role="menuitem" href="visual-policy-challenge.html">YSP Visual Policy Challenge<small>Proposed 2027</small></a>
+        <a role="menuitem" href="policy-brief-competition.html">Global Policy Brief Competition<small>Annual · 2027 edition coming</small></a>
         </div><div class="nm-col">
         <span class="nm-h">Pathways</span>
-        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
-        <a role="menuitem" href="ambassadors.html">Ambassador Network<small>Global Youth Ambassadors</small></a>
-        <a role="menuitem" href="chapters.html">Global Chapters<small>Chapters &amp; chapter leaders</small></a>
+        <a role="menuitem" href="interns.html">GreenHouse Internship<small>Starts 14 Dec 2026</small></a>
+        <a role="menuitem" href="civic-futures-fellowship.html">Civic Futures Fellowship<small>10-week research fellowship</small></a>
+        <a role="menuitem" href="editorial-fellowship.html">YSP Editorial Fellowship<small>8-week editorial cycle</small></a>
+        <a role="menuitem" href="chapter-leadership-accelerator.html">Chapter Leadership Accelerator<small>4-week leadership programme</small></a>
+        </div><a role="menuitem" href="programmes.html" class="nm-all">View all programmes <span aria-hidden="true">→</span></a><div hidden>
         </div>      </div></div>
       <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Get Involved <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Get Involved">
-        <a role="menuitem" href="careers.html">Careers</a>
-        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
-        <a role="menuitem" href="ambassadors.html">Global Youth Ambassador Programme<small>Monthly intake</small></a>
+        <a role="menuitem" href="careers.html">Join the YSP Team<small>Volunteer &amp; leadership opportunities</small></a>
+        <a role="menuitem" href="interns.html">GreenHouse Internship<small>12-week programme · Remote</small></a>
+        <a role="menuitem" href="ambassadors.html">Global Youth Ambassador Programme<small>International network · Rolling intake</small></a>
+        <a role="menuitem" href="chapters.html">Global Chapters<small>Start or join a chapter</small></a>
+        <a role="menuitem" href="partners.html">Partner With YSP<small>Organisations &amp; collaborations</small></a>
       </div></div>
-      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Our Work">
-        <a role="menuitem" href="publications.html">Publications<small>Briefs, interviews & articles</small></a>
-        <a role="menuitem" href="interviews.html">Interviews</a>
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Our Work"><div class="nm-col">
+        <span class="nm-h">Research &amp; Publications</span>
+        <a role="menuitem" href="publications.html">Research &amp; Publications<small>Policy briefs, articles &amp; analysis</small></a>
+        <a role="menuitem" href="substack.html">Policy Insights<small>Evidence-based perspectives &amp; explainers</small></a>
+        <a role="menuitem" href="annual-reports.html">Reports &amp; Impact<small>Research findings &amp; annual reports</small></a>
+        </div><div class="nm-col">
+        <span class="nm-h">Stories &amp; Media</span>
+        <a role="menuitem" href="interviews.html">YSP Interviews<small>Conversations with changemakers</small></a>
         <a role="menuitem" href="ysp-talks.html">YSP Talks<small>The YSP podcast</small></a>
-        <a role="menuitem" href="global-spotlights.html">Global Spotlights</a>
-        <a role="menuitem" href="substack.html">Substack</a>
-        <a role="menuitem" href="annual-reports.html">Annual Reports</a>
-      </div></div>
+        <a role="menuitem" href="global-spotlights.html">Global Spotlights<small>Youth stories across borders</small></a>
+        </div>      </div></div>
       <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Portals <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Portals">
         <a role="menuitem" href="learns.html">YSP Learns<small>Learning Portal</small></a>
         <a role="menuitem" href="chapters.html">YSP Global Chapters<small>Chapters &amp; chapter leaders</small></a>
@@ -507,49 +581,118 @@ setTimeout(finish,MAX);})();</script>
 </div>
 
 <!-- Hero -->
-<section class="hero" data-screen-label="01 Barometer Hero">
+<section class="hm-host hero" data-screen-label="01 Barometer Hero"><svg class="hm-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs></defs><path d="M-40 760 C 380 720, 560 380, 900 260 S 1300 160, 1500 130" fill="none" stroke="rgba(110,140,80,0.2)" stroke-width="1.4"  class="hm-flow" style="animation-delay:-0s"/><path d="M-40 734 C 380 702, 560 438, 900 318 S 1300 218, 1500 200" fill="none" stroke="rgba(110,140,80,0.27)" stroke-width="2.0" stroke-dasharray="2 7" class="hm-flow" style="animation-delay:-2s"/><path d="M-40 708 C 380 684, 560 496, 900 376 S 1300 276, 1500 270" fill="none" stroke="rgba(110,140,80,0.34)" stroke-width="1.4"  class="hm-flow" style="animation-delay:-4s"/><path d="M-40 682 C 380 666, 560 554, 900 434 S 1300 334, 1500 340" fill="none" stroke="rgba(110,140,80,0.2)" stroke-width="2.0"  class="hm-flow" style="animation-delay:-6s"/><path d="M-40 656 C 380 648, 560 612, 900 492 S 1300 392, 1500 410" fill="none" stroke="rgba(110,140,80,0.27)" stroke-width="1.4" stroke-dasharray="2 7" class="hm-flow" style="animation-delay:-8s"/><path d="M-40 630 C 380 630, 560 670, 900 550 S 1300 450, 1500 480" fill="none" stroke="rgba(110,140,80,0.34)" stroke-width="2.0"  class="hm-flow" style="animation-delay:-10s"/><path d="M-40 604 C 380 612, 560 728, 900 608 S 1300 508, 1500 550" fill="none" stroke="rgba(110,140,80,0.2)" stroke-width="1.4"  class="hm-flow" style="animation-delay:-12s"/><circle cx="1030" cy="250" r="16" fill="rgba(110,140,80,.10)"/><circle cx="1030" cy="250" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/><circle cx="1180" cy="330" r="16" fill="rgba(110,140,80,.10)"/><circle cx="1180" cy="330" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/><circle cx="1290" cy="190" r="16" fill="rgba(110,140,80,.10)"/><circle cx="1290" cy="190" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/><circle cx="170" cy="690" r="16" fill="rgba(110,140,80,.10)"/><circle cx="170" cy="690" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/><circle cx="320" cy="640" r="16" fill="rgba(110,140,80,.10)"/><circle cx="320" cy="640" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/><circle cx="1120" cy="470" r="16" fill="rgba(110,140,80,.10)"/><circle cx="1120" cy="470" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/></svg>
   <div class="mesh" aria-hidden="true"><span></span></div>
   <div class="hero-inner">
     <div class="eyebrow-pill apple-reveal">
-      <span class="tag"><span class="dot"></span>Initiatives</span>
-      <span class="meta">A proposed YSP research initiative</span>
+      <span class="tag"><span class="dot"></span>YSP Barometer</span>
+      <span class="meta">A YSP research programme · Pilot edition 2027</span>
     </div>
-    <h1 class="serif apple-reveal" style="border-width: 0px">Youth Policy<br/><em>Barometer.</em></h1>
-    <p class="lede apple-reveal" style="transition-delay:.22s">A proposed research initiative exploring how young people experience and understand public policy across different communities.</p>
+    <h1 class="serif apple-reveal" style="border-width: 0px">The Youth<br/><em>Policy Pulse.</em></h1>
+    <p class="lede apple-reveal" style="transition-delay:.22s">Measuring how young people experience policy, participation and the future. A recurring, cross-country research programme on young people’s policy priorities, awareness, trust, perceived influence and experiences of public decision-making.</p>
+    <div class="b2-chips apple-reveal" style="transition-delay:.26s"><span>Research-led</span><span>International</span><span>Youth-centred</span></div>
     <div class="closing-cta apple-reveal" style="transition-delay:.3s;justify-content:center">
-      <a href="mailto:youthforsustainablepolicy@gmail.com?subject=Youth%20Policy%20Barometer" class="btn btn-forest" data-magnetic>Register interest <span class="arr">↗</span></a>
-      <a href="programmes.html#pipeline" class="btn btn-ghost">All programmes ▸</a>
+      <a href="mailto:youthforsustainablepolicy@gmail.com?subject=YSP%20Barometer" class="btn btn-forest" data-magnetic>Register interest <span class="arr">↗</span></a>
+      <a href="#pilot" class="btn btn-ghost">The 2027 pilot ▸</a>
     </div>
-    <span class="yb-status apple-reveal" style="transition-delay:.36s"><span class="pd" aria-hidden="true"></span>Launching soon · details to be announced</span>
+    <span class="yb-status apple-reveal" style="transition-delay:.36s"><span class="pd" aria-hidden="true"></span>In development · all plans and dates are proposed</span>
     <svg class="yb-gauge apple-reveal" viewBox="0 0 340 180" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round"><path d="M30 165a140 140 0 0 1 280 0" stroke-opacity=".18" stroke-width="18"/><path d="M30 165a140 140 0 0 1 196-128" stroke-width="18" stroke-opacity=".65"/><path d="M60 165a110 110 0 0 1 220 0" stroke-opacity=".25" stroke-dasharray="2 9" stroke-width="2"/><line x1="170" y1="165" x2="222" y2="62" stroke-width="3"/></g><circle cx="170" cy="165" r="9" fill="currentColor"/></svg>
   </div>
 </section>
 
-<!-- Questions -->
-<section class="yb-band" id="questions" data-screen-label="02 Questions">
+<!-- Approach -->
+<section class="yb-band" id="approach" data-screen-label="02 Approach">
   <div class="container">
-    <span class="eyebrow apple-reveal"><span class="dot"></span> What It Will Explore</span>
-    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Three questions,<br/><em>asked by young people.</em></h2>
-    <p class="section-sub apple-reveal" style="transition-delay:.16s">The Barometer is still being designed. These are the questions it sets out to explore; the final scope will be shared at launch.</p>
-    <div class="yb-q">
-      <article class="apple-reveal"><small>01 · Experience</small><h3>How do young people <em>meet</em> policy?</h3><p>Where public policy shows up in young people's lives, and what that experience is like.</p></article>
-      <article class="apple-reveal" style="transition-delay:.06s"><small>02 · Understanding</small><h3>How well is policy <em>understood?</em></h3><p>How young people understand the way policies are made, and where they feel able to take part.</p></article>
-      <article class="apple-reveal" style="transition-delay:.12s"><small>03 · Communities</small><h3>How does it <em>differ?</em></h3><p>How these experiences and understandings vary across different communities.</p></article>
+    <div class="b2-quote apple-reveal">
+      <span class="eyebrow"><span class="dot"></span> Our Approach</span>
+      <p>We don’t just ask young people what they think. The Barometer examines the relationship between <em>policy awareness</em>, <em>lived experience</em> and <em>opportunities to participate</em>.</p>
+      <span class="b2-qs">Its findings will support original policy briefs, international comparisons, public discussions and chapter activities.</span>
     </div>
   </div>
 </section>
 
+<!-- Dimensions -->
+<section class="yb-band alt" id="dimensions" data-screen-label="03 Six Dimensions">
+  <div class="container">
+    <span class="eyebrow apple-reveal"><span class="dot"></span> The Framework</span>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Six Dimensions, <em>Every Wave.</em></h2>
+    <p class="section-sub apple-reveal" style="transition-delay:.16s">A consistent framework across each survey wave, with one rotating thematic section.</p>
+    <div class="b2-dims"><article class="b2-dim apple-reveal" style="transition-delay:0.00s"><b>01</b><h3>Policy Awareness</h3><p>Understanding policies and where to find reliable information.</p></article><article class="b2-dim apple-reveal" style="transition-delay:0.04s"><b>02</b><h3>Youth Voice</h3><p>Perceived influence over decisions affecting young people.</p></article><article class="b2-dim apple-reveal" style="transition-delay:0.08s"><b>03</b><h3>Institutional Trust</h3><p>Confidence in decision-making processes and their responsiveness.</p></article><article class="b2-dim apple-reveal" style="transition-delay:0.12s"><b>04</b><h3>Policy Priorities</h3><p>The issues young people most want governments to address.</p></article><article class="b2-dim apple-reveal" style="transition-delay:0.16s"><b>05</b><h3>Barriers to Participation</h3><p>Information, access, time, cost and other obstacles.</p></article><article class="b2-dim apple-reveal" style="transition-delay:0.20s"><b>06</b><h3>Lived Policy Experience</h3><p>How decisions are experienced in education, employment and communities.</p></article></div>
+  </div>
+</section>
+
+<!-- Pilot -->
+<section class="yb-band" id="pilot" data-screen-label="04 Pilot 2027">
+  <div class="container">
+    <span class="eyebrow apple-reveal"><span class="dot"></span> Pilot Edition 2027</span>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Who Gets <em>Heard?</em></h2>
+    <p class="section-sub apple-reveal" style="transition-delay:.12s">Youth voice, policy awareness and participation across communities.</p>
+    <div class="b2-rq apple-reveal"><small>Central research question</small><p>To what extent do young people feel informed about, included in, and able to influence public policies affecting their futures?</p></div>
+    <div class="b2-specs">
+      <div class="apple-reveal"><small>Participants</small><b>Ages 16–28</b></div>
+      <div class="apple-reveal"><small>Survey length</small><b>8–10 minutes</b></div>
+      <div class="apple-reveal"><small>Geography</small><b>4–6 pilot countries</b></div>
+      <div class="apple-reveal"><small>Method</small><b>Online survey + interviews</b></div>
+    </div>
+    <p class="b2-note apple-reveal">Proposed targets, not confirmed methodological specifications.</p>
+    <div class="b2-qbox apple-reveal">
+      <h3>Questions We’re Exploring</h3>
+      <ol><li>How confident are you in your understanding of public policy?</li><li>Which three policy areas matter most to you?</li><li>How often do you seek information about public decisions?</li><li>How much influence do you believe young people have over government decisions?</li><li>Have you taken part in a public consultation, youth organisation or community discussion in the past year?</li><li>What prevents you from participating more actively?</li><li>How confident are you that public institutions consider young people’s concerns?</li><li>What is one change that would make policy participation more accessible to you?</li></ol>
+      <p class="b2-note">The survey is planned around 12–15 core questions kept the same across waves, plus about 5 rotating questions on a specific policy theme. Exact wording, response scales and translations will be pilot-tested before use.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Outputs -->
+<section class="yb-band alt" id="outputs" data-screen-label="05 Outputs">
+  <div class="container">
+    <span class="eyebrow apple-reveal"><span class="dot"></span> What It Will Produce</span>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Four Outputs, <em>One Evidence Base.</em></h2>
+    <div class="b2-outs"><article class="b2-out apple-reveal" style="transition-delay:0.00s"><small>YSP Barometer</small><h3>Global Report</h3><p>An annual analytical report with executive findings, country-level breakdowns where methodologically justified, and evidence-informed recommendations.</p></article><article class="b2-out apple-reveal" style="transition-delay:0.05s"><small>YSP Barometer</small><h3>Regional Snapshots</h3><p>Short research summaries on youth policy priorities and participation barriers in individual communities, with sample limitations made clear.</p></article><article class="b2-out apple-reveal" style="transition-delay:0.10s"><small>YSP Barometer</small><h3>Interactive Dashboard</h3><p>A public website section with visualisations, survey-wave comparisons, methodology notes and downloadable research outputs.</p></article><article class="b2-out apple-reveal" style="transition-delay:0.15s"><small>YSP Barometer</small><h3>Policy Dialogues</h3><p>Discussions bringing together young respondents, chapter representatives, researchers and invited stakeholders to examine the findings.</p></article></div>
+  </div>
+</section>
+
+<!-- Standards -->
+<section class="yb-band" id="standards" data-screen-label="06 Research Standards">
+  <div class="container b2-two">
+    <div>
+      <span class="eyebrow apple-reveal"><span class="dot"></span> Research Standards</span>
+      <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Careful <em>By Design.</em></h2>
+      <p class="section-sub apple-reveal" style="transition-delay:.12s">Respondents will initially be recruited through YSP ambassadors, chapters and social media. That makes the pilot a non-probability sample: it describes the views of participating young people, not all young people in a country, and we will say so.</p>
+    </div>
+    <ul class="b2-std apple-reveal"><li>Start with an exploratory pilot, not a claimed globally representative ranking.</li><li>No country rankings or single composite index until measurement validity has been evaluated.</li><li>Actual sample sizes and recruitment methods reported alongside every finding.</li><li>Appropriate consent and safeguarding review, particularly for respondents aged 16–17.</li><li>Only necessary information collected, no unnecessary identifiers, and individual responses kept in restricted-access systems.</li><li>Translations tested for equivalence before any cross-country comparison.</li></ul>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="yb-band alt" id="team" data-screen-label="07 Who Works On It">
+  <div class="container">
+    <span class="eyebrow apple-reveal"><span class="dot"></span> Who Works On It</span>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Built Across <em>YSP.</em></h2>
+    <div class="b2-roles"><div class="b2-role apple-reveal"><b>Research &amp; Policy</b><span>Research design, questionnaire, evidence review and analysis</span></div><div class="b2-role apple-reveal"><b>GreenHouse Research &amp; Data interns</b><span>Survey testing, coding, visualisation and reporting</span></div><div class="b2-role apple-reveal"><b>Global Youth Ambassadors</b><span>Approved outreach and local context</span></div><div class="b2-role apple-reveal"><b>Global Chapters</b><span>Local participation and facilitated policy discussions</span></div><div class="b2-role apple-reveal"><b>Communications &amp; Media</b><span>Reports, infographics and public explainers</span></div><div class="b2-role apple-reveal"><b>Technology</b><span>Dashboard development and secure data workflows</span></div><div class="b2-role apple-reveal"><b>Programmes &amp; Initiatives</b><span>Scheduling, coordination and delivery milestones</span></div></div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="yb-band" id="timeline" data-screen-label="08 Timeline">
+  <div class="container">
+    <span class="eyebrow apple-reveal"><span class="dot"></span> Proposed Timeline</span>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">From Concept <em>To Release.</em></h2>
+    <ol class="b2-tl"><li class="apple-reveal"><span class="d">18–30 Nov 2026</span><b>Research concept approval</b><span class="o">Barometer project charter</span></li><li class="apple-reveal"><span class="d">1–13 Dec 2026</span><b>Methodology development</b><span class="o">Questionnaire v1, sampling and ethics plans</span></li><li class="apple-reveal"><span class="d">14–31 Dec 2026</span><b>GreenHouse research involvement</b><span class="o">Pilot instrument and testing protocol</span></li><li class="apple-reveal"><span class="d">1–17 Jan 2027</span><b>Cognitive testing and revisions</b><span class="o">Revised questionnaire</span></li><li class="apple-reveal"><span class="d">18 Jan–21 Feb 2027</span><b>Pilot data collection</b><span class="o">Survey responses and recruitment records</span></li><li class="apple-reveal"><span class="d">22 Feb–7 Mar 2027</span><b>Initial analysis</b><span class="o">Quality checks and preliminary findings</span></li><li class="apple-reveal"><span class="d">March 2027</span><b>Research review</b><span class="o">Validated analysis and report draft</span></li><li class="apple-reveal"><span class="d">April 2027</span><b>Proposed public release</b><span class="o">Pilot report and website dashboard</span></li></ol>
+    <p class="b2-note apple-reveal">All dates are proposed. Data collection will begin only after methodological, privacy and safeguarding approvals.</p>
+  </div>
+</section>
+
 <!-- Take part -->
-<section class="yb-band alt" id="take-part" data-screen-label="03 Take Part">
+<section class="yb-band alt" id="take-part" data-screen-label="09 Take Part">
   <div class="container">
     <span class="eyebrow apple-reveal"><span class="dot"></span> Get Involved</span>
-    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Help shape it <em>early.</em></h2>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Help Shape It <em>Early.</em></h2>
     <div class="yb-ways">
-      <a class="yb-way apple-reveal" href="mailto:youthforsustainablepolicy@gmail.com?subject=Youth%20Policy%20Barometer%20-%20Updates"><b>Stay informed</b><p>Email us to hear when the Barometer opens and how to take part.</p><span>Email YSP ↗</span></a>
-      <a class="yb-way apple-reveal" href="interns.html" style="transition-delay:.06s"><b>Research with YSP</b><p>The GreenHouse Internship Programme's Research track is where YSP's research work happens.</p><span>GreenHouse Internship ▸</span></a>
-      <a class="yb-way apple-reveal" href="mailto:youthforsustainablepolicy@gmail.com?subject=Youth%20Policy%20Barometer%20-%20Partnership" style="transition-delay:.12s"><b>Partner with us</b><p>Schools, universities and organisations interested in collaborating can get in touch.</p><span>Partnership enquiry ↗</span></a>
+      <a class="yb-way apple-reveal" href="mailto:youthforsustainablepolicy@gmail.com?subject=YSP%20Barometer%20-%20Updates"><b>Stay informed</b><p>Email us to hear when the pilot survey opens and how to take part.</p><span>Email YSP ↗</span></a>
+      <a class="yb-way apple-reveal" href="interns.html" style="transition-delay:.06s"><b>Research with YSP</b><p>GreenHouse Research and Data interns help test, code and report the Barometer.</p><span>GreenHouse Internship ▸</span></a>
+      <a class="yb-way apple-reveal" href="mailto:youthforsustainablepolicy@gmail.com?subject=YSP%20Barometer%20-%20Partnership" style="transition-delay:.12s"><b>Partner with us</b><p>Schools, universities, chapters and organisations interested in collaborating can get in touch.</p><span>Partnership enquiry ↗</span></a>
     </div>
-    <p class="yb-note apple-reveal">Part of YSP's Initiatives: research, education, policy dialogue, publications and youth-led projects.</p>
   </div>
 </section>
 
@@ -570,7 +713,7 @@ setTimeout(finish,MAX);})();</script>
       <h2>Programmes</h2>
       <ul>
         <li data-comp-discovery data-comp-footer hidden><a href="essay-competition-2026.html">SIB x YSP Essay Competition</a></li>
-        <li><a href="mun.html">Winter MUN 2026 ★</a></li>
+        <li><a href="mun.html">YSP MUN 2027 ★</a></li>
         <li><a href="programmes.html">International Initiatives</a></li>
         <li><a href="grassroots.html">Grassroots Movements</a></li>
         <li><a href="interns.html">Internship</a></li>

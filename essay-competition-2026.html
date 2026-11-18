@@ -523,8 +523,12 @@ a{color:inherit}a:hover{color:var(--sage-deep)}
 .nav-dd-menu small{font-size:11.5px;font-weight:400;color:#7d857a}
 .nav-mega{flex-direction:row!important;gap:6px!important;min-width:0!important;width:max-content;padding:12px!important;left:0!important;transform:translate(0,-6px)!important}
 .nav-dd:hover .nav-mega,.nav-dd:focus-within .nav-mega,.nav-dd.open .nav-mega{transform:none!important}
+.nav-mega{display:grid!important;grid-template-columns:repeat(3,auto)}.nav-mega>[hidden]{display:none}
+.nav-links .nav-dd-menu a.nm-all{grid-column:1/-1;flex-direction:row;justify-content:flex-end;gap:6px;margin-top:6px;padding:10px 14px!important;border-top:1px solid rgba(31,42,34,.08);border-radius:0 0 12px 12px!important;font-size:13px;color:var(--sage-deep,#5d7a45)}
 .nm-col{display:flex;flex-direction:column;gap:1px;min-width:220px}
-.nm-col+.nm-col{border-left:1px solid rgba(31,42,34,.08);padding-left:6px}
+.nm-col+.nav-mega{display:grid!important;grid-template-columns:repeat(3,auto)}.nav-mega>[hidden]{display:none}
+.nav-links .nav-dd-menu a.nm-all{grid-column:1/-1;flex-direction:row;justify-content:flex-end;gap:6px;margin-top:6px;padding:10px 14px!important;border-top:1px solid rgba(31,42,34,.08);border-radius:0 0 12px 12px!important;font-size:13px;color:var(--sage-deep,#5d7a45)}
+.nm-col{border-left:1px solid rgba(31,42,34,.08);padding-left:6px}
 .nm-h{padding:8px 14px 6px;font:600 10.5px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
 .mnav-panel .mnav-h{padding:14px 18px 4px;font:600 11px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
 .mnav-panel.grouped a:not(.mnav-cta){min-height:44px;font-size:19px}
@@ -554,35 +558,47 @@ setTimeout(finish,MAX);})();</script>
     <div class="nav-links">
       <div class="nav-dd is-active"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Programmes <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Programmes"><div class="nm-col">
         <span class="nm-h">Initiatives</span>
-        <a role="menuitem" href="programmes.html">International Initiatives<small>All YSP programmes</small></a>
-        <a role="menuitem" href="mun.html">Winter MUN 2026 ★<small>5–7 Dec 2026 · virtual</small></a>
         <a role="menuitem" href="grassroots.html">Grassroots Movements<small>Community action</small></a>
-        <a role="menuitem" href="barometer.html">Youth Policy Barometer<small>Launching soon</small></a>
-        <a role="menuitem" href="studios.html">Studios<small>Creative production</small></a>
+        <a role="menuitem" href="learns.html">YSP Learns<small>Free learning portal</small></a>
+        <a role="menuitem" href="policy-circles.html">YSP Policy Circles<small>Youth dialogue · Pilot planned</small></a>
+        <a role="menuitem" href="programmes.html#civic-innovation-hub">YSP Civic Innovation Hub<small>Six-week project cycle</small></a>
+        <a role="menuitem" href="studios.html">YSP Studios<small>Creative production</small></a>
+        <a role="menuitem" href="barometer.html">YSP Barometer<small>Pilot edition 2027</small></a>
         </div><div class="nm-col">
         <span class="nm-h">Competitions</span>
+        <a role="menuitem" href="mun.html">YSP Model United Nations<small>2027 · dates to be announced</small></a>
         <a role="menuitem" href="essay-competition-2026.html" class="active" aria-current="page">SIB × YSP Essay Competition<small>Entries open 1 Dec</small></a>
         <a role="menuitem" href="policy-pitch-competition-2026.html">YSP Policy Pitch Competition<small>In development</small></a>
-        <a role="menuitem" href="policy-brief-competition.html">Policy Brief Competition<small>2026 results</small></a>
+        <a role="menuitem" href="policy-data-challenge.html">YSP Policy Data Challenge<small>Proposed 2027</small></a>
+        <a role="menuitem" href="youth-policy-debate-open.html">YSP Youth Policy Debate Open<small>Proposed 2027</small></a>
+        <a role="menuitem" href="visual-policy-challenge.html">YSP Visual Policy Challenge<small>Proposed 2027</small></a>
+        <a role="menuitem" href="policy-brief-competition.html">Global Policy Brief Competition<small>Annual · 2027 edition coming</small></a>
         </div><div class="nm-col">
         <span class="nm-h">Pathways</span>
-        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
-        <a role="menuitem" href="ambassadors.html">Ambassador Network<small>Global Youth Ambassadors</small></a>
-        <a role="menuitem" href="chapters.html">Global Chapters<small>Chapters &amp; chapter leaders</small></a>
+        <a role="menuitem" href="interns.html">GreenHouse Internship<small>Starts 14 Dec 2026</small></a>
+        <a role="menuitem" href="civic-futures-fellowship.html">Civic Futures Fellowship<small>10-week research fellowship</small></a>
+        <a role="menuitem" href="editorial-fellowship.html">YSP Editorial Fellowship<small>8-week editorial cycle</small></a>
+        <a role="menuitem" href="chapter-leadership-accelerator.html">Chapter Leadership Accelerator<small>4-week leadership programme</small></a>
+        </div><a role="menuitem" href="programmes.html" class="nm-all">View all programmes <span aria-hidden="true">→</span></a><div hidden>
         </div>      </div></div>
       <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Get Involved <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Get Involved">
-        <a role="menuitem" href="careers.html">Careers</a>
-        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
-        <a role="menuitem" href="ambassadors.html">Global Youth Ambassador Programme<small>Monthly intake</small></a>
+        <a role="menuitem" href="careers.html">Join the YSP Team<small>Volunteer &amp; leadership opportunities</small></a>
+        <a role="menuitem" href="interns.html">GreenHouse Internship<small>12-week programme · Remote</small></a>
+        <a role="menuitem" href="ambassadors.html">Global Youth Ambassador Programme<small>International network · Rolling intake</small></a>
+        <a role="menuitem" href="chapters.html">Global Chapters<small>Start or join a chapter</small></a>
+        <a role="menuitem" href="partners.html">Partner With YSP<small>Organisations &amp; collaborations</small></a>
       </div></div>
-      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Our Work">
-        <a role="menuitem" href="publications.html">Publications<small>Briefs, interviews & articles</small></a>
-        <a role="menuitem" href="interviews.html">Interviews</a>
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Our Work"><div class="nm-col">
+        <span class="nm-h">Research &amp; Publications</span>
+        <a role="menuitem" href="publications.html">Research &amp; Publications<small>Policy briefs, articles &amp; analysis</small></a>
+        <a role="menuitem" href="substack.html">Policy Insights<small>Evidence-based perspectives &amp; explainers</small></a>
+        <a role="menuitem" href="annual-reports.html">Reports &amp; Impact<small>Research findings &amp; annual reports</small></a>
+        </div><div class="nm-col">
+        <span class="nm-h">Stories &amp; Media</span>
+        <a role="menuitem" href="interviews.html">YSP Interviews<small>Conversations with changemakers</small></a>
         <a role="menuitem" href="ysp-talks.html">YSP Talks<small>The YSP podcast</small></a>
-        <a role="menuitem" href="global-spotlights.html">Global Spotlights</a>
-        <a role="menuitem" href="substack.html">Substack</a>
-        <a role="menuitem" href="annual-reports.html">Annual Reports</a>
-      </div></div>
+        <a role="menuitem" href="global-spotlights.html">Global Spotlights<small>Youth stories across borders</small></a>
+        </div>      </div></div>
       <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Portals <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Portals">
         <a role="menuitem" href="learns.html">YSP Learns<small>Learning Portal</small></a>
         <a role="menuitem" href="chapters.html">YSP Global Chapters<small>Chapters &amp; chapter leaders</small></a>
@@ -632,7 +648,7 @@ setTimeout(finish,MAX);})();</script>
 <div class="pbc-wrap">
 <div class="pbc-eye apple-reveal">02 / The Prompts</div><h2 class="pbc-h2 apple-reveal">Six Questions. <em>Your Perspective.</em></h2>
 <p class="pbc-p apple-reveal">Choose <b style="color:var(--ink);font-weight:600">one</b> of the following prompts. You may focus on one country, community, agreement, project or supply chain. Compare cases where doing so strengthens your argument.</p>
-<ol class="ec-prompts"><li class="ec-prompt apple-reveal"><div class="ec-pbody"><span class="n">Prompt<b>01</b></span><h3>The care-worker migration bargain</h3><p class="q">When countries recruit nurses and care workers internationally, who should bear responsibility for the resulting care gaps in their countries of origin?</p><p class="d">Examine a specific migration corridor, recruitment arrangement or policy. Consider workers’ freedom to move alongside the needs of families, communities and health systems.</p></div></li><li class="ec-prompt apple-reveal"><div class="ec-pbody"><span class="n">Prompt<b>02</b></span><h3>The hidden price of the green transition</h3><p class="q">Can the global energy transition be just when critical-mineral extraction proceeds without meaningful Indigenous consent?</p><p class="d">Examine one project or supply chain. Consider who defines consent, how benefits and harms are distributed, and what accountability should involve.</p></div></li><li class="ec-prompt apple-reveal"><div class="ec-pbody"><span class="n">Prompt<b>03</b></span><h3>Moving without losing home</h3><p class="q">How should migration agreements protect the political agency, cultural continuity and rights of Pacific communities facing climate displacement?</p><p class="d">Focus on a particular community or agreement. Consider how mobility can expand choices while protecting the ability to remain, cultural connections and self-determination.</p></div></li><li class="ec-prompt apple-reveal"><div class="ec-pbody"><span class="n">Prompt<b>04</b></span><h3>After the shipping container</h3><p class="q">When used clothing, plastics or electronic waste crosses borders, where should the exporting country’s responsibility end?</p><p class="d">Trace one material or trade route. Distinguish reuse and repair from waste disposal, and consider the livelihoods and environmental burdens involved.</p></div></li><li class="ec-prompt apple-reveal"><div class="ec-pbody"><span class="n">Prompt<b>05</b></span><h3>The people behind the machine</h3><p class="q">What obligations should AI companies have toward outsourced data annotators and content moderators in lower-income countries?</p><p class="d">Examine a defined part of the AI labour supply chain. Consider working conditions, bargaining power, psychological wellbeing and responsibility across subcontracting arrangements.</p></div></li><li class="ec-prompt apple-reveal"><div class="ec-pbody"><span class="n">Prompt<b>06</b></span><h3>A passport to participation</h3><p class="q">How do visa rules, travel costs and funding arrangements shape whose voices influence international climate negotiations?</p><p class="d">Examine a particular negotiation, delegation or participation mechanism. Consider the difference between being present, being heard and having influence.</p></div></li></ol>
+<ol class="ec-prompts"><li class="ec-prompt apple-reveal"><div class="ec-pbody"><span class="n">Prompt<b>01</b></span><h3>The Care-Worker Migration Bargain</h3><p class="q">When countries recruit nurses and care workers internationally, who should bear responsibility for the resulting care gaps in their countries of origin?</p><p class="d">Examine a specific migration corridor, recruitment arrangement or policy. Consider workers’ freedom to move alongside the needs of families, communities and health systems.</p></div></li><li class="ec-prompt apple-reveal"><div class="ec-pbody"><span class="n">Prompt<b>02</b></span><h3>The Hidden Price Of The Green Transition</h3><p class="q">Can the global energy transition be just when critical-mineral extraction proceeds without meaningful Indigenous consent?</p><p class="d">Examine one project or supply chain. Consider who defines consent, how benefits and harms are distributed, and what accountability should involve.</p></div></li><li class="ec-prompt apple-reveal"><div class="ec-pbody"><span class="n">Prompt<b>03</b></span><h3>Moving Without Losing Home</h3><p class="q">How should migration agreements protect the political agency, cultural continuity and rights of Pacific communities facing climate displacement?</p><p class="d">Focus on a particular community or agreement. Consider how mobility can expand choices while protecting the ability to remain, cultural connections and self-determination.</p></div></li><li class="ec-prompt apple-reveal"><div class="ec-pbody"><span class="n">Prompt<b>04</b></span><h3>After The Shipping Container</h3><p class="q">When used clothing, plastics or electronic waste crosses borders, where should the exporting country’s responsibility end?</p><p class="d">Trace one material or trade route. Distinguish reuse and repair from waste disposal, and consider the livelihoods and environmental burdens involved.</p></div></li><li class="ec-prompt apple-reveal"><div class="ec-pbody"><span class="n">Prompt<b>05</b></span><h3>The People Behind The Machine</h3><p class="q">What obligations should AI companies have toward outsourced data annotators and content moderators in lower-income countries?</p><p class="d">Examine a defined part of the AI labour supply chain. Consider working conditions, bargaining power, psychological wellbeing and responsibility across subcontracting arrangements.</p></div></li><li class="ec-prompt apple-reveal"><div class="ec-pbody"><span class="n">Prompt<b>06</b></span><h3>A Passport To Participation</h3><p class="q">How do visa rules, travel costs and funding arrangements shape whose voices influence international climate negotiations?</p><p class="d">Examine a particular negotiation, delegation or participation mechanism. Consider the difference between being present, being heard and having influence.</p></div></li></ol>
 <p class="pbc-note apple-reveal">These questions invite critical examination, not a predetermined answer. You may challenge a prompt’s assumptions if you explain your reasoning and support your position with evidence.</p>
 </div>
 </section>
@@ -647,7 +663,7 @@ setTimeout(finish,MAX);})();</script>
 <div class="pbc-wrap">
 <div class="pbc-eye apple-reveal">04 / Eligibility</div><h2 class="pbc-h2 apple-reveal">Who Can <em>Enter?</em></h2>
 <div class="pbc-two" style="margin-top:28px"><div class="apple-reveal"><ul class="pbc-ul"><li><span>01</span>Open to individuals aged 16–30 on 1 December 2026.</li><li><span>02</span>Open internationally, subject to applicable legal restrictions.</li><li><span>03</span>Entry is free.</li><li><span>04</span>One individual entry per person.</li><li><span>05</span>Essays must be written in English.</li><li><span>06</span>Length: 1,000–1,500 words, excluding the title, citations and reference list. Substantive footnotes count toward the limit.</li><li><span>07</span>Submit original work that has not previously been published.</li><li><span>08</span>Remove your name and other identifying details from the essay file.</li><li><span>09</span>Accepted file formats: PDF or DOCX.</li></ul></div>
-<div class="apple-reveal" style="transition-delay:.1s"><div class="ec-box"><h3>Fair participation</h3><p>We welcome perspectives from different countries and educational backgrounds. Essays will be assessed on the quality of their argument and evidence, rather than nationality, institutional prestige or elaborate vocabulary.</p></div><div class="ec-box" style="margin-top:14px"><h3>Using AI tools</h3><p>Basic spelling and grammar assistance is permitted. You must develop your own argument, analysis and prose. AI-generated essays, paragraphs, translations and fabricated references are not permitted. Disclose any permitted assistance in the submission form. Integrity concerns receive human review; automated detector scores alone do not determine disqualification.</p></div><p class="pbc-note" data-comp-approved="rules" hidden><a href="essay-competition-2026-rules.html#rules" style="text-decoration:underline;text-underline-offset:3px">Read the full competition rules</a></p></div></div>
+<div class="apple-reveal" style="transition-delay:.1s"><div class="ec-box"><h3>Fair Participation</h3><p>We welcome perspectives from different countries and educational backgrounds. Essays will be assessed on the quality of their argument and evidence, rather than nationality, institutional prestige or elaborate vocabulary.</p></div><div class="ec-box" style="margin-top:14px"><h3>Using AI Tools</h3><p>Basic spelling and grammar assistance is permitted. You must develop your own argument, analysis and prose. AI-generated essays, paragraphs, translations and fabricated references are not permitted. Disclose any permitted assistance in the submission form. Integrity concerns receive human review; automated detector scores alone do not determine disqualification.</p></div><p class="pbc-note" data-comp-approved="rules" hidden><a href="essay-competition-2026-rules.html#rules" style="text-decoration:underline;text-underline-offset:3px">Read the full competition rules</a></p></div></div>
 </div>
 </section>
 <section class="pbc-sec" id="judging" data-screen-label="06 Judging">
@@ -720,7 +736,7 @@ setTimeout(finish,MAX);})();</script>
       <h2>Programmes</h2>
       <ul>
         <li data-comp-discovery data-comp-footer hidden><a href="essay-competition-2026.html">SIB x YSP Essay Competition</a></li>
-        <li><a href="mun.html">Winter MUN 2026 ★</a></li>
+        <li><a href="mun.html">YSP MUN 2027 ★</a></li>
         <li><a href="programmes.html">International Initiatives</a></li>
         <li><a href="grassroots.html">Grassroots Movements</a></li>
         <li><a href="interns.html">Internship</a></li>

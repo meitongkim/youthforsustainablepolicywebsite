@@ -338,6 +338,19 @@ html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.yf *{transition:none!important;animation:none!important}}
 </style>
 <link id="ysp-cursor-css" rel="stylesheet" href="assets/cursor/ysp-cursor.css">
+<style id="amb-globe-style">
+.amb-globe{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.8;animation:agIn 2.4s ease-out both;-webkit-mask-image:linear-gradient(180deg,#000 70%,transparent);mask-image:linear-gradient(180deg,#000 70%,transparent)}
+.amb-globe svg{width:100%;height:100%;display:block}
+.amb-globe+*,.hero>.hero-inner{position:relative;z-index:1}
+@keyframes agIn{from{opacity:0}to{opacity:.8}}
+.ag-mer{transform-box:fill-box;transform-origin:center;animation:agSpin 26s ease-in-out infinite alternate}
+@keyframes agSpin{0%{transform:scaleX(1)}50%{transform:scaleX(.55)}100%{transform:scaleX(1.25)}}
+.ag-arc{animation:agFlow 6s linear infinite}
+@keyframes agFlow{to{stroke-dashoffset:-48}}
+.ag-node{transform-box:fill-box;transform-origin:center;animation:agPulse 5s ease-in-out infinite}
+@keyframes agPulse{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.25)}}
+@media (prefers-reduced-motion:reduce){.amb-globe,.ag-mer,.ag-arc,.ag-node{animation:none!important}}
+</style>
 <style id="nav2-style">
 .nav .nav-links{gap:2px}
 .nav-dd{position:relative;display:inline-flex}
@@ -355,8 +368,12 @@ html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
 .nav-dd-menu small{font-size:11.5px;font-weight:400;color:#7d857a}
 .nav-mega{flex-direction:row!important;gap:6px!important;min-width:0!important;width:max-content;padding:12px!important;left:0!important;transform:translate(0,-6px)!important}
 .nav-dd:hover .nav-mega,.nav-dd:focus-within .nav-mega,.nav-dd.open .nav-mega{transform:none!important}
+.nav-mega{display:grid!important;grid-template-columns:repeat(3,auto)}.nav-mega>[hidden]{display:none}
+.nav-links .nav-dd-menu a.nm-all{grid-column:1/-1;flex-direction:row;justify-content:flex-end;gap:6px;margin-top:6px;padding:10px 14px!important;border-top:1px solid rgba(31,42,34,.08);border-radius:0 0 12px 12px!important;font-size:13px;color:var(--sage-deep,#5d7a45)}
 .nm-col{display:flex;flex-direction:column;gap:1px;min-width:220px}
-.nm-col+.nm-col{border-left:1px solid rgba(31,42,34,.08);padding-left:6px}
+.nm-col+.nav-mega{display:grid!important;grid-template-columns:repeat(3,auto)}.nav-mega>[hidden]{display:none}
+.nav-links .nav-dd-menu a.nm-all{grid-column:1/-1;flex-direction:row;justify-content:flex-end;gap:6px;margin-top:6px;padding:10px 14px!important;border-top:1px solid rgba(31,42,34,.08);border-radius:0 0 12px 12px!important;font-size:13px;color:var(--sage-deep,#5d7a45)}
+.nm-col{border-left:1px solid rgba(31,42,34,.08);padding-left:6px}
 .nm-h{padding:8px 14px 6px;font:600 10.5px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
 .mnav-panel .mnav-h{padding:14px 18px 4px;font:600 11px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
 .mnav-panel.grouped a:not(.mnav-cta){min-height:44px;font-size:19px}
@@ -379,37 +396,49 @@ setTimeout(finish,MAX);})();</script>
   <nav class="nav">
     <a class="brand" href="index.html"><img src="assets/ysp-logo.png" alt="" /><span class="word">Y<i>S</i>P</span></a>
     <div class="nav-links">
-      <div class="nav-dd is-active"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Programmes <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Programmes"><div class="nm-col">
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Programmes <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Programmes"><div class="nm-col">
         <span class="nm-h">Initiatives</span>
-        <a role="menuitem" href="programmes.html">International Initiatives<small>All YSP programmes</small></a>
-        <a role="menuitem" href="mun.html">Winter MUN 2026 ★<small>5–7 Dec 2026 · virtual</small></a>
         <a role="menuitem" href="grassroots.html">Grassroots Movements<small>Community action</small></a>
-        <a role="menuitem" href="barometer.html">Youth Policy Barometer<small>Launching soon</small></a>
-        <a role="menuitem" href="studios.html">Studios<small>Creative production</small></a>
+        <a role="menuitem" href="learns.html">YSP Learns<small>Free learning portal</small></a>
+        <a role="menuitem" href="policy-circles.html">YSP Policy Circles<small>Youth dialogue · Pilot planned</small></a>
+        <a role="menuitem" href="programmes.html#civic-innovation-hub">YSP Civic Innovation Hub<small>Six-week project cycle</small></a>
+        <a role="menuitem" href="studios.html">YSP Studios<small>Creative production</small></a>
+        <a role="menuitem" href="barometer.html">YSP Barometer<small>Pilot edition 2027</small></a>
         </div><div class="nm-col">
         <span class="nm-h">Competitions</span>
+        <a role="menuitem" href="mun.html">YSP Model United Nations<small>2027 · dates to be announced</small></a>
         <a role="menuitem" href="essay-competition-2026.html">SIB × YSP Essay Competition<small>Entries open 1 Dec</small></a>
         <a role="menuitem" href="policy-pitch-competition-2026.html">YSP Policy Pitch Competition<small>In development</small></a>
-        <a role="menuitem" href="policy-brief-competition.html">Policy Brief Competition<small>2026 results</small></a>
+        <a role="menuitem" href="policy-data-challenge.html">YSP Policy Data Challenge<small>Proposed 2027</small></a>
+        <a role="menuitem" href="youth-policy-debate-open.html">YSP Youth Policy Debate Open<small>Proposed 2027</small></a>
+        <a role="menuitem" href="visual-policy-challenge.html">YSP Visual Policy Challenge<small>Proposed 2027</small></a>
+        <a role="menuitem" href="policy-brief-competition.html">Global Policy Brief Competition<small>Annual · 2027 edition coming</small></a>
         </div><div class="nm-col">
         <span class="nm-h">Pathways</span>
-        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
-        <a role="menuitem" href="ambassadors.html" class="active" aria-current="page">Ambassador Network<small>Global Youth Ambassadors</small></a>
-        <a role="menuitem" href="chapters.html">Global Chapters<small>Chapters &amp; chapter leaders</small></a>
+        <a role="menuitem" href="interns.html">GreenHouse Internship<small>Starts 14 Dec 2026</small></a>
+        <a role="menuitem" href="civic-futures-fellowship.html">Civic Futures Fellowship<small>10-week research fellowship</small></a>
+        <a role="menuitem" href="editorial-fellowship.html">YSP Editorial Fellowship<small>8-week editorial cycle</small></a>
+        <a role="menuitem" href="chapter-leadership-accelerator.html">Chapter Leadership Accelerator<small>4-week leadership programme</small></a>
+        </div><a role="menuitem" href="programmes.html" class="nm-all">View all programmes <span aria-hidden="true">→</span></a><div hidden>
         </div>      </div></div>
-      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Get Involved <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Get Involved">
-        <a role="menuitem" href="careers.html">Careers</a>
-        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
-        <a role="menuitem" href="ambassadors.html" class="active" aria-current="page">Global Youth Ambassador Programme<small>Monthly intake</small></a>
+      <div class="nav-dd is-active"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Get Involved <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Get Involved">
+        <a role="menuitem" href="careers.html">Join the YSP Team<small>Volunteer &amp; leadership opportunities</small></a>
+        <a role="menuitem" href="interns.html">GreenHouse Internship<small>12-week programme · Remote</small></a>
+        <a role="menuitem" href="ambassadors.html" class="active" aria-current="page">Global Youth Ambassador Programme<small>International network · Rolling intake</small></a>
+        <a role="menuitem" href="chapters.html">Global Chapters<small>Start or join a chapter</small></a>
+        <a role="menuitem" href="partners.html">Partner With YSP<small>Organisations &amp; collaborations</small></a>
       </div></div>
-      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Our Work">
-        <a role="menuitem" href="publications.html">Publications<small>Briefs, interviews & articles</small></a>
-        <a role="menuitem" href="interviews.html">Interviews</a>
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Our Work"><div class="nm-col">
+        <span class="nm-h">Research &amp; Publications</span>
+        <a role="menuitem" href="publications.html">Research &amp; Publications<small>Policy briefs, articles &amp; analysis</small></a>
+        <a role="menuitem" href="substack.html">Policy Insights<small>Evidence-based perspectives &amp; explainers</small></a>
+        <a role="menuitem" href="annual-reports.html">Reports &amp; Impact<small>Research findings &amp; annual reports</small></a>
+        </div><div class="nm-col">
+        <span class="nm-h">Stories &amp; Media</span>
+        <a role="menuitem" href="interviews.html">YSP Interviews<small>Conversations with changemakers</small></a>
         <a role="menuitem" href="ysp-talks.html">YSP Talks<small>The YSP podcast</small></a>
-        <a role="menuitem" href="global-spotlights.html">Global Spotlights</a>
-        <a role="menuitem" href="substack.html">Substack</a>
-        <a role="menuitem" href="annual-reports.html">Annual Reports</a>
-      </div></div>
+        <a role="menuitem" href="global-spotlights.html">Global Spotlights<small>Youth stories across borders</small></a>
+        </div>      </div></div>
       <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Portals <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Portals">
         <a role="menuitem" href="learns.html">YSP Learns<small>Learning Portal</small></a>
         <a role="menuitem" href="chapters.html">YSP Global Chapters<small>Chapters &amp; chapter leaders</small></a>
@@ -427,6 +456,7 @@ setTimeout(finish,MAX);})();</script>
 
 <section class="hero" data-screen-label="01 Ambassadors Hero">
   <div class="mesh" aria-hidden="true"><span></span></div>
+  <div class="amb-globe" id="amb-globe" aria-hidden="true"><svg viewBox="0 0 1280 1000" preserveAspectRatio="xMidYMid slice"><circle cx="640" cy="520" r="430" fill="rgba(255,255,255,.35)" stroke="rgba(110,140,80,.35)" stroke-width="1.5"/><g fill="none" stroke="rgba(110,140,80,.22)" stroke-width="1"><ellipse cx="640" cy="172" rx="252" ry="40"/><ellipse cx="640" cy="288" rx="362" ry="58"/><ellipse cx="640" cy="404" rx="414" ry="66"/><ellipse cx="640" cy="520" rx="430" ry="69"/><ellipse cx="640" cy="636" rx="414" ry="66"/><ellipse cx="640" cy="752" rx="362" ry="58"/><ellipse cx="640" cy="868" rx="252" ry="40"/><ellipse class="ag-mer" cx="640" cy="520" rx="415" ry="430" style="animation-delay:12s"/><ellipse class="ag-mer" cx="640" cy="520" rx="329" ry="430" style="animation-delay:8s"/><ellipse class="ag-mer" cx="640" cy="520" rx="182" ry="430" style="animation-delay:4s"/><ellipse class="ag-mer" cx="640" cy="520" rx="0" ry="430" style="animation-delay:0s"/><ellipse class="ag-mer" cx="640" cy="520" rx="182" ry="430" style="animation-delay:-4s"/><ellipse class="ag-mer" cx="640" cy="520" rx="329" ry="430" style="animation-delay:-8s"/><ellipse class="ag-mer" cx="640" cy="520" rx="415" ry="430" style="animation-delay:-12s"/></g><g fill="none" stroke="rgba(110,140,80,.55)" stroke-width="1.4" stroke-dasharray="3 5"><path class="ag-arc" d="M466 266 Q519 176 571 299"/><path class="ag-arc" d="M571 299 Q463 209 354 457"/><path class="ag-arc" d="M354 457 Q635 367 916 712"/><path class="ag-arc" d="M916 712 Q865 252 815 342"/><path class="ag-arc" d="M815 342 Q740 252 664 377"/><path class="ag-arc" d="M664 377 Q544 178 424 268"/><path class="ag-arc" d="M424 268 Q438 178 452 794"/><path class="ag-arc" d="M452 794 Q654 626 857 716"/><path class="ag-arc" d="M857 716 Q848 234 838 324"/><path class="ag-arc" d="M838 324 Q676 234 515 601"/><path class="ag-arc" d="M515 601 Q654 511 793 747"/><path class="ag-arc" d="M793 747 Q842 165 891 255"/><path class="ag-arc" d="M891 255 Q800 165 710 630"/></g><g class="ag-node" style="animation-delay:0.0s"><circle cx="466" cy="266" r="12" fill="rgba(143,174,106,.18)"/><circle cx="466" cy="266" r="4.5" fill="#8fae6a"/></g><g class="ag-node" style="animation-delay:-0.9s"><circle cx="571" cy="299" r="12" fill="rgba(143,174,106,.18)"/><circle cx="571" cy="299" r="4.5" fill="#8fae6a"/></g><g class="ag-node" style="animation-delay:-1.8s"><circle cx="354" cy="457" r="12" fill="rgba(143,174,106,.18)"/><circle cx="354" cy="457" r="4.5" fill="#8fae6a"/></g><g class="ag-node" style="animation-delay:-2.7s"><circle cx="916" cy="712" r="12" fill="rgba(143,174,106,.18)"/><circle cx="916" cy="712" r="4.5" fill="#8fae6a"/></g><g class="ag-node" style="animation-delay:-3.6s"><circle cx="815" cy="342" r="12" fill="rgba(143,174,106,.18)"/><circle cx="815" cy="342" r="4.5" fill="#8fae6a"/></g><g class="ag-node" style="animation-delay:-4.5s"><circle cx="664" cy="377" r="12" fill="rgba(143,174,106,.18)"/><circle cx="664" cy="377" r="4.5" fill="#8fae6a"/></g><g class="ag-node" style="animation-delay:-5.4s"><circle cx="424" cy="268" r="12" fill="rgba(143,174,106,.18)"/><circle cx="424" cy="268" r="4.5" fill="#8fae6a"/></g><g class="ag-node" style="animation-delay:-6.3s"><circle cx="452" cy="794" r="12" fill="rgba(143,174,106,.18)"/><circle cx="452" cy="794" r="4.5" fill="#8fae6a"/></g><g class="ag-node" style="animation-delay:-7.2s"><circle cx="857" cy="716" r="12" fill="rgba(143,174,106,.18)"/><circle cx="857" cy="716" r="4.5" fill="#8fae6a"/></g><g class="ag-node" style="animation-delay:-8.1s"><circle cx="838" cy="324" r="12" fill="rgba(143,174,106,.18)"/><circle cx="838" cy="324" r="4.5" fill="#8fae6a"/></g><g class="ag-node" style="animation-delay:-9.0s"><circle cx="515" cy="601" r="12" fill="rgba(143,174,106,.18)"/><circle cx="515" cy="601" r="4.5" fill="#8fae6a"/></g><g class="ag-node" style="animation-delay:-9.9s"><circle cx="793" cy="747" r="12" fill="rgba(143,174,106,.18)"/><circle cx="793" cy="747" r="4.5" fill="#8fae6a"/></g><g class="ag-node" style="animation-delay:-10.8s"><circle cx="891" cy="255" r="12" fill="rgba(143,174,106,.18)"/><circle cx="891" cy="255" r="4.5" fill="#8fae6a"/></g><g class="ag-node" style="animation-delay:-11.7s"><circle cx="710" cy="630" r="12" fill="rgba(143,174,106,.18)"/><circle cx="710" cy="630" r="4.5" fill="#8fae6a"/></g></svg></div>
   <div class="hero-inner">
     <div class="eyebrow-pill apple-reveal">
       <span class="tag"><span class="dot"></span>Applications Open</span>
@@ -623,7 +653,7 @@ setTimeout(finish,MAX);})();</script>
       <h2>Programmes</h2>
       <ul>
         <li data-comp-discovery data-comp-footer hidden><a href="essay-competition-2026.html">SIB x YSP Essay Competition</a></li>
-        <li><a href="mun.html">Winter MUN 2026 ★</a></li>
+        <li><a href="mun.html">YSP MUN 2027 ★</a></li>
         <li><a href="programmes.html">International Initiatives</a></li>
         <li><a href="grassroots.html">Grassroots Movements</a></li>
         <li><a href="interns.html">Internship</a></li>

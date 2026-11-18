@@ -717,6 +717,33 @@ html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.yf *{transition:none!important;animation:none!important}}
 </style>
 <link id="ysp-cursor-css" rel="stylesheet" href="assets/cursor/ysp-cursor.css">
+<style id="hm-style">.hm-host{position:relative;overflow:hidden;isolation:isolate}
+.hm-svg{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 46% 60% at 50% 45%,transparent 30%,#000 75%);mask-image:radial-gradient(ellipse 46% 60% at 50% 45%,transparent 30%,#000 75%)}
+.hm-host>*:not(.hm-svg){position:relative;z-index:1}
+@media (prefers-reduced-motion:no-preference){
+.hm-flow{stroke-dasharray:6 10;animation:hmflow 28s linear infinite}
+.hm-pulse{animation:hmpulse 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.hm-float{animation:hmfloat 14s ease-in-out infinite}
+.hm-sway{animation:hmsway 18s ease-in-out infinite;transform-origin:50% 100%}}
+@keyframes hmflow{to{stroke-dashoffset:-320}}
+@keyframes hmpulse{0%,100%{opacity:.55;transform:scale(.92)}50%{opacity:1;transform:scale(1.06)}}
+@keyframes hmfloat{0%,100%{translate:0 0}50%{translate:0 -10px}}
+@keyframes hmsway{0%,100%{rotate:0deg}50%{rotate:1.2deg}}
+@media (max-width:760px){.hm-svg{opacity:.55}}html,body{overflow-x:clip}</style>
+<style id="rs2-style">.route-stamp.rs2{display:flex;flex-direction:column;align-items:stretch;gap:16px;aspect-ratio:auto;max-width:400px;width:100%;padding:62px 22px 54px}.route-stamp.rs2::before{inset:4% 8% 45%}
+.rs2 .rs-badge{position:relative;align-self:center;width:200px;height:200px;display:grid;place-items:center;margin:4px 0}
+.rs2 .rs-badge img{position:relative;z-index:2;width:112px;height:112px;border-radius:30px;box-shadow:0 18px 40px -16px rgba(40,60,30,.45)}
+.rs2 .rs-orbit{position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(110,140,80,.45)}
+.rs2 .rs-orbit.o2{inset:26px;border:1px solid rgba(110,140,80,.25)}
+.rs2 .rs-orbit.o2 i{position:absolute;top:-5px;left:50%;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:#8aa86b;box-shadow:0 0 0 5px rgba(138,168,107,.2)}
+.rs2 .rs-mods{position:relative;z-index:1;list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.rs2 .rs-mods li{display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:10px;padding:9px 12px;border-radius:12px;background:rgba(255,255,255,.55);border:1px solid rgba(110,140,80,.16);font-size:13.5px;line-height:1.3}
+.rs2 .rs-m{font:600 11px/1 ui-monospace,Menlo,monospace;color:#5d7a43;letter-spacing:.06em}
+.rs2 .rs-t{font-family:Fraunces,Georgia,serif;font-size:16px;color:var(--ink,#1f2a22)}
+.rs2 .rs-w{font:500 11px/1 ui-monospace,Menlo,monospace;color:rgba(31,42,34,.55);letter-spacing:.04em}
+@media (prefers-reduced-motion:no-preference){.rs2 .rs-orbit.o1{animation:rsspin 60s linear infinite}.rs2 .rs-orbit.o2{animation:rsspin 18s linear infinite}.rs2 .rs-badge img{animation:rsfloat 7s ease-in-out infinite}}
+@keyframes rsspin{to{transform:rotate(360deg)}}@keyframes rsfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media (max-width:640px){.rs2 .rs-badge{width:160px;height:160px}.rs2 .rs-badge img{width:92px;height:92px}}</style>
 <style id="nav2-style">
 .nav .nav-links{gap:2px}
 .nav-dd{position:relative;display:inline-flex}
@@ -734,8 +761,12 @@ html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
 .nav-dd-menu small{font-size:11.5px;font-weight:400;color:#7d857a}
 .nav-mega{flex-direction:row!important;gap:6px!important;min-width:0!important;width:max-content;padding:12px!important;left:0!important;transform:translate(0,-6px)!important}
 .nav-dd:hover .nav-mega,.nav-dd:focus-within .nav-mega,.nav-dd.open .nav-mega{transform:none!important}
+.nav-mega{display:grid!important;grid-template-columns:repeat(3,auto)}.nav-mega>[hidden]{display:none}
+.nav-links .nav-dd-menu a.nm-all{grid-column:1/-1;flex-direction:row;justify-content:flex-end;gap:6px;margin-top:6px;padding:10px 14px!important;border-top:1px solid rgba(31,42,34,.08);border-radius:0 0 12px 12px!important;font-size:13px;color:var(--sage-deep,#5d7a45)}
 .nm-col{display:flex;flex-direction:column;gap:1px;min-width:220px}
-.nm-col+.nm-col{border-left:1px solid rgba(31,42,34,.08);padding-left:6px}
+.nm-col+.nav-mega{display:grid!important;grid-template-columns:repeat(3,auto)}.nav-mega>[hidden]{display:none}
+.nav-links .nav-dd-menu a.nm-all{grid-column:1/-1;flex-direction:row;justify-content:flex-end;gap:6px;margin-top:6px;padding:10px 14px!important;border-top:1px solid rgba(31,42,34,.08);border-radius:0 0 12px 12px!important;font-size:13px;color:var(--sage-deep,#5d7a45)}
+.nm-col{border-left:1px solid rgba(31,42,34,.08);padding-left:6px}
 .nm-h{padding:8px 14px 6px;font:600 10.5px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
 .mnav-panel .mnav-h{padding:14px 18px 4px;font:600 11px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
 .mnav-panel.grouped a:not(.mnav-cta){min-height:44px;font-size:19px}
@@ -765,35 +796,47 @@ setTimeout(finish,MAX);})();</script>
     <div class="nav-links">
       <div class="nav-dd is-active"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Programmes <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Programmes"><div class="nm-col">
         <span class="nm-h">Initiatives</span>
-        <a role="menuitem" href="programmes.html">International Initiatives<small>All YSP programmes</small></a>
-        <a role="menuitem" href="mun.html">Winter MUN 2026 ★<small>5–7 Dec 2026 · virtual</small></a>
         <a role="menuitem" href="grassroots.html">Grassroots Movements<small>Community action</small></a>
-        <a role="menuitem" href="barometer.html">Youth Policy Barometer<small>Launching soon</small></a>
-        <a role="menuitem" href="studios.html">Studios<small>Creative production</small></a>
+        <a role="menuitem" href="learns.html">YSP Learns<small>Free learning portal</small></a>
+        <a role="menuitem" href="policy-circles.html">YSP Policy Circles<small>Youth dialogue · Pilot planned</small></a>
+        <a role="menuitem" href="programmes.html#civic-innovation-hub">YSP Civic Innovation Hub<small>Six-week project cycle</small></a>
+        <a role="menuitem" href="studios.html">YSP Studios<small>Creative production</small></a>
+        <a role="menuitem" href="barometer.html">YSP Barometer<small>Pilot edition 2027</small></a>
         </div><div class="nm-col">
         <span class="nm-h">Competitions</span>
+        <a role="menuitem" href="mun.html">YSP Model United Nations<small>2027 · dates to be announced</small></a>
         <a role="menuitem" href="essay-competition-2026.html">SIB × YSP Essay Competition<small>Entries open 1 Dec</small></a>
         <a role="menuitem" href="policy-pitch-competition-2026.html">YSP Policy Pitch Competition<small>In development</small></a>
-        <a role="menuitem" href="policy-brief-competition.html">Policy Brief Competition<small>2026 results</small></a>
+        <a role="menuitem" href="policy-data-challenge.html">YSP Policy Data Challenge<small>Proposed 2027</small></a>
+        <a role="menuitem" href="youth-policy-debate-open.html">YSP Youth Policy Debate Open<small>Proposed 2027</small></a>
+        <a role="menuitem" href="visual-policy-challenge.html">YSP Visual Policy Challenge<small>Proposed 2027</small></a>
+        <a role="menuitem" href="policy-brief-competition.html">Global Policy Brief Competition<small>Annual · 2027 edition coming</small></a>
         </div><div class="nm-col">
         <span class="nm-h">Pathways</span>
-        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
-        <a role="menuitem" href="ambassadors.html">Ambassador Network<small>Global Youth Ambassadors</small></a>
-        <a role="menuitem" href="chapters.html">Global Chapters<small>Chapters &amp; chapter leaders</small></a>
+        <a role="menuitem" href="interns.html">GreenHouse Internship<small>Starts 14 Dec 2026</small></a>
+        <a role="menuitem" href="civic-futures-fellowship.html">Civic Futures Fellowship<small>10-week research fellowship</small></a>
+        <a role="menuitem" href="editorial-fellowship.html">YSP Editorial Fellowship<small>8-week editorial cycle</small></a>
+        <a role="menuitem" href="chapter-leadership-accelerator.html">Chapter Leadership Accelerator<small>4-week leadership programme</small></a>
+        </div><a role="menuitem" href="programmes.html" class="nm-all">View all programmes <span aria-hidden="true">→</span></a><div hidden>
         </div>      </div></div>
       <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Get Involved <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Get Involved">
-        <a role="menuitem" href="careers.html">Careers</a>
-        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
-        <a role="menuitem" href="ambassadors.html">Global Youth Ambassador Programme<small>Monthly intake</small></a>
+        <a role="menuitem" href="careers.html">Join the YSP Team<small>Volunteer &amp; leadership opportunities</small></a>
+        <a role="menuitem" href="interns.html">GreenHouse Internship<small>12-week programme · Remote</small></a>
+        <a role="menuitem" href="ambassadors.html">Global Youth Ambassador Programme<small>International network · Rolling intake</small></a>
+        <a role="menuitem" href="chapters.html">Global Chapters<small>Start or join a chapter</small></a>
+        <a role="menuitem" href="partners.html">Partner With YSP<small>Organisations &amp; collaborations</small></a>
       </div></div>
-      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Our Work">
-        <a role="menuitem" href="publications.html">Publications<small>Briefs, interviews & articles</small></a>
-        <a role="menuitem" href="interviews.html">Interviews</a>
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Our Work"><div class="nm-col">
+        <span class="nm-h">Research &amp; Publications</span>
+        <a role="menuitem" href="publications.html">Research &amp; Publications<small>Policy briefs, articles &amp; analysis</small></a>
+        <a role="menuitem" href="substack.html">Policy Insights<small>Evidence-based perspectives &amp; explainers</small></a>
+        <a role="menuitem" href="annual-reports.html">Reports &amp; Impact<small>Research findings &amp; annual reports</small></a>
+        </div><div class="nm-col">
+        <span class="nm-h">Stories &amp; Media</span>
+        <a role="menuitem" href="interviews.html">YSP Interviews<small>Conversations with changemakers</small></a>
         <a role="menuitem" href="ysp-talks.html">YSP Talks<small>The YSP podcast</small></a>
-        <a role="menuitem" href="global-spotlights.html">Global Spotlights</a>
-        <a role="menuitem" href="substack.html">Substack</a>
-        <a role="menuitem" href="annual-reports.html">Annual Reports</a>
-      </div></div>
+        <a role="menuitem" href="global-spotlights.html">Global Spotlights<small>Youth stories across borders</small></a>
+        </div>      </div></div>
       <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Portals <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Portals">
         <a role="menuitem" href="learns.html">YSP Learns<small>Learning Portal</small></a>
         <a role="menuitem" href="chapters.html">YSP Global Chapters<small>Chapters &amp; chapter leaders</small></a>
@@ -810,7 +853,7 @@ setTimeout(finish,MAX);})();</script>
 </div>
 
 <!-- Hero -->
-<section class="hero" data-screen-label="01 Research Hero">
+<section class="hm-host hero" data-screen-label="01 Research Hero"><svg class="hm-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs></defs><path d="M-40 760 C 380 720, 560 380, 900 260 S 1300 160, 1500 130" fill="none" stroke="rgba(110,140,80,0.2)" stroke-width="1.4"  class="hm-flow" style="animation-delay:-0s"/><path d="M-40 734 C 380 702, 560 438, 900 318 S 1300 218, 1500 200" fill="none" stroke="rgba(110,140,80,0.27)" stroke-width="2.0" stroke-dasharray="2 7" class="hm-flow" style="animation-delay:-2s"/><path d="M-40 708 C 380 684, 560 496, 900 376 S 1300 276, 1500 270" fill="none" stroke="rgba(110,140,80,0.34)" stroke-width="1.4"  class="hm-flow" style="animation-delay:-4s"/><path d="M-40 682 C 380 666, 560 554, 900 434 S 1300 334, 1500 340" fill="none" stroke="rgba(110,140,80,0.2)" stroke-width="2.0"  class="hm-flow" style="animation-delay:-6s"/><path d="M-40 656 C 380 648, 560 612, 900 492 S 1300 392, 1500 410" fill="none" stroke="rgba(110,140,80,0.27)" stroke-width="1.4" stroke-dasharray="2 7" class="hm-flow" style="animation-delay:-8s"/><path d="M-40 630 C 380 630, 560 670, 900 550 S 1300 450, 1500 480" fill="none" stroke="rgba(110,140,80,0.34)" stroke-width="2.0"  class="hm-flow" style="animation-delay:-10s"/><path d="M-40 604 C 380 612, 560 728, 900 608 S 1300 508, 1500 550" fill="none" stroke="rgba(110,140,80,0.2)" stroke-width="1.4"  class="hm-flow" style="animation-delay:-12s"/><circle cx="1030" cy="250" r="16" fill="rgba(110,140,80,.10)"/><circle cx="1030" cy="250" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/><circle cx="1180" cy="330" r="16" fill="rgba(110,140,80,.10)"/><circle cx="1180" cy="330" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/><circle cx="1290" cy="190" r="16" fill="rgba(110,140,80,.10)"/><circle cx="1290" cy="190" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/><circle cx="170" cy="690" r="16" fill="rgba(110,140,80,.10)"/><circle cx="170" cy="690" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/><circle cx="320" cy="640" r="16" fill="rgba(110,140,80,.10)"/><circle cx="320" cy="640" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/><circle cx="1120" cy="470" r="16" fill="rgba(110,140,80,.10)"/><circle cx="1120" cy="470" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/></svg>
   <div class="mesh" aria-hidden="true"><span></span></div>
   <div class="container">
     <div class="crumbs apple-reveal">
@@ -823,19 +866,19 @@ setTimeout(finish,MAX);})();</script>
     </div>
     <div class="hero-grid">
       <div class="title-block">
-        <h1 class="apple-reveal" style="transition-delay:.08s">Build the rigour <em>policy needs.</em></h1>
+        <h1 class="apple-reveal" style="transition-delay:.08s">Build The Rigour <em>Policy Needs.</em></h1>
         <p class="lede apple-reveal" style="transition-delay:.18s">Original research, literature reviews, and evidence‑based analysis — from primary sources to publishable briefs that hold up under citation.</p>
         <div class="cta-row apple-reveal" style="transition-delay:.28s">
           <a href="https://form.typeform.com/to/a3IchqzP" target="_blank" rel="noopener" class="btn btn-forest" data-magnetic>Express Interest <span class="arr">↗</span></a>
           <a href="#curriculum" class="btn btn-ghost">See the curriculum ▸</a>
         </div>
       </div>
-      <div class="route-stamp apple-reveal" style="transition-delay:.16s">
+      <div class="route-stamp rs2 apple-reveal" style="transition-delay:.16s">
         <div class="corner">
           <span class="seal"><span class="dot"></span>Route 01 / 06</span>
           <span>Research</span>
         </div>
-        <span class="big-letter">R</span>
+        <div class="rs-badge"><span class="rs-orbit o1"></span><span class="rs-orbit o2"><i></i></span><img src="assets/routes/01-research-route-badge.png" alt="" width="112" height="112"/></div><ol class="rs-mods"><li><span class="rs-m">M1</span><span class="rs-t">Foundations</span><span class="rs-w">Wk 01–04</span></li><li><span class="rs-m">M2</span><span class="rs-t">Methods</span><span class="rs-w">Wk 05–08</span></li><li><span class="rs-m">M3</span><span class="rs-t">The Brief</span><span class="rs-w">Wk 09–12</span></li><li><span class="rs-m">M4</span><span class="rs-t">Capstone</span><span class="rs-w">Wk 13–16</span></li></ol>
         <div class="foot">
           <span>16 weeks ·async</span>
           <span>Capstone · Free</span>
@@ -857,14 +900,14 @@ setTimeout(finish,MAX);})();</script>
 <section class="overview" data-screen-label="02 Overview">
   <div class="container">
     <span class="eyebrow apple-reveal"><span class="leaf"></span> 01 / What this route is for</span>
-    <h2 class="section-title apple-reveal" style="transition-delay:.08s">A route, not a <em>summer programme.</em></h2>
+    <h2 class="section-title apple-reveal" style="transition-delay:.08s">A Route, Not A <em>Summer Programme.</em></h2>
     <div class="ov-grid">
       <div class="apple-reveal" style="transition-delay:.16s">
         <p>The Research Route is for members who want to produce <b>citable, evidence‑based work</b>. We treat research as a craft — slow reading, careful sourcing, and a refusal to let a good sentence stand in for a missing data point.</p><p>Over sixteen weeks you will learn how primary and secondary sources are actually combined into a policy argument, choose a question that fits your time budget, and ship a paper that another researcher can build on. Every member is paired with a senior advisor and a peer reviewer.</p>
       </div>
       <aside class="ov-side apple-reveal" style="transition-delay:.22s">
         <span class="tag"><span class="dot"></span>At a glance</span>
-        <h3 class="serif"><em>Research</em> Route · 16 weeks</h3>
+        <h3 class="serif"><em>Research</em> Route · 16 Weeks</h3>
         <div class="row"><span class="k">Capstone</span><span class="v">Research paper or policy brief</span></div>
         <div class="row"><span class="k">Format</span><span class="v">Async + advisor sessions</span></div>
         <div class="row"><span class="k">Cohort size</span><span class="v">20–30 members</span></div>
@@ -880,7 +923,7 @@ setTimeout(finish,MAX);})();</script>
 <section class="curriculum" id="curriculum" data-screen-label="03 Curriculum">
   <div class="container">
     <span class="eyebrow apple-reveal"><span class="leaf"></span> 02 / Curriculum</span>
-    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Sixteen weeks, <em>four modules.</em></h2>
+    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Sixteen Weeks, <em>Four Modules.</em></h2>
     <p class="section-sub apple-reveal" style="transition-delay:.16s">Async readings, weekly drops, and three advisor sessions across the cohort. Modules build toward the capstone — there is no busywork, and there is no skipping.</p>
 
     <div class="mod-grid">
@@ -890,7 +933,7 @@ setTimeout(finish,MAX);})();</script>
           <span class="m-wk">Weeks 01–04</span>
           <span class="m-num">M1</span>
         </div>
-        <h3 class="serif">Foundations <em class="m-em">— How research actually gets used.</em></h3>
+        <h3 class="serif">Foundations <em class="m-em">— How Research Actually Gets Used.</em></h3>
         <p>Where evidence sits in the policy cycle. The difference between a position, a paper, and a brief. How to read a literature review against its own assumptions. Picking a question small enough to finish.</p>
       </article>
       <article class="module apple-reveal" style="transition-delay:0.06s">
@@ -898,7 +941,7 @@ setTimeout(finish,MAX);})();</script>
           <span class="m-wk">Weeks 05–08</span>
           <span class="m-num">M2</span>
         </div>
-        <h3 class="serif">Methods <em class="m-em">— Quantitative, qualitative, and honest mixed.</em></h3>
+        <h3 class="serif">Methods <em class="m-em">— Quantitative, Qualitative, And Honest Mixed.</em></h3>
         <p>Survey design, semi‑structured interviews, descriptive statistics, and the ethics of each. We do not require quant skills — we require that you know which method your question deserves.</p>
       </article>
       <article class="module apple-reveal" style="transition-delay:0.12s">
@@ -906,7 +949,7 @@ setTimeout(finish,MAX);})();</script>
           <span class="m-wk">Weeks 09–12</span>
           <span class="m-num">M3</span>
         </div>
-        <h3 class="serif">The Brief <em class="m-em">— From data to recommendation.</em></h3>
+        <h3 class="serif">The Brief <em class="m-em">— From Data To Recommendation.</em></h3>
         <p>Argument structure for non‑academic readers. Caveats and confidence intervals in plain English. Visualising a finding without overstating it. Writing the executive summary last, on purpose.</p>
       </article>
       <article class="module apple-reveal" style="transition-delay:0.18s">
@@ -914,7 +957,7 @@ setTimeout(finish,MAX);})();</script>
           <span class="m-wk">Weeks 13–16</span>
           <span class="m-num">M4</span>
         </div>
-        <h3 class="serif">Capstone <em class="m-em">— Write, peer‑review, ship.</em></h3>
+        <h3 class="serif">Capstone <em class="m-em">— Write, Peer‑Review, Ship.</em></h3>
         <p>Two drafts. One advisor session per draft. A blinded peer review with another fellow. A public‑facing version and an academic‑facing version of the same finding.</p>
       </article>
     </div>
@@ -925,7 +968,7 @@ setTimeout(finish,MAX);})();</script>
 <section class="capstone" id="capstone" data-screen-label="04 Capstone">
   <div class="container">
     <span class="eyebrow apple-reveal"><span class="leaf"></span> 03 / Capstone</span>
-    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Something you can <em>point at.</em></h2>
+    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Something You Can <em>Point At.</em></h2>
     <p class="section-sub apple-reveal" style="transition-delay:.16s">Every route ends in one Capstone with your name on it — published, archived, and citable. No certificate without it.</p>
 
 
@@ -938,7 +981,7 @@ setTimeout(finish,MAX);})();</script>
     <div class="cap-card apple-reveal" style="transition-delay:.22s">
       <div class="left">
         <span class="tag"><span class="dot"></span>The Capstone</span>
-        <h3>Research paper or policy brief <em>—</em><br/>under your byline.</h3>
+        <h3>Research Paper Or Policy Brief <em>—</em><br/>Under Your Byline.</h3>
         <p>Single‑author byline, peer‑reviewed by senior advisors before publication on the YSP research hub.</p>
         <div class="micro"><span class="leaf"></span> 3,000 – 5,000 words</div>
       </div>
@@ -985,7 +1028,7 @@ setTimeout(finish,MAX);})();</script>
 <section class="samples" data-screen-label="05 Sample Capstones">
   <div class="container">
     <span class="eyebrow apple-reveal"><span class="leaf"></span> 04 / Past work</span>
-    <h2 class="section-title apple-reveal" style="transition-delay:.08s">What recent <em>fellows shipped.</em></h2>
+    <h2 class="section-title apple-reveal" style="transition-delay:.08s">What Recent <em>Fellows Shipped.</em></h2>
     <p class="section-sub apple-reveal" style="transition-delay:.16s">A handful of recent capstones from the Research Route — to give you a sense of the scope and shape we expect, not to tell you what to write.</p>
 
     <div class="sample-list">
@@ -1016,13 +1059,13 @@ setTimeout(finish,MAX);})();</script>
 <section class="fit" data-screen-label="06 Fit">
   <div class="container">
     <span class="eyebrow apple-reveal"><span class="leaf"></span> 05 / Is this you?</span>
-    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Pick the route that <em>fits the work</em> you want to do.</h2>
+    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Pick The Route That <em>Fits The Work</em> You Want To Do.</h2>
     <p class="section-sub apple-reveal" style="transition-delay:.16s">No route is harder than another — they reward different temperaments. Here is who tends to thrive in Research, and who is probably better served elsewhere.</p>
 
     <div class="fit-grid">
       <div class="fit-card good apple-reveal" style="transition-delay:.22s">
         <div class="head"><span style="width:6px;height:6px;border-radius:50%;background:var(--sage);display:inline-block"></span> A good fit</div>
-        <h3 class="serif">You will <em>thrive here</em> if…</h3>
+        <h3 class="serif">You Will <em>Thrive Here</em> If…</h3>
         <ul>
         <li><span class="check">✓</span><span>You want to write something a journalist, MP, or junior analyst could actually cite.</span></li>
         <li><span class="check">✓</span><span>You are comfortable with ambiguity — the answer is often "it depends, and here is on what."</span></li>
@@ -1031,7 +1074,7 @@ setTimeout(finish,MAX);})();</script>
       </div>
       <div class="fit-card bad apple-reveal" style="transition-delay:.30s">
         <div class="head"><span style="width:6px;height:6px;border-radius:50%;background:var(--ink-mute);display:inline-block"></span> Maybe elsewhere</div>
-        <h3 class="serif">You will be <em>better served</em> elsewhere if…</h3>
+        <h3 class="serif">You Will Be <em>Better Served</em> Elsewhere If…</h3>
         <ul>
         <li><span class="x">×</span><span>You want a short, opinionated op‑ed — try the <a href="policy-route.html">Policy Route</a>.</span></li>
         <li><span class="x">×</span><span>You want fieldwork in your own neighbourhood — try the <a href="community-route.html">Community Route</a>.</span></li>
@@ -1045,7 +1088,7 @@ setTimeout(finish,MAX);})();</script>
 <section class="mentors-band" data-screen-label="07 Mentors">
   <div class="container">
     <span class="eyebrow apple-reveal"><span class="leaf"></span> 06 / Advisors</span>
-    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Mentors who have <em>done the work.</em></h2>
+    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Mentors Who Have <em>Done The Work.</em></h2>
     <p class="section-sub apple-reveal" style="transition-delay:.16s">Every member is paired with a senior advisor. The names below are representative of the Research Route advisor bench across recent cohorts.</p>
 
     <div class="mentor-grid">
@@ -1083,7 +1126,7 @@ setTimeout(finish,MAX);})();</script>
     <div class="faq-grid">
       <div class="apple-reveal">
         <span class="eyebrow"><span class="leaf"></span> 07 / Questions</span>
-        <h2 class="section-title">A few <em>honest answers.</em></h2>
+        <h2 class="section-title">A Few <em>Honest Answers.</em></h2>
         <p class="section-sub">If your question is not here, write to us. We read everything.</p>
         <a href="mailto:youthforsustainablepolicy@gmail.com?subject=Research%20Route" class="btn btn-ghost">Email us ▸</a>
       </div>
@@ -1126,7 +1169,7 @@ setTimeout(finish,MAX);})();</script>
 <section class="other-routes" data-screen-label="09 Other Routes">
   <div class="container">
     <span class="eyebrow apple-reveal"><span class="leaf"></span> 08 / The other five</span>
-    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Or take a <em>different route.</em></h2>
+    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Or Take A <em>Different Route.</em></h2>
     <p class="section-sub apple-reveal" style="transition-delay:.16s">Members usually arrive certain about one route and leave curious about the next. Each route is sixteen weeks; some fellows have done two over consecutive cohorts.</p>
 
     <div class="other-grid">
@@ -1179,7 +1222,7 @@ setTimeout(finish,MAX);})();</script>
 <section class="final" data-screen-label="10 Apply">
   <div class="mesh" aria-hidden="true" style="opacity:.5"><span></span></div>
   <div class="container">
-    <h2 class="apple-reveal">Pick up the <em>Research</em> Route.</h2>
+    <h2 class="apple-reveal">Pick Up The <em>Research</em> Route.</h2>
     <p class="apple-reveal" style="transition-delay:.1s">Express interest for the next cohort. We open intakes four times a year and you can roll your application forward at any time — no penalty, no fee.</p>
     <div class="final-cta apple-reveal" style="transition-delay:.2s">
       <a href="https://form.typeform.com/to/a3IchqzP" target="_blank" rel="noopener" class="btn btn-forest" data-magnetic>Express Interest <span class="arr">↗</span></a>
@@ -1206,7 +1249,7 @@ setTimeout(finish,MAX);})();</script>
       <h2>Programmes</h2>
       <ul>
         <li data-comp-discovery data-comp-footer hidden><a href="essay-competition-2026.html">SIB x YSP Essay Competition</a></li>
-        <li><a href="mun.html">Winter MUN 2026 ★</a></li>
+        <li><a href="mun.html">YSP MUN 2027 ★</a></li>
         <li><a href="programmes.html">International Initiatives</a></li>
         <li><a href="grassroots.html">Grassroots Movements</a></li>
         <li><a href="interns.html">Internship</a></li>

@@ -595,6 +595,20 @@ html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.yf *{transition:none!important;animation:none!important}}
 </style>
 <link id="ysp-cursor-css" rel="stylesheet" href="assets/cursor/ysp-cursor.css">
+
+<style id="hm-style">.hm-host{position:relative;overflow:hidden;isolation:isolate}
+.hm-svg{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 46% 60% at 50% 45%,transparent 30%,#000 75%);mask-image:radial-gradient(ellipse 46% 60% at 50% 45%,transparent 30%,#000 75%)}
+.hm-host>*:not(.hm-svg){position:relative;z-index:1}
+@media (prefers-reduced-motion:no-preference){
+.hm-flow{stroke-dasharray:6 10;animation:hmflow 28s linear infinite}
+.hm-pulse{animation:hmpulse 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.hm-float{animation:hmfloat 14s ease-in-out infinite}
+.hm-sway{animation:hmsway 18s ease-in-out infinite;transform-origin:50% 100%}}
+@keyframes hmflow{to{stroke-dashoffset:-320}}
+@keyframes hmpulse{0%,100%{opacity:.55;transform:scale(.92)}50%{opacity:1;transform:scale(1.06)}}
+@keyframes hmfloat{0%,100%{translate:0 0}50%{translate:0 -10px}}
+@keyframes hmsway{0%,100%{rotate:0deg}50%{rotate:1.2deg}}
+@media (max-width:760px){.hm-svg{opacity:.55}}html,body{overflow-x:clip}.br-hero.hm-host{padding-bottom:clamp(90px,14vh,150px)!important}header.top.hm-host{padding-bottom:clamp(70px,10vh,120px)}</style>
 <style id="nav2-style">
 .nav .nav-links{gap:2px}
 .nav-dd{position:relative;display:inline-flex}
@@ -612,8 +626,12 @@ html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
 .nav-dd-menu small{font-size:11.5px;font-weight:400;color:#7d857a}
 .nav-mega{flex-direction:row!important;gap:6px!important;min-width:0!important;width:max-content;padding:12px!important;left:0!important;transform:translate(0,-6px)!important}
 .nav-dd:hover .nav-mega,.nav-dd:focus-within .nav-mega,.nav-dd.open .nav-mega{transform:none!important}
+.nav-mega{display:grid!important;grid-template-columns:repeat(3,auto)}.nav-mega>[hidden]{display:none}
+.nav-links .nav-dd-menu a.nm-all{grid-column:1/-1;flex-direction:row;justify-content:flex-end;gap:6px;margin-top:6px;padding:10px 14px!important;border-top:1px solid rgba(31,42,34,.08);border-radius:0 0 12px 12px!important;font-size:13px;color:var(--sage-deep,#5d7a45)}
 .nm-col{display:flex;flex-direction:column;gap:1px;min-width:220px}
-.nm-col+.nm-col{border-left:1px solid rgba(31,42,34,.08);padding-left:6px}
+.nm-col+.nav-mega{display:grid!important;grid-template-columns:repeat(3,auto)}.nav-mega>[hidden]{display:none}
+.nav-links .nav-dd-menu a.nm-all{grid-column:1/-1;flex-direction:row;justify-content:flex-end;gap:6px;margin-top:6px;padding:10px 14px!important;border-top:1px solid rgba(31,42,34,.08);border-radius:0 0 12px 12px!important;font-size:13px;color:var(--sage-deep,#5d7a45)}
+.nm-col{border-left:1px solid rgba(31,42,34,.08);padding-left:6px}
 .nm-h{padding:8px 14px 6px;font:600 10.5px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
 .mnav-panel .mnav-h{padding:14px 18px 4px;font:600 11px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
 .mnav-panel.grouped a:not(.mnav-cta){min-height:44px;font-size:19px}
@@ -643,35 +661,47 @@ setTimeout(finish,MAX);})();</script>
     <div class="nav-links">
       <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Programmes <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Programmes"><div class="nm-col">
         <span class="nm-h">Initiatives</span>
-        <a role="menuitem" href="programmes.html">International Initiatives<small>All YSP programmes</small></a>
-        <a role="menuitem" href="mun.html">Winter MUN 2026 ★<small>5–7 Dec 2026 · virtual</small></a>
         <a role="menuitem" href="grassroots.html">Grassroots Movements<small>Community action</small></a>
-        <a role="menuitem" href="barometer.html">Youth Policy Barometer<small>Launching soon</small></a>
-        <a role="menuitem" href="studios.html">Studios<small>Creative production</small></a>
+        <a role="menuitem" href="learns.html">YSP Learns<small>Free learning portal</small></a>
+        <a role="menuitem" href="policy-circles.html">YSP Policy Circles<small>Youth dialogue · Pilot planned</small></a>
+        <a role="menuitem" href="programmes.html#civic-innovation-hub">YSP Civic Innovation Hub<small>Six-week project cycle</small></a>
+        <a role="menuitem" href="studios.html">YSP Studios<small>Creative production</small></a>
+        <a role="menuitem" href="barometer.html">YSP Barometer<small>Pilot edition 2027</small></a>
         </div><div class="nm-col">
         <span class="nm-h">Competitions</span>
+        <a role="menuitem" href="mun.html">YSP Model United Nations<small>2027 · dates to be announced</small></a>
         <a role="menuitem" href="essay-competition-2026.html">SIB × YSP Essay Competition<small>Entries open 1 Dec</small></a>
         <a role="menuitem" href="policy-pitch-competition-2026.html">YSP Policy Pitch Competition<small>In development</small></a>
-        <a role="menuitem" href="policy-brief-competition.html">Policy Brief Competition<small>2026 results</small></a>
+        <a role="menuitem" href="policy-data-challenge.html">YSP Policy Data Challenge<small>Proposed 2027</small></a>
+        <a role="menuitem" href="youth-policy-debate-open.html">YSP Youth Policy Debate Open<small>Proposed 2027</small></a>
+        <a role="menuitem" href="visual-policy-challenge.html">YSP Visual Policy Challenge<small>Proposed 2027</small></a>
+        <a role="menuitem" href="policy-brief-competition.html">Global Policy Brief Competition<small>Annual · 2027 edition coming</small></a>
         </div><div class="nm-col">
         <span class="nm-h">Pathways</span>
-        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
-        <a role="menuitem" href="ambassadors.html">Ambassador Network<small>Global Youth Ambassadors</small></a>
-        <a role="menuitem" href="chapters.html">Global Chapters<small>Chapters &amp; chapter leaders</small></a>
+        <a role="menuitem" href="interns.html">GreenHouse Internship<small>Starts 14 Dec 2026</small></a>
+        <a role="menuitem" href="civic-futures-fellowship.html">Civic Futures Fellowship<small>10-week research fellowship</small></a>
+        <a role="menuitem" href="editorial-fellowship.html">YSP Editorial Fellowship<small>8-week editorial cycle</small></a>
+        <a role="menuitem" href="chapter-leadership-accelerator.html">Chapter Leadership Accelerator<small>4-week leadership programme</small></a>
+        </div><a role="menuitem" href="programmes.html" class="nm-all">View all programmes <span aria-hidden="true">→</span></a><div hidden>
         </div>      </div></div>
       <div class="nav-dd is-active"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Get Involved <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Get Involved">
-        <a role="menuitem" href="careers.html" class="active" aria-current="page">Careers</a>
-        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
-        <a role="menuitem" href="ambassadors.html">Global Youth Ambassador Programme<small>Monthly intake</small></a>
+        <a role="menuitem" href="careers.html" class="active" aria-current="page">Join the YSP Team<small>Volunteer &amp; leadership opportunities</small></a>
+        <a role="menuitem" href="interns.html">GreenHouse Internship<small>12-week programme · Remote</small></a>
+        <a role="menuitem" href="ambassadors.html">Global Youth Ambassador Programme<small>International network · Rolling intake</small></a>
+        <a role="menuitem" href="chapters.html">Global Chapters<small>Start or join a chapter</small></a>
+        <a role="menuitem" href="partners.html">Partner With YSP<small>Organisations &amp; collaborations</small></a>
       </div></div>
-      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Our Work">
-        <a role="menuitem" href="publications.html">Publications<small>Briefs, interviews & articles</small></a>
-        <a role="menuitem" href="interviews.html">Interviews</a>
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Our Work"><div class="nm-col">
+        <span class="nm-h">Research &amp; Publications</span>
+        <a role="menuitem" href="publications.html">Research &amp; Publications<small>Policy briefs, articles &amp; analysis</small></a>
+        <a role="menuitem" href="substack.html">Policy Insights<small>Evidence-based perspectives &amp; explainers</small></a>
+        <a role="menuitem" href="annual-reports.html">Reports &amp; Impact<small>Research findings &amp; annual reports</small></a>
+        </div><div class="nm-col">
+        <span class="nm-h">Stories &amp; Media</span>
+        <a role="menuitem" href="interviews.html">YSP Interviews<small>Conversations with changemakers</small></a>
         <a role="menuitem" href="ysp-talks.html">YSP Talks<small>The YSP podcast</small></a>
-        <a role="menuitem" href="global-spotlights.html">Global Spotlights</a>
-        <a role="menuitem" href="substack.html">Substack</a>
-        <a role="menuitem" href="annual-reports.html">Annual Reports</a>
-      </div></div>
+        <a role="menuitem" href="global-spotlights.html">Global Spotlights<small>Youth stories across borders</small></a>
+        </div>      </div></div>
       <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Portals <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Portals">
         <a role="menuitem" href="learns.html">YSP Learns<small>Learning Portal</small></a>
         <a role="menuitem" href="chapters.html">YSP Global Chapters<small>Chapters &amp; chapter leaders</small></a>
@@ -688,13 +718,13 @@ setTimeout(finish,MAX);})();</script>
 </div>
 
 <!-- Hero -->
-<section class="hero" data-screen-label="01 Hero">
+<section class="hm-host hero" data-screen-label="01 Hero"><svg class="hm-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs></defs><line x1="185" y1="534" x2="203" y2="555" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="185" y1="534" x2="249" y2="576" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="336" y1="465" x2="249" y2="576" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="336" y1="465" x2="203" y2="555" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="203" y1="555" x2="185" y2="534" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="203" y1="555" x2="249" y2="576" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="99" y1="499" x2="185" y2="534" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="99" y1="499" x2="203" y2="555" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="242" y1="707" x2="249" y2="576" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="242" y1="707" x2="203" y2="555" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="70" y1="345" x2="99" y2="499" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="70" y1="345" x2="90" y2="131" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="69" y1="719" x2="242" y2="707" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="69" y1="719" x2="203" y2="555" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="262" y1="151" x2="90" y2="131" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="262" y1="151" x2="70" y2="345" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="354" y1="834" x2="242" y2="707" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="354" y1="834" x2="249" y2="576" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="249" y1="576" x2="203" y2="555" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="249" y1="576" x2="185" y2="534" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="90" y1="131" x2="262" y2="151" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="90" y1="131" x2="70" y2="345" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1245" y1="164" x2="1161" y2="172" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1245" y1="164" x2="1170" y2="290" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1127" y1="299" x2="1170" y2="290" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1127" y1="299" x2="1220" y2="326" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1071" y1="463" x2="1127" y2="299" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1071" y1="463" x2="1170" y2="290" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1214" y1="743" x2="1235" y2="610" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1214" y1="743" x2="1242" y2="594" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1242" y1="594" x2="1235" y2="610" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1242" y1="594" x2="1354" y2="644" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1235" y1="610" x2="1242" y2="594" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1235" y1="610" x2="1354" y2="644" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1220" y1="326" x2="1170" y2="290" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1220" y1="326" x2="1127" y2="299" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1409" y1="857" x2="1354" y2="644" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1409" y1="857" x2="1214" y2="743" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1354" y1="644" x2="1242" y2="594" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1354" y1="644" x2="1235" y2="610" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1170" y1="290" x2="1127" y2="299" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1170" y1="290" x2="1220" y2="326" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1161" y1="172" x2="1245" y2="164" stroke="rgba(110,140,80,.20)" stroke-width="1"/><line x1="1161" y1="172" x2="1170" y2="290" stroke="rgba(110,140,80,.20)" stroke-width="1"/><circle cx="185" cy="534" r="10" fill="rgba(110,140,80,.07)"/><circle cx="185" cy="534" r="4" fill="rgba(110,140,80,0.35)" class="hm-pulse" style="animation-delay:-0.0s"/><circle cx="336" cy="465" r="24" fill="rgba(110,140,80,.07)"/><circle cx="336" cy="465" r="10" fill="rgba(110,140,80,0.50)" class="hm-pulse" style="animation-delay:-0.7s"/><circle cx="203" cy="555" r="10" fill="rgba(110,140,80,.07)"/><circle cx="203" cy="555" r="4" fill="rgba(110,140,80,0.35)" class="hm-pulse" style="animation-delay:-1.4s"/><circle cx="99" cy="499" r="17" fill="rgba(110,140,80,.07)"/><circle cx="99" cy="499" r="7" fill="rgba(110,140,80,0.42)" class="hm-pulse" style="animation-delay:-2.1s"/><circle cx="242" cy="707" r="24" fill="rgba(110,140,80,.07)"/><circle cx="242" cy="707" r="10" fill="rgba(110,140,80,0.50)" class="hm-pulse" style="animation-delay:-2.8s"/><circle cx="70" cy="345" r="10" fill="rgba(110,140,80,.07)"/><circle cx="70" cy="345" r="4" fill="rgba(110,140,80,0.35)" class="hm-pulse" style="animation-delay:-3.5s"/><circle cx="69" cy="719" r="10" fill="rgba(110,140,80,.07)"/><circle cx="69" cy="719" r="4" fill="rgba(110,140,80,0.35)" class="hm-pulse" style="animation-delay:-4.2s"/><circle cx="262" cy="151" r="10" fill="rgba(110,140,80,.07)"/><circle cx="262" cy="151" r="4" fill="rgba(110,140,80,0.35)" class="hm-pulse" style="animation-delay:-4.9s"/><circle cx="354" cy="834" r="12" fill="rgba(110,140,80,.07)"/><circle cx="354" cy="834" r="5" fill="rgba(110,140,80,0.38)" class="hm-pulse" style="animation-delay:-5.6s"/><circle cx="249" cy="576" r="12" fill="rgba(110,140,80,.07)"/><circle cx="249" cy="576" r="5" fill="rgba(110,140,80,0.38)" class="hm-pulse" style="animation-delay:-6.3s"/><circle cx="90" cy="131" r="10" fill="rgba(110,140,80,.07)"/><circle cx="90" cy="131" r="4" fill="rgba(110,140,80,0.35)" class="hm-pulse" style="animation-delay:-7.0s"/><circle cx="1245" cy="164" r="24" fill="rgba(110,140,80,.07)"/><circle cx="1245" cy="164" r="10" fill="rgba(110,140,80,0.50)" class="hm-pulse" style="animation-delay:-7.7s"/><circle cx="1127" cy="299" r="24" fill="rgba(110,140,80,.07)"/><circle cx="1127" cy="299" r="10" fill="rgba(110,140,80,0.50)" class="hm-pulse" style="animation-delay:-8.4s"/><circle cx="1071" cy="463" r="24" fill="rgba(110,140,80,.07)"/><circle cx="1071" cy="463" r="10" fill="rgba(110,140,80,0.50)" class="hm-pulse" style="animation-delay:-9.1s"/><circle cx="1214" cy="743" r="24" fill="rgba(110,140,80,.07)"/><circle cx="1214" cy="743" r="10" fill="rgba(110,140,80,0.50)" class="hm-pulse" style="animation-delay:-9.8s"/><circle cx="1242" cy="594" r="10" fill="rgba(110,140,80,.07)"/><circle cx="1242" cy="594" r="4" fill="rgba(110,140,80,0.35)" class="hm-pulse" style="animation-delay:-10.5s"/><circle cx="1235" cy="610" r="34" fill="rgba(110,140,80,.07)"/><circle cx="1235" cy="610" r="14" fill="rgba(110,140,80,0.60)" class="hm-pulse" style="animation-delay:-11.2s"/><circle cx="1220" cy="326" r="12" fill="rgba(110,140,80,.07)"/><circle cx="1220" cy="326" r="5" fill="rgba(110,140,80,0.38)" class="hm-pulse" style="animation-delay:-11.9s"/><circle cx="1409" cy="857" r="17" fill="rgba(110,140,80,.07)"/><circle cx="1409" cy="857" r="7" fill="rgba(110,140,80,0.42)" class="hm-pulse" style="animation-delay:-12.6s"/><circle cx="1354" cy="644" r="17" fill="rgba(110,140,80,.07)"/><circle cx="1354" cy="644" r="7" fill="rgba(110,140,80,0.42)" class="hm-pulse" style="animation-delay:-13.3s"/><circle cx="1170" cy="290" r="10" fill="rgba(110,140,80,.07)"/><circle cx="1170" cy="290" r="4" fill="rgba(110,140,80,0.35)" class="hm-pulse" style="animation-delay:-14.0s"/><circle cx="1161" cy="172" r="17" fill="rgba(110,140,80,.07)"/><circle cx="1161" cy="172" r="7" fill="rgba(110,140,80,0.42)" class="hm-pulse" style="animation-delay:-14.7s"/></svg>
   <div class="mesh" aria-hidden="true"><span></span></div>
   <div class="inner">
     <span class="eyebrow apple-reveal"><span class="leaf"></span> Careers at YSP</span>
     <h1 class="page-title apple-reveal" style="transition-delay:.08s">
-      Quiet work, <em>compounding.</em><br/>
-      Help us build it.
+      Quiet Work, <em>Compounding.</em><br/>
+      Help Us Build It.
     </h1>
     <p class="sub apple-reveal" style="transition-delay:.16s">
       We're recruiting directors, managers, and team members for the parts of YSP that are still being built. Every role below is currently unfilled. Remote, volunteer-led, and open to youth worldwide.
@@ -712,7 +742,7 @@ setTimeout(finish,MAX);})();</script>
       <aside class="quiz-tease apple-reveal" style="transition-delay:.3s">
         <span class="glyph" aria-hidden="true"></span>
         <span class="qz-eye">★ Mini quiz</span>
-        <h3 class="serif">What <em>suits you?</em></h3>
+        <h3 class="serif">What <em>Suits You?</em></h3>
         <p>Five questions. We'll point you at one of our open roles — and a backup if the first one's not your fit.</p>
         <div class="row">
           <div class="qz-dots"><span></span><span></span><span></span><span></span><span></span></div>
@@ -729,7 +759,7 @@ setTimeout(finish,MAX);})();</script>
     <div class="board-head">
       <div>
         <span class="eyebrow apple-reveal"><span class="leaf"></span> Open roles</span>
-        <h2 class="apple-reveal" style="transition-delay:.08s">Twelve roles. <em>One mission.</em> Find your edge of it.</h2>
+        <h2 class="apple-reveal" style="transition-delay:.08s">Twelve Roles. <em>One Mission.</em> Find Your Edge Of It.</h2>
       </div>
       <div class="count apple-reveal" style="transition-delay:.16s">
         Showing <b id="visibleCount">12</b> of <b id="totalCount">12</b>
@@ -788,7 +818,7 @@ setTimeout(finish,MAX);})();</script>
   <div class="container">
     <div class="quiz-head">
       <span class="eyebrow apple-reveal"><span class="leaf"></span> ★ Mini quiz · 60 seconds</span>
-      <h2 class="apple-reveal" style="transition-delay:.08s">Not sure where you fit? <em>Let's find out.</em></h2>
+      <h2 class="apple-reveal" style="transition-delay:.08s">Not Sure Where You Fit? <em>Let's Find Out.</em></h2>
       <p class="apple-reveal" style="transition-delay:.16s">No accounts, no resume yet — just five quick questions. We'll suggest the role that maps to your shape of work, plus a runner‑up if the first one's already taken.</p>
     </div>
 
@@ -843,7 +873,7 @@ setTimeout(finish,MAX);})();</script>
   <div class="container">
     <span class="eyebrow apple-reveal"><span class="leaf"></span> How we hire</span>
     <h2 class="serif apple-reveal" style="font-family:'Fraunces',serif;font-size:clamp(34px,4.4vw,52px);margin:10px 0 18px;line-height:1.05;letter-spacing:-0.025em;font-weight:400;transition-delay:.08s">
-      Slow journalism, <em>fast trust.</em>
+      Slow Journalism, <em>Fast Trust.</em>
     </h2>
     <p class="apple-reveal" style="max-width:60ch;color:var(--ink-soft);margin:0;font-size:16px;transition-delay:.16s">
       No timed assessments, no whiteboarding. A short call, a paid trial brief, and a decision within two weeks — the same care we bring to the policy work itself.
@@ -874,7 +904,7 @@ setTimeout(finish,MAX);})();</script>
   <div class="mesh" aria-hidden="true"><span></span></div>
   <div class="card">
     <span class="eyebrow apple-reveal"><span class="leaf"></span> Open application</span>
-    <h2 class="apple-reveal" style="transition-delay:.06s">Don't see your <em>shape</em> here?</h2>
+    <h2 class="apple-reveal" style="transition-delay:.06s">Don't See Your <em>Shape</em> Here?</h2>
     <p class="apple-reveal" style="transition-delay:.12s">Send us a letter anyway. We open new tracks twice a year, and the most interesting hires are the ones we hadn't imagined yet.</p>
     <div class="final-cta apple-reveal" style="transition-delay:.18s">
       <a href="mailto:youthforsustainablepolicy@gmail.com" class="btn btn-primary">Write to us <span class="arr">↗</span></a>
@@ -900,7 +930,7 @@ setTimeout(finish,MAX);})();</script>
       <h2>Programmes</h2>
       <ul>
         <li data-comp-discovery data-comp-footer hidden><a href="essay-competition-2026.html">SIB x YSP Essay Competition</a></li>
-        <li><a href="mun.html">Winter MUN 2026 ★</a></li>
+        <li><a href="mun.html">YSP MUN 2027 ★</a></li>
         <li><a href="programmes.html">International Initiatives</a></li>
         <li><a href="grassroots.html">Grassroots Movements</a></li>
         <li><a href="interns.html">Internship</a></li>

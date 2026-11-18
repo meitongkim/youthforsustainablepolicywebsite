@@ -655,6 +655,43 @@ html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.yf *{transition:none!important;animation:none!important}}
 </style>
 <link id="ysp-cursor-css" rel="stylesheet" href="assets/cursor/ysp-cursor.css">
+<style id="nx-style">.nx-grid{display:grid;gap:14px;margin-top:4px}.nx-2{grid-template-columns:repeat(2,minmax(0,1fr))}.nx-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.nx-card{display:flex;flex-direction:column;gap:10px;padding:26px;border-radius:22px;background:rgba(255,255,255,.62);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px dashed rgba(137,163,108,.45);scroll-margin-top:110px}
+.nx-card h4{margin:2px 0 0;font-size:24px;line-height:1.15;letter-spacing:-.015em;font-weight:400}.nx-tag{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-deep);font-weight:600}
+.nx-card p{margin:0;font-size:14.5px;color:var(--ink-soft);line-height:1.6}.nx-out{margin-top:auto;padding:12px 14px;border-radius:14px;background:rgba(137,163,108,.10);font-size:13.5px;line-height:1.5;color:var(--ink)}.nx-out b{font-weight:600}
+.nx-cta{align-self:flex-start;font-size:13.5px;font-weight:500;color:var(--ink);text-decoration:none;border-bottom:1px solid rgba(31,42,34,.25);padding-bottom:2px}.nx-cta:hover{border-color:var(--sage-deep);color:var(--sage-deep)}
+.nx-lede{margin:8px 0 0;color:var(--ink-soft);font-size:15px;max-width:62ch}
+@media (max-width:980px){.nx-3{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:640px){.nx-2,.nx-3{grid-template-columns:1fr}}</style>
+
+<style id="hm-style">.hm-host{position:relative;overflow:hidden;isolation:isolate}
+.hm-svg{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 46% 60% at 50% 45%,transparent 30%,#000 75%);mask-image:radial-gradient(ellipse 46% 60% at 50% 45%,transparent 30%,#000 75%)}
+.hm-host>*:not(.hm-svg){position:relative;z-index:1}
+@media (prefers-reduced-motion:no-preference){
+.hm-flow{stroke-dasharray:6 10;animation:hmflow 28s linear infinite}
+.hm-pulse{animation:hmpulse 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.hm-float{animation:hmfloat 14s ease-in-out infinite}
+.hm-sway{animation:hmsway 18s ease-in-out infinite;transform-origin:50% 100%}}
+@keyframes hmflow{to{stroke-dashoffset:-320}}
+@keyframes hmpulse{0%,100%{opacity:.55;transform:scale(.92)}50%{opacity:1;transform:scale(1.06)}}
+@keyframes hmfloat{0%,100%{translate:0 0}50%{translate:0 -10px}}
+@keyframes hmsway{0%,100%{rotate:0deg}50%{rotate:1.2deg}}
+@media (max-width:760px){.hm-svg{opacity:.55}}html,body{overflow-x:clip}.br-hero.hm-host{padding-bottom:clamp(90px,14vh,150px)!important}header.top.hm-host{padding-bottom:clamp(70px,10vh,120px)}</style>
+<style id="nx3-style">.nx-facts{display:grid;gap:8px;margin:2px 0 0;padding:14px;border-radius:14px;background:rgba(137,163,108,.09)}.nx-facts div{display:grid;grid-template-columns:96px 1fr;gap:10px;font-size:13.5px;line-height:1.5}.nx-facts dt{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-deep);font-weight:600;padding-top:2px}.nx-facts dd{margin:0;color:var(--ink)}
+.nx-card .nx-cta{margin-top:auto}.nx-mods{list-style:none;margin:0;padding:0;display:grid;gap:6px}.nx-mods li{display:flex;gap:10px;align-items:baseline;font-family:Fraunces,Georgia,serif;font-size:16px}.nx-mods b{font:600 11px/1 Inter,system-ui,sans-serif;color:var(--sage-deep);letter-spacing:.1em}
+.nx-weights{list-style:none;margin:0;padding:0;display:grid;gap:7px}.nx-weights li{position:relative;display:flex;justify-content:space-between;gap:10px;padding:7px 10px;border-radius:10px;font-size:12.5px;overflow:hidden;background:rgba(255,255,255,.5)}.nx-weights li span{position:absolute;inset:0 auto 0 0;width:calc(var(--w)*2.4);max-width:100%;background:rgba(137,163,108,.18);z-index:0}.nx-weights li>*:not(span),.nx-weights li{z-index:1}.nx-weights b{position:relative;font-weight:600}
+.nx-path{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;counter-reset:x}.nx-path li{position:relative;display:flex;flex-direction:column;gap:6px;padding:22px;border-radius:20px;background:rgba(255,255,255,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(137,163,108,.28)}.nx-path li:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:50%;transform:translate(50%,-50%);width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#fff;border:1px solid rgba(137,163,108,.35);font-size:12px;color:var(--sage-deep);z-index:2}.nx-path .nx-n{font:600 11px/1 Inter,system-ui,sans-serif;letter-spacing:.14em;color:var(--sage-deep)}.nx-path b{font-family:Fraunces,Georgia,serif;font-weight:400;font-size:26px;letter-spacing:-.015em}.nx-path small{font-size:13.5px;color:var(--ink-soft);line-height:1.5}.nx-path em{margin-top:auto;font-style:normal;font-size:12px;color:var(--sage-deep);font-weight:500}
+.nx-note{margin:14px 0 0;font-size:13px;color:var(--ink-soft)}
+@media (max-width:900px){.nx-path{grid-template-columns:repeat(2,minmax(0,1fr))}.nx-path li::after{display:none}}@media (max-width:560px){.nx-path{grid-template-columns:1fr}.nx-facts div{grid-template-columns:1fr;gap:2px}}</style>
+<style id="nx4-style">.nx-top{align-items:start}
+.nx-more{border-radius:14px;border:1px solid rgba(110,140,80,.22);background:rgba(255,255,255,.5)}
+.nx-more>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:11px 14px;font-size:13.5px;font-weight:600;color:var(--ink)}
+.nx-more>summary::-webkit-details-marker{display:none}.nx-more>summary span{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:rgba(137,163,108,.18);color:var(--sage-deep);transition:transform .25s}
+.nx-more[open]>summary span{transform:rotate(45deg)}.nx-more-in{display:grid;gap:16px;padding:4px 14px 16px}
+.nx-sec h5{margin:0 0 8px;font:600 11px/1.2 Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-deep)}
+.nx-wk{list-style:none;margin:0;padding:0;display:grid;gap:6px}.nx-wk li{display:grid;grid-template-columns:78px 1fr;gap:10px;font-size:13px;line-height:1.5;color:var(--ink-soft)}.nx-wk li>span{font:600 11px/1.6 ui-monospace,Menlo,monospace;color:#5d7a43}.nx-wk b{color:var(--ink);font-weight:600}
+.nx-ul{margin:0;padding-left:18px;display:grid;gap:5px;font-size:13px;line-height:1.5;color:var(--ink-soft)}.nx-ul b{color:var(--ink)}
+.nx-card .nx-small{margin:8px 0 0;font-size:12.5px;line-height:1.5;color:var(--ink-soft)}
+@media (max-width:560px){.nx-wk li{grid-template-columns:1fr;gap:0}}</style>
 <style id="nav2-style">
 .nav .nav-links{gap:2px}
 .nav-dd{position:relative;display:inline-flex}
@@ -672,8 +709,12 @@ html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
 .nav-dd-menu small{font-size:11.5px;font-weight:400;color:#7d857a}
 .nav-mega{flex-direction:row!important;gap:6px!important;min-width:0!important;width:max-content;padding:12px!important;left:0!important;transform:translate(0,-6px)!important}
 .nav-dd:hover .nav-mega,.nav-dd:focus-within .nav-mega,.nav-dd.open .nav-mega{transform:none!important}
+.nav-mega{display:grid!important;grid-template-columns:repeat(3,auto)}.nav-mega>[hidden]{display:none}
+.nav-links .nav-dd-menu a.nm-all{grid-column:1/-1;flex-direction:row;justify-content:flex-end;gap:6px;margin-top:6px;padding:10px 14px!important;border-top:1px solid rgba(31,42,34,.08);border-radius:0 0 12px 12px!important;font-size:13px;color:var(--sage-deep,#5d7a45)}
 .nm-col{display:flex;flex-direction:column;gap:1px;min-width:220px}
-.nm-col+.nm-col{border-left:1px solid rgba(31,42,34,.08);padding-left:6px}
+.nm-col+.nav-mega{display:grid!important;grid-template-columns:repeat(3,auto)}.nav-mega>[hidden]{display:none}
+.nav-links .nav-dd-menu a.nm-all{grid-column:1/-1;flex-direction:row;justify-content:flex-end;gap:6px;margin-top:6px;padding:10px 14px!important;border-top:1px solid rgba(31,42,34,.08);border-radius:0 0 12px 12px!important;font-size:13px;color:var(--sage-deep,#5d7a45)}
+.nm-col{border-left:1px solid rgba(31,42,34,.08);padding-left:6px}
 .nm-h{padding:8px 14px 6px;font:600 10.5px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
 .mnav-panel .mnav-h{padding:14px 18px 4px;font:600 11px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
 .mnav-panel.grouped a:not(.mnav-cta){min-height:44px;font-size:19px}
@@ -703,35 +744,47 @@ setTimeout(finish,MAX);})();</script>
     <div class="nav-links">
       <div class="nav-dd is-active"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Programmes <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Programmes"><div class="nm-col">
         <span class="nm-h">Initiatives</span>
-        <a role="menuitem" href="programmes.html" class="active" aria-current="page">International Initiatives<small>All YSP programmes</small></a>
-        <a role="menuitem" href="mun.html">Winter MUN 2026 ★<small>5–7 Dec 2026 · virtual</small></a>
         <a role="menuitem" href="grassroots.html">Grassroots Movements<small>Community action</small></a>
-        <a role="menuitem" href="barometer.html">Youth Policy Barometer<small>Launching soon</small></a>
-        <a role="menuitem" href="studios.html">Studios<small>Creative production</small></a>
+        <a role="menuitem" href="learns.html">YSP Learns<small>Free learning portal</small></a>
+        <a role="menuitem" href="policy-circles.html">YSP Policy Circles<small>Youth dialogue · Pilot planned</small></a>
+        <a role="menuitem" href="programmes.html#civic-innovation-hub">YSP Civic Innovation Hub<small>Six-week project cycle</small></a>
+        <a role="menuitem" href="studios.html">YSP Studios<small>Creative production</small></a>
+        <a role="menuitem" href="barometer.html">YSP Barometer<small>Pilot edition 2027</small></a>
         </div><div class="nm-col">
         <span class="nm-h">Competitions</span>
+        <a role="menuitem" href="mun.html">YSP Model United Nations<small>2027 · dates to be announced</small></a>
         <a role="menuitem" href="essay-competition-2026.html">SIB × YSP Essay Competition<small>Entries open 1 Dec</small></a>
         <a role="menuitem" href="policy-pitch-competition-2026.html">YSP Policy Pitch Competition<small>In development</small></a>
-        <a role="menuitem" href="policy-brief-competition.html">Policy Brief Competition<small>2026 results</small></a>
+        <a role="menuitem" href="policy-data-challenge.html">YSP Policy Data Challenge<small>Proposed 2027</small></a>
+        <a role="menuitem" href="youth-policy-debate-open.html">YSP Youth Policy Debate Open<small>Proposed 2027</small></a>
+        <a role="menuitem" href="visual-policy-challenge.html">YSP Visual Policy Challenge<small>Proposed 2027</small></a>
+        <a role="menuitem" href="policy-brief-competition.html">Global Policy Brief Competition<small>Annual · 2027 edition coming</small></a>
         </div><div class="nm-col">
         <span class="nm-h">Pathways</span>
-        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
-        <a role="menuitem" href="ambassadors.html">Ambassador Network<small>Global Youth Ambassadors</small></a>
-        <a role="menuitem" href="chapters.html">Global Chapters<small>Chapters &amp; chapter leaders</small></a>
+        <a role="menuitem" href="interns.html">GreenHouse Internship<small>Starts 14 Dec 2026</small></a>
+        <a role="menuitem" href="civic-futures-fellowship.html">Civic Futures Fellowship<small>10-week research fellowship</small></a>
+        <a role="menuitem" href="editorial-fellowship.html">YSP Editorial Fellowship<small>8-week editorial cycle</small></a>
+        <a role="menuitem" href="chapter-leadership-accelerator.html">Chapter Leadership Accelerator<small>4-week leadership programme</small></a>
+        </div><a role="menuitem" href="programmes.html" class="nm-all active" aria-current="page">View all programmes <span aria-hidden="true">→</span></a><div hidden>
         </div>      </div></div>
       <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Get Involved <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Get Involved">
-        <a role="menuitem" href="careers.html">Careers</a>
-        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
-        <a role="menuitem" href="ambassadors.html">Global Youth Ambassador Programme<small>Monthly intake</small></a>
+        <a role="menuitem" href="careers.html">Join the YSP Team<small>Volunteer &amp; leadership opportunities</small></a>
+        <a role="menuitem" href="interns.html">GreenHouse Internship<small>12-week programme · Remote</small></a>
+        <a role="menuitem" href="ambassadors.html">Global Youth Ambassador Programme<small>International network · Rolling intake</small></a>
+        <a role="menuitem" href="chapters.html">Global Chapters<small>Start or join a chapter</small></a>
+        <a role="menuitem" href="partners.html">Partner With YSP<small>Organisations &amp; collaborations</small></a>
       </div></div>
-      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Our Work">
-        <a role="menuitem" href="publications.html">Publications<small>Briefs, interviews & articles</small></a>
-        <a role="menuitem" href="interviews.html">Interviews</a>
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Our Work"><div class="nm-col">
+        <span class="nm-h">Research &amp; Publications</span>
+        <a role="menuitem" href="publications.html">Research &amp; Publications<small>Policy briefs, articles &amp; analysis</small></a>
+        <a role="menuitem" href="substack.html">Policy Insights<small>Evidence-based perspectives &amp; explainers</small></a>
+        <a role="menuitem" href="annual-reports.html">Reports &amp; Impact<small>Research findings &amp; annual reports</small></a>
+        </div><div class="nm-col">
+        <span class="nm-h">Stories &amp; Media</span>
+        <a role="menuitem" href="interviews.html">YSP Interviews<small>Conversations with changemakers</small></a>
         <a role="menuitem" href="ysp-talks.html">YSP Talks<small>The YSP podcast</small></a>
-        <a role="menuitem" href="global-spotlights.html">Global Spotlights</a>
-        <a role="menuitem" href="substack.html">Substack</a>
-        <a role="menuitem" href="annual-reports.html">Annual Reports</a>
-      </div></div>
+        <a role="menuitem" href="global-spotlights.html">Global Spotlights<small>Youth stories across borders</small></a>
+        </div>      </div></div>
       <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Portals <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Portals">
         <a role="menuitem" href="learns.html">YSP Learns<small>Learning Portal</small></a>
         <a role="menuitem" href="chapters.html">YSP Global Chapters<small>Chapters &amp; chapter leaders</small></a>
@@ -748,7 +801,7 @@ setTimeout(finish,MAX);})();</script>
 </div>
 
 <!-- Hero -->
-<section class="hero" data-screen-label="01 Programmes Hero">
+<section class="hm-host hero" data-screen-label="01 Programmes Hero"><svg class="hm-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs></defs><path d="M-40 760 C 380 720, 560 380, 900 260 S 1300 160, 1500 130" fill="none" stroke="rgba(110,140,80,0.2)" stroke-width="1.4"  class="hm-flow" style="animation-delay:-0s"/><path d="M-40 734 C 380 702, 560 438, 900 318 S 1300 218, 1500 200" fill="none" stroke="rgba(110,140,80,0.27)" stroke-width="2.0" stroke-dasharray="2 7" class="hm-flow" style="animation-delay:-2s"/><path d="M-40 708 C 380 684, 560 496, 900 376 S 1300 276, 1500 270" fill="none" stroke="rgba(110,140,80,0.34)" stroke-width="1.4"  class="hm-flow" style="animation-delay:-4s"/><path d="M-40 682 C 380 666, 560 554, 900 434 S 1300 334, 1500 340" fill="none" stroke="rgba(110,140,80,0.2)" stroke-width="2.0"  class="hm-flow" style="animation-delay:-6s"/><path d="M-40 656 C 380 648, 560 612, 900 492 S 1300 392, 1500 410" fill="none" stroke="rgba(110,140,80,0.27)" stroke-width="1.4" stroke-dasharray="2 7" class="hm-flow" style="animation-delay:-8s"/><path d="M-40 630 C 380 630, 560 670, 900 550 S 1300 450, 1500 480" fill="none" stroke="rgba(110,140,80,0.34)" stroke-width="2.0"  class="hm-flow" style="animation-delay:-10s"/><path d="M-40 604 C 380 612, 560 728, 900 608 S 1300 508, 1500 550" fill="none" stroke="rgba(110,140,80,0.2)" stroke-width="1.4"  class="hm-flow" style="animation-delay:-12s"/><circle cx="1030" cy="250" r="16" fill="rgba(110,140,80,.10)"/><circle cx="1030" cy="250" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/><circle cx="1180" cy="330" r="16" fill="rgba(110,140,80,.10)"/><circle cx="1180" cy="330" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/><circle cx="1290" cy="190" r="16" fill="rgba(110,140,80,.10)"/><circle cx="1290" cy="190" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/><circle cx="170" cy="690" r="16" fill="rgba(110,140,80,.10)"/><circle cx="170" cy="690" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/><circle cx="320" cy="640" r="16" fill="rgba(110,140,80,.10)"/><circle cx="320" cy="640" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/><circle cx="1120" cy="470" r="16" fill="rgba(110,140,80,.10)"/><circle cx="1120" cy="470" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/></svg>
   <div class="mesh" aria-hidden="true"><span></span></div>
   <div class="hero-inner">
     <div class="eyebrow-pill apple-reveal">
@@ -797,7 +850,7 @@ setTimeout(finish,MAX);})();</script>
 <section class="pbc-feat-sec" style="padding-top:0" id="policy-brief-competition" data-screen-label="Featured: Policy Brief Competition">
 <div class="pbc-feat apple-reveal">
 <div>
-<div class="pbc-feat-tags"><span class="pbc-feat-tag gold">Pinned</span><span class="pbc-feat-tag"><span class="d"></span>Results Announced · 5 Nov 2026</span></div>
+<div class="pbc-feat-tags"><span class="pbc-feat-tag gold">Annual</span><span class="pbc-feat-tag"><span class="d"></span>2026 Results Announced · 5 Nov 2026</span><span class="pbc-feat-tag">2027 edition coming</span></div>
 <h2>Global Policy Brief <em>Competition 2026.</em></h2>
 <p>100+ entries from 40 countries on fossil fuel subsidy reform. Meet the 20 finalists across the Open and Junior categories.</p>
 <div class="pbc-feat-row"><a class="pbc-feat-btn solid" href="policy-brief-competition.html#results">Check The Results <span>↗</span></a><a class="pbc-feat-btn line" href="policy-brief-competition.html">About The Competition ▸</a></div>
@@ -809,7 +862,7 @@ setTimeout(finish,MAX);})();</script>
 <section class="dir-section" id="directory" data-screen-label="02 Programme Directory">
   <div class="container">
     <span class="eyebrow apple-reveal"><span class="dot"></span> Programme Directory</span>
-    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Six homes for <em>every idea</em> we build.</h2>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Six Homes For <em>Every Idea</em> We Build.</h2>
     <p class="section-sub apple-reveal" style="transition-delay:.16s">Every YSP programme sits in one of six areas — including the ones still taking shape.</p>
     <div class="dir-grid">
       <a class="dir-card apple-reveal" href="#initiatives" style="transition-delay:0.00s"><span class="dn">01</span><h3 class="serif">Initiatives</h3><p>Research, education, policy dialogue, publications, and youth-led projects</p><span class="darr">↗</span></a>
@@ -821,20 +874,63 @@ setTimeout(finish,MAX);})();</script>
     </div>
     <div class="pipe-head apple-reveal" id="pipeline">
       <span class="eyebrow"><span class="dot"></span> In the pipeline</span>
-      <h3 class="serif">What's <em>coming next.</em></h3>
+      <h3 class="serif">What's <em>Coming Next.</em></h3>
     </div>
     <div class="pipe-grid">
-      <a class="pipe-card apple-reveal" href="barometer.html" style="transition-delay:0.00s"><span class="pstatus soon"><span class="pdot"></span>Launching Soon</span><h4 class="serif">Youth Policy Barometer</h4><p>A proposed research initiative exploring how young people experience and understand public policy across different communities.</p><span class="parea">Initiatives</span></a>
-      <a class="pipe-card apple-reveal" href="mun.html" style="transition-delay:0.06s"><span class="pstatus dev"><span class="pdot"></span>In Development</span><h4 class="serif">YSP Winter MUN</h4><p>A proposed youth diplomacy and policy-learning experience bringing together research, negotiation, and international affairs.</p><span class="parea">Initiatives</span></a>
+      <a class="pipe-card apple-reveal" href="barometer.html" style="transition-delay:0.00s"><span class="pstatus soon"><span class="pdot"></span>Launching Soon</span><h4 class="serif">YSP Barometer</h4><p>The Youth Policy Pulse: a recurring, cross-country research programme on how young people experience policy and participation. Pilot edition 2027.</p><span class="parea">Initiatives</span></a>
+      <a class="pipe-card apple-reveal" href="mun.html" style="transition-delay:0.06s"><span class="pstatus dev"><span class="pdot"></span>In Development</span><h4 class="serif">YSP MUN 2027</h4><p>A proposed youth diplomacy and policy-learning experience bringing together research, negotiation, and international affairs.</p><span class="parea">Initiatives</span></a>
       <article class="pipe-card apple-reveal" style="transition-delay:0.18s"><span class="pstatus dev"><span class="pdot"></span>In Development</span><h4 class="serif">Policy Pitch Competition</h4><p>An opportunity for young people to develop and present policy solutions.</p><span class="parea">Competitions</span></article>
     </div>
+    <div class="pipe-head apple-reveal" id="programme-portfolio" style="margin-top:56px">
+      <span class="eyebrow"><span class="dot"></span> Programme Portfolio 2027 · Proposed</span>
+      <h3 class="serif">Learn. Apply. <em>Lead.</em></h3>
+      <p class="nx-lede">Nine new programmes in three connected families. Start with something accessible, build practical skills, then move towards research, publication or community leadership.</p>
+    </div>
+    <ol class="nx-path apple-reveal">
+      <li><span class="nx-n">01</span><b>Learn</b><small>Discover policy and build foundational knowledge</small><em>YSP Learns · Policy Circles · Civic Innovation Hub</em></li>
+      <li><span class="nx-n">02</span><b>Apply</b><small>Use research, communication and problem-solving skills</small><em>Data Challenge · Debate Open · Visual Challenge</em></li>
+      <li><span class="nx-n">03</span><b>Lead</b><small>Develop specialised expertise and leadership experience</small><em>Fellowships · Chapter Leadership Accelerator</em></li>
+      <li><span class="nx-n">04</span><b>Contribute</b><small>Sustained work for YSP and local communities</small><em>YSP Research · Publications · Global Chapters</em></li>
+    </ol>
+    <p class="nx-note">You can join at any stage. Completing an earlier programme is not a prerequisite.</p>
+    <div class="pipe-head apple-reveal" id="new-initiatives" style="margin-top:44px">
+      <span class="eyebrow"><span class="dot"></span> Learn · Initiatives</span>
+      <h3 class="serif">Education, Dialogue <em>And Awareness.</em></h3>
+      <p class="nx-lede">Accessible ways in: learn the basics, talk policy with peers and turn community problems into practical proposals.</p>
+    </div>
+    <div class="nx-grid nx-3 nx-top">
+      <article class="nx-card apple-reveal" id="ysp-learns" style="transition-delay:0.00s"><span class="pstatus dev"><span class="pdot"></span>In development</span><h4 class="serif">YSP Learns</h4><span class="nx-tag">Open learning · Policy Foundations</span><p>A free, beginner-friendly course introducing public policy through short lessons, practical activities and knowledge checks.</p><dl class="nx-facts"><div><dt>Who</dt><dd>Ages 16–28, no experience needed</dd></div><div><dt>Format</dt><dd>Three self-paced weeks</dd></div><div><dt>Time</dt><dd>About 45–75 minutes a week</dd></div></dl><details class="nx-more"><summary>Full Details <span aria-hidden="true">+</span></summary><div class="nx-more-in"><div class="nx-sec"><h5>Week By Week</h5><ol class="nx-wk"><li><span>Week 1</span><div><b>What Is Public Policy?</b> Public problems, institutions, a simple policy cycle and stakeholders. Activity: map one local issue with three stakeholders, one option and one indicator.</div></li><li><span>Week 2</span><div><b>From Evidence To Action</b> Claims versus evidence, choosing reliable sources, reading simple charts and policy trade-offs. Activity: compare two reliable sources on the same question and note the data’s limits.</div></li><li><span>Week 3</span><div><b>Finding Your Voice</b> Consultation, civic associations, participation ethics and constructive recommendations. Activity: draft a 300-word youth participation proposal with one practical action.</div></li></ol></div><div class="nx-sec"><h5>How You’re Assessed</h5><ul class="nx-ul"><li>A five-question quiz each week; pass with 4 out of 5, and retries are allowed</li><li>Short written work: a 200-word evidence appraisal and a final reflection</li><li>Applied work is marked out of 10: issue clarity, credible evidence, stakeholder awareness, feasibility and reflection on limitations (2 points each)</li></ul></div><div class="nx-sec"><h5>To Complete</h5><ul class="nx-ul"><li>Pass all three quizzes</li><li>Submit the three activities and the final reflection</li><li>A certificate is not guaranteed</li><li>Registrations are not open yet.</li></ul></div></div></details><a class="nx-cta" href="learns.html">Explore YSP Learns ↗</a></article>
+      <article class="nx-card apple-reveal" id="policy-circles" style="transition-delay:0.05s"><span class="pstatus soon"><span class="pdot"></span>Pilot planned</span><h4 class="serif">YSP Policy Circles</h4><span class="nx-tag">Youth dialogue</span><p>Moderated, evidence-informed conversations where young people discuss public issues, hear different perspectives and explore possible policy responses.</p><dl class="nx-facts"><div><dt>Who</dt><dd>Ages 16–28</dd></div><div><dt>Format</dt><dd>Two 60-minute online circles, 12–18 people each</dd></div><div><dt>Time</dt><dd>60–75 minutes a session</dd></div></dl><details class="nx-more"><summary>Full Details <span aria-hidden="true">+</span></summary><div class="nx-more-in"><div class="nx-sec"><h5>The First Two Circles</h5><ul class="nx-ul"><li><b>Who Gets Heard? Youth Participation In Policymaking.</b> Being informed versus consulted versus influential, the barriers young people face, competing perspectives and one practical improvement institutions could make.</li><li><b>Sustainability In Our Community.</b> Local environmental priorities, who is affected and how fairly, two contrasting policy responses and what makes them hard to deliver.</li></ul></div><div class="nx-sec"><h5>How A Circle Runs</h5><ol class="nx-wk"><li><span>0–10</span><div><b>Welcome and ground rules</b></div></li><li><span>10–20</span><div><b>A short briefing drawn from three sources</b></div></li><li><span>20–40</span><div><b>Facilitated dialogue in two rounds</b></div></li><li><span>40–50</span><div><b>Mapping the trade-offs</b></div></li><li><span>50–60</span><div><b>Closing reflections and feedback</b></div></li></ol></div><div class="nx-sec"><h5>Questions We Explore</h5><ul class="nx-ul"><li>What does meaningful influence mean?</li><li>Who is currently excluded?</li><li>What evidence would change your mind?</li><li>Which option is feasible, and for whom?</li></ul></div><div class="nx-sec"><h5>Good To Know</h5><ul class="nx-ul"><li>Circles are not recorded by default</li><li>Ideas are shared afterwards only as an anonymous summary of themes; no one is quoted publicly without permission</li><li>You complete a circle by attending and taking part respectfully, or through an approved written reflection</li><li>Registrations are not open yet.</li></ul></div></div></details><a class="nx-cta" href="policy-circles.html">Explore Policy Circles ↗</a></article>
+      <article class="nx-card apple-reveal" id="civic-innovation-hub" style="transition-delay:0.10s"><span class="pstatus dev"><span class="pdot"></span>Concept</span><h4 class="serif">YSP Civic Innovation Hub</h4><span class="nx-tag">Ideas into action</span><p>Small teams identify a community problem, research its policy context, design a practical intervention and prepare a pilot proposal.</p><dl class="nx-facts"><div><dt>Who</dt><dd>Ages 16–28, in teams of 3–4</dd></div><div><dt>Format</dt><dd>Six-week project cycle</dd></div><div><dt>Time</dt><dd>2–4 hours a week</dd></div></dl><details class="nx-more"><summary>Full Details <span aria-hidden="true">+</span></summary><div class="nx-more-in"><div class="nx-sec"><h5>Week By Week</h5><ol class="nx-wk"><li><span>Week 1</span><div><b>Define the problem</b></div></li><li><span>Week 2</span><div><b>Stakeholder insight</b> Interviews only with approved ethics and consent, or desk research instead</div></li><li><span>Week 3</span><div><b>The policy landscape</b></div></li><li><span>Week 4</span><div><b>Prototype an intervention</b></div></li><li><span>Week 5</span><div><b>Feasibility, risk and cost</b></div></li><li><span>Week 6</span><div><b>Present and evaluate</b></div></li></ol></div><div class="nx-sec"><h5>What Your Team Produces</h5><ul class="nx-ul"><li>A problem statement and evidence map</li><li>A stakeholder matrix and theory of change</li><li>A lightweight prototype or proposal</li><li>Risks, an indicative budget and evaluation indicators</li></ul></div><div class="nx-sec"><h5>How It’s Judged</h5><ul class="nx-weights"><li><span style="--w:30%"></span>Problem &amp; evidence <b>30%</b></li><li><span style="--w:25%"></span>Feasibility <b>25%</b></li><li><span style="--w:20%"></span>Inclusion &amp; ethics <b>20%</b></li><li><span style="--w:15%"></span>Policy alignment <b>15%</b></li><li><span style="--w:10%"></span>Clarity <b>10%</b></li></ul></div><div class="nx-sec"><h5>Good To Know</h5><ul class="nx-ul"><li>Teams prepare proposals only: no real-world interventions, public fundraising or partner commitments without approval</li></ul></div></div></details><a class="nx-cta" href="mailto:youthforsustainablepolicy@gmail.com?subject=YSP%20Civic%20Innovation%20Hub">Register interest ↗</a></article>
+    </div>
+    <div class="pipe-head apple-reveal" id="new-competitions" style="margin-top:44px">
+      <span class="eyebrow"><span class="dot"></span> Apply · Competitions</span>
+      <h3 class="serif">Analysis, Argument <em>And Innovation.</em></h3>
+      <p class="nx-lede">Research analysis, live argumentation and public communication, alongside YSP’s existing writing and pitching competitions.</p>
+    </div>
+    <div class="nx-grid nx-3 nx-top">
+      <article class="nx-card apple-reveal" id="policy-data-challenge" style="transition-delay:0.00s"><span class="pstatus dev"><span class="pdot"></span>In development</span><h4 class="serif">YSP Policy Data Challenge</h4><span class="nx-tag">Evidence &amp; analysis</span><p>Analyse open public datasets and turn the evidence into clear policy insights and recommendations.</p><dl class="nx-facts"><div><dt>Who</dt><dd>Ages 16–28, individually or in teams of up to four</dd></div><div><dt>Themes</dt><dd>Environment &amp; Climate · Education &amp; Opportunity · Sustainable Communities</dd></div><div><dt>Window</dt><dd>21 days to submit; results follow after 2–3 weeks of review</dd></div></dl><details class="nx-more"><summary>Full Details <span aria-hidden="true">+</span></summary><div class="nx-more-in"><div class="nx-sec"><h5>What You Submit</h5><ul class="nx-ul"><li>Your research question</li><li>The open dataset you used, with its licence</li><li>An original visualisation or dashboard</li><li>A 500–800-word analysis with recommendations</li><li>A methodology and source note, plus limitations</li><li>A disclosure of any AI use</li><li>Format: a PDF, plus the spreadsheet/CSV or a reproducible script or link where relevant</li></ul></div><div class="nx-sec"><h5>How It’s Judged</h5><ul class="nx-weights"><li><span style="--w:35%"></span>Accuracy &amp; research quality <b>35%</b></li><li><span style="--w:30%"></span>Policy analysis <b>30%</b></li><li><span style="--w:20%"></span>Clarity &amp; visual communication <b>20%</b></li><li><span style="--w:15%"></span>Reproducibility &amp; limitations <b>15%</b></li></ul><p class="nx-small">Ties are decided on accuracy, then policy analysis. Judging is independent, with conflicts of interest checked.</p></div><div class="nx-sec"><h5>Good To Know</h5><ul class="nx-ul"><li>Only licensed public or aggregated datasets may be used</li><li>Prizes and certificates have not been confirmed yet</li></ul></div></div></details><a class="nx-cta" href="policy-data-challenge.html">Explore The Challenge ↗</a></article>
+      <article class="nx-card apple-reveal" id="youth-policy-debate-open" style="transition-delay:0.05s"><span class="pstatus dev"><span class="pdot"></span>Concept</span><h4 class="serif">YSP Youth Policy Debate Open</h4><span class="nx-tag">Argumentation</span><p>Teams debate policy motions on governance, sustainability and development, weighing trade-offs and defending evidence-based positions.</p><dl class="nx-facts"><div><dt>Who</dt><dd>Ages 16–28, two speakers per team</dd></div><div><dt>Format</dt><dd>Two online preliminary rounds and a final, across two weekends</dd></div><div><dt>Time</dt><dd>2–3 hours of preparation a week, plus debates</dd></div></dl><details class="nx-more"><summary>Full Details <span aria-hidden="true">+</span></summary><div class="nx-more-in"><div class="nx-sec"><h5>Debate Format</h5><ol class="nx-wk"><li><span>7 days</span><div><b>Motion released before each debate</b></div></li><li><span>4 min</span><div><b>Affirmative and negative statements, each</b></div></li><li><span>3 min</span><div><b>Moderated rebuttals, each</b></div></li><li><span>2 min</span><div><b>Closing statements, each</b></div></li><li><span>5 min</span><div><b>Questions from the judges</b></div></li></ol></div><div class="nx-sec"><h5>How It’s Judged</h5><ul class="nx-weights"><li><span style="--w:30%"></span>Evidence <b>30%</b></li><li><span style="--w:25%"></span>Argument structure <b>25%</b></li><li><span style="--w:25%"></span>Response &amp; rebuttal <b>25%</b></li><li><span style="--w:20%"></span>Delivery &amp; civility <b>20%</b></li></ul><p class="nx-small">The final is judged by at least three judges. Scores stay private until verified, and the winner is announced only after verification and a conflict-of-interest review.</p></div><div class="nx-sec"><h5>Tournament Rules</h5><ul class="nx-ul"><li>No personal attacks</li><li>Cite your sources</li><li>Allowances are made for connectivity problems</li><li>A minimum preparation time is guaranteed</li></ul></div></div></details><a class="nx-cta" href="youth-policy-debate-open.html">Explore The Debate Open ↗</a></article>
+      <article class="nx-card apple-reveal" id="visual-policy-challenge" style="transition-delay:0.10s"><span class="pstatus dev"><span class="pdot"></span>Concept</span><h4 class="serif">YSP Visual Policy Challenge</h4><span class="nx-tag">Creative communication</span><p>Create an original, research-backed infographic or carousel that explains a public policy issue clearly and accessibly.</p><dl class="nx-facts"><div><dt>Who</dt><dd>Ages 16–28, individually or in teams of up to three</dd></div><div><dt>Window</dt><dd>21-day open challenge</dd></div></dl><details class="nx-more"><summary>Full Details <span aria-hidden="true">+</span></summary><div class="nx-more-in"><div class="nx-sec"><h5>What You Submit</h5><ul class="nx-ul"><li>One accessible infographic, or a carousel of up to 8 slides</li><li>A caption and alt text</li><li>A 150–250-word design rationale</li><li>A citation list</li><li>An image and source licensing declaration</li><li>A disclosure of any AI use</li></ul></div><div class="nx-sec"><h5>How It’s Judged</h5><ul class="nx-weights"><li><span style="--w:35%"></span>Research accuracy <b>35%</b></li><li><span style="--w:30%"></span>Clarity &amp; accessibility <b>30%</b></li><li><span style="--w:25%"></span>Visual craft <b>25%</b></li><li><span style="--w:10%"></span>Originality &amp; attribution <b>10%</b></li></ul><p class="nx-small">Entries are reviewed separately by design and fact-checking reviewers.</p></div><div class="nx-sec"><h5>Good To Know</h5><ul class="nx-ul"><li>Being selected for publication by YSP is not automatic; it needs separate permission and fact-checking</li></ul></div></div></details><a class="nx-cta" href="visual-policy-challenge.html">Explore The Challenge ↗</a></article>
+    </div>
+    <div class="pipe-head apple-reveal" id="new-pathways" style="margin-top:44px">
+      <span class="eyebrow"><span class="dot"></span> Lead · Pathways</span>
+      <h3 class="serif">Fellowships <em>And Leadership.</em></h3>
+      <p class="nx-lede">Supervised, longer-form pathways for young people ready to own a research question, a publication or a chapter.</p>
+    </div>
+    <div class="nx-grid nx-3 nx-top">
+      <article class="nx-card apple-reveal" id="civic-futures-fellowship" style="transition-delay:0.00s"><span class="pstatus dev"><span class="pdot"></span>In development</span><h4 class="serif">Civic Futures Fellowship</h4><span class="nx-tag">Research fellowship</span><p>Fellows investigate a policy challenge through supervised research and develop a policy memo or proposal around a question they own.</p><dl class="nx-facts"><div><dt>Who</dt><dd>Ages 18–28 for the first cohort; 10–12 fellows</dd></div><div><dt>Format</dt><dd>10 weeks, with a research mentor (no more than four fellows each)</dd></div><div><dt>Time</dt><dd>3–4 hours a week</dd></div></dl><details class="nx-more"><summary>Full Details <span aria-hidden="true">+</span></summary><div class="nx-more-in"><div class="nx-sec"><h5>Week By Week</h5><ol class="nx-wk"><li><span>Weeks 1–2</span><div><b>Research question, scope and ethics screening</b></div></li><li><span>Weeks 3–4</span><div><b>Evidence collection and literature review</b></div></li><li><span>Weeks 5–6</span><div><b>Analysis and initial drafting</b></div></li><li><span>Weeks 7–8</span><div><b>Peer feedback and substantial revision</b></div></li><li><span>Weeks 9–10</span><div><b>Finalisation, presentation and reflection</b></div></li></ol></div><div class="nx-sec"><h5>What You Produce</h5><ul class="nx-ul"><li>A research question and project scope</li><li>An evidence register or annotated bibliography</li><li>A 1,500–3,000-word policy memo or approved equivalent proposal</li><li>An executive summary with recommendations</li><li>A short final presentation</li><li>A reflection on limitations and future work</li></ul></div><div class="nx-sec"><h5>How It’s Judged</h5><ul class="nx-weights"><li><span style="--w:30%"></span>Evidence <b>30%</b></li><li><span style="--w:25%"></span>Analytical depth <b>25%</b></li><li><span style="--w:20%"></span>Feasibility <b>20%</b></li><li><span style="--w:15%"></span>Research integrity <b>15%</b></li><li><span style="--w:10%"></span>Communication <b>10%</b></li></ul></div><div class="nx-sec"><h5>Good To Know</h5><ul class="nx-ul"><li>Research involving people as subjects needs a separately reviewed research protocol</li></ul></div></div></details><a class="nx-cta" href="civic-futures-fellowship.html">Explore The Fellowship ↗</a></article>
+      <article class="nx-card apple-reveal" id="chapter-leadership-accelerator" style="transition-delay:0.05s"><span class="pstatus dev"><span class="pdot"></span>In development</span><h4 class="serif">Chapter Leadership Accelerator</h4><span class="nx-tag">Chapter leadership</span><p>Prepares prospective chapter leaders in governance, safeguarding, approvals, planning and reporting.</p><dl class="nx-facts"><div><dt>Who</dt><dd>Applicants approved for the Global Chapters development pathway; Chapter Director candidates aged 18+</dd></div><div><dt>Format</dt><dd>Four weeks, 10–15 candidates</dd></div><div><dt>Time</dt><dd>About 2–3 hours a week</dd></div></dl><details class="nx-more"><summary>Full Details <span aria-hidden="true">+</span></summary><div class="nx-more-in"><div class="nx-sec"><h5>Week By Week</h5><ol class="nx-wk"><li><span>Week 1</span><div><b>Governance &amp; chapter foundations</b></div></li><li><span>Week 2</span><div><b>People, safeguarding &amp; team development</b></div></li><li><span>Week 3</span><div><b>Programmes, partnerships &amp; community engagement</b></div></li><li><span>Week 4</span><div><b>Planning, reporting &amp; chapter readiness</b></div></li></ol></div><div class="nx-sec"><h5>What You Produce</h5><ul class="nx-ul"><li>A proposed founding team structure</li><li>A 90-day chapter activity plan</li><li>A local stakeholder and community map</li><li>An introductory programme or event proposal</li><li>A safeguarding and operational risk assessment</li><li>A reporting and communication plan</li></ul></div><div class="nx-sec"><h5>How It’s Judged</h5><ul class="nx-weights"><li><span style="--w:25%"></span>Governance <b>25%</b></li><li><span style="--w:25%"></span>Feasibility <b>25%</b></li><li><span style="--w:25%"></span>Safeguarding <b>25%</b></li><li><span style="--w:15%"></span>Reporting &amp; communication <b>15%</b></li><li><span style="--w:10%"></span>Inclusion <b>10%</b></li></ul></div><div class="nx-sec"><h5>Good To Know</h5><ul class="nx-ul"><li>Completing the Accelerator does not mean appointment as Chapter Director or recognition of a chapter</li><li>Using the YSP name, bank accounts, money, partnerships or events always needs direct approval from YSP HQ</li></ul></div></div></details><a class="nx-cta" href="chapter-leadership-accelerator.html">Explore The Accelerator ↗</a></article>
+      <article class="nx-card apple-reveal" id="editorial-fellowship" style="transition-delay:0.10s"><span class="pstatus dev"><span class="pdot"></span>Concept</span><h4 class="serif">YSP Editorial Fellowship</h4><span class="nx-tag">Policy writing</span><p>Guides emerging writers through pitching, sourcing, drafting, fact-checking and editorial revision.</p><dl class="nx-facts"><div><dt>Who</dt><dd>Ages 18–28; 6–8 fellows</dd></div><div><dt>Format</dt><dd>Eight-week editorial cycle, with editors and fact-checkers</dd></div><div><dt>Time</dt><dd>3–4 hours a week</dd></div></dl><details class="nx-more"><summary>Full Details <span aria-hidden="true">+</span></summary><div class="nx-more-in"><div class="nx-sec"><h5>Week By Week</h5><ol class="nx-wk"><li><span>Week 1</span><div><b>Idea development and pitch</b></div></li><li><span>Week 2</span><div><b>Research angle and source assessment</b></div></li><li><span>Week 3</span><div><b>Structure and outline</b></div></li><li><span>Week 4</span><div><b>First manuscript</b></div></li><li><span>Week 5</span><div><b>Substantive editorial feedback</b></div></li><li><span>Week 6</span><div><b>Fact-checking and attribution</b></div></li><li><span>Week 7</span><div><b>Final revision</b></div></li><li><span>Week 8</span><div><b>Editorial assessment and reflection</b></div></li></ol></div><div class="nx-sec"><h5>What You Produce</h5><ul class="nx-ul"><li>A fully sourced 1,000–1,500-word policy analysis or interview feature</li><li>A complete reference and source record</li><li>An editorial revision log</li><li>A brief reflective statement</li></ul></div><div class="nx-sec"><h5>How It’s Judged</h5><ul class="nx-weights"><li><span style="--w:30%"></span>Factual accuracy <b>30%</b></li><li><span style="--w:25%"></span>Analysis <b>25%</b></li><li><span style="--w:20%"></span>Structure &amp; accessibility <b>20%</b></li><li><span style="--w:15%"></span>Response to editing <b>15%</b></li><li><span style="--w:10%"></span>Originality &amp; ethics <b>10%</b></li></ul></div><div class="nx-sec"><h5>Good To Know</h5><ul class="nx-ul"><li>Completion does not guarantee publication</li><li>Interviewees must give consent, and interviews go through editorial review</li></ul></div></div></details><a class="nx-cta" href="editorial-fellowship.html">Explore The Fellowship ↗</a></article>
+    </div>
+    <p class="nx-note">All nine programmes are in development and none is open for registration yet. Formats, cohort sizes, eligibility and dates are proposed and may change before launch. Submissions will follow our draft <a href="research-integrity.html">Research, Authorship &amp; AI policy</a>.</p>
   </div>
 </section>
 
 <section class="np-section" id="new-programmes" data-screen-label="03 New Programmes">
   <div class="container">
     <span class="eyebrow apple-reveal"><span class="dot"></span> New programmes</span>
-    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Building <em>pathways</em> into policymaking.</h2>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Building <em>Pathways</em> Into Policymaking.</h2>
     <p class="section-sub apple-reveal np-lede" style="transition-delay:.16s">From learning about policy to researching solutions, developing civic innovations, and leading change in local communities, YSP is building pathways for young people to participate in sustainable policymaking.</p>
     <div class="np-grid">
       <article class="np-card apple-reveal" style="transition-delay:0.00s">
@@ -886,7 +982,7 @@ setTimeout(finish,MAX);})();</script>
 <section class="bg-light" id="tracks" data-screen-label="02 Tracks">
   <div class="container">
     <span class="eyebrow apple-reveal"><span class="dot"></span> Six Tracks</span>
-    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Pick the route that <em>fits the work</em> you want to do.</h2>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Pick The Route That <em>Fits The Work</em> You Want To Do.</h2>
     <p class="section-sub apple-reveal" style="transition-delay:.16s">Every track is built around an Impact Project — a final piece of work that's grounded, publishable, and yours. Below is a quick view; the homepage has full descriptions and intake dates.</p>
 
     <div class="track-grid">
@@ -954,7 +1050,7 @@ setTimeout(finish,MAX);})();</script>
       <span class="seal">✦</span>
       <span>The YSP Pledge · A standing commitment</span>
     </div>
-    <h2 class="apple-reveal" style="transition-delay:.08s">We need your <em>voice</em>,<br/>and your <em>commitment.</em></h2>
+    <h2 class="apple-reveal" style="transition-delay:.08s">We Need Your <em>Voice</em>,<br/>And Your <em>Commitment.</em></h2>
     <p class="lede apple-reveal" style="transition-delay:.18s">By taking this pledge, you are acknowledging your role in shaping the world young people will inherit — <b>and your responsibility to engage with the systems, policies, and decisions that determine its future.</b></p>
     <p class="lede apple-reveal" style="transition-delay:.24s">You are also supporting <b>Youth for Sustainable Policy</b>, a youth-led initiative bridging research, storytelling, and policy dialogue across Singapore and Southeast Asia. By signing, you stand alongside us — and become part of something bigger.</p>
   </div>
@@ -994,7 +1090,7 @@ setTimeout(finish,MAX);})();</script>
 <section class="bg-light" id="how" data-screen-label="04 How It Works">
   <div class="container">
     <span class="eyebrow apple-reveal"><span class="dot"></span> How It Works</span>
-    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">From application to impact in <em>four steps.</em></h2>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">From Application To Impact In <em>Four Steps.</em></h2>
     <p class="section-sub apple-reveal" style="transition-delay:.16s">YSP is a student-driven programme. We guide you through every step — from interest to integration.</p>
 
     <div class="steps">
@@ -1033,7 +1129,7 @@ setTimeout(finish,MAX);})();</script>
     <div class="schools-grid">
       <div class="schools-info apple-reveal">
         <span class="eyebrow"><span class="dot"></span> YSP in Schools</span>
-        <h2 class="serif">Bring the YSP curriculum to your <em>community.</em></h2>
+        <h2 class="serif">Bring The YSP Curriculum To Your <em>Community.</em></h2>
         <p>YSP partners with schools, universities, and youth organisations to integrate our tracks directly into their existing programming. Educators run the curriculum locally; we provide the materials, mentorship, and quality framework.</p>
         <ul class="features">
           <li><span class="check">✓</span><span><b style="color:var(--ink); font-weight:500">Ready-made curriculum</b> — Full 16-week syllabus, reading lists, and Impact Project Playbook for each track.</span></li>
@@ -1046,7 +1142,7 @@ setTimeout(finish,MAX);})();</script>
 
       <div class="schools-card apple-reveal" style="transition-delay:.16s">
         <span class="tag">For Educators</span>
-        <h3 class="serif">A drop-in <em>policy module</em><br/>for your institution.</h3>
+        <h3 class="serif">A Drop-in <em>Policy Module</em><br/>For Your Institution.</h3>
         <p>We send you everything needed to run a YSP cohort within your school year — from the first lecture deck to the final capstone rubric.</p>
         <div class="resources">
           <div class="r"><span class="ic">↓</span><b>Programme Overview</b><span class="arr">PDF</span></div>
@@ -1064,7 +1160,7 @@ setTimeout(finish,MAX);})();</script>
 <section class="bg-light" id="next" data-screen-label="06 Next Steps">
   <div class="container">
     <span class="eyebrow apple-reveal"><span class="dot"></span> Next Steps</span>
-    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Two ways to start, <em>one mission.</em></h2>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Two Ways To Start, <em>One Mission.</em></h2>
     <p class="section-sub apple-reveal" style="transition-delay:.16s">Whether you're a student ready to apply or an educator wanting to integrate YSP into your institution, here's how to get started.</p>
 
     <div class="next-grid">
@@ -1090,7 +1186,7 @@ setTimeout(finish,MAX);})();</script>
     <div class="contact-grid">
       <div class="contact-info apple-reveal">
         <span class="eyebrow"><span class="dot"></span> Talk to Us</span>
-        <h2 class="section-title serif">Get in <em>touch.</em></h2>
+        <h2 class="section-title serif">Get In <em>Touch.</em></h2>
         <p>Have questions about the programme, curriculum, or how to get involved? Reach out to our team — we read everything and respond as quickly as a small, careful team can.</p>
       </div>
       <div class="contact-card apple-reveal" style="transition-delay:.1s">
@@ -1119,7 +1215,7 @@ setTimeout(finish,MAX);})();</script>
 <section class="quick-band" id="quick" data-screen-label="08 Quick Links">
   <div class="container">
     <span class="eyebrow apple-reveal"><span class="dot"></span> Quick Links</span>
-    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Everything in <em>one place.</em></h2>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Everything In <em>One Place.</em></h2>
 
     <div class="quick-grid">
       <a class="quick-link apple-reveal" href="index.html#programmes">
@@ -1173,7 +1269,7 @@ setTimeout(finish,MAX);})();</script>
       <h2>Programmes</h2>
       <ul>
         <li data-comp-discovery data-comp-footer hidden><a href="essay-competition-2026.html">SIB x YSP Essay Competition</a></li>
-        <li><a href="mun.html">Winter MUN 2026 ★</a></li>
+        <li><a href="mun.html">YSP MUN 2027 ★</a></li>
         <li><a href="programmes.html">International Initiatives</a></li>
         <li><a href="grassroots.html">Grassroots Movements</a></li>
         <li><a href="interns.html">Internship</a></li>

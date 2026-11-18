@@ -34,7 +34,7 @@ html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
 }
 </style>
 <script id="ysp-loader-boot">(function(){var h=document.documentElement,s=false;try{s=!!sessionStorage.getItem('ysp-loaded')}catch(e){}if(!s){h.classList.add('ysp-loading','ysp-hold')}})();</script>
-<title>Liability Waiver — YSP Winter MUN 2026</title>
+<title>Liability Waiver — YSP MUN 2027</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,1,300;9..144,1,400&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
@@ -168,8 +168,12 @@ html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
 .nav-dd-menu small{font-size:11.5px;font-weight:400;color:#7d857a}
 .nav-mega{flex-direction:row!important;gap:6px!important;min-width:0!important;width:max-content;padding:12px!important;left:0!important;transform:translate(0,-6px)!important}
 .nav-dd:hover .nav-mega,.nav-dd:focus-within .nav-mega,.nav-dd.open .nav-mega{transform:none!important}
+.nav-mega{display:grid!important;grid-template-columns:repeat(3,auto)}.nav-mega>[hidden]{display:none}
+.nav-links .nav-dd-menu a.nm-all{grid-column:1/-1;flex-direction:row;justify-content:flex-end;gap:6px;margin-top:6px;padding:10px 14px!important;border-top:1px solid rgba(31,42,34,.08);border-radius:0 0 12px 12px!important;font-size:13px;color:var(--sage-deep,#5d7a45)}
 .nm-col{display:flex;flex-direction:column;gap:1px;min-width:220px}
-.nm-col+.nm-col{border-left:1px solid rgba(31,42,34,.08);padding-left:6px}
+.nm-col+.nav-mega{display:grid!important;grid-template-columns:repeat(3,auto)}.nav-mega>[hidden]{display:none}
+.nav-links .nav-dd-menu a.nm-all{grid-column:1/-1;flex-direction:row;justify-content:flex-end;gap:6px;margin-top:6px;padding:10px 14px!important;border-top:1px solid rgba(31,42,34,.08);border-radius:0 0 12px 12px!important;font-size:13px;color:var(--sage-deep,#5d7a45)}
+.nm-col{border-left:1px solid rgba(31,42,34,.08);padding-left:6px}
 .nm-h{padding:8px 14px 6px;font:600 10.5px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
 .mnav-panel .mnav-h{padding:14px 18px 4px;font:600 11px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
 .mnav-panel.grouped a:not(.mnav-cta){min-height:44px;font-size:19px}
@@ -199,35 +203,47 @@ setTimeout(finish,MAX);})();</script>
     <div class="nav-links">
       <div class="nav-dd is-active"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Programmes <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Programmes"><div class="nm-col">
         <span class="nm-h">Initiatives</span>
-        <a role="menuitem" href="programmes.html">International Initiatives<small>All YSP programmes</small></a>
-        <a role="menuitem" href="mun.html">Winter MUN 2026 ★<small>5–7 Dec 2026 · virtual</small></a>
         <a role="menuitem" href="grassroots.html">Grassroots Movements<small>Community action</small></a>
-        <a role="menuitem" href="barometer.html">Youth Policy Barometer<small>Launching soon</small></a>
-        <a role="menuitem" href="studios.html">Studios<small>Creative production</small></a>
+        <a role="menuitem" href="learns.html">YSP Learns<small>Free learning portal</small></a>
+        <a role="menuitem" href="policy-circles.html">YSP Policy Circles<small>Youth dialogue · Pilot planned</small></a>
+        <a role="menuitem" href="programmes.html#civic-innovation-hub">YSP Civic Innovation Hub<small>Six-week project cycle</small></a>
+        <a role="menuitem" href="studios.html">YSP Studios<small>Creative production</small></a>
+        <a role="menuitem" href="barometer.html">YSP Barometer<small>Pilot edition 2027</small></a>
         </div><div class="nm-col">
         <span class="nm-h">Competitions</span>
+        <a role="menuitem" href="mun.html">YSP Model United Nations<small>2027 · dates to be announced</small></a>
         <a role="menuitem" href="essay-competition-2026.html">SIB × YSP Essay Competition<small>Entries open 1 Dec</small></a>
         <a role="menuitem" href="policy-pitch-competition-2026.html">YSP Policy Pitch Competition<small>In development</small></a>
-        <a role="menuitem" href="policy-brief-competition.html">Policy Brief Competition<small>2026 results</small></a>
+        <a role="menuitem" href="policy-data-challenge.html">YSP Policy Data Challenge<small>Proposed 2027</small></a>
+        <a role="menuitem" href="youth-policy-debate-open.html">YSP Youth Policy Debate Open<small>Proposed 2027</small></a>
+        <a role="menuitem" href="visual-policy-challenge.html">YSP Visual Policy Challenge<small>Proposed 2027</small></a>
+        <a role="menuitem" href="policy-brief-competition.html">Global Policy Brief Competition<small>Annual · 2027 edition coming</small></a>
         </div><div class="nm-col">
         <span class="nm-h">Pathways</span>
-        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
-        <a role="menuitem" href="ambassadors.html">Ambassador Network<small>Global Youth Ambassadors</small></a>
-        <a role="menuitem" href="chapters.html">Global Chapters<small>Chapters &amp; chapter leaders</small></a>
+        <a role="menuitem" href="interns.html">GreenHouse Internship<small>Starts 14 Dec 2026</small></a>
+        <a role="menuitem" href="civic-futures-fellowship.html">Civic Futures Fellowship<small>10-week research fellowship</small></a>
+        <a role="menuitem" href="editorial-fellowship.html">YSP Editorial Fellowship<small>8-week editorial cycle</small></a>
+        <a role="menuitem" href="chapter-leadership-accelerator.html">Chapter Leadership Accelerator<small>4-week leadership programme</small></a>
+        </div><a role="menuitem" href="programmes.html" class="nm-all">View all programmes <span aria-hidden="true">→</span></a><div hidden>
         </div>      </div></div>
       <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Get Involved <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Get Involved">
-        <a role="menuitem" href="careers.html">Careers</a>
-        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
-        <a role="menuitem" href="ambassadors.html">Global Youth Ambassador Programme<small>Monthly intake</small></a>
+        <a role="menuitem" href="careers.html">Join the YSP Team<small>Volunteer &amp; leadership opportunities</small></a>
+        <a role="menuitem" href="interns.html">GreenHouse Internship<small>12-week programme · Remote</small></a>
+        <a role="menuitem" href="ambassadors.html">Global Youth Ambassador Programme<small>International network · Rolling intake</small></a>
+        <a role="menuitem" href="chapters.html">Global Chapters<small>Start or join a chapter</small></a>
+        <a role="menuitem" href="partners.html">Partner With YSP<small>Organisations &amp; collaborations</small></a>
       </div></div>
-      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Our Work">
-        <a role="menuitem" href="publications.html">Publications<small>Briefs, interviews & articles</small></a>
-        <a role="menuitem" href="interviews.html">Interviews</a>
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Our Work"><div class="nm-col">
+        <span class="nm-h">Research &amp; Publications</span>
+        <a role="menuitem" href="publications.html">Research &amp; Publications<small>Policy briefs, articles &amp; analysis</small></a>
+        <a role="menuitem" href="substack.html">Policy Insights<small>Evidence-based perspectives &amp; explainers</small></a>
+        <a role="menuitem" href="annual-reports.html">Reports &amp; Impact<small>Research findings &amp; annual reports</small></a>
+        </div><div class="nm-col">
+        <span class="nm-h">Stories &amp; Media</span>
+        <a role="menuitem" href="interviews.html">YSP Interviews<small>Conversations with changemakers</small></a>
         <a role="menuitem" href="ysp-talks.html">YSP Talks<small>The YSP podcast</small></a>
-        <a role="menuitem" href="global-spotlights.html">Global Spotlights</a>
-        <a role="menuitem" href="substack.html">Substack</a>
-        <a role="menuitem" href="annual-reports.html">Annual Reports</a>
-      </div></div>
+        <a role="menuitem" href="global-spotlights.html">Global Spotlights<small>Youth stories across borders</small></a>
+        </div>      </div></div>
       <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Portals <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Portals">
         <a role="menuitem" href="learns.html">YSP Learns<small>Learning Portal</small></a>
         <a role="menuitem" href="chapters.html">YSP Global Chapters<small>Chapters &amp; chapter leaders</small></a>
@@ -249,13 +265,13 @@ setTimeout(finish,MAX);})();</script>
     <div class="crumbs apple-reveal">
       <span class="leaf"></span>
       <a href="index.html">YSP</a><span class="sep">/</span>
-      <a href="mun.html">Winter MUN 2026</a><span class="sep">/</span>
+      <a href="mun.html">YSP MUN 2027</a><span class="sep">/</span>
       <a href="mun.html#apply">Registration</a><span class="sep">/</span>
       <span>Liability Waiver</span>
     </div>
     <span class="sub-hero-eyebrow apple-reveal">Registration · 03 of 03</span>
-    <h1 class="apple-reveal" style="transition-delay:.06s">Delegate liability <em>waiver.</em></h1>
-    <p class="lede apple-reveal" style="transition-delay:.14s">A plain-language release that every delegate accepts at registration. Because YSP Winter MUN 2026 is fully virtual, the risks are limited — but participation still involves a release of liability, a media consent, and, for delegates under 18, a parental or guardian consent.</p>
+    <h1 class="apple-reveal" style="transition-delay:.06s">Delegate Liability <em>Waiver.</em></h1>
+    <p class="lede apple-reveal" style="transition-delay:.14s">A plain-language release that every delegate accepts at registration. Because YSP MUN 2027 is fully virtual, the risks are limited — but participation still involves a release of liability, a media consent, and, for delegates under 18, a parental or guardian consent.</p>
     <div class="sub-hero-meta apple-reveal" style="transition-delay:.22s">
       <div class="it"><span class="k">Required at</span><span class="v">Seat confirmation</span></div>
       <div class="it"><span class="k">Minors</span><span class="v">Parental consent (§7)</span></div>
@@ -289,17 +305,17 @@ setTimeout(finish,MAX);})();</script>
           <div>This waiver is a legal acknowledgement, not legal advice. Read it in full before accepting. If you are <b>under 18</b>, a parent or legal guardian must review and complete <b>Section 7</b> with you.</div>
         </div>
 
-        <div class="preamble apple-reveal">In consideration of being permitted to participate in <em>YSP Winter MUN 2026</em>, I (the "delegate") acknowledge and agree to the following on my own behalf and, where applicable, with my parent or guardian.</div>
+        <div class="preamble apple-reveal">In consideration of being permitted to participate in <em>YSP MUN 2027</em>, I (the "delegate") acknowledge and agree to the following on my own behalf and, where applicable, with my parent or guardian.</div>
 
         <section class="clause apple-reveal" id="nature">
           <span class="num">01</span>
-          <h2 class="serif">Nature of <em>the event</em></h2>
-          <p>YSP Winter MUN 2026 is a fully virtual conference conducted over Zoom, Discord, and shared online tools on 5–7 December 2026. Participation takes place from the delegate's own location using the delegate's own equipment and internet connection. There is no travel, in-person gathering, or physical venue organised by YSP.</p>
+          <h2 class="serif">Nature Of <em>The Event</em></h2>
+          <p>YSP MUN 2027 is a fully virtual conference conducted over Zoom, Discord, and shared online tools on dates to be announced in 2027. Participation takes place from the delegate's own location using the delegate's own equipment and internet connection. There is no travel, in-person gathering, or physical venue organised by YSP.</p>
         </section>
 
         <section class="clause apple-reveal" id="risk">
           <span class="num">02</span>
-          <h2 class="serif">Assumption of <em>risk</em></h2>
+          <h2 class="serif">Assumption Of <em>Risk</em></h2>
           <p>I understand that participation in an online event carries certain inherent risks, and I voluntarily accept them, including but not limited to:</p>
           <ul>
             <li><b>Technical risks</b> — connectivity loss, hardware or software failure, and third-party platform outages.</li>
@@ -312,7 +328,7 @@ setTimeout(finish,MAX);})();</script>
 
         <section class="clause apple-reveal" id="release">
           <span class="num">03</span>
-          <h2 class="serif">Release of <em>liability</em></h2>
+          <h2 class="serif">Release Of <em>Liability</em></h2>
           <p>To the fullest extent permitted by law, I release and hold harmless Youth for Sustainable Policy, its Secretariat, organisers, volunteers, and partners (the "released parties") from any claims, demands, or damages arising out of my participation, including those connected to:</p>
           <ul>
             <li>Technical failures, interruptions, or loss of access during the conference;</li>
@@ -324,20 +340,20 @@ setTimeout(finish,MAX);})();</script>
 
         <section class="clause apple-reveal" id="tech">
           <span class="num">04</span>
-          <h2 class="serif">Technology &amp; <em>online safety</em></h2>
+          <h2 class="serif">Technology &amp; <em>Online Safety</em></h2>
           <p>I am responsible for my own device, software, internet connection, and account security. I agree to keep access credentials private and not to share them. I understand YSP provides technical support during sessions but is not responsible for delegate-side equipment or connectivity, or for outages of third-party platforms.</p>
         </section>
 
         <section class="clause apple-reveal" id="wellbeing">
           <span class="num">05</span>
-          <h2 class="serif">Wellbeing &amp; <em>conduct</em></h2>
+          <h2 class="serif">Wellbeing &amp; <em>Conduct</em></h2>
           <p>I agree to abide by the YSP <a class="inl" href="code-of-conduct.html">Code of Conduct</a>, the conference Rules of Procedure, and the <a class="inl" href="mun-terms-conditions.html">Terms &amp; Conditions</a> throughout the event. I understand this is a moderated, safe space for youth, and that the Secretariat may remove a participant whose conduct compromises that space, without refund.</p>
           <p>If I experience distress or a safety concern during the conference, I understand I can contact the Secretariat or a designated welfare contact through the conference channels at any time.</p>
         </section>
 
         <section class="clause apple-reveal" id="media">
           <span class="num">06</span>
-          <h2 class="serif">Media &amp; <em>image release</em></h2>
+          <h2 class="serif">Media &amp; <em>Image Release</em></h2>
           <p>I understand that sessions may be recorded and that my name, voice, likeness, and on-screen contributions may be captured for delegate access, accessibility, training, and limited promotional use by YSP.</p>
           <ul>
             <li>I grant YSP a non-exclusive, royalty-free licence to use such recordings for these purposes.</li>
@@ -348,7 +364,7 @@ setTimeout(finish,MAX);})();</script>
 
         <section class="clause apple-reveal" id="minors">
           <span class="num">07</span>
-          <h2 class="serif">Consent for delegates <em>under 18</em></h2>
+          <h2 class="serif">Consent For Delegates <em>Under 18</em></h2>
           <p>Where the delegate is under 18 at the time of the conference, a parent or legal guardian must complete this section. By doing so, the parent or guardian confirms that they have read this waiver in full, consent to the delegate's participation, and agree to its terms on the delegate's behalf — including the assumption of risk (§2), release of liability (§3), and media and image release (§6).</p>
           <div class="callout" style="margin:16px 0 4px; padding:16px 20px; border-radius:13px; background:var(--mun-soft); border:1px solid rgba(31,58,95,.18); font-family:'Fraunces',serif; font-weight:300; font-size:16px; line-height:1.5; color:var(--mun-deep)">A parent or guardian may withdraw a minor's media consent at any time by written notice, without affecting the delegate's participation in the conference.</div>
         </section>
@@ -361,12 +377,12 @@ setTimeout(finish,MAX);})();</script>
 
         <section class="clause apple-reveal" id="general">
           <span class="num">09</span>
-          <h2 class="serif">General &amp; <em>governing law</em></h2>
+          <h2 class="serif">General &amp; <em>Governing Law</em></h2>
           <p>If any provision of this waiver is found unenforceable, the remaining provisions continue in full effect. This waiver is governed by the laws of Singapore and should be read together with the conference Terms &amp; Conditions and the YSP Code of Conduct.</p>
 
           <div class="sign apple-reveal">
             <div class="e">Acknowledgement &amp; acceptance</div>
-            <h3 class="serif">What you're <em>agreeing to</em></h3>
+            <h3 class="serif">What You're <em>Agreeing To</em></h3>
             <ul class="ack">
               <li><span class="box"></span><span>I have read and understood this Liability Waiver in full.</span></li>
               <li><span class="box"></span><span>I voluntarily assume the risks described in Section 2.</span></li>
@@ -421,7 +437,7 @@ setTimeout(finish,MAX);})();</script>
       <h2>Programmes</h2>
       <ul>
         <li data-comp-discovery data-comp-footer hidden><a href="essay-competition-2026.html">SIB x YSP Essay Competition</a></li>
-        <li><a href="mun.html">Winter MUN 2026 ★</a></li>
+        <li><a href="mun.html">YSP MUN 2027 ★</a></li>
         <li><a href="programmes.html">International Initiatives</a></li>
         <li><a href="grassroots.html">Grassroots Movements</a></li>
         <li><a href="interns.html">Internship</a></li>

@@ -34,7 +34,7 @@ html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
 }
 </style>
 <script id="ysp-loader-boot">(function(){var h=document.documentElement,s=false;try{s=!!sessionStorage.getItem('ysp-loaded')}catch(e){}if(!s){h.classList.add('ysp-loading','ysp-hold')}})();</script>
-<title>YSP Winter MUN 2026 — Youth for Sustainable Policy</title>
+<title>YSP MUN 2027 — Youth for Sustainable Policy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,1,300;9..144,1,400&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
@@ -617,6 +617,7 @@ html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.yf *{transition:none!important;animation:none!important}}
 </style>
 <link id="ysp-cursor-css" rel="stylesheet" href="assets/cursor/ysp-cursor.css">
+<style id="mun27">#countdown{display:none!important}</style>
 <style id="nav2-style">
 .nav .nav-links{gap:2px}
 .nav-dd{position:relative;display:inline-flex}
@@ -634,8 +635,12 @@ html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
 .nav-dd-menu small{font-size:11.5px;font-weight:400;color:#7d857a}
 .nav-mega{flex-direction:row!important;gap:6px!important;min-width:0!important;width:max-content;padding:12px!important;left:0!important;transform:translate(0,-6px)!important}
 .nav-dd:hover .nav-mega,.nav-dd:focus-within .nav-mega,.nav-dd.open .nav-mega{transform:none!important}
+.nav-mega{display:grid!important;grid-template-columns:repeat(3,auto)}.nav-mega>[hidden]{display:none}
+.nav-links .nav-dd-menu a.nm-all{grid-column:1/-1;flex-direction:row;justify-content:flex-end;gap:6px;margin-top:6px;padding:10px 14px!important;border-top:1px solid rgba(31,42,34,.08);border-radius:0 0 12px 12px!important;font-size:13px;color:var(--sage-deep,#5d7a45)}
 .nm-col{display:flex;flex-direction:column;gap:1px;min-width:220px}
-.nm-col+.nm-col{border-left:1px solid rgba(31,42,34,.08);padding-left:6px}
+.nm-col+.nav-mega{display:grid!important;grid-template-columns:repeat(3,auto)}.nav-mega>[hidden]{display:none}
+.nav-links .nav-dd-menu a.nm-all{grid-column:1/-1;flex-direction:row;justify-content:flex-end;gap:6px;margin-top:6px;padding:10px 14px!important;border-top:1px solid rgba(31,42,34,.08);border-radius:0 0 12px 12px!important;font-size:13px;color:var(--sage-deep,#5d7a45)}
+.nm-col{border-left:1px solid rgba(31,42,34,.08);padding-left:6px}
 .nm-h{padding:8px 14px 6px;font:600 10.5px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
 .mnav-panel .mnav-h{padding:14px 18px 4px;font:600 11px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
 .mnav-panel.grouped a:not(.mnav-cta){min-height:44px;font-size:19px}
@@ -665,35 +670,47 @@ setTimeout(finish,MAX);})();</script>
     <div class="nav-links">
       <div class="nav-dd is-active"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Programmes <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Programmes"><div class="nm-col">
         <span class="nm-h">Initiatives</span>
-        <a role="menuitem" href="programmes.html">International Initiatives<small>All YSP programmes</small></a>
-        <a role="menuitem" href="mun.html" class="active" aria-current="page">Winter MUN 2026 ★<small>5–7 Dec 2026 · virtual</small></a>
         <a role="menuitem" href="grassroots.html">Grassroots Movements<small>Community action</small></a>
-        <a role="menuitem" href="barometer.html">Youth Policy Barometer<small>Launching soon</small></a>
-        <a role="menuitem" href="studios.html">Studios<small>Creative production</small></a>
+        <a role="menuitem" href="learns.html">YSP Learns<small>Free learning portal</small></a>
+        <a role="menuitem" href="policy-circles.html">YSP Policy Circles<small>Youth dialogue · Pilot planned</small></a>
+        <a role="menuitem" href="programmes.html#civic-innovation-hub">YSP Civic Innovation Hub<small>Six-week project cycle</small></a>
+        <a role="menuitem" href="studios.html">YSP Studios<small>Creative production</small></a>
+        <a role="menuitem" href="barometer.html">YSP Barometer<small>Pilot edition 2027</small></a>
         </div><div class="nm-col">
         <span class="nm-h">Competitions</span>
+        <a role="menuitem" href="mun.html" class="active" aria-current="page">YSP Model United Nations<small>2027 · dates to be announced</small></a>
         <a role="menuitem" href="essay-competition-2026.html">SIB × YSP Essay Competition<small>Entries open 1 Dec</small></a>
         <a role="menuitem" href="policy-pitch-competition-2026.html">YSP Policy Pitch Competition<small>In development</small></a>
-        <a role="menuitem" href="policy-brief-competition.html">Policy Brief Competition<small>2026 results</small></a>
+        <a role="menuitem" href="policy-data-challenge.html">YSP Policy Data Challenge<small>Proposed 2027</small></a>
+        <a role="menuitem" href="youth-policy-debate-open.html">YSP Youth Policy Debate Open<small>Proposed 2027</small></a>
+        <a role="menuitem" href="visual-policy-challenge.html">YSP Visual Policy Challenge<small>Proposed 2027</small></a>
+        <a role="menuitem" href="policy-brief-competition.html">Global Policy Brief Competition<small>Annual · 2027 edition coming</small></a>
         </div><div class="nm-col">
         <span class="nm-h">Pathways</span>
-        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
-        <a role="menuitem" href="ambassadors.html">Ambassador Network<small>Global Youth Ambassadors</small></a>
-        <a role="menuitem" href="chapters.html">Global Chapters<small>Chapters &amp; chapter leaders</small></a>
+        <a role="menuitem" href="interns.html">GreenHouse Internship<small>Starts 14 Dec 2026</small></a>
+        <a role="menuitem" href="civic-futures-fellowship.html">Civic Futures Fellowship<small>10-week research fellowship</small></a>
+        <a role="menuitem" href="editorial-fellowship.html">YSP Editorial Fellowship<small>8-week editorial cycle</small></a>
+        <a role="menuitem" href="chapter-leadership-accelerator.html">Chapter Leadership Accelerator<small>4-week leadership programme</small></a>
+        </div><a role="menuitem" href="programmes.html" class="nm-all">View all programmes <span aria-hidden="true">→</span></a><div hidden>
         </div>      </div></div>
       <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Get Involved <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Get Involved">
-        <a role="menuitem" href="careers.html">Careers</a>
-        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
-        <a role="menuitem" href="ambassadors.html">Global Youth Ambassador Programme<small>Monthly intake</small></a>
+        <a role="menuitem" href="careers.html">Join the YSP Team<small>Volunteer &amp; leadership opportunities</small></a>
+        <a role="menuitem" href="interns.html">GreenHouse Internship<small>12-week programme · Remote</small></a>
+        <a role="menuitem" href="ambassadors.html">Global Youth Ambassador Programme<small>International network · Rolling intake</small></a>
+        <a role="menuitem" href="chapters.html">Global Chapters<small>Start or join a chapter</small></a>
+        <a role="menuitem" href="partners.html">Partner With YSP<small>Organisations &amp; collaborations</small></a>
       </div></div>
-      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Our Work">
-        <a role="menuitem" href="publications.html">Publications<small>Briefs, interviews & articles</small></a>
-        <a role="menuitem" href="interviews.html">Interviews</a>
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Our Work"><div class="nm-col">
+        <span class="nm-h">Research &amp; Publications</span>
+        <a role="menuitem" href="publications.html">Research &amp; Publications<small>Policy briefs, articles &amp; analysis</small></a>
+        <a role="menuitem" href="substack.html">Policy Insights<small>Evidence-based perspectives &amp; explainers</small></a>
+        <a role="menuitem" href="annual-reports.html">Reports &amp; Impact<small>Research findings &amp; annual reports</small></a>
+        </div><div class="nm-col">
+        <span class="nm-h">Stories &amp; Media</span>
+        <a role="menuitem" href="interviews.html">YSP Interviews<small>Conversations with changemakers</small></a>
         <a role="menuitem" href="ysp-talks.html">YSP Talks<small>The YSP podcast</small></a>
-        <a role="menuitem" href="global-spotlights.html">Global Spotlights</a>
-        <a role="menuitem" href="substack.html">Substack</a>
-        <a role="menuitem" href="annual-reports.html">Annual Reports</a>
-      </div></div>
+        <a role="menuitem" href="global-spotlights.html">Global Spotlights<small>Youth stories across borders</small></a>
+        </div>      </div></div>
       <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Portals <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Portals">
         <a role="menuitem" href="learns.html">YSP Learns<small>Learning Portal</small></a>
         <a role="menuitem" href="chapters.html">YSP Global Chapters<small>Chapters &amp; chapter leaders</small></a>
@@ -718,17 +735,17 @@ setTimeout(finish,MAX);})();</script>
       <span class="sep">/</span>
       <a href="programmes.html">Programmes</a>
       <span class="sep">/</span>
-      <span>Winter MUN 2026</span>
+      <span>YSP MUN 2027</span>
     </div>
 
     <div class="hero-grid">
       <div>
-        <span class="hero-eyebrow apple-reveal"><span class="dot"></span>Winter Edition · Virtual · ASEAN &amp; beyond</span>
-        <h1 class="apple-reveal" style="transition-delay:.06s">YSP Winter <em>MUN</em> 2026.</h1>
+        <span class="hero-eyebrow apple-reveal"><span class="dot"></span>2027 Edition · Virtual · ASEAN &amp; beyond</span>
+        <h1 class="apple-reveal" style="transition-delay:.06s">YSP <em>MUN</em> 2027.</h1>
         <p class="lede apple-reveal" style="transition-delay:.14s">A premier virtual Model United Nations conference for youth delegates aged 16–28 across Southeast Asia and the wider world — three days of <b>real diplomacy</b>, five committees, one cohort of delegates who came to write, not just to speak.</p>
 
         <div class="hero-meta apple-reveal" style="transition-delay:.22s">
-          <div class="hero-meta-item"><span class="k">Dates</span><span class="v">5 – 7 December 2026</span></div>
+          <div class="hero-meta-item"><span class="k">Dates</span><span class="v">2027 · dates to be announced</span></div>
           <div class="hero-meta-item"><span class="k">Format</span><span class="v">Fully virtual · SGT (UTC+8)</span></div>
           <div class="hero-meta-item"><span class="k">Delegates</span><span class="v">Up to 200</span></div>
           <div class="hero-meta-item"><span class="k">Committees</span><span class="v">5 + waitlist</span></div>
@@ -741,7 +758,7 @@ setTimeout(finish,MAX);})();</script>
       </div>
 
       <aside class="hero-card apple-reveal" style="transition-delay:.26s">
-        <div class="lbl">Conference opens in</div>
+        <div class="lbl">Next edition · 2027</div>
         <div class="countdown" id="countdown">
           <div class="cd-unit"><span class="cd-num" id="cd-d">—</span><span class="cd-lbl">Days</span></div>
           <div class="cd-unit"><span class="cd-num" id="cd-h">—</span><span class="cd-lbl">Hours</span></div>
@@ -749,9 +766,9 @@ setTimeout(finish,MAX);})();</script>
           <div class="cd-unit"><span class="cd-num" id="cd-s">—</span><span class="cd-lbl">Secs</span></div>
         </div>
         <hr>
-        <div class="row"><span class="k">Apps close</span><span class="v">15 Nov 2026</span></div>
-        <div class="row"><span class="k">Placements</span><span class="v">25 Nov 2026</span></div>
-        <div class="row"><span class="k">Status</span><span class="v sage">● Open · taking applications</span></div>
+        <div class="row"><span class="k">Apps open</span><span class="v">To be announced</span></div>
+        <div class="row"><span class="k">Placements</span><span class="v">To be announced</span></div>
+        <div class="row"><span class="k">Status</span><span class="v sage">● Coming 2027 · register interest</span></div>
       </aside>
     </div>
   </div>
@@ -782,8 +799,8 @@ setTimeout(finish,MAX);})();</script>
 <!-- ────── Committees ────── -->
 <section class="committees" id="committees" data-screen-label="03 Committees">
   <div class="container">
-    <span class="eyebrow apple-reveal"><span class="leaf"></span> 01 / Committees 2026</span>
-    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Five arenas, <em>one shared mission.</em></h2>
+    <span class="eyebrow apple-reveal"><span class="leaf"></span> 01 / Committees</span>
+    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Five Arenas, <em>One Shared Mission.</em></h2>
     <p class="section-sub apple-reveal" style="transition-delay:.16s">Each committee is designed to push delegates past talking points — into topics that reflect real, ongoing international debates and the trade-offs they actually contain.</p>
 
     <div class="comm-subnav apple-reveal" style="transition-delay:.2s; display:flex; gap:10px; flex-wrap:wrap; margin:-16px 0 34px">
@@ -894,7 +911,7 @@ setTimeout(finish,MAX);})();</script>
 
       <article class="comm-card add-card apple-reveal" style="transition-delay:.2s">
         <div>
-          <h3 class="serif">Sixth committee — <em>by demand</em></h3>
+          <h3 class="serif">Sixth Committee — <em>By Demand</em></h3>
           <p>A sixth committee may open if the waitlist crosses fifty applicants. Add your name and we'll write to you when it does.</p>
           <a href="#apply" class="btn btn-mun" style="font-size:13px;padding:9px 18px">Join the waitlist <span class="arr">↗</span></a>
         </div>
@@ -909,7 +926,7 @@ setTimeout(finish,MAX);})();</script>
     <div class="crisis-grid">
       <div>
         <span class="eyebrow crisis-eye apple-reveal"><span class="leaf"></span> 02 / Crisis committee design</span>
-        <h2 class="section-title apple-reveal" style="transition-delay:.08s">Realism that <em class="crisis">forces decisions.</em></h2>
+        <h2 class="section-title apple-reveal" style="transition-delay:.08s">Realism That <em class="crisis">Forces Decisions.</em></h2>
         <p class="section-sub apple-reveal" style="transition-delay:.16s">Our crisis committees don't simulate a single problem — they cascade. Each directive a delegate writes feeds into the next injection, and the room has to track multiple developments at once under genuine time pressure.</p>
 
         <div class="crisis-points">
@@ -979,7 +996,7 @@ setTimeout(finish,MAX);})();</script>
 <section class="infra" id="infra" data-screen-label="05 Virtual Infra">
   <div class="container">
     <span class="eyebrow apple-reveal"><span class="leaf"></span> 03 / Platform &amp; Infrastructure</span>
-    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Built for <em>real diplomacy,</em> not just video calls.</h2>
+    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Built For <em>Real Diplomacy,</em> Not Just Video Calls.</h2>
     <p class="section-sub apple-reveal" style="transition-delay:.16s">YSP MUN runs on a layered virtual setup designed to replicate the flow, spontaneity, and formality of an in-person conference — without the boilerplate of a generic Zoom call.</p>
 
     <div class="infra-grid">
@@ -1029,7 +1046,7 @@ setTimeout(finish,MAX);})();</script>
     <div class="rop-head">
       <div>
         <span class="eyebrow mun-eye apple-reveal"><span class="leaf"></span> 04 / Rules of procedure</span>
-        <h2 class="section-title apple-reveal" style="transition-delay:.08s">Formal structure. <em class="mun">Diplomatic language.</em></h2>
+        <h2 class="section-title apple-reveal" style="transition-delay:.08s">Formal Structure. <em class="mun">Diplomatic Language.</em></h2>
       </div>
       <div class="aside apple-reveal" style="transition-delay:.14s">
         <b>The short version.</b> YSP MUN follows standard UN parliamentary procedure. Formal register is mandatory throughout — first-person ("I", "we") is not used; the country represents itself in the third person.
@@ -1037,7 +1054,7 @@ setTimeout(finish,MAX);})();</script>
     </div>
 
     <div class="rop-section apple-reveal">
-      <h3 class="serif"><span class="num mono">01</span>Debate flow</h3>
+      <h3 class="serif"><span class="num mono">01</span>Debate Flow</h3>
       <table class="rop-table">
         <thead>
           <tr><th style="width:200px">Mode</th><th>Description</th><th style="width:110px">Duration</th><th style="width:110px">Type</th></tr>
@@ -1052,7 +1069,7 @@ setTimeout(finish,MAX);})();</script>
     </div>
 
     <div class="rop-section apple-reveal" style="transition-delay:.06s">
-      <h3 class="serif"><span class="num mono">02</span>Motions &amp; points</h3>
+      <h3 class="serif"><span class="num mono">02</span>Motions &amp; Points</h3>
       <table class="rop-table">
         <thead><tr><th>Motion / Point</th><th>Purpose</th><th style="width:130px">Needs second</th><th style="width:160px">Debatable</th></tr></thead>
         <tbody>
@@ -1070,7 +1087,7 @@ setTimeout(finish,MAX);})();</script>
     </div>
 
     <div class="rop-section apple-reveal" style="transition-delay:.12s">
-      <h3 class="serif"><span class="num mono">03</span>Diplomatic phrasing</h3>
+      <h3 class="serif"><span class="num mono">03</span>Diplomatic Phrasing</h3>
       <div class="rop-phrases">
         <div class="rop-phrase">
           <div class="t">To agree</div>
@@ -1105,13 +1122,13 @@ setTimeout(finish,MAX);})();</script>
 <section class="schedule" id="schedule" data-screen-label="07 Schedule">
   <div class="container">
     <span class="eyebrow mun-eye apple-reveal"><span class="leaf"></span> 05 / Conference programme</span>
-    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Three days, <em class="mun">six sessions, one conference.</em></h2>
+    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Three Days, <em class="mun">Six Sessions, One Conference.</em></h2>
     <p class="section-sub apple-reveal" style="transition-delay:.16s">Scheduled in SGT (UTC+8) to maximise accessibility for delegates from Southeast Asia, South Asia, the Middle East, and Europe.</p>
 
     <div class="day-tabs apple-reveal" role="tablist">
-      <button class="day-tab active" data-day="1"><span class="d">Day 1</span> Fri · 5 Dec 2026</button>
-      <button class="day-tab" data-day="2"><span class="d">Day 2</span> Sat · 6 Dec 2026</button>
-      <button class="day-tab" data-day="3"><span class="d">Day 3</span> Sun · 7 Dec 2026</button>
+      <button class="day-tab active" data-day="1"><span class="d">Day 1</span> Opening day</button>
+      <button class="day-tab" data-day="2"><span class="d">Day 2</span> Committee day</button>
+      <button class="day-tab" data-day="3"><span class="d">Day 3</span> Closing day</button>
     </div>
 
     <div class="day-pane active" id="day-1">
@@ -1144,7 +1161,7 @@ setTimeout(finish,MAX);})();</script>
 <section class="awards" id="awards" data-screen-label="08 Awards">
   <div class="container">
     <span class="eyebrow mun-eye apple-reveal"><span class="leaf"></span> 06 / Awards &amp; evaluation</span>
-    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Substance <em class="mun">over volume.</em></h2>
+    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Substance <em class="mun">Over Volume.</em></h2>
     <p class="section-sub apple-reveal" style="transition-delay:.16s">YSP MUN awards are decided by a structured rubric, not speaking time. We recognise precision arguments, foreign-policy alignment, cross-bloc collaboration, and the quality of the documents a delegate actually authored.</p>
 
     <div class="awards-grid">
@@ -1203,8 +1220,8 @@ setTimeout(finish,MAX);})();</script>
     <div class="apply-grid">
       <div>
         <span class="eyebrow apple-reveal"><span class="leaf"></span> 07 / Apply now</span>
-        <h2 class="section-title apple-reveal" style="transition-delay:.08s">Secure your seat <em>at the table.</em></h2>
-        <p class="section-sub apple-reveal" style="transition-delay:.16s">Applications are open until <b style="color:#fff">15 November 2026</b>. Committee placements are confirmed by 25 November. All confirmed delegates receive the full preparation package — background guides, ROP primer, and Discord access.</p>
+        <h2 class="section-title apple-reveal" style="transition-delay:.08s">Secure Your Seat <em>At The Table.</em></h2>
+        <p class="section-sub apple-reveal" style="transition-delay:.16s">YSP MUN returns in 2027. Dates and the application window will be announced soon; register your interest to hear first. All confirmed delegates receive the full preparation package — background guides, ROP primer, and Discord access.</p>
 
         <div class="tier-list">
           <div class="tier apple-reveal" style="transition-delay:.22s">
@@ -1230,7 +1247,7 @@ setTimeout(finish,MAX);})();</script>
           </div>
         </div>
 
-        <p class="note apple-reveal" style="transition-delay:.4s">Fees collected via PayNow (SG), bank transfer, or PayPal. Receipts issued within 48 hours. Cancellations before 25 November 2026 receive an 80% refund.</p>
+        <p class="note apple-reveal" style="transition-delay:.4s">Fees collected via PayNow (SG), bank transfer, or PayPal. Receipts issued within 48 hours. Refund terms for 2027 will be published with the dates.</p>
 
         <div class="apply-subnav apple-reveal" style="transition-delay:.44s; margin-top:24px; padding-top:22px; border-top:1px solid rgba(255,255,255,.1)">
           <div style="font-family:ui-monospace,Menlo,monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.4); margin-bottom:12px">Before you register</div>
@@ -1332,7 +1349,7 @@ setTimeout(finish,MAX);})();</script>
 <section class="faq" id="faq" data-screen-label="10 FAQ">
   <div class="container">
     <span class="eyebrow mun-eye apple-reveal"><span class="leaf"></span> 08 / Before you write to us</span>
-    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Most-asked, <em class="mun">answered.</em></h2>
+    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Most-Asked, <em class="mun">Answered.</em></h2>
     <p class="section-sub apple-reveal" style="transition-delay:.16s">If you can't find it here, the Secretariat replies within 48 hours on weekdays. Email <a href="mailto:mun@ysp.org" style="color:var(--mun);font-weight:500">mun@ysp.org</a>.</p>
 
     <div class="faq-list">
@@ -1381,7 +1398,7 @@ setTimeout(finish,MAX);})();</script>
       <h2>Programmes</h2>
       <ul>
         <li data-comp-discovery data-comp-footer hidden><a href="essay-competition-2026.html">SIB x YSP Essay Competition</a></li>
-        <li><a href="mun.html">Winter MUN 2026 ★</a></li>
+        <li><a href="mun.html">YSP MUN 2027 ★</a></li>
         <li><a href="programmes.html">International Initiatives</a></li>
         <li><a href="grassroots.html">Grassroots Movements</a></li>
         <li><a href="interns.html">Internship</a></li>

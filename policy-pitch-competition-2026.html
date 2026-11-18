@@ -477,6 +477,20 @@ a{color:inherit}a:hover{color:var(--sage-deep)}
 @media(prefers-reduced-motion:reduce){.yf *{transition:none!important;animation:none!important}}
 </style>
 <link id="ysp-cursor-css" rel="stylesheet" href="assets/cursor/ysp-cursor.css">
+
+<style id="hm-style">.hm-host{position:relative;overflow:hidden;isolation:isolate}
+.hm-svg{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 46% 60% at 50% 45%,transparent 30%,#000 75%);mask-image:radial-gradient(ellipse 46% 60% at 50% 45%,transparent 30%,#000 75%)}
+.hm-host>*:not(.hm-svg){position:relative;z-index:1}
+@media (prefers-reduced-motion:no-preference){
+.hm-flow{stroke-dasharray:6 10;animation:hmflow 28s linear infinite}
+.hm-pulse{animation:hmpulse 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.hm-float{animation:hmfloat 14s ease-in-out infinite}
+.hm-sway{animation:hmsway 18s ease-in-out infinite;transform-origin:50% 100%}}
+@keyframes hmflow{to{stroke-dashoffset:-320}}
+@keyframes hmpulse{0%,100%{opacity:.55;transform:scale(.92)}50%{opacity:1;transform:scale(1.06)}}
+@keyframes hmfloat{0%,100%{translate:0 0}50%{translate:0 -10px}}
+@keyframes hmsway{0%,100%{rotate:0deg}50%{rotate:1.2deg}}
+@media (max-width:760px){.hm-svg{opacity:.55}}html,body{overflow-x:clip}.br-hero.hm-host{padding-bottom:clamp(90px,14vh,150px)!important}header.top.hm-host{padding-bottom:clamp(70px,10vh,120px)}</style>
 <style id="nav2-style">
 .nav .nav-links{gap:2px}
 .nav-dd{position:relative;display:inline-flex}
@@ -494,8 +508,12 @@ a{color:inherit}a:hover{color:var(--sage-deep)}
 .nav-dd-menu small{font-size:11.5px;font-weight:400;color:#7d857a}
 .nav-mega{flex-direction:row!important;gap:6px!important;min-width:0!important;width:max-content;padding:12px!important;left:0!important;transform:translate(0,-6px)!important}
 .nav-dd:hover .nav-mega,.nav-dd:focus-within .nav-mega,.nav-dd.open .nav-mega{transform:none!important}
+.nav-mega{display:grid!important;grid-template-columns:repeat(3,auto)}.nav-mega>[hidden]{display:none}
+.nav-links .nav-dd-menu a.nm-all{grid-column:1/-1;flex-direction:row;justify-content:flex-end;gap:6px;margin-top:6px;padding:10px 14px!important;border-top:1px solid rgba(31,42,34,.08);border-radius:0 0 12px 12px!important;font-size:13px;color:var(--sage-deep,#5d7a45)}
 .nm-col{display:flex;flex-direction:column;gap:1px;min-width:220px}
-.nm-col+.nm-col{border-left:1px solid rgba(31,42,34,.08);padding-left:6px}
+.nm-col+.nav-mega{display:grid!important;grid-template-columns:repeat(3,auto)}.nav-mega>[hidden]{display:none}
+.nav-links .nav-dd-menu a.nm-all{grid-column:1/-1;flex-direction:row;justify-content:flex-end;gap:6px;margin-top:6px;padding:10px 14px!important;border-top:1px solid rgba(31,42,34,.08);border-radius:0 0 12px 12px!important;font-size:13px;color:var(--sage-deep,#5d7a45)}
+.nm-col{border-left:1px solid rgba(31,42,34,.08);padding-left:6px}
 .nm-h{padding:8px 14px 6px;font:600 10.5px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
 .mnav-panel .mnav-h{padding:14px 18px 4px;font:600 11px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
 .mnav-panel.grouped a:not(.mnav-cta){min-height:44px;font-size:19px}
@@ -525,35 +543,47 @@ setTimeout(finish,MAX);})();</script>
     <div class="nav-links">
       <div class="nav-dd is-active"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Programmes <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Programmes"><div class="nm-col">
         <span class="nm-h">Initiatives</span>
-        <a role="menuitem" href="programmes.html">International Initiatives<small>All YSP programmes</small></a>
-        <a role="menuitem" href="mun.html">Winter MUN 2026 ★<small>5–7 Dec 2026 · virtual</small></a>
         <a role="menuitem" href="grassroots.html">Grassroots Movements<small>Community action</small></a>
-        <a role="menuitem" href="barometer.html">Youth Policy Barometer<small>Launching soon</small></a>
-        <a role="menuitem" href="studios.html">Studios<small>Creative production</small></a>
+        <a role="menuitem" href="learns.html">YSP Learns<small>Free learning portal</small></a>
+        <a role="menuitem" href="policy-circles.html">YSP Policy Circles<small>Youth dialogue · Pilot planned</small></a>
+        <a role="menuitem" href="programmes.html#civic-innovation-hub">YSP Civic Innovation Hub<small>Six-week project cycle</small></a>
+        <a role="menuitem" href="studios.html">YSP Studios<small>Creative production</small></a>
+        <a role="menuitem" href="barometer.html">YSP Barometer<small>Pilot edition 2027</small></a>
         </div><div class="nm-col">
         <span class="nm-h">Competitions</span>
+        <a role="menuitem" href="mun.html">YSP Model United Nations<small>2027 · dates to be announced</small></a>
         <a role="menuitem" href="essay-competition-2026.html">SIB × YSP Essay Competition<small>Entries open 1 Dec</small></a>
         <a role="menuitem" href="policy-pitch-competition-2026.html" class="active" aria-current="page">YSP Policy Pitch Competition<small>In development</small></a>
-        <a role="menuitem" href="policy-brief-competition.html">Policy Brief Competition<small>2026 results</small></a>
+        <a role="menuitem" href="policy-data-challenge.html">YSP Policy Data Challenge<small>Proposed 2027</small></a>
+        <a role="menuitem" href="youth-policy-debate-open.html">YSP Youth Policy Debate Open<small>Proposed 2027</small></a>
+        <a role="menuitem" href="visual-policy-challenge.html">YSP Visual Policy Challenge<small>Proposed 2027</small></a>
+        <a role="menuitem" href="policy-brief-competition.html">Global Policy Brief Competition<small>Annual · 2027 edition coming</small></a>
         </div><div class="nm-col">
         <span class="nm-h">Pathways</span>
-        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
-        <a role="menuitem" href="ambassadors.html">Ambassador Network<small>Global Youth Ambassadors</small></a>
-        <a role="menuitem" href="chapters.html">Global Chapters<small>Chapters &amp; chapter leaders</small></a>
+        <a role="menuitem" href="interns.html">GreenHouse Internship<small>Starts 14 Dec 2026</small></a>
+        <a role="menuitem" href="civic-futures-fellowship.html">Civic Futures Fellowship<small>10-week research fellowship</small></a>
+        <a role="menuitem" href="editorial-fellowship.html">YSP Editorial Fellowship<small>8-week editorial cycle</small></a>
+        <a role="menuitem" href="chapter-leadership-accelerator.html">Chapter Leadership Accelerator<small>4-week leadership programme</small></a>
+        </div><a role="menuitem" href="programmes.html" class="nm-all">View all programmes <span aria-hidden="true">→</span></a><div hidden>
         </div>      </div></div>
       <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Get Involved <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Get Involved">
-        <a role="menuitem" href="careers.html">Careers</a>
-        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
-        <a role="menuitem" href="ambassadors.html">Global Youth Ambassador Programme<small>Monthly intake</small></a>
+        <a role="menuitem" href="careers.html">Join the YSP Team<small>Volunteer &amp; leadership opportunities</small></a>
+        <a role="menuitem" href="interns.html">GreenHouse Internship<small>12-week programme · Remote</small></a>
+        <a role="menuitem" href="ambassadors.html">Global Youth Ambassador Programme<small>International network · Rolling intake</small></a>
+        <a role="menuitem" href="chapters.html">Global Chapters<small>Start or join a chapter</small></a>
+        <a role="menuitem" href="partners.html">Partner With YSP<small>Organisations &amp; collaborations</small></a>
       </div></div>
-      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Our Work">
-        <a role="menuitem" href="publications.html">Publications<small>Briefs, interviews & articles</small></a>
-        <a role="menuitem" href="interviews.html">Interviews</a>
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Our Work"><div class="nm-col">
+        <span class="nm-h">Research &amp; Publications</span>
+        <a role="menuitem" href="publications.html">Research &amp; Publications<small>Policy briefs, articles &amp; analysis</small></a>
+        <a role="menuitem" href="substack.html">Policy Insights<small>Evidence-based perspectives &amp; explainers</small></a>
+        <a role="menuitem" href="annual-reports.html">Reports &amp; Impact<small>Research findings &amp; annual reports</small></a>
+        </div><div class="nm-col">
+        <span class="nm-h">Stories &amp; Media</span>
+        <a role="menuitem" href="interviews.html">YSP Interviews<small>Conversations with changemakers</small></a>
         <a role="menuitem" href="ysp-talks.html">YSP Talks<small>The YSP podcast</small></a>
-        <a role="menuitem" href="global-spotlights.html">Global Spotlights</a>
-        <a role="menuitem" href="substack.html">Substack</a>
-        <a role="menuitem" href="annual-reports.html">Annual Reports</a>
-      </div></div>
+        <a role="menuitem" href="global-spotlights.html">Global Spotlights<small>Youth stories across borders</small></a>
+        </div>      </div></div>
       <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Portals <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Portals">
         <a role="menuitem" href="learns.html">YSP Learns<small>Learning Portal</small></a>
         <a role="menuitem" href="chapters.html">YSP Global Chapters<small>Chapters &amp; chapter leaders</small></a>
@@ -575,9 +605,9 @@ setTimeout(finish,MAX);})();</script>
 .pp-form{max-width:640px;margin:32px auto 0;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-2);overflow:hidden}.pp-form header{padding:26px 30px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#f3f8ef,#fff)}.pp-form header small{font-size:11px;letter-spacing:.16em;color:var(--sage-deep)}.pp-form header h3{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:26px;margin:6px 0 4px}.pp-form header p{margin:0;font-size:13.5px;color:var(--ink-mute)}.pp-form form{padding:26px 30px 30px;display:flex;flex-direction:column;gap:20px}.pp-form fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}.pp-form legend,.pp-form label.l{font-size:13px;font-weight:600;margin-bottom:8px}.pp-form .rad{display:flex;gap:10px;align-items:center;font-size:15px;color:var(--ink-soft)}.pp-form input[type=text],.pp-form select,.pp-form textarea{font:inherit;font-size:15px;width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(31,42,34,.18);background:var(--paper);color:var(--ink)}.pp-form textarea{min-height:110px;resize:vertical}.pp-form .wc{font-size:12px;color:var(--ink-mute);text-align:right;margin-top:4px}.pp-form .ack{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--ink-soft)}.pp-form .foot{display:flex;gap:14px;align-items:center;flex-wrap:wrap}.pp-form .foot span{font-size:13px;color:var(--ink-mute);flex:1;min-width:200px}
 .pp-rules{max-width:820px}.pp-rules .pbc-faq p,.pp-rules .pbc-faq li{color:var(--ink-soft);font-size:16px;line-height:1.65}.pp-rules .pbc-faq ul,.pp-rules .pbc-faq ol{margin:0 0 16px;padding-left:22px}.pp-rules .pbc-faq p{margin:0 0 14px}.pp-rules .pbc-faq summary{text-transform:none}.pp-rules .pbc-faq summary i{font-style:normal;color:var(--sage-deep);margin-right:14px}
 @media(max-width:900px){.pp-deck{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.pp-deck{grid-template-columns:minmax(0,1fr)}}</style><style>.pc-tl{grid-template-columns:repeat(3,minmax(0,1fr))}.pc-tl .w{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:6px}.pc-tl h4{margin:0 0 6px;font-size:15px;font-weight:600}@media(max-width:700px){.pc-tl{grid-template-columns:minmax(0,1fr)}}.pc-steps{grid-template-columns:repeat(4,minmax(0,1fr))}.pc-steps .pp-slide h3{font-size:22px}.pc-ex{margin-top:28px}.pc-ex small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:10px}.pc-q{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:300;font-size:clamp(24px,2.6vw,32px);line-height:1.3;color:var(--sage-deep);margin:0 0 18px;max-width:30ch;text-wrap:balance}@media(max-width:900px){.pc-tl{grid-template-columns:repeat(3,minmax(0,1fr))}.pc-tl .w{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:6px}.pc-tl h4{margin:0 0 6px;font-size:15px;font-weight:600}@media(max-width:700px){.pc-tl{grid-template-columns:minmax(0,1fr)}}.pc-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.pc-tl{grid-template-columns:repeat(3,minmax(0,1fr))}.pc-tl .w{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:6px}.pc-tl h4{margin:0 0 6px;font-size:15px;font-weight:600}@media(max-width:700px){.pc-tl{grid-template-columns:minmax(0,1fr)}}.pc-steps{grid-template-columns:minmax(0,1fr)}}</style>
-<section class="hero pbc-hero ec-hero" data-screen-label="01 Hero"><div class="mesh" aria-hidden="true"><span></span></div><div class="hero-inner"><div>
+<section class="hm-host hero pbc-hero ec-hero" data-screen-label="01 Hero"><svg class="hm-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs></defs><path d="M-40 760 C 380 720, 560 380, 900 260 S 1300 160, 1500 130" fill="none" stroke="rgba(110,140,80,0.2)" stroke-width="1.4"  class="hm-flow" style="animation-delay:-0s"/><path d="M-40 734 C 380 702, 560 438, 900 318 S 1300 218, 1500 200" fill="none" stroke="rgba(110,140,80,0.27)" stroke-width="2.0" stroke-dasharray="2 7" class="hm-flow" style="animation-delay:-2s"/><path d="M-40 708 C 380 684, 560 496, 900 376 S 1300 276, 1500 270" fill="none" stroke="rgba(110,140,80,0.34)" stroke-width="1.4"  class="hm-flow" style="animation-delay:-4s"/><path d="M-40 682 C 380 666, 560 554, 900 434 S 1300 334, 1500 340" fill="none" stroke="rgba(110,140,80,0.2)" stroke-width="2.0"  class="hm-flow" style="animation-delay:-6s"/><path d="M-40 656 C 380 648, 560 612, 900 492 S 1300 392, 1500 410" fill="none" stroke="rgba(110,140,80,0.27)" stroke-width="1.4" stroke-dasharray="2 7" class="hm-flow" style="animation-delay:-8s"/><path d="M-40 630 C 380 630, 560 670, 900 550 S 1300 450, 1500 480" fill="none" stroke="rgba(110,140,80,0.34)" stroke-width="2.0"  class="hm-flow" style="animation-delay:-10s"/><path d="M-40 604 C 380 612, 560 728, 900 608 S 1300 508, 1500 550" fill="none" stroke="rgba(110,140,80,0.2)" stroke-width="1.4"  class="hm-flow" style="animation-delay:-12s"/><circle cx="1030" cy="250" r="16" fill="rgba(110,140,80,.10)"/><circle cx="1030" cy="250" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/><circle cx="1180" cy="330" r="16" fill="rgba(110,140,80,.10)"/><circle cx="1180" cy="330" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/><circle cx="1290" cy="190" r="16" fill="rgba(110,140,80,.10)"/><circle cx="1290" cy="190" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/><circle cx="170" cy="690" r="16" fill="rgba(110,140,80,.10)"/><circle cx="170" cy="690" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/><circle cx="320" cy="640" r="16" fill="rgba(110,140,80,.10)"/><circle cx="320" cy="640" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/><circle cx="1120" cy="470" r="16" fill="rgba(110,140,80,.10)"/><circle cx="1120" cy="470" r="5" fill="rgba(110,140,80,.55)" class="hm-pulse"/></svg><div class="mesh" aria-hidden="true"><span></span></div><div class="hero-inner"><div>
 <div class="eyebrow-pill apple-reveal"><span class="tag"><span class="dot"></span>YSP 2026</span><span class="meta">Opens Sunday 6 December</span></div>
-<h1 class="serif apple-reveal" style="transition-delay:.1s">One place. One policy. <em>One measurable change.</em></h1>
+<h1 class="serif apple-reveal" style="transition-delay:.1s">One Place. One Policy. <em>One Measurable Change.</em></h1>
 <p class="ec-sub apple-reveal" style="transition-delay:.14s">YSP Global Policy Pitch Competition 2026</p>
 <p class="lede apple-reveal" style="transition-delay:.18s">If you could change one policy where you live, what would you change first?</p>
 <div class="hero-cta apple-reveal" style="transition-delay:.26s"><a href="#guide" class="btn btn-forest" data-magnetic>Build Your Pitch <span class="arr">↘</span></a><a href="#rules" class="btn btn-ghost">Read The Rules ▸</a></div>
@@ -631,7 +661,7 @@ setTimeout(finish,MAX);})();</script>
       <h2>Programmes</h2>
       <ul>
         <li data-comp-discovery data-comp-footer hidden><a href="essay-competition-2026.html">SIB x YSP Essay Competition</a></li>
-        <li><a href="mun.html">Winter MUN 2026 ★</a></li>
+        <li><a href="mun.html">YSP MUN 2027 ★</a></li>
         <li><a href="programmes.html">International Initiatives</a></li>
         <li><a href="grassroots.html">Grassroots Movements</a></li>
         <li><a href="interns.html">Internship</a></li>

@@ -416,9 +416,29 @@ a{color:inherit}a:hover{color:var(--ink)}
 @media(prefers-reduced-motion:reduce){.yf *{transition:none!important;animation:none!important}}
 </style>
 <link id="ysp-cursor-css" rel="stylesheet" href="assets/cursor/ysp-cursor.css">
+<style id="nav2-style">
+.nav .nav-links{gap:2px}
+.nav-dd{position:relative;display:inline-flex}
+.nav-dd-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 13px;border:0;border-radius:999px;background:transparent;font:500 13.5px/1.2 Inter,system-ui,sans-serif;color:var(--ink-soft,#3d4a40);cursor:pointer;white-space:nowrap;transition:background .25s,color .25s}
+.nav-dd-btn .car{font-size:10px;transition:transform .25s}
+.nav-dd:hover .nav-dd-btn,.nav-dd.open .nav-dd-btn,.nav-dd.is-active .nav-dd-btn{background:rgba(137,163,108,.14);color:var(--ink,#1f2a22)}
+.nav-dd.open .car,.nav-dd:hover .car{transform:rotate(180deg)}
+.nav-dd-menu{position:absolute;top:calc(100% + 10px);left:50%;min-width:260px;padding:8px;border-radius:18px;background:rgba(251,253,250,.98);border:1px solid rgba(31,42,34,.10);box-shadow:0 24px 56px -22px rgba(31,42,34,.35);display:flex;flex-direction:column;gap:1px;opacity:0;visibility:hidden;transform:translate(-50%,-6px);transition:opacity .2s,transform .2s,visibility 0s linear .2s;z-index:60}
+.nav-dd:last-child .nav-dd-menu{left:auto;right:-20px;transform:translate(0,-6px)}
+.nav-dd-menu::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu,.nav-dd.open .nav-dd-menu{opacity:1;visibility:visible;transform:translate(-50%,0);transition:opacity .2s,transform .2s}
+.nav-dd:last-child:hover .nav-dd-menu,.nav-dd:last-child:focus-within .nav-dd-menu,.nav-dd:last-child.open .nav-dd-menu{transform:none}
+.nav-links .nav-dd-menu a{display:flex;flex-direction:column;gap:2px;padding:9px 14px!important;border-radius:12px!important;font-size:14px;font-weight:500;color:var(--ink,#1f2a22);text-align:left;white-space:nowrap;background:transparent}
+.nav-links .nav-dd-menu a:hover,.nav-links .nav-dd-menu a.active{background:rgba(137,163,108,.14)}
+.nav-dd-menu small{font-size:11.5px;font-weight:400;color:#7d857a}
+.mnav-panel .mnav-h{padding:14px 18px 4px;font:600 11px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
+.mnav-panel.grouped a:not(.mnav-cta){min-height:44px;font-size:19px}
+.mnav-panel a small{display:none}
+</style>
+<script id="nav2-js">document.addEventListener('DOMContentLoaded',function(){var dds=document.querySelectorAll('.nav-dd');function closeAll(x){dds.forEach(function(d){if(d!==x){d.classList.remove('open');d.querySelector('.nav-dd-btn').setAttribute('aria-expanded','false')}})}dds.forEach(function(d){var b=d.querySelector('.nav-dd-btn');b.addEventListener('click',function(e){e.stopPropagation();closeAll(d);var o=d.classList.toggle('open');b.setAttribute('aria-expanded',o)})});document.addEventListener('click',function(){closeAll(null)});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null)});function group(){var p=document.getElementById('mnavPanel');if(!p||p.classList.contains('grouped'))return;var cta=p.querySelector('.mnav-cta'),home=p.querySelector('a[href="index.html"]');p.innerHTML='';if(home)p.appendChild(home);document.querySelectorAll('.nav-links .nav-dd-menu').forEach(function(m){var h=document.createElement('div');h.className='mnav-h';h.textContent=m.getAttribute('data-group');p.appendChild(h);m.querySelectorAll('a').forEach(function(a){var c=a.cloneNode(true);c.removeAttribute('role');p.appendChild(c)})});if(cta)p.appendChild(cta);p.classList.add('grouped')}group();setTimeout(group,300)});</script>
 </head>
 <body>
-<div id="ysp-loader" role="status" aria-live="polite"><span class="ldr-mark"><picture><source type="image/webp" srcset="assets/loader/ysp-mark.webp"><img src="assets/loader/ysp-mark.png" width="192" height="192" alt=""></picture></span><p class="ldr-word">Youth for Sustainable <em>Policy</em></p><span class="ldr-bar" aria-hidden="true"><i></i></span><span class="ldr-sr">Loading Youth for Sustainable Policy</span></div>
+<div id="ysp-loader" role="status" aria-live="polite"><span class="ldr-mark"><img src="data:image/webp;base64,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" width="192" height="192" alt=""></span><p class="ldr-word">Youth for Sustainable <em>Policy</em></p><span class="ldr-bar" aria-hidden="true"><i></i></span><span class="ldr-sr">Loading Youth for Sustainable Policy</span></div>
 <script id="ysp-loader-run">(function(){var h=document.documentElement;if(!h.classList.contains('ysp-loading'))return;
 var l=document.getElementById('ysp-loader'),t0=Date.now(),MIN=1100,MAX=3200,done=false;
 function finish(){if(done)return;done=true;try{sessionStorage.setItem('ysp-loaded','1')}catch(e){}
@@ -437,11 +457,38 @@ setTimeout(finish,MAX);})();</script>
       <span class="word">Y<i>S</i>P</span>
     </a>
     <div class="nav-links">
-      <a href="programmes.html" class="active">Programmes</a>
-      <a href="team.html">Team</a>
-      <a href="careers.html">Careers</a>
-      <a href="publications.html">Publications</a>
-      <a href="about.html">About</a>
+      <div class="nav-dd is-active"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Programmes <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Programmes">
+        <a role="menuitem" href="programmes.html">All programmes</a>
+        <a role="menuitem" href="mun.html">Winter MUN 2026<small>5–7 Dec 2026</small></a>
+        <a role="menuitem" href="policy-brief-competition.html">Policy Brief Competition<small>2026 results</small></a>
+        <a role="menuitem" href="essay-competition-2026.html">SIB × YSP Essay Competition<small>Entries open 1 Dec</small></a>
+        <a role="menuitem" href="barometer.html">Youth Policy Barometer<small>Launching soon</small></a>
+        <a role="menuitem" href="grassroots.html">Grassroots</a>
+        <a role="menuitem" href="studios.html">Studios</a>
+      </div></div>
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Get Involved <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Get Involved">
+        <a role="menuitem" href="careers.html">Careers</a>
+        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
+        <a role="menuitem" href="ambassadors.html">Global Youth Ambassador Programme<small>Monthly intake</small></a>
+      </div></div>
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Our Work">
+        <a role="menuitem" href="publications.html">Publications<small>Briefs, interviews & articles</small></a>
+        <a role="menuitem" href="interviews.html">Interviews</a>
+        <a role="menuitem" href="ysp-talks.html">YSP Talks<small>The YSP podcast</small></a>
+        <a role="menuitem" href="global-spotlights.html">Global Spotlights</a>
+        <a role="menuitem" href="substack.html">Substack</a>
+        <a role="menuitem" href="annual-reports.html">Annual Reports</a>
+      </div></div>
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Portals <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Portals">
+        <a role="menuitem" href="learns.html">YSP Learns<small>Learning Portal</small></a>
+        <a role="menuitem" href="chapters.html">YSP Global Chapters<small>Chapters &amp; chapter leaders</small></a>
+      </div></div>
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">About <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="About">
+        <a role="menuitem" href="about.html">About YSP</a>
+        <a role="menuitem" href="team.html">Team</a>
+        <a role="menuitem" href="partners.html">Partners</a>
+        <a role="menuitem" href="policies.html">Policies</a>
+      </div></div>
     </div>
     <a href="https://forms.gle/rKPHAxvj6NaM9Dd66" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-magnetic>Join YSP <span class="arr">↗</span></a>
   </nav>

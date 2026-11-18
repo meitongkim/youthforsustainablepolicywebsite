@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="en" class="ysp-cursor">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style id="ysp-loader-css">
+#ysp-loader{display:none}
+html.ysp-loading #ysp-loader{display:flex;position:fixed;inset:0;z-index:2147483000;flex-direction:column;align-items:center;justify-content:center;gap:22px;
+  background:radial-gradient(120% 90% at 50% 42%,#fbfdfa 0%,#eef4ea 58%,#dde8d3 100%);opacity:1;visibility:visible;
+  transition:opacity .45s cubic-bezier(.2,.7,.2,1),visibility 0s linear .45s;animation:yspLdrFailsafe .45s ease 4s forwards}
+#ysp-loader.out{opacity:0;visibility:hidden;pointer-events:none}
+#ysp-loader .ldr-mark{display:block;width:84px;height:84px;border-radius:24px;overflow:hidden;
+  box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 22px 44px -22px rgba(31,42,34,.45);animation:yspLdrBreathe 1.6s ease-in-out infinite;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+#ysp-loader .ldr-mark img{display:block;width:100%;height:100%}
+#ysp-loader.out .ldr-mark{transform:scale(1.08)}
+#ysp-loader .ldr-word{margin:0;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:clamp(22px,3.2vw,30px);letter-spacing:-.02em;color:#1c231d;text-align:center;padding:0 16px}
+#ysp-loader .ldr-word em{font-style:italic;font-weight:300;padding-right:.06em;
+  background:linear-gradient(100deg,#7d9a5a 0%,#b5cf7a 25%,#6f8c4d 50%,#b5cf7a 75%,#7d9a5a 100%);background-size:200% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:yspLdrFlow 2.4s linear infinite}
+#ysp-loader .ldr-bar{display:block;width:168px;height:2px;border-radius:2px;background:rgba(31,42,34,.1);overflow:hidden}
+#ysp-loader .ldr-bar i{display:block;height:100%;background:linear-gradient(90deg,#9ab078,#4f6638);transform-origin:left;transform:scaleX(0);
+  animation:yspLdrFill 1.1s cubic-bezier(.3,.7,.2,1) forwards}
+#ysp-loader.out .ldr-bar i{animation:none;transform:scaleX(1);transition:transform .2s ease}
+#ysp-loader .ldr-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
+@keyframes yspLdrBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+@keyframes yspLdrFlow{from{background-position:0% 50%}to{background-position:200% 50%}}
+@keyframes yspLdrFill{0%{transform:scaleX(0)}100%{transform:scaleX(.82)}}
+@keyframes yspLdrFailsafe{to{opacity:0;visibility:hidden;pointer-events:none}}
+@media (prefers-reduced-motion:reduce){
+  #ysp-loader .ldr-mark,#ysp-loader .ldr-word em,#ysp-loader .ldr-bar i{animation:none}
+  #ysp-loader .ldr-bar i{transform:scaleX(.82)}
+  #ysp-loader.out .ldr-mark{transform:none}
+}
+</style>
+<script id="ysp-loader-boot">(function(){var h=document.documentElement,s=false;try{s=!!sessionStorage.getItem('ysp-loaded')}catch(e){}if(!s){h.classList.add('ysp-loading','ysp-hold')}})();</script>
+<title>YSP Learns — Learning Portal · Youth for Sustainable Policy</title>
+<meta name="description" content="YSP Learns is the free learning portal of Youth for Sustainable Policy: six learning routes, a library of youth-written policy work, and ways to get started.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,1,300;9..144,1,400&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sage:#9ab078; --sage-deep:#89a36c; --sage-soft:#b9c99e;
+    --mist:#cfdfd8; --mist-pale:#e6efe9; --paper:#fbfdfa;
+    --ink:#1f2a22; --ink-soft:#3d4b40; --ink-mute:#67756a;
+    --line:rgba(31,42,34,.10);
+    --shadow-1: 0 1px 2px rgba(31,42,34,.04), 0 8px 24px -8px rgba(31,42,34,.10);
+    --shadow-2: 0 1px 2px rgba(31,42,34,.06), 0 24px 60px -20px rgba(122,150,108,.30);
+    --ease: cubic-bezier(.2,.7,.2,1);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Inter", system-ui, -apple-system, sans-serif;
+    color:var(--ink); background:var(--paper);
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    overflow-x:hidden; font-size:16px; line-height:1.55; letter-spacing:-0.005em;
+  }
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:var(--ysp-cursor-pointer,pointer)}
+  .serif{font-family:"Fraunces", Georgia, serif; font-weight:400; letter-spacing:-0.02em}
+
+  /* Grain */
+  .grain{
+    position:fixed; inset:0; pointer-events:none; z-index:9999;
+    opacity:.06; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12  0 0 0 0 0.16  0 0 0 0 0.13  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  /* Mesh */
+  .mesh{ position:absolute; inset:-10%; pointer-events:none; z-index:0; filter:blur(60px) saturate(1.05); opacity:.8 }
+  .mesh::before, .mesh::after, .mesh > span{ content:""; position:absolute; border-radius:50% }
+  .mesh::before{ width:55%; aspect-ratio:1; left:-8%; top:-12%; background:radial-gradient(circle, rgba(207,223,216,.95), rgba(207,223,216,0) 70%) }
+  .mesh::after{ width:60%; aspect-ratio:1; right:-12%; bottom:-18%; background:radial-gradient(circle, rgba(137,163,108,.7), rgba(137,163,108,0) 70%) }
+  .mesh > span{ width:48%; aspect-ratio:1; left:30%; top:25%; background:radial-gradient(circle, rgba(154,176,120,.5), rgba(154,176,120,0) 70%) }
+
+  /* Nav */
+  .nav-wrap{ position:fixed; top:18px; left:0; right:0; z-index:100; display:flex; justify-content:center; pointer-events:none }
+  .nav{
+    pointer-events:auto; display:flex; align-items:center; gap:8px;
+    padding:8px 8px 8px 18px;
+    background:rgba(255,255,255,.42);
+    backdrop-filter: blur(14px) saturate(1.4); -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    border:1px solid rgba(255,255,255,.55); border-radius:999px;
+    box-shadow: 0 1px 1px rgba(255,255,255,.6) inset, 0 10px 30px -12px rgba(31,42,34,.18);
+    transition: all .35s var(--ease);
+  }
+  .scrolled .nav{
+    background:rgba(255,255,255,.65);
+    backdrop-filter: blur(22px) saturate(1.6);
+    box-shadow: 0 1px 1px rgba(255,255,255,.7) inset, 0 18px 50px -18px rgba(31,42,34,.22);
+  }
+  .nav .brand{ display:flex; align-items:center; gap:10px; padding-right:14px; border-right:1px solid var(--line) }
+  .nav .brand img{ width:28px; height:28px; border-radius:8px; object-fit:cover; box-shadow:0 2px 6px rgba(31,42,34,.15) }
+  .nav .brand .word{ font-weight:600; letter-spacing:.02em; font-size:14px }
+  .nav .brand .word i{ font-style:normal; color:var(--sage-deep) }
+  .nav-links{ display:flex; align-items:center; gap:2px; padding:0 6px }
+  .nav-links a{ padding:8px 14px; border-radius:999px; font-size:13.5px; font-weight:500; color:var(--ink-soft); transition: background .25s, color .25s }
+  .nav-links a:hover, .nav-links a.active{ background:rgba(255,255,255,.7); color:var(--ink) }
+  .btn{ display:inline-flex; align-items:center; gap:8px; padding:10px 18px; border-radius:999px; font-size:13.5px; font-weight:500; transition: transform .25s var(--ease), box-shadow .25s, background .25s, filter .25s }
+  .btn-primary{ background:var(--ink); color:#fbfdfa; box-shadow: 0 1px 1px rgba(255,255,255,.18) inset, 0 8px 22px -8px rgba(31,42,34,.45) }
+  .btn-primary:hover{ background:#0f1612 }
+  .btn-forest{ background: linear-gradient(180deg, var(--sage), var(--sage-deep)); color:#fbfdfa; box-shadow: 0 1px 1px rgba(255,255,255,.35) inset, 0 10px 26px -10px rgba(137,163,108,.6) }
+  .btn-forest:hover{ filter:brightness(1.04) }
+  .btn-ghost{ color:var(--ink); background:rgba(255,255,255,.55); border:1px solid rgba(255,255,255,.7); backdrop-filter:blur(10px) }
+  .btn-ghost:hover{ background:rgba(255,255,255,.8) }
+  .btn .arr{ display:inline-block; transition: transform .25s var(--ease) }
+  .btn:hover .arr{ transform: translate(2px,-2px) }
+
+  /* Hero */
+  .hero{
+    position:relative; min-height:72vh; padding:170px 24px 90px;
+    background:
+      radial-gradient(120% 70% at 50% 0%, var(--mist) 0%, rgba(207,223,216,0) 60%),
+      linear-gradient(180deg, #f3f8ef 0%, #fbfdfa 60%);
+    overflow:hidden; isolation:isolate;
+  }
+  .hero-inner{ position:relative; z-index:2; max-width:1180px; margin:0 auto; text-align:center; display:flex; flex-direction:column; align-items:center }
+  .eyebrow-pill{
+    display:inline-flex; align-items:center; gap:10px; padding:6px;
+    background:rgba(255,255,255,.6); backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,.75); border-radius:999px;
+    box-shadow: 0 1px 1px rgba(255,255,255,.6) inset, 0 6px 18px -8px rgba(31,42,34,.15);
+    font-size:12.5px; color:var(--ink-soft); margin-bottom:32px;
+  }
+  .eyebrow-pill .tag{ display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border-radius:999px; background:var(--ink); color:#fbfdfa; font-weight:500; font-size:11.5px; letter-spacing:.04em }
+  .eyebrow-pill .tag .dot{ width:5px; height:5px; border-radius:50%; background:var(--sage) }
+  .eyebrow-pill .meta{ padding-right:14px }
+  .hero h1{
+    margin:0 0 22px; font-size: clamp(48px, 7vw, 104px);
+    line-height:1.02; letter-spacing:-0.035em; font-weight:400; color:var(--ink); max-width:14ch;
+  }
+  .hero h1 em{ font-style:italic; font-weight:300; color:var(--sage-deep) }
+  .hero p.lede{ max-width:60ch; margin:0 auto; color:var(--ink-soft); font-size:17.5px; line-height:1.65 }
+  .hero-cta{ display:flex; gap:10px; margin-top:36px; flex-wrap:wrap; justify-content:center }
+
+  /* Section base */
+  section{ position:relative; padding:130px 24px; isolation:isolate }
+  .container{ max-width:1180px; margin:0 auto; position:relative; z-index:2 }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--sage-deep); font-weight:500 }
+  .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background:var(--sage) }
+  h2.section-title{ font-size: clamp(36px, 5vw, 64px); line-height:1.04; letter-spacing:-0.028em; font-weight:400; color:var(--ink); margin:16px 0 18px; max-width:22ch }
+  h2.section-title em{ font-style:italic; color:var(--sage-deep); font-weight:300 }
+  p.section-sub{ max-width:62ch; color:var(--ink-soft); font-size:17px; margin:0 0 48px; line-height:1.65 }
+  .bg-light{ background: linear-gradient(180deg, #fbfdfa 0%, #f3f8ef 100%) }
+  .bg-mid{ background: linear-gradient(180deg, #f3f8ef 0%, #eaf1e3 100%) }
+  .bg-sage{ background: linear-gradient(180deg, #eaf1e3 0%, #d9e6cf 100%) }
+  .bg-deep{ background: linear-gradient(180deg, #d9e6cf 0%, #eaf1e3 60%, #fbfdfa 100%) }
+
+  /* ── Why YSP Matters — editorial light slab ── */
+  .why-section{
+    background:
+      radial-gradient(70% 60% at 12% 8%, rgba(207,223,216,.5), transparent 55%),
+      radial-gradient(60% 55% at 92% 95%, rgba(154,176,120,.25), transparent 55%),
+      linear-gradient(180deg, #fbfdfa 0%, #f3f8ef 100%);
+    padding:150px 24px 140px;
+  }
+  .why-marker{
+    display:inline-flex; align-items:center; gap:14px; margin-bottom:36px;
+    font-size:11.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--sage-deep); font-weight:600;
+  }
+  .why-marker .asterism{
+    font-family:"Fraunces", serif; font-weight:300; font-style:italic;
+    font-size:22px; color:var(--sage-deep); line-height:1;
+  }
+  .why-marker .label::before{
+    content:''; display:inline-block; width:28px; height:1px;
+    background:rgba(137,163,108,.5); vertical-align:middle; margin-right:14px;
+  }
+  .why-grid{
+    display:grid; grid-template-columns: minmax(280px, .82fr) minmax(0, 1.18fr); gap: 80px;
+    align-items:start;
+  }
+  .why-headline h2{
+    margin:0; font-weight:400;
+    font-size: clamp(54px, 8.5vw, 116px); line-height:.94; letter-spacing:-0.038em;
+    color:var(--ink);
+  }
+  .why-headline h2 .line{ display:block }
+  .why-headline h2 em{ font-style:italic; font-weight:300; color: var(--sage-deep) }
+  .why-aside{
+    margin-top: 36px; padding-top: 28px;
+    border-top: 1px solid var(--line);
+    display:flex; align-items:flex-start; gap:14px;
+    max-width: 36ch;
+  }
+  .why-aside .pip{
+    width:8px; height:8px; border-radius:50%; flex-shrink:0; margin-top:7px;
+    background: var(--sage); box-shadow: 0 0 0 4px rgba(154,176,120,.18);
+  }
+  .why-aside p{
+    margin:0; font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color: var(--ink-mute); line-height:1.7;
+  }
+
+  .why-body{ display:flex; flex-direction:column; gap: 26px; padding-top: 18px; max-width: 62ch }
+  .why-body p{ margin:0; font-size: 17px; line-height: 1.75; color: var(--ink-soft) }
+  .why-body p.lede{
+    font-family:"Fraunces", serif; font-weight:400;
+    font-size: clamp(22px, 2.3vw, 30px); line-height: 1.35; letter-spacing:-0.012em;
+    color:var(--ink); padding-bottom: 8px;
+  }
+  .why-body p.lede em{ font-style:italic; font-weight:300; color: var(--sage-deep) }
+  .why-body p b{ color: var(--ink); font-weight:500 }
+
+  /* Mechanisms — editorial row of 4 */
+  .mech-band{
+    background: linear-gradient(180deg, #f3f8ef 0%, #eaf1e3 100%);
+    padding:140px 24px;
+  }
+  .mech-grid{
+    display:grid; grid-template-columns: repeat(4, 1fr); gap:14px; margin-top:8px;
+  }
+  .mech-card{
+    position:relative; padding:30px 26px 32px; border-radius:22px;
+    background:rgba(255,255,255,.78); backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,.9);
+    box-shadow: var(--shadow-1);
+    display:flex; flex-direction:column; gap:10px; min-height:240px;
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+  }
+  .mech-card:hover{ transform: translateY(-4px); box-shadow: var(--shadow-2) }
+  .mech-card .num{
+    font-family:"Fraunces", serif; font-style:italic; font-weight:300;
+    font-size:28px; color:var(--sage-deep); line-height:1; letter-spacing:-0.02em;
+  }
+  .mech-card .title{
+    font-family:"Fraunces", serif; font-weight:400; font-size:24px;
+    letter-spacing:-0.018em; line-height:1.15; color:var(--ink);
+  }
+  .mech-card .title em{ font-style:italic; color:var(--sage-deep); font-weight:300 }
+  .mech-card .desc{ color:var(--ink-soft); font-size:14px; line-height:1.6; margin:0 }
+  .mech-card .footer-tag{
+    margin-top:auto; padding-top:14px;
+    font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-mute); font-weight:500;
+    border-top: 1px dashed rgba(31,42,34,.1);
+  }
+
+  /* Identity strip — what YSP is */
+  .identity-band{
+    background: linear-gradient(180deg, #eaf1e3 0%, #d9e6cf 100%);
+    padding:130px 24px;
+  }
+  .id-grid{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; margin-top:8px;
+  }
+  .id-card{
+    padding:32px 28px; border-radius:22px;
+    background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.72));
+    border:1px solid rgba(255,255,255,.95);
+    box-shadow: 0 1px 1px rgba(255,255,255,.9) inset, var(--shadow-1);
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .id-card .label{
+    display:inline-flex; align-items:center; gap:8px; align-self:flex-start;
+    padding:5px 12px; border-radius:999px;
+    background: rgba(154,176,120,.16); border:1px solid rgba(154,176,120,.28);
+    font-size:11px; color:var(--sage-deep); font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+  }
+  .id-card h3{
+    font-family:"Fraunces", serif; font-weight:400; font-size:30px;
+    letter-spacing:-0.022em; line-height:1.1; margin:0;
+  }
+  .id-card h3 em{ font-style:italic; color:var(--sage-deep); font-weight:300 }
+  .id-card p{ margin:0; color:var(--ink-soft); font-size:14.5px; line-height:1.65 }
+
+  /* Closing CTA */
+  .closing{
+    background: linear-gradient(180deg, #d9e6cf 0%, #eaf1e3 60%, #fbfdfa 100%);
+    padding:140px 24px 160px; overflow:hidden;
+  }
+  .closing .card{ position:relative; max-width:980px; margin:0 auto; text-align:center }
+  .closing h2{
+    font-family:"Fraunces", serif; font-weight:400;
+    font-size: clamp(42px, 6vw, 80px); line-height:1.04; letter-spacing:-0.03em; margin:0 0 22px;
+  }
+  .closing h2 em{ font-style:italic; color:var(--sage-deep); font-weight:300 }
+  .closing p{ color:var(--ink-soft); font-size:17px; max-width:54ch; margin:0 auto 36px; line-height:1.65 }
+  .closing-cta{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap }
+
+  /* Footer */
+  .footer{ background:var(--ink); color:#d6dcd2; padding:72px 24px 36px }
+  .footer-grid{ max-width:1180px; margin:0 auto; display:grid; grid-template-columns: 2fr 1fr 1fr; gap:48px }
+  .footer .brand{ display:flex; align-items:center; gap:12px; margin-bottom:18px }
+  .footer .brand img{ width:36px; height:36px; border-radius:10px }
+  .footer .brand .word{ font-weight:600; font-size:16px; letter-spacing:.02em; color:#fbfdfa }
+  .footer .brand .word i{ font-style:normal; color:var(--sage-soft) }
+  .footer .blurb{ color:#aab1a3; font-size:14px; max-width:38ch; line-height:1.55 }
+  .footer h5{ color:#fbfdfa; font-size:12px; letter-spacing:.18em; text-transform:uppercase; margin:0 0 14px; font-weight:500 }
+  .footer ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; font-size:14px }
+  .footer ul a{ color:#aab1a3; transition: color .2s }
+  .footer ul a:hover{ color:#fbfdfa }
+  .safe-band{
+    max-width:1180px; margin:56px auto 0; padding:18px 22px; border-radius:16px;
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10);
+    display:flex; gap:14px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+    font-size:13px; color:#d6dcd2;
+  }
+  .safe-band .left{ display:flex; align-items:center; gap:12px }
+  .safe-band .leaf{ width:24px; height:24px; border-radius:50%; background:linear-gradient(140deg, var(--sage), var(--sage-deep)); display:inline-flex; align-items:center; justify-content:center; color:#fbfdfa; font-size:12px; flex-shrink:0 }
+  .safe-band a{ color:#fbfdfa; text-decoration:underline; text-decoration-color:rgba(251,253,250,.4); text-underline-offset:3px }
+  .copy{ max-width:1180px; margin:24px auto 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12px; color:#7d857a; letter-spacing:.04em }
+
+  /* Reveals */
+  .apple-reveal{ opacity:0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); will-change: transform, opacity }
+  .is-in.apple-reveal{ opacity:1; transform: translateY(0) }
+
+  @media (max-width: 980px){
+    .nav-links{ display:none }
+    .why-grid{ grid-template-columns: 1fr; gap: 32px }
+    .why-headline h2{ font-size: clamp(48px, 11vw, 84px) }
+    .mech-grid{ grid-template-columns: 1fr 1fr }
+    .id-grid{ grid-template-columns: 1fr }
+    .footer-grid{ grid-template-columns: 1fr 1fr; gap:32px }
+  }
+  @media (max-width: 640px){
+    .mech-grid{ grid-template-columns: 1fr }
+    .hero{ padding:140px 20px 70px }
+    .why-section{ padding:110px 20px 100px }
+  }
+</style>
+<style id="btn-caps">.btn,.pbc-feat-btn,.btn-primary,.btn-forest,.btn-ghost{text-transform:capitalize}</style>
+<link rel="stylesheet" href="site-footer.css">
+<style id="pt-about-css">.pt-about{padding:96px 0}.pt-about .section-title{margin-bottom:32px}.pt-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.pt-card{display:grid;grid-template-columns:96px minmax(0,1fr);gap:24px;align-items:start;padding:28px;border-radius:22px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-1)}.pt-card img{width:96px;height:96px;border-radius:16px;object-fit:cover;display:block;border:1px solid var(--line)}.pt-card small{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-deep);font-weight:600;margin-bottom:6px}.pt-card h3{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:24px;line-height:1.15;margin:0 0 10px}.pt-card p{margin:0;font-size:15.5px;line-height:1.6;color:var(--ink-soft);text-wrap:pretty}@media(max-width:860px){.pt-grid{grid-template-columns:minmax(0,1fr)}}@media(max-width:480px){.pt-card{grid-template-columns:minmax(0,1fr)}}.pt-all{font-size:15px;color:var(--ink-soft);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--sage-soft)}.pt-all:hover{color:var(--ink)}</style>
+<style id="about-tighten">
+.why-section{padding-top:104px;padding-bottom:80px}
+.mech-band{padding-top:88px;padding-bottom:88px}
+.identity-band{padding-top:88px;padding-bottom:88px}
+.pt-about{padding-top:72px;padding-bottom:72px}
+.closing{padding-top:96px;padding-bottom:112px}
+@media(max-width:760px){.why-section{padding-top:72px;padding-bottom:56px}.mech-band,.identity-band{padding-top:64px;padding-bottom:64px}.pt-about{padding-top:56px;padding-bottom:56px}.closing{padding-top:72px;padding-bottom:88px}}
+</style>
+<link id="yf-font" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap">
+<style id="yf-style">
+.yf{--yf-bg:#1f2a22;--yf-text:#eef4ea;--yf-soft:#c3cdbd;--yf-head:#b9c99e;--yf-line:rgba(238,244,234,.14);
+  background:var(--yf-bg);color:var(--yf-text);padding:88px 24px 40px;font-family:"Inter",system-ui,sans-serif;position:relative;overflow:hidden}
+.yf *{box-sizing:border-box}
+.yf a{color:inherit;text-decoration:none}
+.yf a:focus-visible{outline:2px solid var(--yf-head);outline-offset:4px;border-radius:4px}
+.yf-in{max-width:1240px;margin:0 auto}
+.yf-hero{display:flex;align-items:center;gap:clamp(20px,3.4vw,52px)}
+.yf-logo{flex:none;width:clamp(56px,6.6vw,96px);aspect-ratio:1;border-radius:22%;overflow:hidden;
+  box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 30px 60px -28px rgba(0,0,0,.6)}
+.yf-logo img{width:100%;height:100%;display:block;object-fit:cover}
+.yf-mark{margin:0;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:clamp(28px,6vw,88px);line-height:1.05;white-space:nowrap;letter-spacing:-.035em;color:#f6f8f1}
+.yf-mark span{display:inline}
+.yf-mark em{font-style:italic;font-weight:300;letter-spacing:-.02em;padding-right:.08em;
+  background:linear-gradient(100deg,#8fa86b 0%,#c9dc8a 18%,#fbfdec 30%,#cfe3dc 42%,#8fa86b 58%,#b5cf7a 76%,#e7f0c4 88%,#8fa86b 100%);background-size:200% 100%;background-repeat:repeat-x;background-position:0% 50%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:yf-flow 3.6s linear infinite}
+@keyframes yf-flow{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+.yf-cols{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(4,minmax(0,1fr));gap:40px;margin-top:clamp(56px,7vw,96px)}
+.yf h2{all:unset;display:block;font-family:"Inter",system-ui,sans-serif;font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--yf-head);margin:0 0 26px}
+.yf-purpose p{margin:0;max-width:36ch;font-size:16.5px;line-height:1.65;color:var(--yf-text)}
+.yf-purpose .yf-motto{margin-top:22px;font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:400;font-size:21px;line-height:1.35;color:var(--yf-head)}
+.yf ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.yf ul a{font-size:15.5px;color:var(--yf-text);background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;padding-bottom:2px;transition:background-size .35s ease,color .2s}
+.yf ul a:hover{background-size:100% 1px;color:#fff}
+.yf ul a .ext{font-size:.8em;opacity:.6;margin-left:4px}
+.yf-bar{margin-top:clamp(56px,7vw,88px);padding-top:30px;border-top:1px solid var(--yf-line);display:grid;grid-template-columns:1fr auto 1fr;gap:20px 40px;align-items:center;font-size:14.5px;color:var(--yf-soft)}
+.yf-bar .yf-safe{text-align:center}
+.yf-bar .yf-safe b{color:var(--yf-text);font-weight:600}
+.yf-top{justify-self:end;display:inline-flex;align-items:center;gap:8px;color:var(--yf-text)!important;font-weight:600;white-space:nowrap}
+.yf-top svg{transition:transform .25s ease}
+.yf-top:hover svg{transform:translateY(-3px)}
+.yf-legal{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;margin-top:10px}
+.yf-legal a{color:var(--yf-soft);text-decoration:underline;text-decoration-color:rgba(195,205,189,.45);text-underline-offset:5px}
+.yf-legal a:hover{color:var(--yf-text);text-decoration-color:currentColor}
+@media(max-width:1100px){.yf-cols{grid-template-columns:repeat(4,minmax(0,1fr))}.yf-purpose{grid-column:1/-1}}
+@media(max-width:760px){.yf-cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 24px}}
+@media(max-width:760px){.yf{padding:64px 16px 32px}.yf-bar{grid-template-columns:1fr;justify-items:center;text-align:center}.yf-top{justify-self:center}}
+@media(max-width:560px){.yf-hero{flex-direction:column;align-items:flex-start;gap:20px}.yf-mark{white-space:normal;font-size:clamp(34px,10vw,44px)}}
+@media(prefers-reduced-motion:reduce){.yf *{transition:none!important;animation:none!important}}
+</style>
+<link id="ysp-cursor-css" rel="stylesheet" href="assets/cursor/ysp-cursor.css">
+<style id="about-lede">
+.hero-inner .lede{max-width:min(54ch,92%);font-size:clamp(16px,1.35vw + 9px,20px);line-height:1.62;text-wrap:balance;text-align:center;hyphens:manual}
+@media(max-width:560px){.hero-inner .lede{max-width:100%;font-size:16.5px;line-height:1.6}}
+</style>
+<style id="v27-style">
+.v27-band{padding:88px 24px;background:#fbfdfa}
+.v27-band .section-sub{max-width:min(100%,72ch)}
+.v27-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.v27-grid .id-card{background:#fff;border:1px solid rgba(46,74,52,.12)}
+.v27-date{display:inline-block;margin-top:22px;font-size:13px;color:var(--ink-soft)}
+@media (max-width:1000px){.v27-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.v27-band{padding:60px 16px}.v27-grid{grid-template-columns:1fr}}
+</style>
+<style id="learns-style">
+.ln-band{padding:72px 24px}
+.ln-band.alt{background:linear-gradient(180deg,#eaf1e3 0%,#dfe9d6 100%)}
+.ln-band .section-sub{max-width:min(100%,68ch)}
+.ln-routes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.ln-route{display:flex;flex-direction:column;gap:12px;padding:26px 24px;border-radius:22px;background:rgba(255,255,255,.78);border:1px solid rgba(46,74,52,.10);color:inherit;text-decoration:none;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.ln-route:hover{transform:translateY(-3px);box-shadow:0 22px 48px -26px rgba(31,42,34,.35)}
+.ln-route img{width:56px;height:56px;object-fit:contain}
+.ln-route small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-deep);font-weight:500}
+.ln-route h3{margin:0;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:22px;line-height:1.2;letter-spacing:-.01em}
+.ln-route h3 em{font-style:italic;font-weight:300;color:var(--sage-deep)}
+.ln-route p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.6}
+.ln-route .go{margin-top:auto;font-size:13.5px;font-weight:500;color:var(--ink)}
+.ln-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px;counter-reset:st}
+.ln-step{padding:26px 24px;border-radius:22px;background:#fff;border:1px solid rgba(46,74,52,.10)}
+.ln-step b{display:block;font-family:"Fraunces",Georgia,serif;font-weight:300;font-style:italic;font-size:34px;color:var(--sage-deep);line-height:1;margin-bottom:10px}
+.ln-step h3{margin:0 0 8px;font-size:17px;font-weight:600}
+.ln-step p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.6}
+.ln-lib{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+.ln-res{display:flex;flex-direction:column;gap:6px;padding:20px 22px;border-radius:18px;background:rgba(255,255,255,.85);border:1px solid rgba(46,74,52,.10);color:inherit;text-decoration:none;transition:background .25s,transform .25s}
+.ln-res:hover{background:#fff;transform:translateY(-2px)}
+.ln-res small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-deep);font-weight:500}
+.ln-res h3{margin:0;font-size:16.5px;font-weight:600}
+.ln-res p{margin:0;color:var(--ink-soft);font-size:14px;line-height:1.55}
+.ln-amb{display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:8px;padding:28px;border-radius:22px;background:#1f2a22;color:#e8eee2}
+.ln-amb h3{margin:0 0 6px;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:24px;color:#fbfdfa}
+.ln-amb h3 em{font-style:italic;font-weight:300;color:#b9c99e}
+.ln-amb p{margin:0;max-width:56ch;color:#c9d1c3;font-size:14.5px;line-height:1.6}
+.ln-amb a{flex-shrink:0;display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;background:#fbfdfa;color:#1f2a22;font-size:14px;font-weight:500;text-decoration:none}
+@media (max-width:1000px){.ln-routes,.ln-lib{grid-template-columns:repeat(2,1fr)}.ln-steps{grid-template-columns:1fr}}
+@media (max-width:640px){.ln-band{padding:52px 16px}.ln-routes,.ln-lib{grid-template-columns:1fr}}
+</style>
+<style id="hero-cta-gap">.hero .hero-inner > .closing-cta{margin-top:34px}@media (max-width:640px){.hero .hero-inner > .closing-cta{margin-top:26px}}</style>
+<style id="learns-v2">
+.hero .ln-badges{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:44px}
+.ln-badges img{width:64px;height:64px;object-fit:contain;filter:drop-shadow(0 14px 18px rgba(31,42,34,.18));animation:lnf 5s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes lnf{50%{transform:translateY(-8px)}}
+.ln-route{position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(246,250,242,.8))}
+.ln-route::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--sage-deep),rgba(185,201,158,.6))}
+.ln-route img{width:72px;height:72px;padding:6px;border-radius:20px;background:rgba(137,163,108,.12);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.ln-route:hover img{transform:rotate(-6deg) scale(1.06)}
+.ln-route .go{display:inline-flex;gap:6px;transition:gap .25s}
+.ln-route:hover .go{gap:10px;color:var(--sage-deep)}
+.ln-steps{position:relative}
+.ln-step{position:relative;background:rgba(255,255,255,.9);box-shadow:0 18px 40px -30px rgba(31,42,34,.4)}
+.ln-step b{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:#1f2a22;color:#e8eee2;font-style:normal;font-size:20px;margin-bottom:14px}
+@media (min-width:1001px){.ln-steps::before{content:"";position:absolute;left:12%;right:12%;top:52px;border-top:2px dashed rgba(137,163,108,.5);z-index:0}.ln-step{z-index:1}}
+.ln-ic{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;background:rgba(137,163,108,.14);color:var(--sage-deep);margin-bottom:6px}
+.ln-ic svg{width:20px;height:20px}
+.ln-res{position:relative}
+.ln-res::after{content:"↗";position:absolute;right:20px;top:20px;font-size:14px;color:var(--ink-soft);transition:transform .25s}
+.ln-res:hover::after{transform:translate(2px,-2px);color:var(--sage-deep)}
+.ln-amb{position:relative;overflow:hidden;isolation:isolate}
+.ln-amb::before{content:"";position:absolute;width:420px;height:420px;right:-120px;top:-200px;border-radius:50%;background:radial-gradient(circle,rgba(185,201,158,.35),transparent 65%);z-index:-1}
+@media (max-width:640px){.ln-badges img{width:48px;height:48px}.hero .ln-badges{gap:10px;margin-top:32px}}
+@media (prefers-reduced-motion:reduce){.ln-badges img{animation:none}}
+</style>
+<style id="learns-v3">
+.wl-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:start}
+.wl-lead{margin:6px 0 14px;font-family:"Fraunces",Georgia,serif;font-size:clamp(19px,1.6vw,23px);line-height:1.5;color:var(--ink)}
+.wl-sub{margin:0 0 22px;color:var(--ink-soft);font-size:15.5px;line-height:1.65}
+.wl-inc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.wl-inc li{padding:16px;border-radius:16px;background:rgba(137,163,108,.10);border:1px solid rgba(137,163,108,.18)}
+.wl-inc b{display:block;font-size:14.5px;margin-bottom:4px}.wl-inc span{font-size:13px;color:var(--ink-soft);line-height:1.5}
+.op-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
+.op-card{display:flex;flex-direction:column;gap:8px;padding:22px;border-radius:20px;background:#fff;border:1px solid rgba(46,74,52,.10);color:inherit;text-decoration:none;transition:transform .25s,box-shadow .25s}
+.op-card:hover{transform:translateY(-3px);box-shadow:0 22px 44px -28px rgba(31,42,34,.4)}
+.op-st{align-self:flex-start;display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;font-size:12px;font-weight:600}
+.op-st .pd{width:7px;height:7px;border-radius:50%}
+.op-st.open{background:rgba(137,163,108,.16);color:#3f5a2c}.op-st.open .pd{background:#6f8f4f}
+.op-st.soon{background:rgba(201,162,74,.16);color:#7a5b16}.op-st.soon .pd{background:#c9a24a}
+.op-card h3{margin:4px 0 0;font-size:17px;font-weight:600;line-height:1.3}
+.op-card p{margin:0;color:var(--ink-soft);font-size:14px;line-height:1.55}
+.op-go{margin-top:auto;padding-top:6px;font-size:13.5px;font-weight:500}
+.lc-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:26px 0 18px}
+.lc-search{display:flex;align-items:center;gap:10px;flex:1 1 280px;max-width:420px;padding:12px 16px;border-radius:999px;background:#fff;border:1px solid rgba(46,74,52,.14)}
+.lc-search svg{width:18px;height:18px;color:var(--ink-soft);flex-shrink:0}
+.lc-search input{border:0;outline:0;background:transparent;font:15px Inter,system-ui,sans-serif;color:var(--ink);width:100%}
+.lc-search:focus-within{border-color:var(--sage-deep);box-shadow:0 0 0 4px rgba(137,163,108,.15)}
+.lc-chips{display:flex;flex-wrap:wrap;gap:8px}
+.lc-chip{padding:9px 15px;border-radius:999px;border:1px solid rgba(46,74,52,.14);background:rgba(255,255,255,.7);font:500 13.5px Inter,system-ui,sans-serif;color:var(--ink-soft);cursor:pointer;transition:all .2s}
+.lc-chip:hover{border-color:var(--sage-deep);color:var(--ink)}
+.lc-chip.on{background:#1f2a22;border-color:#1f2a22;color:#eef4ea}
+.lc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.lc-card{position:relative;display:flex;flex-direction:column;gap:6px;padding:22px;border-radius:20px;background:rgba(255,255,255,.88);border:1px solid rgba(46,74,52,.10);color:inherit;text-decoration:none;transition:transform .25s,box-shadow .25s,background .25s}
+a.lc-card:hover{transform:translateY(-3px);background:#fff;box-shadow:0 22px 44px -28px rgba(31,42,34,.4)}
+.lc-card.is-soon{border-style:dashed;background:rgba(255,255,255,.55)}
+.lc-card[hidden]{display:none}
+.lc-type{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-deep);font-weight:600}
+.lc-free,.lc-soon{position:absolute;top:20px;right:20px;padding:4px 10px;border-radius:999px;font-size:11.5px;font-weight:600}
+.lc-free{background:#1f2a22;color:#eef4ea}.lc-soon{background:rgba(201,162,74,.16);color:#7a5b16}
+.lc-card h3{margin:2px 0 0;font-size:17px;font-weight:600;line-height:1.3}
+.lc-card p{margin:0;color:var(--ink-soft);font-size:14px;line-height:1.55}
+.lc-go{margin-top:auto;padding-top:8px;font-size:13.5px;font-weight:500}
+.is-soon .lc-go{color:var(--ink-soft);font-weight:400}
+.lc-empty{margin:20px 0 0;color:var(--ink-soft)}
+.cm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.cm-card{display:flex;flex-direction:column;gap:6px;padding:22px;border-radius:22px;background:#fff;border:1px solid rgba(46,74,52,.10);color:inherit;text-decoration:none;transition:transform .25s,box-shadow .25s}
+.cm-card:hover{transform:translateY(-3px);box-shadow:0 22px 44px -28px rgba(31,42,34,.4)}
+.cm-ph{width:72px;height:72px;border-radius:50%;overflow:hidden;margin-bottom:8px;box-shadow:0 0 0 4px rgba(137,163,108,.18)}
+.cm-ph img{width:100%;height:100%;object-fit:cover}
+.cm-cat{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-deep);font-weight:600}
+.cm-card h3{margin:0;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:22px;letter-spacing:-.01em}
+.cm-card p{margin:0;color:var(--ink-soft);font-size:14px;line-height:1.55}
+.cm-go{margin-top:auto;padding-top:8px;font-size:13.5px;font-weight:500}
+#changemakers .ln-amb{margin-top:24px}
+.up-card{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px;align-items:center;padding:36px;border-radius:28px;background:linear-gradient(140deg,#eaf1e3,#dfe9d6);border:1px solid rgba(137,163,108,.25)}
+.up-card h2{margin:10px 0 8px;font-weight:400;font-size:clamp(30px,3.4vw,44px);line-height:1.05;letter-spacing:-.02em}
+.up-card h2 em{font-style:italic;font-weight:300;color:var(--sage-deep)}
+.up-card p{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.6;max-width:52ch}
+.up-form{display:flex;gap:8px;padding:6px;border-radius:999px;background:#fff;border:1px solid rgba(46,74,52,.14)}
+.up-form input{flex:1;min-width:0;border:0;outline:0;padding:0 14px;font:15px Inter,system-ui,sans-serif;background:transparent}
+.up-form button{border:0;border-radius:999px;padding:12px 18px;background:#1f2a22;color:#eef4ea;font:500 14px Inter,system-ui,sans-serif;cursor:pointer;white-space:nowrap}
+@media (max-width:1000px){.wl-grid,.up-card{grid-template-columns:1fr;gap:24px}.op-grid{grid-template-columns:repeat(2,1fr)}.lc-grid,.cm-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.wl-inc,.op-grid,.lc-grid,.cm-grid{grid-template-columns:1fr}.up-card{padding:26px 20px}.up-form{flex-direction:column;border-radius:20px}.up-form input{padding:12px}}
+</style>
+<script id="learns-v3-js">document.addEventListener('DOMContentLoaded',function(){var q=document.getElementById('lcSearch'),chips=document.querySelectorAll('.lc-chip'),cards=document.querySelectorAll('.lc-card'),empty=document.getElementById('lcEmpty'),f='all';function run(){var t=(q.value||'').toLowerCase().trim(),n=0;cards.forEach(function(c){var ok=(f==='all'||c.dataset.type===f)&&(!t||c.textContent.toLowerCase().indexOf(t)>-1);c.hidden=!ok;if(ok)n++});empty.hidden=n>0}chips.forEach(function(b){b.addEventListener('click',function(){chips.forEach(function(x){x.classList.remove('on')});b.classList.add('on');f=b.dataset.f;run()})});q.addEventListener('input',run);var form=document.getElementById('upForm');form.addEventListener('submit',function(e){e.preventDefault();var em=document.getElementById('upEmail').value;window.location.href='mailto:youthforsustainablepolicy@gmail.com?subject='+encodeURIComponent('Subscribe to YSP Learns updates')+'&body='+encodeURIComponent('Please add '+em+' to the YSP Learns mailing list.')})});</script>
+<style id="ln-oneline">.ln-band .section-title{max-width:none;text-wrap:balance}.wl-grid{grid-template-columns:1fr!important;gap:8px!important}.wl-grid .wl-lead,.wl-grid .wl-sub{max-width:72ch}</style>
+<style id="nav2-style">
+.nav .nav-links{gap:2px}
+.nav-dd{position:relative;display:inline-flex}
+.nav-dd-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 13px;border:0;border-radius:999px;background:transparent;font:500 13.5px/1.2 Inter,system-ui,sans-serif;color:var(--ink-soft,#3d4a40);cursor:pointer;white-space:nowrap;transition:background .25s,color .25s}
+.nav-dd-btn .car{font-size:10px;transition:transform .25s}
+.nav-dd:hover .nav-dd-btn,.nav-dd.open .nav-dd-btn,.nav-dd.is-active .nav-dd-btn{background:rgba(137,163,108,.14);color:var(--ink,#1f2a22)}
+.nav-dd.open .car,.nav-dd:hover .car{transform:rotate(180deg)}
+.nav-dd-menu{position:absolute;top:calc(100% + 10px);left:50%;min-width:260px;padding:8px;border-radius:18px;background:rgba(251,253,250,.98);border:1px solid rgba(31,42,34,.10);box-shadow:0 24px 56px -22px rgba(31,42,34,.35);display:flex;flex-direction:column;gap:1px;opacity:0;visibility:hidden;transform:translate(-50%,-6px);transition:opacity .2s,transform .2s,visibility 0s linear .2s;z-index:60}
+.nav-dd:last-child .nav-dd-menu{left:auto;right:-20px;transform:translate(0,-6px)}
+.nav-dd-menu::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu,.nav-dd.open .nav-dd-menu{opacity:1;visibility:visible;transform:translate(-50%,0);transition:opacity .2s,transform .2s}
+.nav-dd:last-child:hover .nav-dd-menu,.nav-dd:last-child:focus-within .nav-dd-menu,.nav-dd:last-child.open .nav-dd-menu{transform:none}
+.nav-links .nav-dd-menu a{display:flex;flex-direction:column;gap:2px;padding:9px 14px!important;border-radius:12px!important;font-size:14px;font-weight:500;color:var(--ink,#1f2a22);text-align:left;white-space:nowrap;background:transparent}
+.nav-links .nav-dd-menu a:hover,.nav-links .nav-dd-menu a.active{background:rgba(137,163,108,.14)}
+.nav-dd-menu small{font-size:11.5px;font-weight:400;color:#7d857a}
+.mnav-panel .mnav-h{padding:14px 18px 4px;font:600 11px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
+.mnav-panel.grouped a:not(.mnav-cta){min-height:44px;font-size:19px}
+.mnav-panel a small{display:none}
+</style>
+<script id="nav2-js">document.addEventListener('DOMContentLoaded',function(){var dds=document.querySelectorAll('.nav-dd');function closeAll(x){dds.forEach(function(d){if(d!==x){d.classList.remove('open');d.querySelector('.nav-dd-btn').setAttribute('aria-expanded','false')}})}dds.forEach(function(d){var b=d.querySelector('.nav-dd-btn');b.addEventListener('click',function(e){e.stopPropagation();closeAll(d);var o=d.classList.toggle('open');b.setAttribute('aria-expanded',o)})});document.addEventListener('click',function(){closeAll(null)});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null)});function group(){var p=document.getElementById('mnavPanel');if(!p||p.classList.contains('grouped'))return;var cta=p.querySelector('.mnav-cta'),home=p.querySelector('a[href="index.html"]');p.innerHTML='';if(home)p.appendChild(home);document.querySelectorAll('.nav-links .nav-dd-menu').forEach(function(m){var h=document.createElement('div');h.className='mnav-h';h.textContent=m.getAttribute('data-group');p.appendChild(h);m.querySelectorAll('a').forEach(function(a){var c=a.cloneNode(true);c.removeAttribute('role');p.appendChild(c)})});if(cta)p.appendChild(cta);p.classList.add('grouped')}group();setTimeout(group,300)});</script>
+</head>
+<body>
+<div id="ysp-loader" role="status" aria-live="polite"><span class="ldr-mark"><img src="data:image/webp;base64,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" width="192" height="192" alt=""></span><p class="ldr-word">Youth for Sustainable <em>Policy</em></p><span class="ldr-bar" aria-hidden="true"><i></i></span><span class="ldr-sr">Loading Youth for Sustainable Policy</span></div>
+<script id="ysp-loader-run">(function(){var h=document.documentElement;if(!h.classList.contains('ysp-loading'))return;
+var l=document.getElementById('ysp-loader'),t0=Date.now(),MIN=1100,MAX=3200,done=false;
+function finish(){if(done)return;done=true;try{sessionStorage.setItem('ysp-loaded','1')}catch(e){}
+h.classList.remove('ysp-hold');l.classList.add('out');l.setAttribute('aria-hidden','true');l.removeAttribute('aria-live');
+setTimeout(function(){h.classList.remove('ysp-loading')},480)}
+window.addEventListener('load',function(){setTimeout(finish,Math.max(0,MIN-(Date.now()-t0)))});
+setTimeout(finish,MAX);})();</script>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Nav -->
+<div class="nav-wrap" id="navWrap">
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <img src="assets/ysp-logo.png" alt="" />
+      <span class="word">Y<i>S</i>P</span>
+    </a>
+    <div class="nav-links">
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Programmes <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Programmes">
+        <a role="menuitem" href="programmes.html">All programmes</a>
+        <a role="menuitem" href="mun.html">Winter MUN 2026<small>5–7 Dec 2026</small></a>
+        <a role="menuitem" href="policy-brief-competition.html">Policy Brief Competition<small>2026 results</small></a>
+        <a role="menuitem" href="essay-competition-2026.html">SIB × YSP Essay Competition<small>Entries open 1 Dec</small></a>
+        <a role="menuitem" href="barometer.html">Youth Policy Barometer<small>Launching soon</small></a>
+        <a role="menuitem" href="grassroots.html">Grassroots</a>
+        <a role="menuitem" href="studios.html">Studios</a>
+      </div></div>
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Get Involved <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Get Involved">
+        <a role="menuitem" href="careers.html">Careers</a>
+        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
+        <a role="menuitem" href="ambassadors.html">Global Youth Ambassador Programme<small>Monthly intake</small></a>
+      </div></div>
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Our Work">
+        <a role="menuitem" href="publications.html">Publications<small>Briefs, interviews & articles</small></a>
+        <a role="menuitem" href="interviews.html">Interviews</a>
+        <a role="menuitem" href="ysp-talks.html">YSP Talks<small>The YSP podcast</small></a>
+        <a role="menuitem" href="global-spotlights.html">Global Spotlights</a>
+        <a role="menuitem" href="substack.html">Substack</a>
+        <a role="menuitem" href="annual-reports.html">Annual Reports</a>
+      </div></div>
+      <div class="nav-dd is-active"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Portals <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Portals">
+        <a role="menuitem" href="learns.html" class="active" aria-current="page">YSP Learns<small>Learning Portal</small></a>
+        <a role="menuitem" href="chapters.html">YSP Global Chapters<small>Chapters &amp; chapter leaders</small></a>
+      </div></div>
+      <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">About <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="About">
+        <a role="menuitem" href="about.html">About YSP</a>
+        <a role="menuitem" href="team.html">Team</a>
+        <a role="menuitem" href="partners.html">Partners</a>
+        <a role="menuitem" href="policies.html">Policies</a>
+      </div></div>
+    </div>
+    <a href="https://forms.gle/rKPHAxvj6NaM9Dd66" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-magnetic>Join YSP <span class="arr">↗</span></a>
+  </nav>
+</div>
+
+<!-- Hero -->
+<section class="hero" data-screen-label="01 YSP Learns Hero">
+  <div class="mesh" aria-hidden="true"><span></span></div>
+  <div class="hero-inner">
+    <div class="eyebrow-pill apple-reveal">
+      <span class="tag"><span class="dot"></span>YSP Learns</span>
+      <span class="meta">The YSP Learning Portal · Free for everyone</span>
+    </div>
+    <h1 class="serif apple-reveal" style="border-width: 0px">Learn Policy,<br/><em>For Free.</em></h1>
+    <p class="lede apple-reveal" style="transition-delay:.22s">YSP Learns is the free learning portal of Youth for Sustainable Policy. Pick a route, read work by young people, and build the skills to take part in the policies that shape your life.</p>
+    <div class="closing-cta apple-reveal" style="transition-delay:.3s;justify-content:center">
+      <a href="#routes" class="btn btn-forest" data-magnetic>Start a route <span class="arr">↓</span></a>
+      <a href="#library" class="btn btn-ghost">Browse the library ▸</a>
+    </div>
+    <div class="ln-badges apple-reveal" style="transition-delay:.38s" aria-hidden="true"><img src="assets/routes/01-research-route-badge.png" alt="" width="64" height="64" style="--d:0.00s" loading="eager"/><img src="assets/routes/02-policy-route-badge.png" alt="" width="64" height="64" style="--d:0.35s" loading="eager"/><img src="assets/routes/03-business-route-badge.png" alt="" width="64" height="64" style="--d:0.70s" loading="eager"/><img src="assets/routes/04-diplomacy-route-badge.png" alt="" width="64" height="64" style="--d:1.05s" loading="eager"/><img src="assets/routes/05-environment-route-badge.png" alt="" width="64" height="64" style="--d:1.40s" loading="eager"/><img src="assets/routes/06-community-route-badge.png" alt="" width="64" height="64" style="--d:1.75s" loading="eager"/></div>
+  </div>
+</section>
+
+<!-- What is YSP Learns -->
+<section class="ln-band" id="about-learns" data-screen-label="02 What Is YSP Learns">
+  <div class="container wl-grid">
+    <div>
+      <span class="eyebrow apple-reveal"><span class="dot"></span> What Is YSP Learns?</span>
+      <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Learn From Young People <em>Changing Policy.</em></h2>
+    </div>
+    <div class="apple-reveal" style="transition-delay:.12s">
+      <p class="wl-lead">YSP Learns is where young people learn from each other how policy works and how to change it. Everything is made by YSP members, mentors and competition winners: routes, talks, guides and published work, all free.</p>
+      <p class="wl-sub">Change rarely happens in a straight line, so there is more than one way in. Read a winning brief, listen to a conversation, follow a route, or join a programme and learn by doing.</p>
+      <ul class="wl-inc">
+        <li><b>Free, always</b><span>No fees, no paywalls, no prerequisites.</span></li>
+        <li><b>Learn your way</b><span>Read, listen, practise or join a programme.</span></li>
+        <li><b>Publish and connect</b><span>Put your work out under your own name and meet a global network.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Opportunities -->
+<section class="ln-band alt" id="opportunities" data-screen-label="03 Opportunities">
+  <div class="container">
+    <span class="eyebrow apple-reveal"><span class="dot"></span> Opportunities</span>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Open Now <em>And Coming Up.</em></h2>
+    <div class="op-grid">
+        <a class="op-card apple-reveal" href="essay-competition-2026.html" style="transition-delay:0.00s"><span class="op-st open"><span class="pd"></span>Entries open 1 Dec</span><h3>SIB × YSP Essay Competition 2026</h3><p>Deadline 31 December 2026, 11:59 pm SGT. Ages 16–30, worldwide.</p><span class="op-go">See the prompts →</span></a>
+        <a class="op-card apple-reveal" href="interns.html" style="transition-delay:0.05s"><span class="op-st open"><span class="pd"></span>Starts 14 Dec</span><h3>GreenHouse Internship Programme</h3><p>12 weeks, remote, mentor-led. New applications in progress.</p><span class="op-go">Programme details →</span></a>
+        <a class="op-card apple-reveal" href="ambassadors.html" style="transition-delay:0.10s"><span class="op-st open"><span class="pd"></span>Monthly intake</span><h3>Global Youth Ambassador Programme</h3><p>Applications reopen every month, open to students and young leaders anywhere.</p><span class="op-go">Become an ambassador →</span></a>
+        <a class="op-card apple-reveal" href="mun.html" style="transition-delay:0.15s"><span class="op-st soon"><span class="pd"></span>5–7 Dec 2026</span><h3>YSP Winter MUN 2026</h3><p>A fully virtual youth diplomacy conference. Applications have closed for this edition.</p><span class="op-go">About the conference →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Routes -->
+<section class="ln-band" id="routes" data-screen-label="04 Learning Routes">
+  <div class="container">
+    <span class="eyebrow apple-reveal"><span class="dot"></span> Learning Routes</span>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Six Routes, <em>One Way In.</em></h2>
+    <p class="section-sub apple-reveal" style="transition-delay:.16s">Each route is a path through one kind of policy work, with the skills it needs and the kind of work you will produce. Start with the one closest to what you care about.</p>
+    <div class="ln-routes">
+      <a class="ln-route apple-reveal" href="research-route.html" style="transition-delay:0.00s">
+        <img src="assets/routes/01-research-route-badge.png" alt="" width="56" height="56" loading="lazy" />
+        <small>Route 01 · Research</small>
+        <h3>Build the <em>rigour</em> policy needs.</h3>
+        <p>Original research, literature reviews, and evidence-based analysis — from primary sources to publishable briefs that hold up under citation.</p>
+        <span class="go">Explore the Research route →</span>
+      </a>
+      <a class="ln-route apple-reveal" href="policy-route.html" style="transition-delay:0.05s">
+        <img src="assets/routes/02-policy-route-badge.png" alt="" width="56" height="56" loading="lazy" />
+        <small>Route 02 · Policy</small>
+        <h3>Write policy people <em>actually read.</em></h3>
+        <p>Briefs, explainers, and submissions that move from idea to credible recommendation — and that committee staff, journalists, and MPs can use.</p>
+        <span class="go">Explore the Policy route →</span>
+      </a>
+      <a class="ln-route apple-reveal" href="business-route.html" style="transition-delay:0.10s">
+        <img src="assets/routes/03-business-route-badge.png" alt="" width="56" height="56" loading="lazy" />
+        <small>Route 03 · Business</small>
+        <h3>Where firms meet <em>the public.</em></h3>
+        <p>Feasibility, stakeholder maps, ESG, and corporate governance — the policy work that happens at the boundary of a firm and the public it answers to.</p>
+        <span class="go">Explore the Business route →</span>
+      </a>
+      <a class="ln-route apple-reveal" href="diplomacy-route.html" style="transition-delay:0.15s">
+        <img src="assets/routes/04-diplomacy-route-badge.png" alt="" width="56" height="56" loading="lazy" />
+        <small>Route 04 · Diplomacy</small>
+        <h3>Across borders, <em>on record.</em></h3>
+        <p>Multilateral institutions, position papers, and ASEAN-facing Track-II dialogue — under the supervision of senior practitioners.</p>
+        <span class="go">Explore the Diplomacy route →</span>
+      </a>
+      <a class="ln-route apple-reveal" href="environment-route.html" style="transition-delay:0.20s">
+        <img src="assets/routes/05-environment-route-badge.png" alt="" width="56" height="56" loading="lazy" />
+        <small>Route 05 · Environment</small>
+        <h3>Policy that meets <em>the planet.</em></h3>
+        <p>Climate adaptation, green finance, and sustainable urban policy — grounded in regional realities and the cost of acting late.</p>
+        <span class="go">Explore the Environment route →</span>
+      </a>
+      <a class="ln-route apple-reveal" href="community-route.html" style="transition-delay:0.25s">
+        <img src="assets/routes/06-community-route-badge.png" alt="" width="56" height="56" loading="lazy" />
+        <small>Route 06 · Community</small>
+        <h3>Lived experience, <em>on the record.</em></h3>
+        <p>Grassroots research, ethical storytelling, and campaign design — turning local knowledge into formal policy proposals.</p>
+        <span class="go">Explore the Community route →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Catalog -->
+<section class="ln-band" id="library" data-screen-label="05 All Content">
+  <div class="container">
+    <span class="eyebrow apple-reveal"><span class="dot"></span> The Library</span>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">All Content, <em>All Free.</em></h2>
+    <div class="lc-bar apple-reveal">
+      <label class="lc-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="search" id="lcSearch" placeholder="Search YSP Learns" aria-label="Search YSP Learns"/></label>
+      <div class="lc-chips" role="group" aria-label="Filter by type"><button type="button" class="lc-chip on" data-f="all">All content</button><button type="button" class="lc-chip" data-f="talks">Talks</button><button type="button" class="lc-chip" data-f="read">Read</button><button type="button" class="lc-chip" data-f="comp">Competitions</button><button type="button" class="lc-chip" data-f="prog">Programmes</button><button type="button" class="lc-chip" data-f="soon">Coming soon</button></div>
+    </div>
+    <div class="lc-grid" id="lcGrid">
+        <a class="lc-card" data-type="talks" href="ysp-talks.html"><span class="ln-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><span class="lc-type">Talks</span><span class="lc-free">Free</span><h3>YSP Talks</h3><p>The YSP podcast: conversations with professionals about the ideas behind the policies that matter most to young people.</p><span class="lc-go">Start learning →</span></a>
+        <a class="lc-card" data-type="talks" href="interviews.html"><span class="ln-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><span class="lc-type">Talks</span><span class="lc-free">Free</span><h3>Interviews</h3><p>In-depth conversations with practitioners and organisations working on policy and sustainability.</p><span class="lc-go">Start learning →</span></a>
+        <a class="lc-card" data-type="read" href="publications.html"><span class="ln-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5C5.5 4 8.5 4 12 6c3.5-2 6.5-2 9-.5V19c-2.5-1.5-5.5-1.5-9 .5-3.5-2-6.5-2-9-.5z"/><path d="M12 6v13.5"/></svg></span><span class="lc-type">Read</span><span class="lc-free">Free</span><h3>Publications</h3><p>Briefs, interviews and articles by YSP members and competition winners, published under each author's own name.</p><span class="lc-go">Start learning →</span></a>
+        <a class="lc-card" data-type="read" href="global-spotlights.html"><span class="ln-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5C5.5 4 8.5 4 12 6c3.5-2 6.5-2 9-.5V19c-2.5-1.5-5.5-1.5-9 .5-3.5-2-6.5-2-9-.5z"/><path d="M12 6v13.5"/></svg></span><span class="lc-type">Read</span><span class="lc-free">Free</span><h3>Global Spotlights</h3><p>A monthly feature for Ambassador writing on policy, sustainability, civic engagement and international affairs.</p><span class="lc-go">Start learning →</span></a>
+        <a class="lc-card" data-type="read" href="substack.html"><span class="ln-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5C5.5 4 8.5 4 12 6c3.5-2 6.5-2 9-.5V19c-2.5-1.5-5.5-1.5-9 .5-3.5-2-6.5-2-9-.5z"/><path d="M12 6v13.5"/></svg></span><span class="lc-type">Read</span><span class="lc-free">Free</span><h3>Substack</h3><p>Policy thinking, written in public: essays and forum discussion from the YSP community.</p><span class="lc-go">Start learning →</span></a>
+        <a class="lc-card" data-type="read" href="mun-background-guides.html"><span class="ln-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4m0 0h11l-2 4 2 4H5"/></svg></span><span class="lc-type">Read</span><span class="lc-free">Free</span><h3>MUN Background Guides</h3><p>Committee briefings for YSP Winter MUN 2026, useful for anyone learning how multilateral debate works.</p><span class="lc-go">Start learning →</span></a>
+        <a class="lc-card" data-type="comp" href="policy-brief-competition.html"><span class="ln-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 20h8"/></svg></span><span class="lc-type">Competitions</span><span class="lc-free">Free</span><h3>Policy Brief Competition 2026</h3><p>100+ entries from 40 countries on fossil fuel subsidy reform. Read the 20 finalists and learn what a winning brief looks like.</p><span class="lc-go">Start learning →</span></a>
+        <a class="lc-card" data-type="comp" href="essay-competition-2026.html"><span class="ln-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8 20h8"/></svg></span><span class="lc-type">Competitions</span><span class="lc-free">Free</span><h3>SIB × YSP Essay Competition 2026</h3><p>Across Borders, Unequal Futures: six prompts on international issues for writers aged 16–30. Entries open 1 December.</p><span class="lc-go">Start learning →</span></a>
+        <a class="lc-card" data-type="prog" href="interns.html"><span class="ln-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.2A5 5 0 0 1 21 19"/></svg></span><span class="lc-type">Programmes</span><span class="lc-free">Free</span><h3>GreenHouse Internship Programme</h3><p>A 12-week remote, mentor-led internship across research, growth and communications, ending in a capstone.</p><span class="lc-go">Start learning →</span></a>
+        <a class="lc-card" data-type="prog" href="ambassadors.html"><span class="ln-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.2A5 5 0 0 1 21 19"/></svg></span><span class="lc-type">Programmes</span><span class="lc-free">Free</span><h3>Global Youth Ambassador Programme</h3><p>Represent YSP in your community, share learning opportunities and join a global network. Applications reopen monthly.</p><span class="lc-go">Start learning →</span></a>
+        <a class="lc-card" data-type="soon" href="barometer.html"><span class="ln-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg></span><span class="lc-type">Coming soon</span><span class="lc-soon">Coming soon</span><h3>Youth Policy Barometer</h3><p>A proposed research initiative exploring how young people experience and understand public policy.</p><span class="lc-go">Start learning →</span></a>
+        <div class="lc-card is-soon" data-type="soon"><span class="ln-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg></span><span class="lc-type">Coming soon</span><span class="lc-soon">Coming soon</span><h3>Masterclasses</h3><p>Short, focused sessions on core policy skills, led by YSP members and practitioners.</p><span class="lc-go">In development</span></div>
+        <div class="lc-card is-soon" data-type="soon"><span class="ln-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg></span><span class="lc-type">Coming soon</span><span class="lc-soon">Coming soon</span><h3>Workshops</h3><p>Hands-on group sessions where you practise a skill and leave with something you made.</p><span class="lc-go">In development</span></div>
+    </div>
+    <p class="lc-empty" id="lcEmpty" hidden>Nothing matches that search yet. Try another word, or browse all content.</p>
+  </div>
+</section>
+
+<!-- Changemakers -->
+<section class="ln-band alt" id="changemakers" data-screen-label="06 Changemakers">
+  <div class="container">
+    <span class="eyebrow apple-reveal"><span class="dot"></span> Who You Will Learn From</span>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Learn From <em>Young Changemakers.</em></h2>
+    <p class="section-sub apple-reveal" style="transition-delay:.16s">Everything on YSP Learns is made by young people. Start with winners of the YSP Policy Brief Competition 2026, writing on fuel subsidy reform from Angola to Germany.</p>
+    <div class="cm-grid">
+        <a class="cm-card apple-reveal" href="pbc-2026-kaashvi-sheoran.html" style="transition-delay:0.00s"><span class="cm-ph"><img src="assets/pbc2026/portraits/ysp-pbc2026-open-01-kaashvi-sheoran.webp" alt="Portrait of Kaashvi Sheoran" loading="lazy" width="96" height="96"/></span><span class="cm-cat">Open category</span><h3>Kaashvi Sheoran</h3><p>Who Receives the Dividend? Angola’s Fuel Subsidy Reform Needs an Automatic Social Guarantee</p><span class="cm-go">Read the brief →</span></a>
+        <a class="cm-card apple-reveal" href="pbc-2026-haoyuan-luo.html" style="transition-delay:0.05s"><span class="cm-ph"><img src="assets/pbc2026/portraits/ysp-pbc2026-open-02-haoyuan-luo.webp" alt="Portrait of Haoyuan Luo" loading="lazy" width="96" height="96"/></span><span class="cm-cat">Open category</span><h3>Haoyuan Luo</h3><p>The Diesel That Disappeared: Malaysia’s Fuel Subsidy Reform</p><span class="cm-go">Read the brief →</span></a>
+        <a class="cm-card apple-reveal" href="pbc-2026-oluwadurotimi-olusola.html" style="transition-delay:0.10s"><span class="cm-ph"><img src="assets/pbc2026/portraits/ysp-pbc2026-open-03-oluwadurotimi-olusola.webp" alt="Portrait of Oluwadurotimi Olusola" loading="lazy" width="96" height="96"/></span><span class="cm-cat">Open category</span><h3>Oluwadurotimi Olusola</h3><p>Pay the Farm, Price the Litre: Fixing Germany’s Farm Diesel Refund by 2030</p><span class="cm-go">Read the brief →</span></a>
+        <a class="cm-card apple-reveal" href="pbc-2026-atitaya-phoemphon.html" style="transition-delay:0.15s"><span class="cm-ph"><img src="assets/pbc2026/portraits/ysp-pbc2026-open-08-atitaya-phoemphon.webp" alt="Portrait of Atitaya Phoemphon" loading="lazy" width="96" height="96"/></span><span class="cm-cat">Open category</span><h3>Atitaya Phoemphon</h3><p>From Blanket Diesel Support to Targeted Protection: Completing Thailand’s Fuel Subsidy Reform by 2030</p><span class="cm-go">Read the brief →</span></a>
+        <a class="cm-card apple-reveal" href="pbc-2026-nandini-singh.html" style="transition-delay:0.20s"><span class="cm-ph"><img src="assets/pbc2026/portraits/ysp-pbc2026-junior-01-nandini-singh.webp" alt="Portrait of Nandini Singh" loading="lazy" width="96" height="96"/></span><span class="cm-cat">Junior category</span><h3>Nandini Singh</h3><p>Paying at the Counter: Fixing India’s Targeted LPG Subsidy by 2030</p><span class="cm-go">Read the brief →</span></a>
+        <a class="cm-card apple-reveal" href="pbc-2026-ahmed-wally.html" style="transition-delay:0.25s"><span class="cm-ph"><img src="assets/pbc2026/portraits/ysp-pbc2026-junior-03-ahmed-ayman-saleh-wally.webp" alt="Portrait of Ahmed Wally" loading="lazy" width="96" height="96"/></span><span class="cm-cat">Junior category</span><h3>Ahmed Wally</h3><p>Nigeria’s Petrol Subsidy Reform: Fiscal Gains, Weak Protection, and a Funded Transfer Rule</p><span class="cm-go">Read the brief →</span></a>
+    </div>
+    <div class="ln-amb apple-reveal" style="margin-top:28px">
+      <div><h3>YSP Learns <em>Ambassadors</em></h3><p>Ambassadors promote YSP Learns and share learning opportunities with young people in their own communities.</p></div>
+      <a href="ambassadors.html">Meet the Ambassadors →</a>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="ln-band alt" id="how" data-screen-label="07 How It Works">
+  <div class="container">
+    <span class="eyebrow apple-reveal"><span class="dot"></span> How It Works</span>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Learn, Practise, <em>Publish.</em></h2>
+    <div class="ln-steps">
+      <article class="ln-step apple-reveal"><b>01</b><h3>Choose a route</h3><p>Read the route page, see the skills it builds, and pick the one that fits your interests. Not sure? The Programmes page has a short pathway quiz.</p></article>
+      <article class="ln-step apple-reveal" style="transition-delay:.06s"><b>02</b><h3>Learn from real work</h3><p>Use the library: briefs, interviews, podcasts and essays by young people and practitioners show what good policy work looks like.</p></article>
+      <article class="ln-step apple-reveal" style="transition-delay:.12s"><b>03</b><h3>Put it into practice</h3><p>Join YSP to work on a route with mentors, enter a competition, or write for Global Spotlights, and publish under your own name.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- Updates -->
+<section class="ln-band" id="updates" data-screen-label="08 Updates">
+  <div class="container">
+    <div class="up-card apple-reveal">
+      <div><span class="eyebrow"><span class="dot"></span> Always Building</span><h2 class="serif">More Is <em>On The Way.</em></h2><p>We are always adding new learning to YSP Learns. Leave your email to hear about new routes, talks, masterclasses and opportunities.</p></div>
+      <form class="up-form" id="upForm"><input type="email" required placeholder="Your email address" aria-label="Your email address" id="upEmail"/><button type="submit">Keep me updated</button></form>
+    </div>
+  </div>
+</section>
+
+<!-- Closing CTA -->
+<section class="closing" data-screen-label="09 Join CTA">
+  <div class="mesh" aria-hidden="true"><span></span></div>
+  <div class="card">
+    <span class="eyebrow apple-reveal"><span class="dot"></span> Free, always</span>
+    <h2 class="apple-reveal" style="transition-delay:.1s">Ready To Go<br/><em>Further?</em></h2>
+    <p class="apple-reveal" style="transition-delay:.2s">Join YSP to learn alongside mentors and peers from around the world. There are no fees and no prerequisites.</p>
+    <div class="closing-cta apple-reveal" style="transition-delay:.3s">
+      <a href="https://forms.gle/rKPHAxvj6NaM9Dd66" target="_blank" rel="noopener noreferrer" class="btn btn-forest" data-magnetic>Join YSP <span class="arr">↗</span></a>
+      <a href="programmes.html" class="btn btn-ghost">Explore programmes ▸</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="yf" id="site-footer">
+<div class="yf-in">
+  <div class="yf-hero">
+    <a class="yf-logo" href="index.html" aria-label="Youth for Sustainable Policy home"><img src="assets/ysp-logo.png" width="512" height="512" alt="" loading="lazy" decoding="async"></a>
+    <p class="yf-mark">Youth for Sustainable <em>Policy</em></p>
+  </div>
+  <div class="yf-cols">
+    <div class="yf-purpose">
+      <h2>Purpose</h2>
+      <p>An international youth-led organisation advancing research, dialogue and public engagement on sustainability, governance and global affairs.</p>
+      <p class="yf-motto">Building the next generation of policy leaders.</p>
+    </div>
+    <nav aria-label="Programmes">
+      <h2>Programmes</h2>
+      <ul>
+        <li data-comp-discovery data-comp-footer hidden><a href="essay-competition-2026.html">SIB x YSP Essay Competition</a></li>
+        <li><a href="mun.html">Winter MUN 2026 ★</a></li>
+        <li><a href="programmes.html">International Initiatives</a></li>
+        <li><a href="grassroots.html">Grassroots Movements</a></li>
+        <li><a href="interns.html">Internship</a></li>
+        <li><a href="policy-brief-competition.html">Competitions</a></li>
+        <li><a href="ambassadors.html">Ambassador Network</a></li>
+        <li><a href="chapters.html">Global Chapters</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Pathways">
+      <h2>Pathways</h2>
+      <ul>
+        <li><a href="research-route.html">Research</a></li>
+        <li><a href="policy-route.html">Policy</a></li>
+        <li><a href="business-route.html">Business</a></li>
+        <li><a href="diplomacy-route.html">Diplomacy</a></li>
+        <li><a href="environment-route.html">Environment</a></li>
+        <li><a href="community-route.html">Community</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Organisation">
+      <h2>Organisation</h2>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="partners.html">Partners</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="index.html#join">Contact</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Resources">
+      <h2>Resources</h2>
+      <ul>
+        <li><a href="annual-reports.html">Annual Reports</a></li>
+        <li><a href="substack.html">Substack</a></li>
+        <li><a href="interviews.html">Interviews</a></li>
+        <li><a href="policies.html">Policies &amp; Declarations</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="yf-bar">
+    <span>© 2026 Youth for Sustainable Policy</span>
+    <span class="yf-safe">A safe, moderated space for youth. <b>For Youth, By Youth.</b></span>
+    <a class="yf-top" href="#" onclick="window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});return false;">Back to top <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 12V2m0 0L2.5 6.5M7 2l4.5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <div class="yf-legal"><a href="community-policy.html">Community Policy</a><a href="privacy-notice.html">Privacy Notice</a></div>
+  </div>
+</div>
+</footer>
+
+<script>
+(function(){
+  // Nav scroll state
+  const navWrap = document.getElementById('navWrap');
+  let lastScroll = -1;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY || window.pageYOffset;
+    if (y === lastScroll) return;
+    lastScroll = y;
+    if (y > 40) navWrap.classList.add('scrolled'); else navWrap.classList.remove('scrolled');
+  }, { passive:true });
+
+  // Magnetic buttons
+  document.querySelectorAll('[data-magnetic]').forEach(el => {
+    let raf=null, tx=0, ty=0, cx=0, cy=0;
+    const STR = 12;
+    function loop(){
+      tx += (cx-tx)*0.18; ty += (cy-ty)*0.18;
+      el.style.transform = 'translate(' + tx.toFixed(2) + 'px,' + ty.toFixed(2) + 'px)';
+      if (Math.abs(cx-tx)>0.05 || Math.abs(cy-ty)>0.05) raf = requestAnimationFrame(loop); else raf=null;
+    }
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      cx = ((e.clientX - (r.left + r.width/2)) / (r.width/2)) * STR;
+      cy = ((e.clientY - (r.top + r.height/2)) / (r.height/2)) * STR;
+      if (!raf) raf = requestAnimationFrame(loop);
+    });
+    el.addEventListener('mouseleave', () => { cx=0; cy=0; if (!raf) raf = requestAnimationFrame(loop); });
+  });
+
+  // Apple reveals
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting){
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.apple-reveal').forEach(el => io.observe(el));
+})();
+</script>
+<script src="mobile-nav.js"></script>
+<script src="competition-config.js"></script>
+</body>
+</html>

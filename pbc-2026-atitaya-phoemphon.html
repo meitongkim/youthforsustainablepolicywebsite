@@ -431,6 +431,11 @@ a{color:inherit}a:hover{color:var(--ink)}
 .nav-links .nav-dd-menu a{display:flex;flex-direction:column;gap:2px;padding:9px 14px!important;border-radius:12px!important;font-size:14px;font-weight:500;color:var(--ink,#1f2a22);text-align:left;white-space:nowrap;background:transparent}
 .nav-links .nav-dd-menu a:hover,.nav-links .nav-dd-menu a.active{background:rgba(137,163,108,.14)}
 .nav-dd-menu small{font-size:11.5px;font-weight:400;color:#7d857a}
+.nav-mega{flex-direction:row!important;gap:6px!important;min-width:0!important;width:max-content;padding:12px!important;left:0!important;transform:translate(0,-6px)!important}
+.nav-dd:hover .nav-mega,.nav-dd:focus-within .nav-mega,.nav-dd.open .nav-mega{transform:none!important}
+.nm-col{display:flex;flex-direction:column;gap:1px;min-width:220px}
+.nm-col+.nm-col{border-left:1px solid rgba(31,42,34,.08);padding-left:6px}
+.nm-h{padding:8px 14px 6px;font:600 10.5px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
 .mnav-panel .mnav-h{padding:14px 18px 4px;font:600 11px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
 .mnav-panel.grouped a:not(.mnav-cta){min-height:44px;font-size:19px}
 .mnav-panel a small{display:none}
@@ -457,15 +462,24 @@ setTimeout(finish,MAX);})();</script>
       <span class="word">Y<i>S</i>P</span>
     </a>
     <div class="nav-links">
-      <div class="nav-dd is-active"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Programmes <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Programmes">
-        <a role="menuitem" href="programmes.html">All programmes</a>
-        <a role="menuitem" href="mun.html">Winter MUN 2026<small>5–7 Dec 2026</small></a>
-        <a role="menuitem" href="policy-brief-competition.html">Policy Brief Competition<small>2026 results</small></a>
-        <a role="menuitem" href="essay-competition-2026.html">SIB × YSP Essay Competition<small>Entries open 1 Dec</small></a>
+      <div class="nav-dd is-active"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Programmes <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Programmes"><div class="nm-col">
+        <span class="nm-h">Initiatives</span>
+        <a role="menuitem" href="programmes.html">International Initiatives<small>All YSP programmes</small></a>
+        <a role="menuitem" href="mun.html">Winter MUN 2026 ★<small>5–7 Dec 2026 · virtual</small></a>
+        <a role="menuitem" href="grassroots.html">Grassroots Movements<small>Community action</small></a>
         <a role="menuitem" href="barometer.html">Youth Policy Barometer<small>Launching soon</small></a>
-        <a role="menuitem" href="grassroots.html">Grassroots</a>
-        <a role="menuitem" href="studios.html">Studios</a>
-      </div></div>
+        <a role="menuitem" href="studios.html">Studios<small>Creative production</small></a>
+        </div><div class="nm-col">
+        <span class="nm-h">Competitions</span>
+        <a role="menuitem" href="essay-competition-2026.html">SIB × YSP Essay Competition<small>Entries open 1 Dec</small></a>
+        <a role="menuitem" href="policy-pitch-competition-2026.html">YSP Policy Pitch Competition<small>In development</small></a>
+        <a role="menuitem" href="policy-brief-competition.html">Policy Brief Competition<small>2026 results</small></a>
+        </div><div class="nm-col">
+        <span class="nm-h">Pathways</span>
+        <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
+        <a role="menuitem" href="ambassadors.html">Ambassador Network<small>Global Youth Ambassadors</small></a>
+        <a role="menuitem" href="chapters.html">Global Chapters<small>Chapters &amp; chapter leaders</small></a>
+        </div>      </div></div>
       <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Get Involved <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="Get Involved">
         <a role="menuitem" href="careers.html">Careers</a>
         <a role="menuitem" href="interns.html">GreenHouse Internship Programme<small>Starts 14 Dec 2026</small></a>
@@ -582,7 +596,6 @@ setTimeout(finish,MAX);})();</script>
       <ul>
         <li><a href="annual-reports.html">Annual Reports</a></li>
         <li><a href="substack.html">Substack</a></li>
-        <li><a href="interviews.html">Interviews</a></li>
         <li><a href="policies.html">Policies &amp; Declarations</a></li>
       </ul>
     </nav>

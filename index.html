@@ -1070,31 +1070,6 @@ html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
 @keyframes hbBreathe{0%{transform:scale(1);opacity:.75}100%{transform:scale(1.12);opacity:1}}
 @media (prefers-reduced-motion:reduce){#heroBg,.hero-botanical,.hb-leaf,.hb-bloom{animation:none!important}}
 </style>
-<style id="cf-style">
-html,body{overflow-x:clip}
-.pbc-feat.cf{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:44px}
-.cf-vis{display:flex;flex-direction:column;gap:12px}.cf-vis .ec-feat-cap{margin:0}
-.cf-tiles{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.cf-t{display:flex;flex-direction:column;height:100%;border-radius:18px;overflow:hidden;background:rgba(255,255,255,.72);border:1px solid rgba(46,74,52,.10);color:var(--ink);text-decoration:none;transition:transform .25s,box-shadow .25s}
-.cf-t:hover{transform:translateY(-3px);box-shadow:0 16px 34px -20px rgba(40,60,30,.45)}.cf-t:focus-visible,.cf-steps a:focus-visible{outline:2px solid var(--sage-deep);outline-offset:2px}
-.cf-art{position:relative;display:grid;place-items:center;aspect-ratio:4/3;color:#fff;overflow:hidden}
-.cf-art svg{width:34%;height:auto;opacity:.95}.cf-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.cf-h0 .cf-art{background:linear-gradient(135deg,#8aa86b,#5d7a45)}.cf-h1 .cf-art{background:linear-gradient(135deg,#a7b97a,#6f8f52)}.cf-h2 .cf-art{background:linear-gradient(135deg,#7f9f8c,#4f6e5b)}
-.cf-h3 .cf-art{background:linear-gradient(135deg,#9db08a,#5f7b55)}.cf-h4 .cf-art{background:linear-gradient(135deg,#6f8f7a,#2e4a34)}.cf-h5 .cf-art{background:linear-gradient(135deg,#b6c48f,#7a8f4f)}
-.cf-n{display:block;padding:10px 12px 0;font:italic 400 13px/1 "Fraunces",Georgia,serif;color:var(--sage-deep)}.cf-tt{display:block;padding:4px 12px 12px;font-family:"Fraunces",Georgia,serif;font-size:15px;line-height:1.25}
-.cf-hero{position:relative;aspect-ratio:16/10;border-radius:22px;overflow:hidden;background:radial-gradient(120% 120% at 20% 10%,#ffffff 0%,#dfe9e3 45%,#b9cfc4 100%);border:1px solid rgba(46,74,52,.12);color:#3f6151}
-.cf-hero-fb{position:absolute;inset:0;display:grid;place-items:center}.cf-hero-fb svg{width:86%;height:auto}
-.cf-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.cf-timer{position:absolute;left:14px;bottom:14px;display:grid;grid-template-columns:auto auto;grid-template-rows:auto auto;column-gap:10px;align-items:center;padding:10px 16px 10px 12px;border-radius:16px;background:rgba(31,42,34,.88);color:#fbfdfa;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-.cf-timer svg{grid-row:1/3;width:28px;height:28px;color:#b9cfa0}.cf-timer b{font:400 24px/1 "Fraunces",Georgia,serif}.cf-timer small{font:600 10px/1.2 Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#cfe0b9}
-.cf-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
-.cf-steps a{display:flex;flex-direction:column;gap:4px;height:100%;padding:12px;border-radius:16px;background:rgba(255,255,255,.72);border:1px solid rgba(46,74,52,.10);color:var(--ink);text-decoration:none;transition:transform .25s}
-.cf-steps a:hover{transform:translateY(-2px)}.cf-si{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:#2e4a34;color:#fff;margin-bottom:4px}.cf-si svg{width:18px;height:18px}
-.cf-steps .cf-n{padding:0}.cf-steps .cf-tt{padding:0;font-size:14px}
-@media (prefers-reduced-motion:reduce){.cf-t,.cf-steps a{transition:none}.cf-t:hover,.cf-steps a:hover{transform:none}}
-@media (max-width:980px){.pbc-feat.cf{grid-template-columns:minmax(0,1fr);gap:28px}}
-@media (max-width:560px){.cf-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.cf-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.cf-tt{font-size:14px}}
-</style>
 <style id="nav2-style">
 .nav .nav-links{gap:2px}
 .nav-dd{position:relative;display:inline-flex}
@@ -1140,6 +1115,75 @@ html,body{overscroll-behavior-y:none}.nav-wrap{top:30px!important}.mnav-panel{to
 </style>
 <script id="nav2-js">document.addEventListener('DOMContentLoaded',function(){var dds=document.querySelectorAll('.nav-dd');function closeAll(x){dds.forEach(function(d){if(d!==x){d.classList.remove('open');d.querySelector('.nav-dd-btn').setAttribute('aria-expanded','false')}})}dds.forEach(function(d){var b=d.querySelector('.nav-dd-btn');b.addEventListener('click',function(e){e.stopPropagation();closeAll(d);var o=d.classList.toggle('open');b.setAttribute('aria-expanded',o)})});document.addEventListener('click',function(){closeAll(null)});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null)});function group(){var p=document.getElementById('mnavPanel');if(!p||p.classList.contains('grouped'))return;var cta=p.querySelector('.mnav-cta'),home=p.querySelector('a[href="index.html"]');p.innerHTML='';if(home){home.classList.add('mg-home');p.appendChild(home)}var groups=[];document.querySelectorAll('.nav-links .nav-dd-menu').forEach(function(m,i){var name=m.getAttribute('data-group');var g=document.createElement('div');g.className='mg';var id='mg-'+i;var btn=document.createElement('button');btn.type='button';btn.className='mg-b';btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-controls',id);var links=m.querySelectorAll('a:not(.nm-all)');btn.innerHTML='<span>'+name+'</span><em>'+links.length+'</em><i aria-hidden="true"></i>';var c=document.createElement('div');c.className='mg-c';c.id=id;c.hidden=true;var cols=m.querySelectorAll('.nm-col');function addLink(a,wrap){var x=a.cloneNode(true);x.removeAttribute('role');wrap.appendChild(x);if(x.classList.contains('active'))g.dataset.cur='1'}if(cols.length){cols.forEach(function(col){var h=col.querySelector('.nm-h');var sec=document.createElement('div');sec.className='mg-s';if(h){var hh=document.createElement('div');hh.className='mg-h';hh.textContent=h.textContent;sec.appendChild(hh)}var gr=document.createElement('div');gr.className='mg-g';col.querySelectorAll('a').forEach(function(a){addLink(a,gr)});sec.appendChild(gr);c.appendChild(sec)})}else{var gr=document.createElement('div');gr.className='mg-g';m.querySelectorAll('a').forEach(function(a){addLink(a,gr)});c.appendChild(gr)}var all=m.querySelector('a.nm-all');if(all){var x=all.cloneNode(true);x.removeAttribute('role');x.className='mg-all';c.appendChild(x)}g.appendChild(btn);g.appendChild(c);p.appendChild(g);groups.push(g);btn.addEventListener('click',function(){var open=btn.getAttribute('aria-expanded')!=='true';groups.forEach(function(o){o.querySelector('.mg-b').setAttribute('aria-expanded','false');o.querySelector('.mg-c').hidden=true;o.classList.remove('on')});if(open){btn.setAttribute('aria-expanded','true');c.hidden=false;g.classList.add('on');setTimeout(function(){var r=g.getBoundingClientRect(),pr=p.getBoundingClientRect();if(r.top<pr.top||r.top>pr.top+60)p.scrollTo({top:p.scrollTop+r.top-pr.top-8,behavior:'smooth'})},10)}})});var cur=groups.filter(function(g){return g.dataset.cur})[0];if(cur){cur.querySelector('.mg-b').click()}if(cta)p.appendChild(cta);p.classList.add('grouped')}group();setTimeout(group,300)});</script>
 <style id="hero-top">section.hero#top{padding-top:72px}@media (max-width:760px){section.hero#top{padding-top:64px}}</style>
+<style id="cf-style">
+html,body{overflow-x:clip}
+.pbc-feat.cf{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:44px}
+.cf-vis{display:flex;flex-direction:column;gap:12px}.cf-vis .ec-feat-cap{margin:0}
+.cf-tiles{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.cf-t{display:flex;flex-direction:column;height:100%;border-radius:18px;overflow:hidden;background:rgba(255,255,255,.72);border:1px solid rgba(46,74,52,.10);color:var(--ink);text-decoration:none;transition:transform .25s,box-shadow .25s}
+.cf-t:hover{transform:translateY(-3px);box-shadow:0 16px 34px -20px rgba(40,60,30,.45)}.cf-t:focus-visible,.cf-steps a:focus-visible{outline:2px solid var(--sage-deep);outline-offset:2px}
+.cf-art{position:relative;display:grid;place-items:center;aspect-ratio:4/3;color:#fff;overflow:hidden}
+.cf-art svg{width:34%;height:auto;opacity:.95}.cf-art img{position:absolute;inset:6%;width:88%;height:88%;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(30,60,35,.16));transition:transform .5s cubic-bezier(.2,.8,.2,1)}.cf-art:has(img){background:radial-gradient(circle at 50% 58%,#eef5ea,#dfeadb 75%)!important}.cf-art:has(img) svg{display:none}.cf-t:hover .cf-art img{transform:translateY(-4px) scale(1.04)}
+.cf-h0 .cf-art{background:linear-gradient(135deg,#8aa86b,#5d7a45)}.cf-h1 .cf-art{background:linear-gradient(135deg,#a7b97a,#6f8f52)}.cf-h2 .cf-art{background:linear-gradient(135deg,#7f9f8c,#4f6e5b)}
+.cf-h3 .cf-art{background:linear-gradient(135deg,#9db08a,#5f7b55)}.cf-h4 .cf-art{background:linear-gradient(135deg,#6f8f7a,#2e4a34)}.cf-h5 .cf-art{background:linear-gradient(135deg,#b6c48f,#7a8f4f)}
+.cf-n{display:block;padding:10px 12px 0;font:italic 400 13px/1 "Fraunces",Georgia,serif;color:var(--sage-deep)}.cf-tt{display:block;padding:4px 12px 12px;font-family:"Fraunces",Georgia,serif;font-size:15px;line-height:1.25}
+.cf-hero{position:relative;aspect-ratio:16/10;border-radius:22px;overflow:hidden;background:radial-gradient(120% 120% at 20% 10%,#ffffff 0%,#dfe9e3 45%,#b9cfc4 100%);border:1px solid rgba(46,74,52,.12);color:#3f6151}
+.cf-hero-fb{position:absolute;inset:0;display:grid;place-items:center}.cf-hero-fb svg{width:86%;height:auto}
+.cf-hero img{position:absolute;inset:4% 3% 4% 3%;width:94%;height:92%;object-fit:contain}.cf-hero:has(img) .cf-hero-fb{display:none}
+.cf-timer{position:absolute;left:14px;bottom:14px;display:grid;grid-template-columns:auto auto;grid-template-rows:auto auto;column-gap:10px;align-items:center;padding:10px 16px 10px 12px;border-radius:16px;background:rgba(31,42,34,.88);color:#fbfdfa;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.cf-timer svg{grid-row:1/3;width:28px;height:28px;color:#b9cfa0}.cf-timer b{font:400 24px/1 "Fraunces",Georgia,serif}.cf-timer small{font:600 10px/1.2 Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#cfe0b9}
+.cf-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.cf-steps a{display:flex;flex-direction:column;gap:4px;height:100%;padding:12px;border-radius:16px;background:rgba(255,255,255,.72);border:1px solid rgba(46,74,52,.10);color:var(--ink);text-decoration:none;transition:transform .25s}
+.cf-steps a:hover{transform:translateY(-2px)}.cf-si{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:#2e4a34;color:#fff;margin-bottom:4px}.cf-si svg{width:18px;height:18px}
+.cf-steps .cf-n{padding:0}.cf-steps .cf-tt{padding:0;font-size:14px}
+@media (prefers-reduced-motion:reduce){.cf-t,.cf-steps a{transition:none}.cf-t:hover,.cf-steps a:hover{transform:none}}
+@media (max-width:980px){.pbc-feat.cf{grid-template-columns:minmax(0,1fr);gap:28px}}
+@media (max-width:560px){.cf-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.cf-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.cf-tt{font-size:14px}}
+</style>
+<style id="vz-home">
+.hier-card .vz-hic{position:absolute;right:18px;top:16px;width:136px;height:136px;object-fit:contain;filter:drop-shadow(0 14px 18px rgba(30,60,35,.18));transition:transform .45s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.hier-card.primary .vz-hic,.hier-card.evidence .vz-hic{width:158px;height:158px}
+.hier-card:hover .vz-hic{transform:translateY(-6px) rotate(-3deg) scale(1.04)}
+.hier-card:has(.vz-hic){min-height:224px}.hier-card:has(.vz-hic) h3,.hier-card:has(.vz-hic) p,.hier-card:has(.vz-hic) .hchips{padding-right:150px}.hier-card.primary:has(.vz-hic) h3,.hier-card.primary:has(.vz-hic) .hchips,.hier-card.evidence:has(.vz-hic) h3,.hier-card.evidence:has(.vz-hic) p{padding-right:172px}
+.hier-card:has(.vz-hic) .harr{top:auto;bottom:22px;right:22px}
+@media (max-width:560px){.hier-card .vz-hic,.hier-card.primary .vz-hic,.hier-card.evidence .vz-hic{width:96px;height:96px;right:10px;top:12px}.hier-card:has(.vz-hic) h3,.hier-card:has(.vz-hic) p,.hier-card:has(.vz-hic) .hchips,.hier-card.primary:has(.vz-hic) h3,.hier-card.primary:has(.vz-hic) .hchips,.hier-card.evidence:has(.vz-hic) h3,.hier-card.evidence:has(.vz-hic) p{padding-right:96px}.hier-card:has(.vz-hic){min-height:0;padding-bottom:70px}}
+</style>
+<style id="pt-sdr-css">.pt-mono{width:96px;height:96px;border-radius:16px;display:grid;place-items:center;border:1px solid var(--line);background:radial-gradient(circle at 30% 25%,#eef5ea,#d6e4d1);font-family:"Fraunces",Georgia,serif;font-size:26px;letter-spacing:.04em;color:var(--sage-deep)}.pt-card .pt-link{margin-top:12px}.pt-card .pt-link a{font-size:14.5px;font-weight:600;color:var(--sage-deep);text-decoration:none;border-bottom:1px solid currentColor}</style>
+<style id="by-real">.vis-bylines .by .av-img{width:24px;height:24px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 0 0 1.5px #fff}.vis-bylines .by .av-ini-s{display:inline-grid;place-items:center;flex:none;font-size:9px;font-weight:600;color:#fff}</style>
+<style id="tc-css">
+.tc{position:relative;margin-top:32px}
+.test-grid.tc-track{display:flex!important;grid-template-columns:none!important;gap:14px;margin:0;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:4px 2px 18px;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.test-grid.tc-track::-webkit-scrollbar{display:none}
+.test-grid.tc-track>.test-card{flex:0 0 calc((100% - 28px)/3);scroll-snap-align:start}
+.tc-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:6px}
+.tc-dots{display:flex;gap:6px}.tc-dots button{width:8px;height:8px;border-radius:50%;border:0;padding:0;background:rgba(46,74,52,.22);cursor:pointer;transition:width .3s,background .3s}
+.tc-dots button[aria-current="true"]{width:22px;border-radius:6px;background:var(--sage-deep)}
+.tc-btns{display:flex;gap:8px}.tc-btns button{width:42px;height:42px;border-radius:50%;border:1px solid rgba(46,74,52,.18);background:#fff;color:var(--ink);font-size:16px;cursor:pointer;transition:background .2s,transform .2s}
+.tc-btns button:hover{background:#eef4ea;transform:translateY(-1px)}
+.tc-btns button:focus-visible,.tc-dots button:focus-visible{outline:2px solid var(--sage-deep);outline-offset:2px}
+@media (max-width:1000px){.test-grid.tc-track>.test-card{flex-basis:calc((100% - 14px)/2)}}
+@media (max-width:640px){.test-grid.tc-track>.test-card{flex-basis:86%}}
+</style>
+<style id="hero-av">.av-stack>img{width:30px;height:30px;border-radius:50%;border:2px solid #fbfdfa;margin-left:-9px;object-fit:cover;display:block;box-shadow:0 1px 4px rgba(31,42,34,.15)}.av-stack>img:first-child{margin-left:0}</style>
+<style id="pc-css">
+#partners .pc{position:relative}
+#partners .pt-grid.pc-track{display:flex!important;grid-template-columns:none!important;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:4px 2px 18px;overscroll-behavior-x:contain}
+#partners .pc-track::-webkit-scrollbar{display:none}
+#partners .pc-track>.pt-card{flex:0 0 calc((100% - 36px)/3);scroll-snap-align:start;display:flex!important;flex-direction:column;gap:16px;padding:26px;border-radius:24px;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+#partners .pc-track>.pt-card:hover{transform:translateY(-4px);box-shadow:0 22px 40px -26px rgba(30,60,35,.45)}
+#partners .pc-track>.pt-card>img,#partners .pc-track>.pt-card>.pt-mono{width:72px;height:72px;border-radius:18px}
+#partners .pc-track>.pt-card .pt-mono{font-size:20px}
+#partners .pc-track>.pt-card h3{font-size:22px}
+#partners .pc-track>.pt-card p:not(.pt-link){display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;font-size:15px}
+#partners .pc-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:4px}
+#partners .pc-nav[hidden]{display:none}
+#partners .pc-dots{display:flex;gap:6px}#partners .pc-dots button{width:8px;height:8px;border-radius:50%;border:0;padding:0;background:rgba(46,74,52,.22);cursor:pointer;transition:width .3s,background .3s}
+#partners .pc-dots button[aria-current="true"]{width:22px;border-radius:6px;background:var(--sage-deep)}
+#partners .pc-btns{display:flex;gap:8px}#partners .pc-btns button{width:42px;height:42px;border-radius:50%;border:1px solid rgba(46,74,52,.18);background:#fff;color:var(--ink);font-size:16px;cursor:pointer}
+#partners .pc-btns button:focus-visible,#partners .pc-dots button:focus-visible{outline:2px solid var(--sage-deep);outline-offset:2px}
+@media (max-width:1000px){#partners .pc-track>.pt-card{flex-basis:calc((100% - 18px)/2)}}
+@media (max-width:640px){#partners .pc-track>.pt-card{flex-basis:86%}}
+</style>
 </head>
 <body>
 <div id="ysp-loader" role="status" aria-live="polite"><span class="ldr-mark"><img src="data:image/webp;base64,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" width="192" height="192" alt=""></span><p class="ldr-word">Youth for Sustainable <em>Policy</em></p><span class="ldr-bar" aria-hidden="true"><i></i></span><span class="ldr-sr">Loading Youth for Sustainable Policy</span></div>
@@ -1257,9 +1301,7 @@ setTimeout(finish,MAX);})();</script>
     </div>
 
     <div class="avatar-row">
-      <span class="av-stack">
-        <span class="av1"></span><span class="av2"></span><span class="av3"></span><span class="av4"></span>
-      </span>
+      <span class="av-stack"><img src="assets/home/hero-av-1.webp" width="28" height="28" alt="" decoding="async"><img src="assets/home/hero-av-2.webp" width="28" height="28" alt="" decoding="async"><img src="assets/home/hero-av-3.webp" width="28" height="28" alt="" decoding="async"><img src="assets/home/hero-av-4.webp" width="28" height="28" alt="" decoding="async"><img src="assets/home/hero-av-5.webp" width="28" height="28" alt="" decoding="async"></span>
       <span>700+ youth across 83 countries</span>
     </div>
     <div class="pillar-belt" aria-label="Research, Education, Action">
@@ -1278,7 +1320,7 @@ setTimeout(finish,MAX);})();</script>
 <p><b style="font-weight:600;color:var(--ink)">SIB × YSP International Youth Essay Competition 2026</b><br>Explore six questions connecting social justice, sustainability and international affairs.</p>
 <div class="pbc-feat-row"><a class="pbc-feat-btn solid" href="essay-competition-2026.html">Explore The Competition <span>↗</span></a></div>
 </div>
-<div class="cf-vis"><p class="ec-feat-cap">Six Prompts</p><ol class="cf-tiles"><li><a href="essay-competition-2026.html#prompts" class="cf-t cf-h0"><span class="cf-art"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-3.8-6-8.5A3.5 3.5 0 0 1 12 10a3.5 3.5 0 0 1 6 2.5C18 17.2 12 21 12 21Z"/><path d="M4 8l3-3 3 3M14 8l3-3 3 3"/></svg><img src="assets/competitions/essay-p1.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span><span class="cf-n">01</span><span class="cf-tt">The care-worker migration bargain</span></a></li><li><a href="essay-competition-2026.html#prompts" class="cf-t cf-h1"><span class="cf-art"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="4" width="10" height="16" rx="2"/><path d="M10 2h4M12 8l-2 4h4l-2 4"/></svg><img src="assets/competitions/essay-p2.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span><span class="cf-n">02</span><span class="cf-tt">The hidden price of the green transition</span></a></li><li><a href="essay-competition-2026.html#prompts" class="cf-t cf-h2"><span class="cf-art"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg><img src="assets/competitions/essay-p3.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span><span class="cf-n">03</span><span class="cf-tt">Moving without losing home</span></a></li><li><a href="essay-competition-2026.html#prompts" class="cf-t cf-h3"><span class="cf-art"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="10" rx="1.5"/><path d="M7 8v10M11 8v10M15 8v10M3 21c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/></svg><img src="assets/competitions/essay-p4.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span><span class="cf-n">04</span><span class="cf-tt">After the shipping container</span></a></li><li><a href="essay-competition-2026.html#prompts" class="cf-t cf-h4"><span class="cf-art"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19.5 10 4 4 0 0 1 18 18Z"/><circle cx="12" cy="14" r="1.6"/></svg><img src="assets/competitions/essay-p5.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span><span class="cf-n">05</span><span class="cf-tt">The people behind the machine</span></a></li><li><a href="essay-competition-2026.html#prompts" class="cf-t cf-h5"><span class="cf-art"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 16h6"/></svg><img src="assets/competitions/essay-p6.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span><span class="cf-n">06</span><span class="cf-tt">A passport to participation</span></a></li></ol></div>
+<div class="cf-vis"><p class="ec-feat-cap">Six Prompts</p><ol class="cf-tiles"><li><a href="essay-competition-2026.html#prompts" class="cf-t cf-h0"><span class="cf-art"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-3.8-6-8.5A3.5 3.5 0 0 1 12 10a3.5 3.5 0 0 1 6 2.5C18 17.2 12 21 12 21Z"/><path d="M4 8l3-3 3 3M14 8l3-3 3 3"/></svg><img src="assets/competitions/essay-p1.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span><span class="cf-n">01</span><span class="cf-tt">The care-worker migration bargain</span></a></li><li><a href="essay-competition-2026.html#prompts" class="cf-t cf-h1"><span class="cf-art"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="4" width="10" height="16" rx="2"/><path d="M10 2h4M12 8l-2 4h4l-2 4"/></svg><img src="assets/competitions/essay-p2.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span><span class="cf-n">02</span><span class="cf-tt">The hidden price of the green transition</span></a></li><li><a href="essay-competition-2026.html#prompts" class="cf-t cf-h2"><span class="cf-art"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg><img src="assets/competitions/essay-p3.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span><span class="cf-n">03</span><span class="cf-tt">Moving without losing home</span></a></li><li><a href="essay-competition-2026.html#prompts" class="cf-t cf-h3"><span class="cf-art"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="10" rx="1.5"/><path d="M7 8v10M11 8v10M15 8v10M3 21c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/></svg><img src="assets/competitions/essay-p4.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span><span class="cf-n">04</span><span class="cf-tt">After the shipping container</span></a></li><li><a href="essay-competition-2026.html#prompts" class="cf-t cf-h4"><span class="cf-art"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 1 1 1-9.9A6 6 0 0 1 19.5 10 4 4 0 0 1 18 18Z"/><circle cx="12" cy="14" r="1.6"/></svg><img src="assets/competitions/essay-p5.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span><span class="cf-n">05</span><span class="cf-tt">The people behind the machine</span></a></li><li><a href="essay-competition-2026.html#prompts" class="cf-t cf-h5"><span class="cf-art"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 16h6"/></svg><img src="assets/competitions/essay-p6.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"></span><span class="cf-n">06</span><span class="cf-tt">A passport to participation</span></a></li></ol></div>
 </div>
 </section>
 <section class="pbc-feat-sec" style="padding-top:0" id="policy-pitch-competition" data-screen-label="Featured: Policy Pitch Competition 2026">
@@ -1289,7 +1331,7 @@ setTimeout(finish,MAX);})();</script>
 <p><b style="font-weight:600;color:var(--ink)">YSP Global Policy Pitch Competition 2026</b><br>Pitch one evidence-backed change for a place you know. Free for ages 16–30 worldwide, solo or in teams of up to three.</p>
 <div class="pbc-feat-row"><a class="pbc-feat-btn solid" href="policy-pitch-competition-2026.html">Explore The Competition <span>↗</span></a></div>
 </div>
-<div class="cf-vis"><div class="cf-hero"><span class="cf-hero-fb" aria-hidden="true"><svg viewBox="0 0 400 260" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 200C80 150 120 210 180 170S300 110 380 140" stroke-opacity=".35" stroke-dasharray="4 8"/><path d="M40 60h90M40 90h60M260 40l40 30-40 30" stroke-opacity=".25"/><path d="M200 70c-24 0-40 18-40 40 0 32 40 74 40 74s40-42 40-74c0-22-16-40-40-40Z" fill="rgba(255,255,255,.7)" stroke-opacity=".8"/><circle cx="200" cy="110" r="12" stroke-opacity=".8"/></svg></span><img src="assets/competitions/pitch-hero.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"><span class="cf-timer" aria-label="Three-minute pitch"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 3h6"/></svg><b>3:00</b><small>Three-Minute Pitch</small></span></div><ol class="cf-steps"><li><a href="policy-pitch-competition-2026.html#guide"><span class="cf-si"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11Z"/><circle cx="12" cy="10" r="2.2"/></svg></span><span class="cf-n">01</span><span class="cf-tt">Name the place and the problem</span></a></li><li><a href="policy-pitch-competition-2026.html#guide"><span class="cf-si"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16Z"/><path d="M14 6l3 3"/></svg></span><span class="cf-n">02</span><span class="cf-tt">Say what you would change</span></a></li><li><a href="policy-pitch-competition-2026.html#guide"><span class="cf-si"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19h4v-4h4v-4h4V7"/><path d="M15 5h4v4"/></svg></span><span class="cf-n">03</span><span class="cf-tt">Explain a practical first step</span></a></li><li><a href="policy-pitch-competition-2026.html#guide"><span class="cf-si"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><rect x="6" y="12" width="3" height="6"/><rect x="11" y="8" width="3" height="10"/><rect x="16" y="4" width="3" height="14"/></svg></span><span class="cf-n">04</span><span class="cf-tt">Name one outcome to measure</span></a></li></ol></div>
+<div class="cf-vis"><div class="cf-hero"><span class="cf-hero-fb" aria-hidden="true"><svg viewBox="0 0 400 260" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 200C80 150 120 210 180 170S300 110 380 140" stroke-opacity=".35" stroke-dasharray="4 8"/><path d="M40 60h90M40 90h60M260 40l40 30-40 30" stroke-opacity=".25"/><path d="M200 70c-24 0-40 18-40 40 0 32 40 74 40 74s40-42 40-74c0-22-16-40-40-40Z" fill="rgba(255,255,255,.7)" stroke-opacity=".8"/><circle cx="200" cy="110" r="12" stroke-opacity=".8"/></svg></span><img src="assets/competitions/pitch-hero.webp" alt="" loading="lazy" decoding="async" onerror="this.remove()"><span class="cf-timer" aria-label="Three-minute pitch"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 3h6"/></svg><b>3:00</b><small>Three-Minute Pitch</small></span></div><ol class="cf-steps"><li><a href="policy-pitch-competition-2026.html#guide"><span class="cf-si"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11Z"/><circle cx="12" cy="10" r="2.2"/></svg></span><span class="cf-n">01</span><span class="cf-tt">Name the place and the problem</span></a></li><li><a href="policy-pitch-competition-2026.html#guide"><span class="cf-si"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16Z"/><path d="M14 6l3 3"/></svg></span><span class="cf-n">02</span><span class="cf-tt">Say what you would change</span></a></li><li><a href="policy-pitch-competition-2026.html#guide"><span class="cf-si"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19h4v-4h4v-4h4V7"/><path d="M15 5h4v4"/></svg></span><span class="cf-n">03</span><span class="cf-tt">Explain a practical first step</span></a></li><li><a href="policy-pitch-competition-2026.html#guide"><span class="cf-si"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><rect x="6" y="12" width="3" height="6"/><rect x="11" y="8" width="3" height="10"/><rect x="16" y="4" width="3" height="14"/></svg></span><span class="cf-n">04</span><span class="cf-tt">Name one outcome to measure</span></a></li></ol></div>
 </div>
 </section>
 <section class="pbc-feat-sec" style="padding-top:0" id="policy-brief-competition" data-screen-label="Featured: Policy Brief Competition">
@@ -1318,10 +1360,10 @@ setTimeout(finish,MAX);})();</script>
     <div class="purpose-row apple-reveal" style="transition-delay:.28s"><div class="purpose-item"><span class="pn">01</span><b class="serif">Research</b><span class="pd">Evidence that informs.</span></div><div class="purpose-item"><span class="pn">02</span><b class="serif">Education</b><span class="pd">Knowledge that empowers.</span></div><div class="purpose-item"><span class="pn">03</span><b class="serif">Action</b><span class="pd">Ideas that move forward.</span></div></div>
 
     <div class="hier-grid">
-      <a class="hier-card primary apple-reveal" href="programmes.html"><span class="hk">01 — Primary focus</span><h3 class="serif">Our <em>Programmes</em></h3><div class="hchips"><span>International Initiatives</span><span>Grassroots Movements</span><span>Internship</span><span>Competitions</span></div><span class="harr">↗</span></a>
-      <a class="hier-card apple-reveal" href="ambassadors.html" style="transition-delay:.06s"><span class="hk">02</span><h3 class="serif">Global <em>Ambassador</em> Network</h3><p>People, opportunities, participation, and leadership</p><span class="harr">↗</span></a>
-      <a class="hier-card apple-reveal" href="chapters.html" style="transition-delay:.12s"><span class="hk">03</span><h3 class="serif">Global <em>Chapters</em></h3><p>Local presence, learning hubs, and regional initiatives</p><span class="harr">↗</span></a>
-      <a class="hier-card evidence apple-reveal" href="annual-reports.html" style="transition-delay:.18s"><span class="hk">04 — Evidence of impact</span><h3 class="serif">Our Work &amp; <em>Impact</em></h3><p>Completed programmes, publications, competition outcomes, project highlights, and documented achievements</p><span class="harr">↗</span></a>
+      <a class="hier-card primary apple-reveal" href="programmes.html"><img class="vz-hic" src="assets/illustrations/programmes.webp" alt="" width="158" height="158" loading="lazy" decoding="async"><span class="hk">01 — Primary focus</span><h3 class="serif">Our <em>Programmes</em></h3><div class="hchips"><span>International Initiatives</span><span>Grassroots Movements</span><span>Internship</span><span>Competitions</span></div><span class="harr">↗</span></a>
+      <a class="hier-card apple-reveal" href="ambassadors.html" style="transition-delay:.06s"><img class="vz-hic" src="assets/illustrations/sdg-13-climate-action.webp" alt="" width="158" height="158" loading="lazy" decoding="async"><span class="hk">02</span><h3 class="serif">Global <em>Ambassador</em> Network</h3><p>People, opportunities, participation, and leadership</p><span class="harr">↗</span></a>
+      <a class="hier-card apple-reveal" href="chapters.html" style="transition-delay:.12s"><img class="vz-hic" src="assets/illustrations/sdg-11-sustainable-cities-and-communities.webp" alt="" width="158" height="158" loading="lazy" decoding="async"><span class="hk">03</span><h3 class="serif">Global <em>Chapters</em></h3><p>Local presence, learning hubs, and regional initiatives</p><span class="harr">↗</span></a>
+      <a class="hier-card evidence apple-reveal" href="annual-reports.html" style="transition-delay:.18s"><img class="vz-hic" src="assets/illustrations/reports-impact.webp" alt="" width="158" height="158" loading="lazy" decoding="async"><span class="hk">04 — Evidence of impact</span><h3 class="serif">Our Work &amp; <em>Impact</em></h3><p>Completed programmes, publications, competition outcomes, project highlights, and documented achievements</p><span class="harr">↗</span></a>
     </div>
     <div class="edu-head apple-reveal">
       <div class="edu-top"><span class="eyebrow"><span class="leaf"></span> Educational Platform</span><span class="edu-badge"><span class="dot"></span>Launching soon</span></div>
@@ -1442,10 +1484,10 @@ setTimeout(finish,MAX);})();</script>
 <div class="container">
 <span class="eyebrow apple-reveal"><span class="leaf"></span> Partners</span>
 <h2 class="section-title serif apple-reveal" style="transition-delay:.1s">Organisational <em>Partners</em></h2>
-<div class="pt-grid">
+<div class="pc"><div class="pt-grid pc-track" tabindex="0" aria-label="Organisational partners">
 <article class="pt-card apple-reveal"><img src="assets/partners/sib.png" alt="Social Issues Bubble logo" /><div><small>Organisational Partner</small><h3>Social Issues Bubble <em>(SIB°)</em></h3><p>Social Issues Bubble (SIB°) is a youth-led platform that examines social issues through writing, discussion and storytelling. Starting from the idea that social issues are connected, SIB publishes SIB Research briefs, SIB Perspectives essays, SIB Dialogues conversations, The Bubble Podcast and The SIB Review, a curated digital magazine.</p></div></article>
-<article class="pt-card apple-reveal" style="transition-delay:.08s"><img src="assets/partners/brainink.png" alt="BrainInk Magazine logo" /><div><small>Organisational Partner</small><h3>BrainInk <em>Magazine</em></h3><p>BrainInk Magazine is a student-led magazine on psychology, mental health and human stories. Students write, research, edit and design each issue, with the aim of making psychological knowledge accessible, amplifying unheard voices and giving young writers, researchers and creators a place to share their work.</p></div></article>
-</div>
+<article class="pt-card apple-reveal" style="transition-delay:.08s"><img src="assets/partners/brainink.png" alt="BrainInk Magazine logo" /><div><small>Organisational Partner</small><h3>BrainInk <em>Magazine</em></h3><p>BrainInk Magazine is a student-led magazine on psychology, mental health and human stories. Students write, research, edit and design each issue, with the aim of making psychological knowledge accessible, amplifying unheard voices and giving young writers, researchers and creators a place to share their work.</p></div></article><article class="pt-card apple-reveal" id="pt-sdr" style="transition-delay:.16s"><span class="pt-mono" aria-hidden="true">SDR</span><div><small>Organisational Partner</small><h3>Society <em>D’Redquill</em></h3><p>More about Society D’Redquill is coming soon. In the meantime, you can follow their work on Instagram.</p><p class="pt-link"><a href="https://www.instagram.com/sdrq_for_humanities/" target="_blank" rel="noopener noreferrer">@sdrq_for_humanities on Instagram ↗</a></p></div></article>
+</div><div class="pc-nav"><div class="pc-dots" role="group" aria-label="Choose partner"></div><div class="pc-btns"><button type="button" class="pc-prev" aria-label="Previous partner">←</button><button type="button" class="pc-next" aria-label="Next partner">→</button></div></div></div>
 <div class="apple-reveal" style="margin:28px 0 0;display:flex;flex-wrap:wrap;gap:12px"><a href="partners.html" class="btn btn-primary">View All Partners <span class="arr">↗</span></a><a href="mailto:youthforsustainablepolicy@gmail.com?subject=Partnership%20enquiry" class="btn btn-ghost" style="border-color:var(--line)">Become A Partner ▸</a></div>
 </div>
 </section>
@@ -1606,9 +1648,9 @@ setTimeout(finish,MAX);})();</script>
         <h3 class="serif">Your <em>Byline</em> On Everything.</h3>
         <p>Every published output keeps your name on it, forever. No ghostwriting, no organisational anonymity. Mentors edit; you author.</p>
         <div class="vis vis-bylines" id="bylines">
-          <div class="by"><span class="av av1"></span> <span><b>Anh Nguyễn</b> · <em>Adaptive cooling pilots, Da Nang</em></span><span class="dot-new"></span></div>
-          <div class="by"><span class="av av2"></span> <span><b>Priya Mehta</b> · <em>Permitting reform in low‑capacity counties</em></span><span class="dot-new"></span></div>
-          <div class="by"><span class="av av4"></span> <span><b>Ren Tanaka</b> · <em>Open civic datasets, ASEAN edition</em></span><span class="dot-new"></span></div>
+          <div class="by"><img class="av av-img" src="assets/home/author-kaashvi-sheoran.webp" width="48" height="48" alt="" loading="lazy" decoding="async"> <span><b>Kaashvi Sheoran</b> · <em>Angola’s fuel subsidy reform</em></span><span class="dot-new"></span></div>
+          <div class="by"><img class="av av-img" src="assets/home/author-nandini-singh.webp" width="48" height="48" alt="" loading="lazy" decoding="async"> <span><b>Nandini Singh</b> · <em>India’s targeted LPG subsidy</em></span><span class="dot-new"></span></div>
+          <div class="by"><img class="av av-img" src="assets/home/author-haoyuan-luo.webp" width="48" height="48" alt="" loading="lazy" decoding="async"> <span><b>Haoyuan Luo</b> · <em>Malaysia’s fuel subsidy reform</em></span><span class="dot-new"></span></div>
         </div>
       </div>
     </div>
@@ -1675,7 +1717,7 @@ setTimeout(finish,MAX);})();</script>
       Essays from our Ambassadors and winning briefs from the Global Policy Brief Competition 2026, published under their own names.
     </p>
 
-    <div class="test-grid">
+    <div class="tc"><div class="test-grid tc-track" aria-label="Work from the YSP community" tabindex="0">
       <a class="test-card apple-reveal" href="global-spotlights.html#spotlight-03">
         <span class="kind">Global Spotlight · No. 03</span>
         <p class="body serif">The Future Is Sitting <em>in Our Classrooms.</em></p>
@@ -1706,7 +1748,7 @@ setTimeout(finish,MAX);})();</script>
         <p class="body serif">Pay People Before Prices Rise: A Prepayment Rule for <em>Indonesia's Next Fuel-Subsidy Reform</em></p>
         <div class="who"><span class="av av2 av-ini" aria-hidden="true">PT</span><span><b>Panagiotis Tsimplis</b><span>Greece · Junior Category</span></span></div>
       </a>
-    </div>
+    </div><div class="tc-nav"><div class="tc-dots" role="group" aria-label="Choose item"></div><div class="tc-btns"><button type="button" class="tc-prev" aria-label="Previous">←</button><button type="button" class="tc-next" aria-label="Next">→</button></div></div></div>
     </div>
 </section>
 
@@ -2008,14 +2050,12 @@ setTimeout(finish,MAX);})();</script>
     const bylines = document.getElementById('bylines');
     if (bylines){
       const pool = [
-        { initials:'AN', name:'Anh Nguyễn',     topic:'Adaptive cooling pilots, Da Nang',          av:'av1' },
-        { initials:'PM', name:'Priya Mehta',     topic:'Permitting reform in low‑capacity counties', av:'av2' },
-        { initials:'RT', name:'Ren Tanaka',      topic:'Open civic datasets, ASEAN edition',          av:'av4' },
-        { initials:'SO', name:'Sade Okonkwo',    topic:'Heat-resilient school siting, Lagos',         av:'av2' },
-        { initials:'LB', name:'Lara Bianchi',    topic:'Public-transit equity audits',                av:'av1' },
-        { initials:'JK', name:'Jin-ho Kim',      topic:'Open-procurement benchmarks, Seoul',          av:'av4' },
-        { initials:'MD', name:'Maya Diallo',     topic:'Civic-tech onboarding for ministries',        av:'av2' },
-        { initials:'TC', name:'Thanh Cao',       topic:'Mekong delta water governance',               av:'av1' }
+        { name:'Kaashvi Sheoran',    topic:'Angola’s fuel subsidy reform',             img:'assets/home/author-kaashvi-sheoran.webp' },
+        { name:'Nandini Singh',      topic:'India’s targeted LPG subsidy',             img:'assets/home/author-nandini-singh.webp' },
+        { name:'Haoyuan Luo',        topic:'Malaysia’s fuel subsidy reform',           img:'assets/home/author-haoyuan-luo.webp' },
+        { name:'Panagiotis Tsimplis',topic:'Indonesia’s next fuel-subsidy reform',     initials:'PT', av:'av4' },
+        { name:'Tuyizere Schadrack', topic:'The future is sitting in our classrooms',  initials:'TS', av:'av1' },
+        { name:'Ndatimana Fabrice',  topic:'Youth climate action in Rwanda',           initials:'NF', av:'av2' }
       ];
       let cursor = 3;
       let bTimer = null;
@@ -2033,7 +2073,7 @@ setTimeout(finish,MAX);})();</script>
           top.remove();
           const el = document.createElement('div');
           el.className = 'by enter';
-          el.innerHTML = `<span class="av ${next.av}"></span> <span><b>${next.name}</b> · <em>${next.topic}</em></span><span class="dot-new"></span>`;
+          el.innerHTML = (next.img ? `<img class="av av-img" src="${next.img}" width="48" height="48" alt="" decoding="async">` : `<span class="av av-ini-s ${next.av}">${next.initials}</span>`) + ` <span><b>${next.name}</b> · <em>${next.topic}</em></span><span class="dot-new"></span>`;
           el.style.opacity = '0';
           el.style.transform = 'translateY(8px)';
           bylines.appendChild(el);
@@ -2136,5 +2176,36 @@ setTimeout(finish,MAX);})();</script>
 
 <script src="mobile-nav.js"></script>
 <script src="competition-config.js"></script>
+<script id="tc-js">(function(){var t=document.querySelector('.test-grid.tc-track');if(!t)return;var cards=[].slice.call(t.children),dots=document.querySelector('.tc-dots'),prev=document.querySelector('.tc-prev'),next=document.querySelector('.tc-next');
+var rm=matchMedia('(prefers-reduced-motion: reduce)').matches,timer=null,paused=false;
+function per(){var w=cards[0].getBoundingClientRect().width;return Math.max(1,Math.round(t.clientWidth/(w+14)))}
+function pages(){return Math.max(1,cards.length-per()+1)}
+function idx(){var w=cards[0].getBoundingClientRect().width+14;return Math.round(t.scrollLeft/w)}
+function go(i){var n=pages();i=((i%n)+n)%n;t.scrollTo({left:cards[i].offsetLeft-t.offsetLeft-2,behavior:rm?'auto':'smooth'})}
+function draw(){var n=pages(),c=Math.min(idx(),n-1);if(dots.children.length!==n){dots.innerHTML='';for(var i=0;i<n;i++){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Show item '+(i+1));(function(k){b.onclick=function(){go(k);hold()}})(i);dots.appendChild(b)}}
+[].forEach.call(dots.children,function(b,i){b.setAttribute('aria-current',i===c?'true':'false')})}
+function tick(){if(!paused)go(idx()+1)}
+function start(){if(rm||timer)return;timer=setInterval(tick,3800)}function stop(){clearInterval(timer);timer=null}
+function hold(){stop();setTimeout(start,6000)}
+prev.onclick=function(){go(idx()-1);hold()};next.onclick=function(){go(idx()+1);hold()};
+t.addEventListener('scroll',function(){window.requestAnimationFrame(draw)},{passive:true});
+['mouseenter','focusin','touchstart'].forEach(function(e){t.addEventListener(e,function(){paused=true},{passive:true})});
+['mouseleave','focusout','touchend'].forEach(function(e){t.addEventListener(e,function(){paused=false},{passive:true})});
+window.addEventListener('resize',draw);draw();
+if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?start():stop()})},{threshold:.3}).observe(t)}else start();})();</script>
+<script id="pc-js">(function(){var t=document.querySelector('#partners .pc-track');if(!t)return;var cards=[].slice.call(t.children),nav=document.querySelector('#partners .pc-nav'),dots=nav.querySelector('.pc-dots'),G=18;
+var rm=matchMedia('(prefers-reduced-motion: reduce)').matches,timer=null,paused=false;
+function per(){var w=cards[0].getBoundingClientRect().width;return Math.max(1,Math.round(t.clientWidth/(w+G)))}
+function pages(){return Math.max(1,cards.length-per()+1)}
+function idx(){return Math.round(t.scrollLeft/(cards[0].getBoundingClientRect().width+G))}
+function go(i){var n=pages();i=((i%n)+n)%n;t.scrollTo({left:cards[i].offsetLeft-t.offsetLeft-2,behavior:rm?'auto':'smooth'})}
+function draw(){var n=pages();nav.hidden=n<2;var c=Math.min(idx(),n-1);if(dots.children.length!==n){dots.innerHTML='';for(var i=0;i<n;i++){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Show partner '+(i+1));(function(k){b.onclick=function(){go(k);hold()}})(i);dots.appendChild(b)}}
+[].forEach.call(dots.children,function(b,i){b.setAttribute('aria-current',i===c?'true':'false')})}
+function start(){if(rm||timer)return;timer=setInterval(function(){if(!paused&&pages()>1)go(idx()+1)},4200)}function stop(){clearInterval(timer);timer=null}function hold(){stop();setTimeout(start,6000)}
+nav.querySelector('.pc-prev').onclick=function(){go(idx()-1);hold()};nav.querySelector('.pc-next').onclick=function(){go(idx()+1);hold()};
+t.addEventListener('scroll',function(){requestAnimationFrame(draw)},{passive:true});
+['mouseenter','focusin','touchstart'].forEach(function(e){t.addEventListener(e,function(){paused=true},{passive:true})});['mouseleave','focusout','touchend'].forEach(function(e){t.addEventListener(e,function(){paused=false},{passive:true})});
+addEventListener('resize',draw);draw();
+if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?start():stop()})},{threshold:.3}).observe(t)}else start();})();</script>
 </body>
 </html>

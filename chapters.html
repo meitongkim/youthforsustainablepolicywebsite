@@ -549,6 +549,7 @@ html,body{overscroll-behavior-y:none}.nav-wrap{top:30px!important}.mnav-panel{to
 @media (prefers-reduced-motion:reduce){.mg-b i{transition:none}}
 </style>
 <script id="nav2-js">document.addEventListener('DOMContentLoaded',function(){var dds=document.querySelectorAll('.nav-dd');function closeAll(x){dds.forEach(function(d){if(d!==x){d.classList.remove('open');d.querySelector('.nav-dd-btn').setAttribute('aria-expanded','false')}})}dds.forEach(function(d){var b=d.querySelector('.nav-dd-btn');b.addEventListener('click',function(e){e.stopPropagation();closeAll(d);var o=d.classList.toggle('open');b.setAttribute('aria-expanded',o)})});document.addEventListener('click',function(){closeAll(null)});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null)});function group(){var p=document.getElementById('mnavPanel');if(!p||p.classList.contains('grouped'))return;var cta=p.querySelector('.mnav-cta'),home=p.querySelector('a[href="index.html"]');p.innerHTML='';if(home){home.classList.add('mg-home');p.appendChild(home)}var groups=[];document.querySelectorAll('.nav-links .nav-dd-menu').forEach(function(m,i){var name=m.getAttribute('data-group');var g=document.createElement('div');g.className='mg';var id='mg-'+i;var btn=document.createElement('button');btn.type='button';btn.className='mg-b';btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-controls',id);var links=m.querySelectorAll('a:not(.nm-all)');btn.innerHTML='<span>'+name+'</span><em>'+links.length+'</em><i aria-hidden="true"></i>';var c=document.createElement('div');c.className='mg-c';c.id=id;c.hidden=true;var cols=m.querySelectorAll('.nm-col');function addLink(a,wrap){var x=a.cloneNode(true);x.removeAttribute('role');wrap.appendChild(x);if(x.classList.contains('active'))g.dataset.cur='1'}if(cols.length){cols.forEach(function(col){var h=col.querySelector('.nm-h');var sec=document.createElement('div');sec.className='mg-s';if(h){var hh=document.createElement('div');hh.className='mg-h';hh.textContent=h.textContent;sec.appendChild(hh)}var gr=document.createElement('div');gr.className='mg-g';col.querySelectorAll('a').forEach(function(a){addLink(a,gr)});sec.appendChild(gr);c.appendChild(sec)})}else{var gr=document.createElement('div');gr.className='mg-g';m.querySelectorAll('a').forEach(function(a){addLink(a,gr)});c.appendChild(gr)}var all=m.querySelector('a.nm-all');if(all){var x=all.cloneNode(true);x.removeAttribute('role');x.className='mg-all';c.appendChild(x)}g.appendChild(btn);g.appendChild(c);p.appendChild(g);groups.push(g);btn.addEventListener('click',function(){var open=btn.getAttribute('aria-expanded')!=='true';groups.forEach(function(o){o.querySelector('.mg-b').setAttribute('aria-expanded','false');o.querySelector('.mg-c').hidden=true;o.classList.remove('on')});if(open){btn.setAttribute('aria-expanded','true');c.hidden=false;g.classList.add('on');setTimeout(function(){var r=g.getBoundingClientRect(),pr=p.getBoundingClientRect();if(r.top<pr.top||r.top>pr.top+60)p.scrollTo({top:p.scrollTop+r.top-pr.top-8,behavior:'smooth'})},10)}})});var cur=groups.filter(function(g){return g.dataset.cur})[0];if(cur){cur.querySelector('.mg-b').click()}if(cta)p.appendChild(cta);p.classList.add('grouped')}group();setTimeout(group,300)});</script>
+<style id="ch-h1">section.hero h1{font-size:clamp(40px,5.6vw,84px)!important}</style>
 </head>
 <body>
 <div id="ysp-loader" role="status" aria-live="polite"><span class="ldr-mark"><img src="data:image/webp;base64,UklGRgoLAABXRUJQVlA4IP4KAACQPACdASrAAMAAPkkij0SioiGnqFN6YPAJCWdt6zBnhnAEMHAAh68Kc2dBAPGveRu8qFWGoAfob0ctJn1pwFzBWiekqn1ssvWUS1KJb2fhUpsVEnI/Ua+aJC3zstV66maRxWSFgabbZfFKTlxZ3Mh4yGfPxtQQgtLDePWkdLdrrMhnfBXTiagm+PVDrBX/2OFljNnsTnfeapf+5cM5rnDbkcwpuS47rxfXGNbOilteYuAtVQglyQ3q/2vj6Ulj4GDh2Xzi83JIt7i7GOGDUSTXMXPxby6LmDF+eSzMrYsxT8144Rf2QmTP5R9sBCWHz3iwbdVmR5T0CNw0OeEWZy8Rp9tTMRsM3AyvFMoqtXB2pzXKF44LJDo0sQwn9a2RJIPhVwyx5WEpFLQD6oBlhkwxaxWxgCJwHK06/YZ9HGZCHifBKwJzrB3eO17P/93o7CeVAJjCJFZJgs5RkUHV37bCOtGDxkcZIh2jL7vSBz18hPxSRJkqo/krVDjhMJhWnmHksBwb+YoXiLTvh+nhmR5k+KoCkTN/s337gdrOJuKMoyq0/Ah2UrOr/5aL628m/apv0d6wp8oC0oMbOyyUud53dTKs1dJ08gkK3rC9/0k7AR/hMQx3sNxog/GA/DKu7O5cuT03vnkVlWD+hX/gAP75APvOti6+Pzn64dU2WtuZTLqO+JbtIIcJeaJt0jYxyKcD9j3LUw0KiNNjoeaPAhWGX/ULw2bsV2c3HqgK3Xg2aQBwxaC57eRMblGNoZoe4/oL1den502HdMd1qskhVqXxLcmbupItGklneAWineqSq4HNmh6ORAwmWgZm6gtnyPb4oM1C5a5siumYE85BEdg78gtT/p7tI+nTj08HF9/xO/RZ+54D6kE6iWsPg3NYyRzM3WoE5V1x75/eYugEeYZWSiAOB5mcxvcNDxK8Vk2ycr5UdIVzU/WRPAVZmo1ppSv71BaTETvQJAQBWeFOEXWvRtXwLVObDNfPAyRiA0kbem4st8/OOae9+VYwwNH6idnim9r5bCAM8Y6brpeLntfDBlk3sf3R8TDf21L1GlAil7ZVWYXSP3gn/ACwh70l15jgaGx4uKD/gkZMOYOIuP1tAhZTAari6KqSYzt0WazB1UGTPcogA4ro8S/fQA6Hm8UAyS4I1qwiNcPvovrdlM2eoUNza0UT8ZZLn24w3S+UWT79Ox0SoF8ZuHO12rkSg8OXTdegVoFTjFAlLZ0CdBNWMzFntA0QxV3W+4lqZ+dzlaKSCw3FnHGCb4wu1OJ2mlDm0FniEmISwu5eHv3rcNVg6oWN3UdrrreB6pBhJ1enIqQ3HVkdkycWSTBeO9Pxgl4GHe7uKd5cKWj8ikAhSosUPgyzGVbby7Tk77F46SDK89tZWJ9/J5dYilxAUs0dY4MWqeW3/b6PKZvvJcBZWFG0vkZL2m8tVcSLM/9xuIfdhsRgUm1KxVQZ23CYZpqCa2X2S0tlI8feCxD+YvdrRNPuEZvTpA7uVcujUy+JU2eMYUPcRg9sd1odPSG0ompLwthflpzIkTes1ZP5aRdaAf11l4pGJN2oMijfGeL8qXADLKQ7JCmaWtnuLKiNsvezrhhonZeMVl5+qbNTG+f0SENd/s4tq9WjvFk4uSqWrZT5Wb9dPq5SefneHVRGlu6CiFwojrl3pTB1vvEGIacBv79uPTsx8umxziZ/sSPoQTrQaRKDFqTpiaUPmnilDp+Om3usn0zJS6olmW55btIroI79uJPyZ1HL4YRwrMW3C48UQ+lTTJynY7k7OKcgylDXAdgaFcySs3qD0iuhH/H3zvM1XcYhA39A+c1Al5q4uXf03jmSiyQWIUEwUfxyr7pW4hT9IUsOU2xTNP5a45l2+VaN9OQutsw1UExUtcvgC9xpLHBQsCq8oskMNsdlonjRFY573cymiSpzTn/ZX895LXSua7LiugCo4pxdBAqMTIFnPWllQjXNqH/ceZaokWQ3UdckXlB7twysnj5U0XRCS9FQ7ffrLN0dFnr5/AeXTxKn2a9FD+50HrYJzyXAFEgHq3fTgxKIzafU2/YKxy2IaRJrNyZFc9meI1degJt/VhGPcxIeXKNT0gY6o1aO5hVnCAw047f/XYR2qw6iMWtzGsSD4bMUhDnrB3YAAHmmDTCkHvmpvCC/PZXF6RX5Cr86/lrf2mQwFP7mUNgAatP4WhPfeLBb3+hPbhAezgQt+QR3ehnKPw3YCdsB29hthTtvEyrl/fJ6TDUTr3Tkt2/dB4hxplEPDKwWzWxJ83HcWwVGiBVac9w5nvfS7bTmNBCtClF40Nik6V21SbfduAsyWxXlMjPsiv4Q7Kt1DbYgbHZeyblvGG9L1Ey8F6VoR3vUx5C5CWyfU9AmWVTGXLOJTWj542B5QoAXTonPhWtsb7Dps2AL8RJMILB8IoAlxnIRy3H6I+yML/Yi1Jl/j1TWuNDhfcdif1Ezg8YceQOEGrYb2Ti+gWifAZS2tv0NVXfrel0V3FdOzV4JTfsCbidGq4EBYQ5ib0zcCaMxEGEWvO24nOgpqpNJkHEWWfkCgeWFhDwZ5buA4pVr2V7+mhjUx/1zP5hadObCrPff3BteOO1+glUvVkA+CUA7KTajdC9oi1UKe0qImyvybGIryXgEiPA47hhoydLlgHYjLX4+QSlt0WJnJNoVIosFAeN7lpd569WW1FBpojWGcP0RthnXyw8tGs+wHCc0miq4eFk/PYzFDPmNIqjs+k+IUxAmBuj5P+ORiQP/s87jwmTsYZhz7lyQAoAhZO44rBH5ENYJ1Ms92WqYvvsmaRZ7J/up84y+nK0Zcio6w7R4jAVg6KQHiQ2a4jOJxH0f1QrmHQJdxmfMxpLGlB4H5no7BowkckYEUgiMwnoQ1f207+9NvAEHXavLEw0a+s0Y3FzCOtw6IXEeV+UcE9WxHNs3oKT78nGsjlPC/rV+tlIpo2ManSQEF1dOOKZ3PH6D0wXKX2xyXNyT8p/vMxmcif2sOZ+R2TMUNABL6V142htsZBXAuHP6C2D6Czj8pOPUoYHb49yB0ig2MxLbTIAgDMXWpI6F75C4RCgEI0jrxgLEHXs5IMlCryG5dG4lIkDvWLfyx3dDmImAudkqWcOsB+kshwkK2g9I0Fjzr5pLKeAnOR1MRECEASCRwHn5fl7t0UYg6QMDGMmj7/7K5fjxwzfnp0xRvX6oE0jPw0tWLalZ+LQ5EcWFfwqlun3/0IWo4afEFVFqA1iisetz0ZKsWgNidimanHI9xShcWCSJ4i2yyJbW8gPYAF3Yg/CA+3HAD03sDtdTLwTjpbsumoNXZdjS8mVn6xmA8KF/0sr3DKyD1YkragQlY40+uppiCune0pezfFTeIjKf/uASAirw3/sKX2Jp7UlIx5h94gTOvJZBjB/8gcNvH8cAbQWWNKlh5oiDHCPl+Qy2FXOq0Qd0TlSjGEm6wHLiXRcvNzXZV9OMr+Xzz7Si+uvXU7wBSmlzvhzFqUfwOUdCm+9yan1Bqqiunml5m4pZLAl58g7kYRJNR7yuJ8mn53o7fHOIX713Hg66Sf6+XKy0HnteJ/vDOqtVCvu+Q7fg4ouwBB/rraTDnQbbHyQyojlP8quJC4ptIRtctG1wNcrMjzXx/jgfTbgs9WR2qzCzEwmbrNmHpjkr8k4V3cZd1fJabl9omRWOimh3EF9f6GidDHL1VV3w7tgg3uaXtNBU4bRtQV9jX1iHBGAZtcPod/m1p9By36CnQIxWH0AAAAA=" width="192" height="192" alt=""></span><p class="ldr-word">Youth for Sustainable <em>Policy</em></p><span class="ldr-bar" aria-hidden="true"><i></i></span><span class="ldr-sr">Loading Youth for Sustainable Policy</span></div>
@@ -627,7 +628,7 @@ setTimeout(finish,MAX);})();</script>
         <a role="menuitem" href="policies.html">Governance &amp; Policies<small>Standards, privacy &amp; reporting</small></a>
       </div></div>
     </div>
-    <a href="#hk-apply" class="btn btn-primary" data-magnetic>Join YSP Hong Kong <span class="arr">↗</span></a>
+    <a href="#apply" class="btn btn-primary" data-magnetic>Join A Chapter <span class="arr">↗</span></a>
   </nav>
 </div>
 
@@ -645,21 +646,21 @@ setTimeout(finish,MAX);})();</script>
     </div>
     <div class="hero-grid">
       <div>
-        <h1 class="apple-reveal" style="transition-delay:.06s">A Region, <em>Chapter By Chapter.</em></h1>
-        <p class="lede apple-reveal" style="transition-delay:.16s">YSP is a regional network — not a head office with branches. Each chapter is rooted in <b>one city, one set of universities, one policy conversation</b>. Singapore is the home cohort. Hong Kong is the next one we're standing up.</p>
+        <h1 class="apple-reveal" style="transition-delay:.06s">Every Chapter Is<br/><em>Not Just A Branch.</em></h1>
+        <p class="lede apple-reveal" style="transition-delay:.16s">YSP is a regional network, not a head office with branches. Each chapter is rooted in <b>one place, one set of universities, one policy conversation</b>. Every chapter is new, and every one is building its founding team now.</p>
         <div class="cta-row apple-reveal" style="transition-delay:.26s">
-          <a href="#hk-feature" class="btn btn-forest" data-magnetic>Meet YSP Hong Kong <span class="arr">↗</span></a>
-          <a href="#atlas" class="btn btn-ghost">The full atlas ▸</a>
+          <a href="#apply" class="btn btn-forest" data-magnetic>Join A Founding Team <span class="arr">↗</span></a>
+          <a href="#atlas" class="btn btn-ghost">See All Chapters ▸</a>
         </div>
       </div>
       <aside class="hero-aside apple-reveal" style="transition-delay:.22s">
-        <span class="tag"><span class="dot"></span>Now recruiting · 香港</span>
-        <h3 class="serif">YSP Hong Kong · <em>Founding Team</em></h3>
-        <div class="row"><span class="k">Status</span><span class="v">Open · 7 founding roles</span></div>
-        <div class="row"><span class="k">Commitment</span><span class="v">5–8 hrs / week · remote</span></div>
-        <div class="row"><span class="k">Term</span><span class="v">16 weeks + ongoing</span></div>
-        <div class="row"><span class="k">Launch cohort</span><span class="v">Autumn 2026</span></div>
-        <div class="row"><span class="k">Closing</span><span class="v"><a href="#hk-apply">In two weeks ↗</a></span></div>
+        <span class="tag"><span class="dot"></span>Now recruiting · All chapters</span>
+        <h3 class="serif">Founding Teams · <em>Now Hiring</em></h3>
+        <div class="row"><span class="k">Chapters</span><span class="v">Singapore · Hong Kong · London · India · Oman</span></div>
+        <div class="row"><span class="k">Roles</span><span class="v">Six founding roles per chapter</span></div>
+        <div class="row"><span class="k">Commitment</span><span class="v">4–10 hrs / week · remote</span></div>
+        <div class="row"><span class="k">Term</span><span class="v">16 weeks, then ongoing</span></div>
+        <div class="row"><span class="k">Apply</span><span class="v"><a href="#apply">Applications open ↗</a></span></div>
       </aside>
     </div>
   </div>
@@ -669,267 +670,184 @@ setTimeout(finish,MAX);})();</script>
 <section class="atlas" id="atlas" data-screen-label="02 Atlas">
   <div class="container">
     <span class="eyebrow apple-reveal"><span class="leaf"></span> 01 / The chapters</span>
-    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Where YSP <em>Actually Is.</em></h2>
-    <p class="section-sub apple-reveal" style="transition-delay:.16s">A small atlas, kept honest. We list chapters by where the people are — not where the website is registered. New chapters open on local invitation, not on a growth deck.</p>
-
+    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Where YSP Is <em>Launching.</em></h2>
+    <p class="section-sub apple-reveal" style="transition-delay:.16s">A small atlas, kept honest. We list chapters by where the people are, not where the website is registered. Every chapter below is new and recruiting its founding team.</p>
     <div class="atlas-grid">
-      <article class="chap-card is-active apple-reveal">
+      <article class="chap-card is-active apple-reveal" style="transition-delay:0.00s">
         <span class="num">SG</span>
-        <div class="meta"><span class="loc">Singapore · HQ</span><span class="status">Active</span></div>
-        <h3 class="serif">YSP <em>Singapore</em> (HQ)</h3>
-        <p>The home cohort. Press desk, central programmes office, the room the rest of the network reports into.</p>
-        <div class="foot"><a href="about.html">About YSP <span class="arr">→</span></a><span>Est. March 2026</span></div>
+        <div class="meta"><span class="loc">Singapore</span><span class="status">Headquarters</span></div>
+        <h3 class="serif">YSP <em>Singapore</em></h3>
+        <p>Our home base, where YSP began in March 2026. Singapore’s chapter team works closest to the central programmes office.</p>
+        <div class="foot"><a href="#apply">Join The Founding Team <span class="arr">→</span></a><span>Founding team open</span></div>
       </article>
-
-      <article class="chap-card is-launching featured apple-reveal" style="transition-delay:.06s">
+      <article class="chap-card is-launching apple-reveal" style="transition-delay:0.06s">
         <span class="num">HK</span>
-        <div class="meta"><span class="loc">Hong Kong 香港</span><span class="status">Launching · 2026</span></div>
+        <div class="meta"><span class="loc">Hong Kong 香港</span><span class="status">Launching · Hiring</span></div>
         <h3 class="serif">YSP <em>Hong Kong</em></h3>
-        <p>The gateway chapter. Five universities, one common-law society, the bridge between ASEAN and Greater China policy work.</p>
-        <div class="foot"><a href="https://forms.gle/rKPHAxvj6NaM9Dd66" target="_blank" rel="noopener noreferrer">Join YSP <span class="arr">→</span></a><span>Winter 2026</span></div>
+        <p>A gateway chapter connecting ASEAN and Greater China policy work, with a bilingual editorial focus.</p>
+        <div class="foot"><a href="#apply">Join The Founding Team <span class="arr">→</span></a><span>Founding team open</span></div>
       </article>
-
-      <article class="chap-card is-active apple-reveal" style="transition-delay:0.12s">
+      <article class="chap-card is-launching apple-reveal" style="transition-delay:0.12s">
         <span class="num">UK</span>
-        <div class="meta"><span class="loc">London</span><span class="status">Active</span></div>
+        <div class="meta"><span class="loc">London</span><span class="status">Launching · Hiring</span></div>
         <h3 class="serif">YSP <em>London</em></h3>
         <p>YSP’s chapter in London, United Kingdom.</p>
-        <div class="foot"><a href="https://forms.gle/rKPHAxvj6NaM9Dd66" target="_blank" rel="noopener noreferrer">Join YSP <span class="arr">→</span></a><span>London</span></div>
+        <div class="foot"><a href="#apply">Join The Founding Team <span class="arr">→</span></a><span>Founding team open</span></div>
       </article>
-
-      <article class="chap-card is-active apple-reveal" style="transition-delay:0.18s">
+      <article class="chap-card is-launching apple-reveal" style="transition-delay:0.18s">
         <span class="num">IN</span>
-        <div class="meta"><span class="loc">India</span><span class="status">Active</span></div>
+        <div class="meta"><span class="loc">India</span><span class="status">Launching · Hiring</span></div>
         <h3 class="serif">YSP <em>India</em></h3>
         <p>YSP’s chapter in India.</p>
-        <div class="foot"><a href="https://forms.gle/rKPHAxvj6NaM9Dd66" target="_blank" rel="noopener noreferrer">Join YSP <span class="arr">→</span></a><span>India</span></div>
+        <div class="foot"><a href="#apply">Join The Founding Team <span class="arr">→</span></a><span>Founding team open</span></div>
       </article>
-
-      <article class="chap-card is-active apple-reveal" style="transition-delay:0.24s">
+      <article class="chap-card is-launching apple-reveal" style="transition-delay:0.24s">
         <span class="num">OM</span>
-        <div class="meta"><span class="loc">Oman</span><span class="status">Active</span></div>
+        <div class="meta"><span class="loc">Oman</span><span class="status">Launching · Hiring</span></div>
         <h3 class="serif">YSP <em>Oman</em></h3>
         <p>YSP’s chapter in Oman.</p>
-        <div class="foot"><a href="https://forms.gle/rKPHAxvj6NaM9Dd66" target="_blank" rel="noopener noreferrer">Join YSP <span class="arr">→</span></a><span>Oman</span></div>
+        <div class="foot"><a href="#apply">Join The Founding Team <span class="arr">→</span></a><span>Founding team open</span></div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ────── HK Feature ────── -->
-<section class="hk-feature" id="hk-feature" data-screen-label="03 HK Feature">
-  <div class="mesh mesh-hk" aria-hidden="true"><span></span></div>
+<!-- ────── What a chapter is ────── -->
+<section class="pillars" id="what" data-screen-label="03 What A Chapter Is">
   <div class="container">
-    <div class="hk-grid">
-      <div class="hk-head">
-        <div class="marker apple-reveal"><span>Chapter Two</span> · 第二章</div>
-        <h2 class="apple-reveal" style="transition-delay:.06s">Hong Kong Is <em>Not A Branch.</em></h2>
-        <div class="zh apple-reveal" style="transition-delay:.12s">香港 — 不是分部，是一個門戶。</div>
-
-        <div class="hk-stats apple-reveal" style="transition-delay:.18s">
-          <div class="hk-stat"><span class="n">7<em> roles</em></span><span class="l">Founding team</span></div>
-          <div class="hk-stat"><span class="n">5</span><span class="l">Target universities</span></div>
-          <div class="hk-stat"><span class="n">250<em></em></span><span class="l">Y1 member target</span></div>
-          <div class="hk-stat"><span class="n">16<em> wk</em></span><span class="l">First cohort length</span></div>
-        </div>
-      </div>
-
-      <div class="hk-body">
-        <p class="lede apple-reveal" style="transition-delay:.1s">It is a <em>gateway chapter</em> — an internationally‑oriented policy organisation that happens to be rooted in a Chinese‑speaking city, with a direct line back into the ASEAN network YSP was built on.</p>
-
-        <p class="apple-reveal" style="transition-delay:.18s">Hong Kong is the only territory in our footprint where we can operate as a civil‑society organisation using global platforms, a common‑law legal vehicle, and English as a primary institutional language — while keeping the cultural and academic links to the mainland that make YSP's regional work credible. <b>That combination doesn't exist anywhere else in Greater China,</b> and we are not pretending it does.</p>
-
-        <p class="apple-reveal" style="transition-delay:.26s">We are registering as a Society under the Hong Kong Societies Ordinance (Cap. 151), opening a fully bilingual editorial pipeline (Traditional Chinese + English), and standing up a founding team of seven people across leadership, editorial, partnerships, design, and operations. Applications are open for two weeks.</p>
-
-        <div class="hk-pull apple-reveal" style="transition-delay:.34s">
-          <span class="pip"></span>
-          <p>The case for the chapter isn't market size — it's that the GBA transition, Hong Kong's role inside it, and the policy‑literacy gap among HK youth all point to the same place. This chapter needs to exist, and it needs to be built by people who actually live here.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ────── Why HK pillars ────── -->
-<section class="pillars" data-screen-label="04 Why HK">
-  <div class="container">
-    <span class="eyebrow hk-eye apple-reveal"><span class="leaf"></span> 02 / Why Hong Kong</span>
-    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Four Reasons The Chapter <em class="hk">Earns Its Room.</em></h2>
-    <p class="section-sub apple-reveal" style="transition-delay:.16s">We don't open a chapter to chase reach. We open one where the legal frame, the universities, and the policy questions line up — and someone local is willing to lead it.</p>
-
+    <span class="eyebrow apple-reveal"><span class="leaf"></span> 02 / What a chapter is</span>
+    <h2 class="section-title apple-reveal" style="transition-delay:.08s">A Gateway, <em>Not A Branch.</em></h2>
+    <p class="section-sub apple-reveal" style="transition-delay:.16s">We don’t open a chapter to chase reach. We open one where young people want to do policy work together, and someone local is willing to lead it.</p>
     <div class="pil-grid">
-      <article class="pil-card apple-reveal">
-        <span class="ix">i. Common Law</span>
-        <h4 class="serif">A <em>standard, well‑understood</em> registration path.</h4>
-        <p>Registration with the Societies Officer under Cap. 151. No sponsoring supervisory body required, two‑to‑four week turnaround, and a low annual reporting burden — the kind of legal frame that lets a chapter focus on the work, not the paperwork.</p>
+      <article class="pil-card apple-reveal" style="transition-delay:0.00s">
+        <span class="ix">i. Local leadership</span>
+        <h4 class="serif">Led by people who <em>live there.</em></h4>
+        <p>Every chapter is built and run by young people in that place, so its questions, partners and events come from the community it serves.</p>
       </article>
-      <article class="pil-card apple-reveal" style="transition-delay:.06s">
-        <span class="ix">ii. Platform freedom</span>
-        <h4 class="serif">The full <em>global comms stack,</em> natively.</h4>
-        <p>Instagram, LinkedIn, YouTube, Telegram, Discord — all accessible without restriction. YSP HK runs its own bilingual social desk, contributes to the global YSP feed in English, and runs a parallel Traditional Chinese WeChat channel for the cross‑border audience.</p>
+      <article class="pil-card apple-reveal" style="transition-delay:0.06s">
+        <span class="ix">ii. Real publications</span>
+        <h4 class="serif">Work published <em>under your name.</em></h4>
+        <p>Chapters publish policy briefs and explainers through YSP, edited to the same standard across the network and credited to the people who wrote them.</p>
       </article>
-      <article class="pil-card apple-reveal" style="transition-delay:.12s">
-        <span class="ix">iii. University density</span>
-        <h4 class="serif">Five world‑ranked schools, <em>thirty kilometres apart.</em></h4>
-        <p>HKU, CUHK, HKUST, PolyU, and CityU sit within commuting distance of each other — a combined student population over 110,000, with a deep culture of student‑run policy and advocacy work. The chapter is built around them, not next to them.</p>
+      <article class="pil-card apple-reveal" style="transition-delay:0.12s">
+        <span class="ix">iii. University links</span>
+        <h4 class="serif">Built <em>around</em> local campuses.</h4>
+        <p>Chapters work with nearby universities and student societies, so research, events and recruitment grow from where young people already are.</p>
       </article>
-      <article class="pil-card apple-reveal" style="transition-delay:.18s">
-        <span class="ix">iv. ASEAN diaspora</span>
-        <h4 class="serif">A <em>warm</em> founding audience already in town.</h4>
-        <p>Large Singaporean, Malaysian, and broader ASEAN student and professional communities sit across the HK universities — early adopters who already know the YSP brand and bridge our existing network straight into the new chapter.</p>
+      <article class="pil-card apple-reveal" style="transition-delay:0.18s">
+        <span class="ix">iv. A global network</span>
+        <h4 class="serif">One chapter, <em>the whole network.</em></h4>
+        <p>Every chapter connects to YSP Global’s mentors, programmes and other chapters, so local work feeds into a wider international conversation.</p>
       </article>
     </div>
   </div>
 </section>
 
 <!-- ────── Founding team / roles ────── -->
-<section class="roles" id="hk-roles" data-screen-label="05 HK Roles">
+<section class="roles" id="roles" data-screen-label="04 Founding Roles">
   <div class="container">
     <div class="roles-head">
       <div>
-        <span class="eyebrow hk-eye apple-reveal"><span class="leaf"></span> 03 / The founding team</span>
-        <h2 class="section-title apple-reveal" style="transition-delay:.08s">Seven Roles, <em class="hk">One Cohort.</em></h2>
-        <p class="section-sub apple-reveal" style="transition-delay:.16s">All roles are volunteer, fully remote, and run on a 16‑week term that converts into the first full cohort. You leave with a published byline or named credit, a recommendation letter from YSP Global, and a place on the founding team that doesn't get re‑opened.</p>
+        <span class="eyebrow apple-reveal"><span class="leaf"></span> 03 / The founding team</span>
+        <h2 class="section-title apple-reveal" style="transition-delay:.08s">Six Roles In <em>Every Chapter.</em></h2>
+        <p class="section-sub apple-reveal" style="transition-delay:.16s">Every chapter recruits the same founding roles. All roles are volunteer, fully remote and run on a 16-week founding term that leads into the chapter’s first full cohort.</p>
       </div>
       <div class="right apple-reveal" style="transition-delay:.22s">
-        <b>Honest about the trade.</b> We are not yet funded. What we offer is real work, a real regional mentor network, and a real CV line — not a salary. Apply for the role closest to your skills; note a second if you'd consider it.
+        <b>Honest about the trade.</b> We are not yet funded. What we offer is real work, a real mentor network and a real CV line, not a salary. Apply for the role closest to your skills, and note a second if you’d consider it.
       </div>
     </div>
-
     <div class="role-list">
-      <a class="role-row apple-slide-left" href="#hk-apply">
+      <a class="role-row apple-slide-left" href="#apply" style="transition-delay:0.00s">
         <span class="ix">01</span>
         <h4 class="serif">Chapter <em>Director</em><span class="count">× 1</span></h4>
-        <p class="blurb">Owns chapter direction, university MOUs, and the relationship with YSP Global. The first hire; the last point of accountability.</p>
-        <div class="pills"><span class="pill commit">8–10 hrs/wk</span><span class="pill">HK based</span></div>
+        <p class="blurb">Sets the chapter’s direction, leads university and partner conversations, and is the main link with YSP Global.</p>
+        <div class="pills"><span class="pill commit">8–10 hrs/wk</span><span class="pill">Local preferred</span></div>
         <span class="arrow">↗</span>
       </a>
-      <a class="role-row apple-slide-left" href="#hk-apply" style="transition-delay:.04s">
+      <a class="role-row apple-slide-left" href="#apply" style="transition-delay:0.04s">
         <span class="ix">02</span>
         <h4 class="serif">Head of <em>Editorial &amp; Research</em><span class="count">× 1</span></h4>
-        <p class="blurb">Runs the editorial calendar, edits every brief before publication, writes one piece a month as the quality benchmark.</p>
-        <div class="pills"><span class="pill commit">6–8 hrs/wk</span><span class="pill">Bilingual EN/中</span></div>
+        <p class="blurb">Runs the editorial calendar, edits every brief before publication and writes one piece a month as the quality benchmark.</p>
+        <div class="pills"><span class="pill commit">6–8 hrs/wk</span><span class="pill">Remote</span></div>
         <span class="arrow">↗</span>
       </a>
-      <a class="role-row apple-slide-left" href="#hk-apply" style="transition-delay:.08s">
+      <a class="role-row apple-slide-left" href="#apply" style="transition-delay:0.08s">
         <span class="ix">03</span>
-        <h4 class="serif">Policy <em>Writers</em><span class="count">× 3 tracks</span></h4>
-        <p class="blurb">One brief and two explainers a month across three tracks — Climate &amp; Urban, Housing &amp; Economy, Digital Governance.</p>
+        <h4 class="serif">Policy <em>Writers</em><span class="count">× up to 3</span></h4>
+        <p class="blurb">One brief and two explainers a month, each writer on a policy track chosen by the chapter.</p>
         <div class="pills"><span class="pill commit">4–6 hrs/wk</span><span class="pill">Remote</span></div>
         <span class="arrow">↗</span>
       </a>
-      <a class="role-row apple-slide-left" href="#hk-apply" style="transition-delay:.12s">
+      <a class="role-row apple-slide-left" href="#apply" style="transition-delay:0.12s">
         <span class="ix">04</span>
         <h4 class="serif">Visual <em>Producer &amp; Content Creator</em><span class="count">× 1</span></h4>
-        <p class="blurb">Carousels, banners, the bilingual visual language across Rednote, WeChat, LinkedIn, and Instagram. Brand‑system literate.</p>
+        <p class="blurb">Carousels, banners and the chapter’s visual voice across its social channels, within the YSP brand system.</p>
         <div class="pills"><span class="pill commit">5–7 hrs/wk</span><span class="pill">Portfolio</span></div>
         <span class="arrow">↗</span>
       </a>
-      <a class="role-row apple-slide-left" href="#hk-apply" style="transition-delay:.16s">
+      <a class="role-row apple-slide-left" href="#apply" style="transition-delay:0.16s">
         <span class="ix">05</span>
         <h4 class="serif">Partnerships &amp; <em>Outreach Lead</em><span class="count">× 1</span></h4>
-        <p class="blurb">University MOUs, NGO collaborations, the founding mentor bench. Comfortable with first cold emails and patient follow‑up.</p>
-        <div class="pills"><span class="pill commit">5–7 hrs/wk</span><span class="pill">HK preferred</span></div>
+        <p class="blurb">University partnerships, NGO collaborations and the chapter’s mentor bench. Comfortable with first cold emails and patient follow-up.</p>
+        <div class="pills"><span class="pill commit">5–7 hrs/wk</span><span class="pill">Local preferred</span></div>
         <span class="arrow">↗</span>
       </a>
-      <a class="role-row apple-slide-left" href="#hk-apply" style="transition-delay:.2s">
+      <a class="role-row apple-slide-left" href="#apply" style="transition-delay:0.20s">
         <span class="ix">06</span>
         <h4 class="serif">Community &amp; <em>Operations Coordinator</em><span class="count">× 1</span></h4>
-        <p class="blurb">WeChat group, Friday wraps, Notion workspace, meeting minutes. The person who closes loops without being asked.</p>
-        <div class="pills"><span class="pill commit">4–5 hrs/wk</span><span class="pill">Flexible TZ</span></div>
+        <p class="blurb">Group chats, weekly wraps, the shared workspace and meeting notes. The person who closes loops without being asked.</p>
+        <div class="pills"><span class="pill commit">4–5 hrs/wk</span><span class="pill">Flexible time zone</span></div>
         <span class="arrow">↗</span>
       </a>
-    </div>
-  </div>
-</section>
-
-<!-- ────── Universities band ────── -->
-<section class="unis" data-screen-label="06 Universities">
-  <div class="container">
-    <span class="eyebrow hk-eye apple-reveal"><span class="leaf"></span> 04 / Academic partners</span>
-    <h2 class="section-title apple-reveal" style="transition-delay:.08s">The Schools We're <em class="hk">Starting With.</em></h2>
-    <p class="section-sub apple-reveal" style="transition-delay:.16s">Tier 1 targets are the first MOU conversations. Tier 2 are second‑wave partners we expect to add through student‑union and faculty referrals once the chapter is live.</p>
-
-    <div class="uni-grid">
-      <div class="uni apple-reveal">
-        <span class="abbr">HKU</span>
-        <span class="full">The University of Hong Kong · Faculty of Social Sciences</span>
-        <span class="tier">Tier 1 · MOU target</span>
-      </div>
-      <div class="uni apple-reveal" style="transition-delay:.04s">
-        <span class="abbr">CUHK</span>
-        <span class="full">Chinese University of Hong Kong · Government &amp; Public Administration</span>
-        <span class="tier">Tier 1 · MOU target</span>
-      </div>
-      <div class="uni apple-reveal" style="transition-delay:.08s">
-        <span class="abbr">HKUST</span>
-        <span class="full">Hong Kong University of Science &amp; Technology · Sustainability Institute</span>
-        <span class="tier">Tier 2 · ESG focus</span>
-      </div>
-      <div class="uni apple-reveal" style="transition-delay:.12s">
-        <span class="abbr">PolyU</span>
-        <span class="full">Hong Kong Polytechnic University · Student Affairs &amp; Design</span>
-        <span class="tier">Tier 2 · creative track</span>
-      </div>
-      <div class="uni apple-reveal" style="transition-delay:.16s">
-        <span class="abbr">CityU</span>
-        <span class="full">City University of Hong Kong · Public Policy &amp; Law</span>
-        <span class="tier">Tier 2 · policy track</span>
-      </div>
     </div>
   </div>
 </section>
 
 <!-- ────── Timeline ────── -->
-<section class="timeline" data-screen-label="07 HK Timeline">
+<section class="timeline" data-screen-label="05 Roadmap">
   <div class="container">
-    <span class="eyebrow hk-eye apple-reveal"><span class="leaf"></span> 05 / Roadmap</span>
-    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Sixteen Weeks, Then <em class="hk">A Real Cohort.</em></h2>
-    <p class="section-sub apple-reveal" style="transition-delay:.16s">A small, honest schedule. The founding team term is sixteen weeks; the first full member cohort begins at the end of it.</p>
-
+    <span class="eyebrow apple-reveal"><span class="leaf"></span> 04 / Roadmap</span>
+    <h2 class="section-title apple-reveal" style="transition-delay:.08s">Sixteen Weeks, Then <em>A Real Cohort.</em></h2>
+    <p class="section-sub apple-reveal" style="transition-delay:.16s">A small, honest schedule that every new chapter follows. The founding term is sixteen weeks; the first full member cohort begins at the end of it.</p>
     <div class="tl-list">
-      <div class="tl-row apple-reveal">
-        <div class="when">Now · two weeks</div>
+      <div class="tl-row apple-reveal" style="transition-delay:0.00s">
+        <div class="when">Now</div>
         <div>
           <h4 class="serif">Founding team <em>recruitment.</em></h4>
-          <p>Applications open across all seven founding roles. Shortlist conversations within a week of applying; offers issued before the recruitment window closes.</p>
-          <div class="ms"><span>7 roles open</span><span>Apply via LinkedIn / form</span><span>Rolling shortlist</span></div>
+          <p>Applications are open for the founding team of every chapter. Tell us which chapter and which role you are applying for.</p>
+          <div class="ms"><span>Every chapter hiring</span><span>Six roles per team</span><span>Remote, volunteer</span></div>
         </div>
       </div>
-
-      <div class="tl-row apple-reveal" style="transition-delay:.06s">
+      <div class="tl-row apple-reveal" style="transition-delay:0.06s">
         <div class="when">Weeks 1 – 4</div>
         <div>
-          <h4 class="serif">Onboarding &amp; <em>Society registration.</em></h4>
-          <p>Constitution drafted, office bearers confirmed, application filed with the Societies Officer. Notion workspace, WeChat group, and editorial calendar stood up.</p>
-          <div class="ms"><span>Cap. 151 filing</span><span>Internal SOPs</span><span>Brand sandbox</span></div>
+          <h4 class="serif">Onboarding &amp; <em>set-up.</em></h4>
+          <p>Founding teams meet, confirm roles and set up their workspace, editorial calendar and channels, with support from YSP Global.</p>
+          <div class="ms"><span>Team onboarding</span><span>Shared workspace</span><span>Editorial calendar</span></div>
         </div>
       </div>
-
-      <div class="tl-row apple-reveal" style="transition-delay:.12s">
+      <div class="tl-row apple-reveal" style="transition-delay:0.12s">
         <div class="when">Weeks 5 – 10</div>
         <div>
-          <h4 class="serif">University outreach &amp; <em>first publications.</em></h4>
-          <p>HKU and CUHK MOU conversations opened. First three policy briefs published bilingually under the YSP HK byline. Rednote + WeChat content rhythm reaches 2× / week.</p>
-          <div class="ms"><span>2 MOU drafts</span><span>3 policy briefs</span><span>Mentor bench × 3</span></div>
+          <h4 class="serif">Outreach &amp; <em>first publications.</em></h4>
+          <p>Chapters open conversations with local universities and partners, and publish their first briefs under the YSP byline.</p>
+          <div class="ms"><span>University outreach</span><span>First briefs</span><span>Mentor bench</span></div>
         </div>
       </div>
-
-      <div class="tl-row apple-reveal" style="transition-delay:.18s">
+      <div class="tl-row apple-reveal" style="transition-delay:0.18s">
         <div class="when">Weeks 11 – 14</div>
         <div>
-          <h4 class="serif">Launch event &amp; <em>cohort intake.</em></h4>
-          <p>YSP Hong Kong public launch — a free GBA youth‑policy webinar co‑hosted with a university partner. The registration list becomes the application pipeline for the first member cohort.</p>
-          <div class="ms"><span>Launch webinar</span><span>Cohort intake opens</span><span>Press cycle</span></div>
+          <h4 class="serif">Launch event &amp; <em>member intake.</em></h4>
+          <p>Each chapter hosts a public launch event. Its registration list becomes the pipeline for the chapter’s first member cohort.</p>
+          <div class="ms"><span>Launch event</span><span>Member intake opens</span></div>
         </div>
       </div>
-
-      <div class="tl-row apple-reveal" style="transition-delay:.24s">
-        <div class="when">Week 16 · Q4 2026</div>
+      <div class="tl-row apple-reveal" style="transition-delay:0.24s">
+        <div class="when">Week 16</div>
         <div>
-          <h4 class="serif">Greater China <em>Annual Forum</em> · Hong Kong.</h4>
-          <p>The flagship cross‑chapter event hosted by YSP HK. Members, mentors, and university partners from Singapore, Hong Kong, and the wider region. Year One of the chapter closes here.</p>
-          <div class="ms"><span>Cross‑chapter event</span><span>Y1 Impact Report</span><span>Cohort 2 announced</span></div>
+          <h4 class="serif">The first <em>full cohort.</em></h4>
+          <p>The founding term closes and each chapter welcomes its first full member cohort, then continues as an ongoing part of the network.</p>
+          <div class="ms"><span>First cohort</span><span>Ongoing chapter</span></div>
         </div>
       </div>
     </div>
@@ -937,16 +855,16 @@ setTimeout(finish,MAX);})();</script>
 </section>
 
 <!-- ────── Apply CTA ────── -->
-<section class="apply-cta" id="hk-apply" data-screen-label="08 Apply">
+<section class="apply-cta" id="apply" data-screen-label="06 Apply">
   <div class="mesh mesh-hk" aria-hidden="true" style="opacity:.55"><span></span></div>
   <div class="container">
-    <h2 class="apple-reveal">Build The <em>Hong Kong Chapter</em> With Us.</h2>
-    <p class="apple-reveal" style="transition-delay:.1s">Seven roles. One founding team. The chance to put your name on a chapter that doesn't exist yet — and to do real work, in writing, with mentors who will read it.</p>
+    <h2 class="apple-reveal">Build A <em>YSP Chapter</em> With Us.</h2>
+    <p class="apple-reveal" style="transition-delay:.1s">Five chapters. Six founding roles in each. The chance to put your name on a chapter as it starts, and to do real work, in writing, with mentors who will read it.</p>
     <div class="row apple-reveal" style="transition-delay:.2s">
-      <a href="mailto:youthforsustainablepolicy@gmail.com?subject=YSP%20Hong%20Kong%20%E2%80%94%20Founding%20Team%20Application" class="btn btn-hk" data-magnetic>Apply to the founding team <span class="arr">↗</span></a>
-      <a href="careers.html" class="btn btn-ghost">All open roles ▸</a>
+      <a href="mailto:youthforsustainablepolicy@gmail.com?subject=YSP%20Chapter%20%E2%80%94%20Founding%20Team%20Application" class="btn btn-hk" data-magnetic>Apply To A Founding Team <span class="arr">↗</span></a>
+      <a href="careers.html" class="btn btn-ghost">All Open Roles ▸</a>
     </div>
-    <div class="micro apple-reveal" style="transition-delay:.3s">Applications close in two weeks · 20 founding spots · Remote, volunteer, 5–8 hrs / week</div>
+    <div class="micro apple-reveal" style="transition-delay:.3s">Remote, volunteer, 4–10 hrs / week · Tell us your chapter and the role you’re applying for</div>
   </div>
 </section>
 

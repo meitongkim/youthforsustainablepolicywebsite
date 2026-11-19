@@ -34,7 +34,16 @@ html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
 }
 </style>
 <script id="ysp-loader-boot">(function(){var h=document.documentElement,s=false;try{s=!!sessionStorage.getItem('ysp-loaded')}catch(e){}if(!s){h.classList.add('ysp-loading','ysp-hold')}})();</script>
-<title>About — YSP · Youth for Sustainable Policy</title>
+<title>Why YSP? · Youth for Sustainable Policy</title>
+<meta name="description" content="Youth for Sustainable Policy is an international youth-led organisation helping young people take part in public policy through research, dialogue and public engagement.">
+<link rel="canonical" href="https://www.youthforsustainablepolicy.org/about">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Youth for Sustainable Policy">
+<meta property="og:title" content="Why YSP? · Youth for Sustainable Policy">
+<meta property="og:description" content="Youth for Sustainable Policy is an international youth-led organisation helping young people take part in public policy through research, dialogue and public engagement.">
+<meta property="og:url" content="https://www.youthforsustainablepolicy.org/about">
+<meta property="og:image" content="https://www.youthforsustainablepolicy.org/assets/ysp-logo.png">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,1,300;9..144,1,400&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
@@ -404,6 +413,7 @@ html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
 <style id="nav2-style">
 .nav .nav-links{gap:2px}
 .nav-dd{position:relative;display:inline-flex}
+html,body{overscroll-behavior-y:none}.nav-wrap{top:30px!important}.mnav-panel{top:102px!important}.mnav-panel.grouped{max-height:calc(100vh - 122px)!important}
 .nav-dd-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 13px;border:0;border-radius:999px;background:transparent;font:500 13.5px/1.2 Inter,system-ui,sans-serif;color:var(--ink-soft,#3d4a40);cursor:pointer;white-space:nowrap;transition:background .25s,color .25s}
 .nav-dd-btn .car{font-size:10px;transition:transform .25s}
 .nav-dd:hover .nav-dd-btn,.nav-dd.open .nav-dd-btn,.nav-dd.is-active .nav-dd-btn{background:rgba(137,163,108,.14);color:var(--ink,#1f2a22)}
@@ -425,11 +435,203 @@ html.ysp-hold .hero-orbits,html.ysp-hold .hero-in{animation-play-state:paused}
 .nav-links .nav-dd-menu a.nm-all{grid-column:1/-1;flex-direction:row;justify-content:flex-end;gap:6px;margin-top:6px;padding:10px 14px!important;border-top:1px solid rgba(31,42,34,.08);border-radius:0 0 12px 12px!important;font-size:13px;color:var(--sage-deep,#5d7a45)}
 .nm-col{border-left:1px solid rgba(31,42,34,.08);padding-left:6px}
 .nm-h{padding:8px 14px 6px;font:600 10.5px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
-.mnav-panel .mnav-h{padding:14px 18px 4px;font:600 11px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
-.mnav-panel.grouped a:not(.mnav-cta){min-height:44px;font-size:19px}
-.mnav-panel a small{display:none}
+.mnav-panel.grouped{gap:6px;padding:12px}
+.mnav-panel a.mg-home{min-height:50px;font-size:20px}
+.mg{border-radius:16px;background:rgba(31,42,34,.03);border:1px solid rgba(31,42,34,.06);overflow:hidden}.mg.on{background:#fff;border-color:rgba(110,140,80,.3)}
+.mg-b{width:100%;display:flex;align-items:center;gap:10px;min-height:54px;padding:0 18px;border:0;background:transparent;font:400 21px/1.1 Fraunces,Georgia,serif;color:#1f2a22;text-align:left;cursor:pointer}
+.mg-b span{flex:1}.mg-b em{font:600 11px/1 Inter,system-ui,sans-serif;font-style:normal;color:#5d7a45;background:rgba(137,163,108,.16);padding:4px 8px;border-radius:999px}
+.mg-b i{width:9px;height:9px;border-right:1.6px solid #6f8f52;border-bottom:1.6px solid #6f8f52;transform:rotate(45deg) translate(-2px,-2px);transition:transform .25s}.mg-b[aria-expanded="true"] i{transform:rotate(-135deg) translate(-2px,-2px)}
+.mg-b:focus-visible{outline:2px solid #5d7a45;outline-offset:-2px;border-radius:16px}
+.mg-c{padding:0 8px 10px}.mg-s+.mg-s{margin-top:6px;padding-top:6px;border-top:1px solid rgba(31,42,34,.06)}
+.mg-h{padding:10px 12px 4px;font:600 10.5px/1 Inter,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#7d857a}
+.mg-g{display:grid;grid-template-columns:1fr;gap:2px}
+.mnav-panel .mg-g a{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;min-height:46px;padding:8px 12px;border-radius:12px;font:500 15px/1.25 Inter,system-ui,sans-serif;letter-spacing:0;color:#1f2a22}
+.mnav-panel .mg-g a::after{display:none}.mnav-panel .mg-g a small{display:block;font-size:12px;font-weight:400;color:#7d857a}
+.mnav-panel .mg-g a.active{background:rgba(137,163,108,.16)}
+.mnav-panel a.mg-all{min-height:40px;margin-top:4px;font:600 13px/1 Inter,system-ui,sans-serif;color:#5d7a45;justify-content:flex-end;gap:6px}.mnav-panel a.mg-all::after{display:none}
+@media (min-width:600px){.mnav-panel{left:50%!important;right:auto!important;width:min(680px,calc(100vw - 32px));transform:translate(-50%,-8px)!important}.mnav-open .mnav-panel{transform:translate(-50%,0)!important}.mg-g{grid-template-columns:1fr 1fr}}
+@media (max-width:420px){.mnav-panel .mg-g a small{display:none}.mnav-panel .mg-g a{min-height:42px}}
+@media (prefers-reduced-motion:reduce){.mg-b i{transition:none}}
 </style>
-<script id="nav2-js">document.addEventListener('DOMContentLoaded',function(){var dds=document.querySelectorAll('.nav-dd');function closeAll(x){dds.forEach(function(d){if(d!==x){d.classList.remove('open');d.querySelector('.nav-dd-btn').setAttribute('aria-expanded','false')}})}dds.forEach(function(d){var b=d.querySelector('.nav-dd-btn');b.addEventListener('click',function(e){e.stopPropagation();closeAll(d);var o=d.classList.toggle('open');b.setAttribute('aria-expanded',o)})});document.addEventListener('click',function(){closeAll(null)});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null)});function group(){var p=document.getElementById('mnavPanel');if(!p||p.classList.contains('grouped'))return;var cta=p.querySelector('.mnav-cta'),home=p.querySelector('a[href="index.html"]');p.innerHTML='';if(home)p.appendChild(home);document.querySelectorAll('.nav-links .nav-dd-menu').forEach(function(m){var h=document.createElement('div');h.className='mnav-h';h.textContent=m.getAttribute('data-group');p.appendChild(h);m.querySelectorAll('a').forEach(function(a){var c=a.cloneNode(true);c.removeAttribute('role');p.appendChild(c)})});if(cta)p.appendChild(cta);p.classList.add('grouped')}group();setTimeout(group,300)});</script>
+<script id="nav2-js">document.addEventListener('DOMContentLoaded',function(){var dds=document.querySelectorAll('.nav-dd');function closeAll(x){dds.forEach(function(d){if(d!==x){d.classList.remove('open');d.querySelector('.nav-dd-btn').setAttribute('aria-expanded','false')}})}dds.forEach(function(d){var b=d.querySelector('.nav-dd-btn');b.addEventListener('click',function(e){e.stopPropagation();closeAll(d);var o=d.classList.toggle('open');b.setAttribute('aria-expanded',o)})});document.addEventListener('click',function(){closeAll(null)});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll(null)});function group(){var p=document.getElementById('mnavPanel');if(!p||p.classList.contains('grouped'))return;var cta=p.querySelector('.mnav-cta'),home=p.querySelector('a[href="index.html"]');p.innerHTML='';if(home){home.classList.add('mg-home');p.appendChild(home)}var groups=[];document.querySelectorAll('.nav-links .nav-dd-menu').forEach(function(m,i){var name=m.getAttribute('data-group');var g=document.createElement('div');g.className='mg';var id='mg-'+i;var btn=document.createElement('button');btn.type='button';btn.className='mg-b';btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-controls',id);var links=m.querySelectorAll('a:not(.nm-all)');btn.innerHTML='<span>'+name+'</span><em>'+links.length+'</em><i aria-hidden="true"></i>';var c=document.createElement('div');c.className='mg-c';c.id=id;c.hidden=true;var cols=m.querySelectorAll('.nm-col');function addLink(a,wrap){var x=a.cloneNode(true);x.removeAttribute('role');wrap.appendChild(x);if(x.classList.contains('active'))g.dataset.cur='1'}if(cols.length){cols.forEach(function(col){var h=col.querySelector('.nm-h');var sec=document.createElement('div');sec.className='mg-s';if(h){var hh=document.createElement('div');hh.className='mg-h';hh.textContent=h.textContent;sec.appendChild(hh)}var gr=document.createElement('div');gr.className='mg-g';col.querySelectorAll('a').forEach(function(a){addLink(a,gr)});sec.appendChild(gr);c.appendChild(sec)})}else{var gr=document.createElement('div');gr.className='mg-g';m.querySelectorAll('a').forEach(function(a){addLink(a,gr)});c.appendChild(gr)}var all=m.querySelector('a.nm-all');if(all){var x=all.cloneNode(true);x.removeAttribute('role');x.className='mg-all';c.appendChild(x)}g.appendChild(btn);g.appendChild(c);p.appendChild(g);groups.push(g);btn.addEventListener('click',function(){var open=btn.getAttribute('aria-expanded')!=='true';groups.forEach(function(o){o.querySelector('.mg-b').setAttribute('aria-expanded','false');o.querySelector('.mg-c').hidden=true;o.classList.remove('on')});if(open){btn.setAttribute('aria-expanded','true');c.hidden=false;g.classList.add('on');setTimeout(function(){var r=g.getBoundingClientRect(),pr=p.getBoundingClientRect();if(r.top<pr.top||r.top>pr.top+60)p.scrollTo({top:p.scrollTop+r.top-pr.top-8,behavior:'smooth'})},10)}})});var cur=groups.filter(function(g){return g.dataset.cur})[0];if(cur){cur.querySelector('.mg-b').click()}if(cta)p.appendChild(cta);p.classList.add('grouped')}group();setTimeout(group,300)});</script>
+<style id="sdg-style">.sx{margin-top:28px}
+.sp{margin:34px 0 46px}.sp-h{text-align:center;margin-bottom:22px}.sp-k{display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-deep);font-weight:600}.sp-t{font-size:clamp(22px,2.4vw,30px);margin:6px 0 0}
+.sp-g{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.sp-c{position:relative;background:linear-gradient(170deg,#eef5ea 0%,#fff 62%);border:1px solid rgba(46,74,52,.12);border-radius:26px;padding:22px 20px 22px;display:flex;flex-direction:column;opacity:0;transform:translateY(28px) scale(.97);transition:opacity .7s ease calc(var(--i)*.12s),transform .8s cubic-bezier(.2,.8,.2,1) calc(var(--i)*.12s),box-shadow .35s ease}
+.sp-in .sp-c{opacity:1;transform:none}.sp-in .sp-c:hover{transform:translateY(-6px);box-shadow:0 26px 44px -28px rgba(30,60,35,.55)}
+.sp-art{position:relative;height:170px;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.sp-art img{position:relative;width:170px;height:170px;object-fit:contain;filter:drop-shadow(0 16px 22px rgba(30,60,35,.18));animation:sp-float 6s ease-in-out infinite;animation-delay:calc(var(--i)*-1.5s)}
+.sp-ring{position:absolute;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(150,190,120,.35),rgba(150,190,120,0) 70%);animation:sp-pulse 6s ease-in-out infinite;animation-delay:calc(var(--i)*-1.5s)}
+.sp-c:hover .sp-art img{animation-duration:2.4s}
+@keyframes sp-float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(-2deg)}}
+@keyframes sp-pulse{0%,100%{transform:scale(.9);opacity:.7}50%{transform:scale(1.08);opacity:1}}
+.sp-n{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sage-deep)}.sp-c h3{font-size:19px;line-height:1.2;margin:4px 0 8px}.sp-c p{font-size:14px;line-height:1.55;color:#4b5b52;margin:0 0 14px;flex:1}
+.sp-r{list-style:none;margin:0;padding:12px 0 0;border-top:1px solid rgba(46,74,52,.12);display:flex;flex-direction:column;gap:5px}.sp-r a{font-size:13.5px;font-weight:600;color:var(--sage-deep);text-decoration:none}.sp-r a:hover{text-decoration:underline}
+.sx-h{font-size:clamp(20px,2vw,24px);margin:0 0 14px}
+@media (max-width:1000px){.sp-g{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.sp-g{gap:12px}.sp-c{padding:16px 14px;border-radius:20px}.sp-art{height:120px}.sp-art img{width:118px;height:118px}.sp-ring{width:104px;height:104px}.sp-c h3{font-size:16px}.sp-c p{font-size:13px}}
+@media (prefers-reduced-motion:reduce){.sp-c{opacity:1;transform:none;transition:none}.sp-art img,.sp-ring{animation:none}}
+.sx-f{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}.sx-f button{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:999px;border:1px solid rgba(46,74,52,.2);background:#fff;font:inherit;font-size:13.5px;color:var(--ink);cursor:pointer}.sx-f button span{color:var(--sage-deep);font-weight:600}.sx-f button[aria-pressed="true"]{background:#2e4a34;border-color:#2e4a34;color:#fff}.sx-f button[aria-pressed="true"] span{color:#cfe0b9}
+.sx-f i{width:9px;height:9px;border-radius:50%;display:inline-block}.dot-o{background:#2e4a34;box-shadow:0 0 0 2px #fff}.dot-t{background:#6f8f52}.dot-p{background:#fff;border:1.5px solid #9aa39b}
+.sx-w{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px;align-items:start}
+.sx-g{list-style:none;margin:0;padding:0;display:grid;align-items:stretch;grid-auto-rows:1fr;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+.sx-g li{transition:opacity .25s}.sx-g li.sx-dim{opacity:.28}
+.sx-b{width:100%;height:100%;display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:12px 12px 14px;border-radius:16px;border:1px solid rgba(46,74,52,.12);background:#fff;font:inherit;text-align:left;color:var(--ink);cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s}
+.sx-b:hover{transform:translateY(-2px);box-shadow:0 12px 26px -18px rgba(30,50,30,.5)}.sx-b:focus-visible,.sx-f button:focus-visible{outline:2px solid var(--sage-deep);outline-offset:2px}
+.sx-i{width:100%;aspect-ratio:1/1;max-height:96px;border-radius:14px;display:grid;place-items:center;margin-bottom:2px}.sx-i img{width:auto;height:100%;max-height:96px;object-fit:contain;filter:drop-shadow(0 8px 12px rgba(46,74,52,.14));transition:transform .3s}.sx-b:hover .sx-i img,.sx-b[aria-pressed="true"] .sx-i img{transform:scale(1.06) translateY(-2px)}
+.sx-co .sx-i{background:radial-gradient(circle at 50% 60%,rgba(46,74,52,.16),rgba(46,74,52,.04) 70%)}.sx-ct .sx-i{background:radial-gradient(circle at 50% 60%,rgba(111,143,82,.16),rgba(111,143,82,.04) 70%)}.sx-cp .sx-i{background:radial-gradient(circle at 50% 60%,rgba(137,163,108,.10),transparent 70%)}
+.sx-b{position:relative}.sx-b::after{content:"";position:absolute;top:10px;right:10px;width:9px;height:9px;border-radius:50%}.sx-co::after{background:#2e4a34}.sx-ct::after{background:#6f8f52}.sx-cp::after{background:#fff;border:1.5px solid #9aa39b}
+.sx-n{font:600 10.5px/1 Inter,system-ui,sans-serif;letter-spacing:.12em;color:var(--sage-deep)}.sx-t{font-size:12.5px;line-height:1.3;font-weight:500}
+.sx-b[aria-pressed="true"]{border-color:#2e4a34;box-shadow:0 0 0 2px #2e4a34 inset}
+.sx-p{position:sticky;top:170px;padding:26px;border-radius:24px;background:#fff;border:1px solid rgba(46,74,52,.12);min-height:300px}
+.sx-ph{display:flex;gap:16px;align-items:flex-start;margin-bottom:14px}.sx-pi{flex:none;width:120px;height:120px;border-radius:24px;display:grid;place-items:center}.sx-pi img{width:112px;height:112px;object-fit:contain;filter:drop-shadow(0 12px 18px rgba(46,74,52,.18))}
+.sx-p .sx-pi{background:radial-gradient(circle at 50% 60%,rgba(137,163,108,.22),rgba(137,163,108,.04) 72%)}
+.sx-pn{font:600 11px/1 Inter,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-deep)}.sx-ph h3{margin:6px 0 8px;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:26px;line-height:1.15}
+.sx-pl{display:inline-block;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:600;background:rgba(137,163,108,.14);color:#44612f}
+.sx-pd{margin:0 0 10px;font-size:15px;line-height:1.6;color:var(--ink-soft)}.sx-pd b{color:var(--ink)}.sx-px{margin:0 0 10px;font-size:14px;line-height:1.55;color:var(--ink-soft)}.sx-px a{color:var(--sage-deep)}
+.sx-pr span{display:block;font:600 11px/1.2 Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-deep);margin:14px 0 8px}.sx-pr ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}.sx-pr a{display:block;padding:10px 14px;border-radius:12px;background:rgba(137,163,108,.10);color:var(--ink);text-decoration:none;font-size:14px;font-weight:500}.sx-pr a:hover{background:rgba(137,163,108,.2)}
+@media (prefers-reduced-motion:reduce){.sx-b,.sx-g li{transition:none}.sx-b:hover{transform:none}}
+@media (max-width:900px){.sx-w{grid-template-columns:1fr}.sx-p{position:static;order:-1;min-height:0}}
+@media (max-width:520px){.sx-g{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:auto;gap:6px}.sx-b{padding:8px 8px 10px;gap:3px;border-radius:14px}.sx-i{max-height:64px}.sx-i img{max-height:64px}.sx-pi{width:88px;height:88px}.sx-pi img{width:82px;height:82px}.sx-t{font-size:11.5px}.sx-f button{padding:7px 12px;font-size:12.5px}}</style>
+<style id="yb-style">
+.yb-band{padding:72px 24px}
+.yb-band.alt{background:linear-gradient(180deg,#eaf1e3 0%,#dfe9d6 100%)}
+.yb-band .section-sub{max-width:min(100%,66ch)}
+.yb-status{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.7);border:1px dashed rgba(137,163,108,.6);font-size:13px;color:var(--ink-soft)}
+.yb-status .pd{width:8px;height:8px;border-radius:50%;background:#c9a24a;box-shadow:0 0 0 4px rgba(201,162,74,.18);animation:ybp 2s ease-in-out infinite}
+@keyframes ybp{50%{box-shadow:0 0 0 8px rgba(201,162,74,.05)}}
+@media (prefers-reduced-motion:reduce){.yb-status .pd{animation:none}}
+.yb-gauge{display:block;width:min(340px,80%);margin:34px auto 0;color:var(--sage-deep)}
+.yb-q{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.yb-q article{padding:26px 24px;border-radius:22px;background:rgba(255,255,255,.82);border:1px solid rgba(46,74,52,.10)}
+.yb-q small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-deep);font-weight:600}
+.yb-q h3{margin:10px 0 8px;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:22px;line-height:1.25;letter-spacing:-.01em}
+.yb-q h3 em{font-style:italic;font-weight:300;color:var(--sage-deep)}
+.yb-q p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.6}
+.yb-ways{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.yb-way{display:flex;flex-direction:column;gap:8px;padding:24px;border-radius:20px;background:#fff;border:1px solid rgba(46,74,52,.10);color:inherit;text-decoration:none;transition:transform .25s,box-shadow .25s}
+a.yb-way:hover{transform:translateY(-2px);box-shadow:0 20px 44px -26px rgba(31,42,34,.35)}
+.yb-way b{font-size:16.5px;font-weight:600}
+.yb-way p{margin:0;color:var(--ink-soft);font-size:14px;line-height:1.55}
+.yb-way span{margin-top:auto;padding-top:6px;font-size:13.5px;font-weight:500}
+.yb-note{margin-top:22px;font-size:13px;color:var(--ink-soft)}
+@media (max-width:1000px){.yb-q,.yb-ways{grid-template-columns:1fr}}
+@media (max-width:640px){.yb-band{padding:52px 16px}}
+</style>
+<style id="yb2-style">
+.yb-band .section-title{max-width:none;text-wrap:balance}
+.b2-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.b2-chips span{padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.75);border:1px solid rgba(46,74,52,.12);font-size:12.5px;font-weight:600;letter-spacing:.04em;color:var(--sage-deep)}
+.b2-quote{max-width:900px;margin:0 auto;text-align:center}
+.b2-quote p{margin:16px 0 14px;font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:clamp(24px,2.8vw,36px);line-height:1.3;letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+.b2-quote em{font-style:italic;color:var(--sage-deep)}
+.b2-qs{color:var(--ink-soft);font-size:15.5px}
+.b2-dims{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+.b2-dim{padding:24px;border-radius:20px;background:#fff;border:1px solid rgba(46,74,52,.10)}
+.b2-dim b{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;border-radius:50%;background:#1f2a22;color:#e8eee2;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:15px;margin-bottom:12px}
+.b2-dim h3{margin:0 0 6px;font-size:17px;font-weight:600}.b2-dim p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.55}
+.b2-rq{margin-top:22px;padding:26px 28px;border-radius:22px;background:#1f2a22;color:#e8eee2}
+.b2-rq small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#b9c99e;font-weight:600}
+.b2-rq p{margin:8px 0 0;font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:clamp(20px,2.2vw,27px);line-height:1.35;color:#fbfdfa}
+.b2-specs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.b2-specs div{padding:18px 20px;border-radius:18px;background:rgba(137,163,108,.10);border:1px solid rgba(137,163,108,.2)}
+.b2-specs small{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-deep);font-weight:600;margin-bottom:6px}
+.b2-specs b{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:21px}
+.b2-note{margin:12px 0 0;font-size:13px;color:var(--ink-soft);font-style:italic}
+.b2-qbox{margin-top:26px;padding:26px 28px;border-radius:22px;background:#fff;border:1px solid rgba(46,74,52,.10)}
+.b2-qbox h3{margin:0 0 12px;font-size:18px;font-weight:600}
+.b2-qbox ol{margin:0;padding-left:22px;display:grid;grid-template-columns:1fr 1fr;gap:10px 32px}
+.b2-qbox li{color:var(--ink);font-size:15px;line-height:1.5}.b2-qbox li::marker{color:var(--sage-deep);font-weight:600}
+.b2-outs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:26px}
+.b2-out{padding:26px;border-radius:22px;background:#fff;border:1px solid rgba(46,74,52,.10);position:relative;overflow:hidden}
+.b2-out::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--sage-deep),rgba(185,201,158,.5))}
+.b2-out small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-deep);font-weight:600}
+.b2-out h3{margin:6px 0 8px;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:24px}.b2-out p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.6}
+.b2-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
+.b2-std{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.b2-std li{position:relative;padding:14px 16px 14px 46px;border-radius:16px;background:#fff;border:1px solid rgba(46,74,52,.10);font-size:14.5px;line-height:1.5}
+.b2-std li::before{content:"✓";position:absolute;left:14px;top:13px;width:22px;height:22px;border-radius:50%;background:rgba(137,163,108,.18);color:var(--sage-deep);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.b2-roles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
+.b2-role{padding:20px;border-radius:18px;background:#fff;border:1px solid rgba(46,74,52,.10);display:flex;flex-direction:column;gap:6px}
+.b2-role b{font-size:15px}.b2-role span{color:var(--ink-soft);font-size:13.5px;line-height:1.5}
+.b2-tl{list-style:none;margin:26px 0 0;padding:0;border-left:2px solid rgba(137,163,108,.35)}
+.b2-tl li{position:relative;display:grid;grid-template-columns:190px minmax(0,1fr) minmax(0,1fr);gap:16px;padding:14px 0 14px 26px;border-bottom:1px solid rgba(46,74,52,.08)}
+.b2-tl li::before{content:"";position:absolute;left:-7px;top:20px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--sage-deep)}
+.b2-tl li:last-child::before{background:var(--sage-deep)}
+.b2-tl .d{font-size:13.5px;font-weight:600;color:var(--sage-deep)}.b2-tl b{font-size:15px}.b2-tl .o{color:var(--ink-soft);font-size:14px}
+@media (max-width:1000px){.b2-dims,.b2-roles{grid-template-columns:repeat(2,1fr)}.b2-specs{grid-template-columns:repeat(2,1fr)}.b2-two{grid-template-columns:1fr;gap:20px}.b2-qbox ol{grid-template-columns:1fr}}
+@media (max-width:640px){.b2-dims,.b2-roles,.b2-outs{grid-template-columns:1fr}.b2-tl li{grid-template-columns:1fr;gap:2px}}
+</style>
+<style id="about-up">.ab-h1{font-size:clamp(38px,5vw,70px)!important;max-width:21ch;margin-left:auto;margin-right:auto}.hero-cta{flex-wrap:wrap;justify-content:center}.stg4 .d{white-space:nowrap}.suite-wt{margin-top:30px}.closing .card p a{color:inherit;text-decoration:underline}.why-av{flex:none;width:44px;height:44px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px #fff,0 0 0 4px rgba(110,140,80,.35)}.why-aside{display:flex;align-items:center;gap:12px}</style>
+<style id="pp-style">
+.pp-tag{margin:14px auto 0;font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:300;font-size:clamp(20px,2.2vw,26px);color:var(--sage-deep)}
+.pp-prose{max-width:780px;margin-top:22px}.pp-prose p{margin:0 0 14px;font-size:16.5px;line-height:1.7;color:var(--ink-soft)}.pp-prose p.pp-lead{font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:clamp(21px,2.3vw,28px);line-height:1.4;color:var(--ink)}.pp-prose b{color:var(--ink);font-weight:600}
+.pp-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:26px}.pp-cards .pp-sub{font-style:italic;color:var(--sage-deep)!important;margin-bottom:8px!important}.pp-cards .b2-out p+p{margin-top:8px}
+.pp-specs{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))!important;margin-top:24px}.pp-specs b{font-size:18px!important;line-height:1.3}
+.pp-checks{max-width:820px;margin-top:22px}
+.pp-steps{margin:0;padding-left:22px;display:grid;gap:10px}.pp-steps li{font-size:15px;line-height:1.55}.pp-steps li::marker{color:var(--sage-deep);font-weight:700}
+.pp-weights{display:grid;gap:12px;max-width:820px;margin-top:24px;padding:24px 26px;border-radius:22px;background:#fff;border:1px solid rgba(46,74,52,.10)}
+.pp-wt{display:flex;justify-content:space-between;gap:12px;font-size:15px;margin-bottom:6px}.pp-wt b{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:20px;color:var(--sage-deep)}
+.pp-bar{height:8px;border-radius:99px;background:rgba(137,163,108,.15);overflow:hidden}.pp-bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#6f8f52,#a9c08a)}
+.pp-faq{display:grid;gap:10px;max-width:860px;margin-top:24px}.pp-faq details{border-radius:18px;background:#fff;border:1px solid rgba(46,74,52,.10)}
+.pp-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;padding:18px 22px;font-weight:600;font-size:15.5px}.pp-faq summary::-webkit-details-marker{display:none}
+.pp-faq summary span{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:rgba(137,163,108,.18);color:var(--sage-deep);transition:transform .25s}.pp-faq details[open] summary span{transform:rotate(45deg)}
+.pp-faq details p{margin:0;padding:0 22px 18px;color:var(--ink-soft);font-size:15px;line-height:1.6}
+.pp-close{text-align:center;max-width:760px;margin:0 auto}.pp-close p{color:var(--ink-soft);font-size:16px;line-height:1.65;margin:10px 0}.pp-close .yb-status{margin-top:10px}
+.pp-sign{margin-top:26px!important;font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:20px!important;color:var(--sage-deep)!important}
+.pp-art{display:block;width:min(340px,80%);height:auto;margin:30px auto 0;color:var(--sage-deep)}
+.pp-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}
+@media (max-width:900px){.pp-two{grid-template-columns:1fr;gap:12px}}
+</style>
+<style id="suite-style">
+html{scroll-padding-top:162px}
+.sn{position:sticky;top:98px;z-index:60;margin:28px auto 0;max-width:1180px;padding:0 16px}
+.sn-in{display:flex;align-items:center;gap:14px;padding:10px 16px;border-radius:999px;background:rgba(251,250,244,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(46,74,52,.12);box-shadow:0 10px 30px -18px rgba(30,50,30,.35)}
+.sn-lbl{flex:none;font:600 10.5px/1 Inter,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-deep)}
+.sn ol{list-style:none;margin:0;padding:0;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}.sn ol::-webkit-scrollbar{display:none}
+.sn a{position:relative;display:block;white-space:nowrap;padding:8px 12px;border-radius:999px;font-size:13px;font-weight:500;color:var(--ink-soft);text-decoration:none}
+.sn a::after{content:"";position:absolute;left:12px;right:12px;bottom:3px;height:2px;border-radius:2px;background:var(--sage-deep);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.sn a:hover{color:var(--ink)}.sn a[aria-current="true"]{color:var(--ink);font-weight:600}.sn a[aria-current="true"]::after{transform:scaleX(1)}
+.sn a:focus-visible,.pc:focus-visible,.ft-a:focus-visible,.rd-f button:focus-visible,.rd input:focus-visible,.rd select:focus-visible{outline:2px solid var(--sage-deep);outline-offset:2px}
+.sn-prog{display:block;height:2px;margin:6px 28px 0;border-radius:2px;background:rgba(46,74,52,.10);overflow:hidden}.sn-prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,#6f8f52,#a9c08a)}
+@media (prefers-reduced-motion:reduce){.sn a::after{transition:none}html{scroll-behavior:auto}}
+@media (max-width:760px){.sn{top:90px;padding:0 10px}.sn-lbl{display:none}.sn-in{padding:6px 8px}}
+.tw{margin-top:24px;overflow-x:auto;border-radius:20px;background:#fff;border:1px solid rgba(46,74,52,.10)}
+.tw table{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.55}.tw caption{text-align:left;padding:16px 20px 4px;font:600 11px/1.3 Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-deep)}
+.tw th,.tw td{padding:14px 20px;text-align:left;vertical-align:top;border-top:1px solid rgba(46,74,52,.08)}.tw thead th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;border-top:0}
+.tw tbody th{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:17px;color:var(--ink);min-width:150px}.tw td{color:var(--ink-soft)}.tw a{color:var(--sage-deep);text-decoration:underline;text-underline-offset:3px}
+@media (max-width:640px){.tw table,.tw tbody,.tw tr,.tw th,.tw td{display:block}.tw thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.tw tr{padding:12px 18px;border-top:1px solid rgba(46,74,52,.08)}.tw tbody th,.tw td{padding:4px 0;border:0}.tw td::before{content:attr(data-label);display:block;font:600 10.5px/1.4 Inter,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--sage-deep);margin-top:6px}}
+.pcg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:28px}
+.pc{display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:22px;background:#fff;border:1px solid rgba(46,74,52,.10);text-decoration:none;color:inherit;transition:transform .25s,box-shadow .25s}
+.pc:hover{transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(30,50,30,.4)}.pc h3{margin:0;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:23px;letter-spacing:-.01em}.pc p{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink-soft)}
+.pc-st{align-self:flex-start;display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;font-size:12px;font-weight:600;background:rgba(137,163,108,.14);color:#44612f}.pc-st .pd{width:7px;height:7px;border-radius:50%;background:#6f8f52}
+.pc-st.up{background:rgba(214,170,70,.16);color:#7a5a14}.pc-st.up .pd{background:#c99a35}.pc-st.dev{background:rgba(31,42,34,.06);color:var(--ink-soft)}.pc-st.dev .pd{background:#9aa39b}
+.pc-go{margin-top:auto;padding-top:8px;font-size:13.5px;font-weight:600;color:var(--sage-deep)}
+@media (prefers-reduced-motion:reduce){.pc{transition:none}.pc:hover{transform:none}}
+@media (max-width:980px){.pcg{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:620px){.pcg{grid-template-columns:1fr}}
+.prg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px}.pr{padding:26px;border-radius:22px;background:rgba(255,255,255,.7);border:1px solid rgba(46,74,52,.10)}
+.pr-n{font:600 11px/1 Inter,system-ui,sans-serif;letter-spacing:.14em;color:var(--sage-deep)}.pr h3{margin:10px 0 8px;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:24px;letter-spacing:-.01em}.pr p{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.6}
+@media (max-width:720px){.prg{grid-template-columns:1fr}}
+.ftg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}.ft{display:flex;flex-direction:column;border-radius:24px;overflow:hidden;background:#fff;border:1px solid rgba(46,74,52,.10)}
+.ft-img{aspect-ratio:16/10;overflow:hidden;background:#e9efe1}.ft-img img{width:100%;height:100%;object-fit:cover;display:block}
+.ft-b{display:flex;flex-direction:column;gap:8px;padding:22px 22px 24px;flex:1}.ft-k{font:600 11px/1.3 Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-deep)}
+.ft h3{margin:0;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:22px;line-height:1.2}.ft p{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink-soft)}.ft-m{font-size:13px!important;color:var(--ink)!important}
+.ft-a{margin-top:auto;padding-top:10px;font-size:14px;font-weight:600;color:var(--sage-deep);text-decoration:none}.ft-a:hover{text-decoration:underline}
+@media (max-width:980px){.ftg{grid-template-columns:1fr 1fr}}@media (max-width:620px){.ftg{grid-template-columns:1fr}}
+.acts{justify-content:flex-start!important;margin-top:22px}
+.mvg{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}.mv{padding:30px;border-radius:24px;background:#fff;border:1px solid rgba(46,74,52,.10)}.mv h3{margin:0 0 10px;font:600 11px/1.3 Inter,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-deep)}.mv p{margin:0;font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:clamp(20px,2.1vw,26px);line-height:1.4;color:var(--ink)}
+@media (max-width:760px){.mvg{grid-template-columns:1fr}}
+.stg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:26px}.st{padding:24px;border-radius:22px;background:#fff;border:1px solid rgba(46,74,52,.10)}.st>b{display:block;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:44px;line-height:1;color:var(--ink)}.st h3{margin:8px 0 12px;font-size:15px;font-weight:600}
+.st dl{margin:0;display:grid;gap:6px}.st dl div{display:grid;grid-template-columns:78px 1fr;gap:8px;font-size:12.5px;line-height:1.45}.st dt{color:var(--sage-deep);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:10.5px;padding-top:2px}.st dd{margin:0;color:var(--ink-soft)}.st a{color:var(--sage-deep)}
+.mt{list-style:none;margin:26px 0 0;padding:0;position:relative;display:grid;gap:4px}.mt::before{content:"";position:absolute;left:118px;top:8px;bottom:8px;width:2px;background:rgba(137,163,108,.35)}
+.mt li{display:grid;grid-template-columns:110px 1fr;gap:34px;padding:14px 0;position:relative}.mt li::before{content:"";position:absolute;left:112px;top:20px;width:14px;height:14px;border-radius:50%;background:#6f8f52;box-shadow:0 0 0 5px rgba(137,163,108,.2)}
+.mt li.plan::before{background:#fff;border:2px solid #c99a35;box-shadow:none}.mt-d{font:600 12.5px/1.6 Inter,system-ui,sans-serif;color:var(--sage-deep);text-align:right;padding-right:22px;padding-top:1px}.mt li.plan .mt-d{color:#7a5a14}
+.mt h3{margin:0 0 4px;font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:21px}.mt p{margin:0;color:var(--ink-soft);font-size:14.5px;line-height:1.6}.mt a{font-size:13px;font-weight:600;color:var(--sage-deep)}
+@media (max-width:620px){.mt::before{left:6px}.mt li{grid-template-columns:1fr;gap:4px;padding-left:30px}.mt li::before{left:0}.mt-d{text-align:left;padding-right:0}}
+.note{margin-top:16px;padding:14px 18px;border-radius:16px;background:rgba(214,170,70,.10);border:1px solid rgba(190,145,50,.25);font-size:14px;line-height:1.55;color:var(--ink)}
+.note a{color:var(--sage-deep)}
+.pp-prose a{color:var(--sage-deep);text-decoration:underline;text-underline-offset:3px}
+</style>
 </head>
 <body>
 <div id="ysp-loader" role="status" aria-live="polite"><span class="ldr-mark"><img src="data:image/webp;base64,UklGRgoLAABXRUJQVlA4IP4KAACQPACdASrAAMAAPkkij0SioiGnqFN6YPAJCWdt6zBnhnAEMHAAh68Kc2dBAPGveRu8qFWGoAfob0ctJn1pwFzBWiekqn1ssvWUS1KJb2fhUpsVEnI/Ua+aJC3zstV66maRxWSFgabbZfFKTlxZ3Mh4yGfPxtQQgtLDePWkdLdrrMhnfBXTiagm+PVDrBX/2OFljNnsTnfeapf+5cM5rnDbkcwpuS47rxfXGNbOilteYuAtVQglyQ3q/2vj6Ulj4GDh2Xzi83JIt7i7GOGDUSTXMXPxby6LmDF+eSzMrYsxT8144Rf2QmTP5R9sBCWHz3iwbdVmR5T0CNw0OeEWZy8Rp9tTMRsM3AyvFMoqtXB2pzXKF44LJDo0sQwn9a2RJIPhVwyx5WEpFLQD6oBlhkwxaxWxgCJwHK06/YZ9HGZCHifBKwJzrB3eO17P/93o7CeVAJjCJFZJgs5RkUHV37bCOtGDxkcZIh2jL7vSBz18hPxSRJkqo/krVDjhMJhWnmHksBwb+YoXiLTvh+nhmR5k+KoCkTN/s337gdrOJuKMoyq0/Ah2UrOr/5aL628m/apv0d6wp8oC0oMbOyyUud53dTKs1dJ08gkK3rC9/0k7AR/hMQx3sNxog/GA/DKu7O5cuT03vnkVlWD+hX/gAP75APvOti6+Pzn64dU2WtuZTLqO+JbtIIcJeaJt0jYxyKcD9j3LUw0KiNNjoeaPAhWGX/ULw2bsV2c3HqgK3Xg2aQBwxaC57eRMblGNoZoe4/oL1den502HdMd1qskhVqXxLcmbupItGklneAWineqSq4HNmh6ORAwmWgZm6gtnyPb4oM1C5a5siumYE85BEdg78gtT/p7tI+nTj08HF9/xO/RZ+54D6kE6iWsPg3NYyRzM3WoE5V1x75/eYugEeYZWSiAOB5mcxvcNDxK8Vk2ycr5UdIVzU/WRPAVZmo1ppSv71BaTETvQJAQBWeFOEXWvRtXwLVObDNfPAyRiA0kbem4st8/OOae9+VYwwNH6idnim9r5bCAM8Y6brpeLntfDBlk3sf3R8TDf21L1GlAil7ZVWYXSP3gn/ACwh70l15jgaGx4uKD/gkZMOYOIuP1tAhZTAari6KqSYzt0WazB1UGTPcogA4ro8S/fQA6Hm8UAyS4I1qwiNcPvovrdlM2eoUNza0UT8ZZLn24w3S+UWT79Ox0SoF8ZuHO12rkSg8OXTdegVoFTjFAlLZ0CdBNWMzFntA0QxV3W+4lqZ+dzlaKSCw3FnHGCb4wu1OJ2mlDm0FniEmISwu5eHv3rcNVg6oWN3UdrrreB6pBhJ1enIqQ3HVkdkycWSTBeO9Pxgl4GHe7uKd5cKWj8ikAhSosUPgyzGVbby7Tk77F46SDK89tZWJ9/J5dYilxAUs0dY4MWqeW3/b6PKZvvJcBZWFG0vkZL2m8tVcSLM/9xuIfdhsRgUm1KxVQZ23CYZpqCa2X2S0tlI8feCxD+YvdrRNPuEZvTpA7uVcujUy+JU2eMYUPcRg9sd1odPSG0ompLwthflpzIkTes1ZP5aRdaAf11l4pGJN2oMijfGeL8qXADLKQ7JCmaWtnuLKiNsvezrhhonZeMVl5+qbNTG+f0SENd/s4tq9WjvFk4uSqWrZT5Wb9dPq5SefneHVRGlu6CiFwojrl3pTB1vvEGIacBv79uPTsx8umxziZ/sSPoQTrQaRKDFqTpiaUPmnilDp+Om3usn0zJS6olmW55btIroI79uJPyZ1HL4YRwrMW3C48UQ+lTTJynY7k7OKcgylDXAdgaFcySs3qD0iuhH/H3zvM1XcYhA39A+c1Al5q4uXf03jmSiyQWIUEwUfxyr7pW4hT9IUsOU2xTNP5a45l2+VaN9OQutsw1UExUtcvgC9xpLHBQsCq8oskMNsdlonjRFY573cymiSpzTn/ZX895LXSua7LiugCo4pxdBAqMTIFnPWllQjXNqH/ceZaokWQ3UdckXlB7twysnj5U0XRCS9FQ7ffrLN0dFnr5/AeXTxKn2a9FD+50HrYJzyXAFEgHq3fTgxKIzafU2/YKxy2IaRJrNyZFc9meI1degJt/VhGPcxIeXKNT0gY6o1aO5hVnCAw047f/XYR2qw6iMWtzGsSD4bMUhDnrB3YAAHmmDTCkHvmpvCC/PZXF6RX5Cr86/lrf2mQwFP7mUNgAatP4WhPfeLBb3+hPbhAezgQt+QR3ehnKPw3YCdsB29hthTtvEyrl/fJ6TDUTr3Tkt2/dB4hxplEPDKwWzWxJ83HcWwVGiBVac9w5nvfS7bTmNBCtClF40Nik6V21SbfduAsyWxXlMjPsiv4Q7Kt1DbYgbHZeyblvGG9L1Ey8F6VoR3vUx5C5CWyfU9AmWVTGXLOJTWj542B5QoAXTonPhWtsb7Dps2AL8RJMILB8IoAlxnIRy3H6I+yML/Yi1Jl/j1TWuNDhfcdif1Ezg8YceQOEGrYb2Ti+gWifAZS2tv0NVXfrel0V3FdOzV4JTfsCbidGq4EBYQ5ib0zcCaMxEGEWvO24nOgpqpNJkHEWWfkCgeWFhDwZ5buA4pVr2V7+mhjUx/1zP5hadObCrPff3BteOO1+glUvVkA+CUA7KTajdC9oi1UKe0qImyvybGIryXgEiPA47hhoydLlgHYjLX4+QSlt0WJnJNoVIosFAeN7lpd569WW1FBpojWGcP0RthnXyw8tGs+wHCc0miq4eFk/PYzFDPmNIqjs+k+IUxAmBuj5P+ORiQP/s87jwmTsYZhz7lyQAoAhZO44rBH5ENYJ1Ms92WqYvvsmaRZ7J/up84y+nK0Zcio6w7R4jAVg6KQHiQ2a4jOJxH0f1QrmHQJdxmfMxpLGlB4H5no7BowkckYEUgiMwnoQ1f207+9NvAEHXavLEw0a+s0Y3FzCOtw6IXEeV+UcE9WxHNs3oKT78nGsjlPC/rV+tlIpo2ManSQEF1dOOKZ3PH6D0wXKX2xyXNyT8p/vMxmcif2sOZ+R2TMUNABL6V142htsZBXAuHP6C2D6Czj8pOPUoYHb49yB0ig2MxLbTIAgDMXWpI6F75C4RCgEI0jrxgLEHXs5IMlCryG5dG4lIkDvWLfyx3dDmImAudkqWcOsB+kshwkK2g9I0Fjzr5pLKeAnOR1MRECEASCRwHn5fl7t0UYg6QMDGMmj7/7K5fjxwzfnp0xRvX6oE0jPw0tWLalZ+LQ5EcWFfwqlun3/0IWo4afEFVFqA1iisetz0ZKsWgNidimanHI9xShcWCSJ4i2yyJbW8gPYAF3Yg/CA+3HAD03sDtdTLwTjpbsumoNXZdjS8mVn6xmA8KF/0sr3DKyD1YkragQlY40+uppiCune0pezfFTeIjKf/uASAirw3/sKX2Jp7UlIx5h94gTOvJZBjB/8gcNvH8cAbQWWNKlh5oiDHCPl+Qy2FXOq0Qd0TlSjGEm6wHLiXRcvNzXZV9OMr+Xzz7Si+uvXU7wBSmlzvhzFqUfwOUdCm+9yan1Bqqiunml5m4pZLAl58g7kYRJNR7yuJ8mn53o7fHOIX713Hg66Sf6+XKy0HnteJ/vDOqtVCvu+Q7fg4ouwBB/rraTDnQbbHyQyojlP8quJC4ptIRtctG1wNcrMjzXx/jgfTbgs9WR2qzCzEwmbrNmHpjkr8k4V3cZd1fJabl9omRWOimh3EF9f6GidDHL1VV3w7tgg3uaXtNBU4bRtQV9jX1iHBGAZtcPod/m1p9By36CnQIxWH0AAAAA=" width="192" height="192" alt=""></span><p class="ldr-word">Youth for Sustainable <em>Policy</em></p><span class="ldr-bar" aria-hidden="true"><i></i></span><span class="ldr-sr">Loading Youth for Sustainable Policy</span></div>
@@ -485,6 +687,7 @@ setTimeout(finish,MAX);})();</script>
       </div></div>
       <div class="nav-dd"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">Our Work <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu nav-mega" role="menu" data-group="Our Work"><div class="nm-col">
         <span class="nm-h">Research &amp; Publications</span>
+        <a role="menuitem" href="resources.html">Resources<small>Research, guidance &amp; lessons</small></a>
         <a role="menuitem" href="publications.html">Research &amp; Publications<small>Policy briefs, articles &amp; analysis</small></a>
         <a role="menuitem" href="substack.html">Policy Insights<small>Evidence-based perspectives &amp; explainers</small></a>
         <a role="menuitem" href="annual-reports.html">Reports &amp; Impact<small>Research findings &amp; annual reports</small></a>
@@ -499,10 +702,12 @@ setTimeout(finish,MAX);})();</script>
         <a role="menuitem" href="chapters.html">YSP Global Chapters<small>Chapters &amp; chapter leaders</small></a>
       </div></div>
       <div class="nav-dd is-active"><button type="button" class="nav-dd-btn" aria-expanded="false" aria-haspopup="true">About <span class="car" aria-hidden="true">▾</span></button><div class="nav-dd-menu" role="menu" data-group="About">
-        <a role="menuitem" href="about.html" class="active" aria-current="page">About YSP</a>
-        <a role="menuitem" href="team.html">Team</a>
-        <a role="menuitem" href="partners.html">Partners</a>
-        <a role="menuitem" href="policies.html">Policies</a>
+        <a role="menuitem" href="about.html" class="active" aria-current="page">Why YSP?<small>Purpose, approach &amp; our work</small></a>
+        <a role="menuitem" href="team.html">Our People<small>Team, advisors, interns &amp; chapters</small></a>
+        <a role="menuitem" href="our-story.html">Our Story &amp; Values<small>Founder’s note, milestones &amp; principles</small></a>
+        <a role="menuitem" href="partners.html">Our Partners<small>Organisations we work with</small></a>
+        <a role="menuitem" href="progress.html">Our Progress<small>Published work, delivery &amp; dated figures</small></a>
+        <a role="menuitem" href="policies.html">Governance &amp; Policies<small>Standards, privacy &amp; reporting</small></a>
       </div></div>
     </div>
     <a href="https://forms.gle/rKPHAxvj6NaM9Dd66" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-magnetic>Join YSP <span class="arr">↗</span></a>
@@ -514,20 +719,51 @@ setTimeout(finish,MAX);})();</script>
   <div class="mesh" aria-hidden="true"><span></span></div>
   <div class="hero-inner">
     <div class="eyebrow-pill apple-reveal">
-      <span class="tag"><span class="dot"></span>About YSP</span>
-      <span class="meta">Youth for Sustainable Policy · Global Youth Policy Network</span>
+      <span class="tag"><span class="dot"></span>Why YSP?</span>
+      <span class="meta">About Youth for Sustainable Policy</span>
     </div>
-    <h1 class="serif apple-reveal" style="border-width: 0px">Home For<br/>Policy Work <br/><em>That Matters.</em></h1>
-    <p class="lede apple-reveal" style="transition-delay:.22s">Youth for Sustainable Policy is a youth-led initiative bridging research, storytelling, and policy dialogue&nbsp;— built so that young people can enter policy spaces with the same credibility as anyone else in&nbsp;the&nbsp;room.</p>
+    <h1 class="serif apple-reveal ab-h1" style="border-width:0">Young People Have A Stake In Public Policy. <em>We Help Them Take Part.</em></h1>
+    <p class="lede apple-reveal" style="transition-delay:.22s">Youth for Sustainable Policy is an international youth-led organisation advancing research, dialogue and public engagement on sustainability, governance and global affairs. We bring young people together to investigate issues, develop ideas, communicate evidence and contribute to the communities around them.</p>
 
-    <div class="hero-cta apple-reveal" style="transition-delay:.3s">
-      <a href="#why" class="btn btn-forest" data-magnetic>Why YSP matters <span class="arr">↘</span></a>
-      <a href="programmes.html" class="btn btn-ghost">See programmes ▸</a>
-    </div>
+    <div class="hero-cta apple-reveal" style="transition-delay:.3s"><a href="#programmes" class="btn btn-forest" data-magnetic>Explore our work <span class="arr">↘</span></a><a href="team.html" class="btn btn-ghost">Meet our people ▸</a><a href="https://forms.gle/rKPHAxvj6NaM9Dd66" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Join YSP ↗</a></div>
   </div>
 </section>
+<!-- suite:nav -->
+<nav class="sn" aria-label="On this page"><div class="sn-in"><span class="sn-lbl" aria-hidden="true">On this page</span><ol><li><a href="#purpose">Why We Exist</a></li><li><a href="#why">Founder’s Note</a></li><li><a href="#mission">Mission &amp; Vision</a></li><li><a href="#approach">How We Work</a></li><li><a href="#programmes">What We Do</a></li><li><a href="#principles">Principles</a></li><li><a href="#sdgs">SDGs</a></li><li><a href="#in-practice">In Practice</a></li><li><a href="#people">Our People</a></li><li><a href="#partners">Partners</a></li><li><a href="#progress">Progress</a></li><li><a href="#vision-2027">2027 Vision</a></li></ol></div><span class="sn-prog" aria-hidden="true"><i></i></span></nav>
+<!-- /suite -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- Why YSP Matters -->
+<!-- suite:purpose -->
+<section class="yb-band" id="purpose" data-screen-label="02 Why We Exist">
+  <div class="container">
+    <span class="eyebrow apple-reveal"><span class="dot"></span> Why We Exist</span>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Policy Shapes Everyday Life. <em>Taking Part Should Be Within Reach.</em></h2>
+    
+    <div class="pp-prose"><p class="pp-lead apple-reveal">Public policy influences the homes we can afford, the education we receive, the healthcare we access and the environments we live in.</p><p class="apple-reveal">Young people bring valuable knowledge of these experiences. Turning that knowledge into a researched argument, a useful publication or an organised community initiative takes practice, feedback and people to work alongside.</p><p class="apple-reveal">YSP exists to make those opportunities more accessible. We create entry points into policy work and help young people develop the skills to contribute thoughtfully.</p></div>
+  </div>
+</section>
+<!-- /suite -->
 <section class="why-section" id="why" data-screen-label="02 Why YSP Matters">
   <div class="container">
     <div class="why-marker apple-reveal">
@@ -542,7 +778,7 @@ setTimeout(finish,MAX);})();</script>
           <span class="line">Matters.</span>
         </h2>
         <div class="why-aside apple-reveal" style="transition-delay:.2s">
-          <span class="pip"></span>
+          <img class="why-av" src="assets/team/mei.png" alt="Portrait of Mei Tong Kim" width="44" height="44" loading="lazy" decoding="async">
           <p>A note from founder, Mei Tong K.</p>
         </div>
       </div>
@@ -563,7 +799,25 @@ setTimeout(finish,MAX);})();</script>
 </section>
 
 <!-- The four mechanisms -->
-<section class="mech-band" data-screen-label="03 The Four Mechanisms">
+<!-- suite:mission -->
+<section class="yb-band alt" id="mission" data-screen-label="Mission &amp; Vision">
+  <div class="container">
+    <span class="eyebrow apple-reveal"><span class="dot"></span> Our Mission &amp; Vision</span>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">What We Work <em>Towards.</em></h2>
+    
+    <div class="mvg"><article class="mv apple-reveal"><h3>Our Mission</h3><p>To equip young people to understand public policy, produce informed work and contribute to more sustainable and equitable societies through research, dialogue and public engagement.</p></article><article class="mv apple-reveal" style="transition-delay:.06s"><h3>Our Vision</h3><p>A world where young people can participate meaningfully in the decisions shaping their communities and futures.</p></article></div>
+  </div>
+</section>
+<section class="yb-band" id="approach" data-screen-label="How We Work">
+  <div class="container">
+    <span class="eyebrow apple-reveal"><span class="dot"></span> How We Work</span>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Learn About An Issue. Investigate It. <em>Make A Contribution.</em></h2>
+    <p class="section-sub apple-reveal" style="transition-delay:.12s">Our approach connects learning with practical work and reflection.</p>
+    <ol class="b2-tl pp-tl stg4"><li class="apple-reveal"><span class="d">01 · Learn</span><b>Explore policy questions, institutions and the people affected by decisions.</b></li><li class="apple-reveal"><span class="d">02 · Investigate</span><b>Examine evidence, compare approaches and listen to different perspectives.</b></li><li class="apple-reveal"><span class="d">03 · Contribute</span><b>Develop research, explainers, interviews, discussions or community activities.</b></li><li class="apple-reveal"><span class="d">04 · Reflect</span><b>Seek feedback, assess the work and identify what to improve.</b></li></ol><div class="pp-prose"><p class="apple-reveal">Through this process, we aim to help young people build research and communication skills, develop informed judgement and work effectively with others. <a href="theory-of-change.html">Explore our Theory of Change</a>.</p></div>
+  </div>
+</section>
+<!-- /suite -->
+<section class="mech-band" id="mechanisms" data-screen-label="03 The Four Mechanisms">
   <div class="container">
     <span class="eyebrow apple-reveal"><span class="dot"></span> YSP's Four Mechanisms</span>
     <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">How We Convert <em>Participation</em><br/>Into Evidence That Lasts.</h2>
@@ -599,7 +853,47 @@ setTimeout(finish,MAX);})();</script>
 </section>
 
 <!-- Identity strip -->
-<section class="identity-band" data-screen-label="04 What YSP Is">
+<!-- suite:programmes -->
+<section class="yb-band alt" id="programmes" data-screen-label="What We Do">
+  <div class="container">
+    <span class="eyebrow apple-reveal"><span class="dot"></span> What We Do</span>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Several Ways To Contribute To <em>A Shared Purpose.</em></h2>
+    <p class="section-sub apple-reveal" style="transition-delay:.12s">YSP’s work spans six programme areas. Each offers a different way to engage with policy and sustainability.</p>
+    <div class="pcg"><a class="pc apple-reveal" href="programmes.html#programme-portfolio" style="transition-delay:0.00s"><span class="pc-st dev"><span class="pd" aria-hidden="true"></span>Several in development</span><h3>Initiatives</h3><p>Research, education, publications, interviews and policy dialogue that explore issues affecting communities.</p><span class="pc-go">Visit page <span aria-hidden="true">→</span></span></a><a class="pc apple-reveal" href="grassroots.html" style="transition-delay:0.04s"><span class="pc-st on"><span class="pd" aria-hidden="true"></span>Active now</span><h3>Grassroots</h3><p>Opportunities to develop locally relevant activities, discussions and projects with other young people.</p><span class="pc-go">Visit page <span aria-hidden="true">→</span></span></a><a class="pc apple-reveal" href="interns.html" style="transition-delay:0.08s"><span class="pc-st up"><span class="pd" aria-hidden="true"></span>Relaunching 14 Dec 2026</span><h3>GreenHouse Internship Programme</h3><p>A structured remote internship through which participants contribute to YSP projects across research, growth and communications.</p><span class="pc-go">Visit page <span aria-hidden="true">→</span></span></a><a class="pc apple-reveal" href="essay-competition-2026.html" style="transition-delay:0.12s"><span class="pc-st up"><span class="pd" aria-hidden="true"></span>Essay entries 1–31 Dec 2026</span><h3>Competitions</h3><p>Opportunities to develop arguments, examine evidence and present ideas through policy briefs, essays and other formats.</p><span class="pc-go">Visit page <span aria-hidden="true">→</span></span></a><a class="pc apple-reveal" href="ambassadors.html" style="transition-delay:0.16s"><span class="pc-st on"><span class="pd" aria-hidden="true"></span>Monthly intake open</span><h3>Global Ambassador Network</h3><p>An international community supporting outreach, educational content and connections between YSP and young people in different places.</p><span class="pc-go">Visit page <span aria-hidden="true">→</span></span></a><a class="pc apple-reveal" href="chapters.html" style="transition-delay:0.20s"><span class="pc-st up"><span class="pd" aria-hidden="true"></span>Founding teams forming</span><h3>Global Chapters</h3><p>Local and regional teams bringing people together around shared policy interests and community priorities.</p><span class="pc-go">Visit page <span aria-hidden="true">→</span></span></a></div><p class="b2-note apple-reveal">Each programme page carries its current schedule, eligibility and delivery status. <a href="programmes.html">Explore all programmes →</a></p>
+  </div>
+</section>
+<section class="yb-band" id="principles" data-screen-label="Principles">
+  <div class="container">
+    <span class="eyebrow apple-reveal"><span class="dot"></span> What Guides Our Work</span>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Evidence, Public Understanding And Local Experience <em>Belong Together.</em></h2>
+    
+    <div class="prg"><article class="pr apple-reveal"><span class="pr-n">01</span><h3>Evidence Informs Our Ideas</h3><p>We encourage contributors to examine sources, explain their reasoning and acknowledge uncertainty.</p></article><article class="pr apple-reveal"><span class="pr-n">02</span><h3>Communication Makes Participation Possible</h3><p>We use writing, interviews, explainers and discussion to help people engage with complex questions.</p></article><article class="pr apple-reveal"><span class="pr-n">03</span><h3>Local Experience Gives Policy Context</h3><p>Our international network creates opportunities to compare perspectives while paying attention to the circumstances of each community.</p></article><article class="pr apple-reveal"><span class="pr-n">04</span><h3>Young People Help Shape The Work</h3><p>Members contribute ideas, take responsibility for projects and develop their skills through collaboration.</p></article></div>
+  </div>
+</section>
+<section class="yb-band" id="sdgs" data-screen-label="SDGs">
+  <div class="container">
+    <span class="eyebrow apple-reveal"><span class="dot"></span> Our Work And The Sustainable Development Goals</span>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Connected To <em>The Global Goals.</em></h2>
+    
+    <div class="pp-prose"><p class="pp-lead apple-reveal">YSP connects youth participation with the interconnected challenges addressed by the United Nations <a href="https://sdgs.un.org/goals" target="_blank" rel="noopener noreferrer">Sustainable Development Goals</a>.</p><p class="apple-reveal">Our organisational priorities align most closely with Quality Education, Reduced Inequalities, Peace, Justice and Strong Institutions, and Partnerships for the Goals. These goals reflect our commitment to policy learning, accessible participation, informed public dialogue and collaboration.</p><p class="apple-reveal">Our research, publications, competitions and community initiatives explore further goals according to their subject matter, including clean energy, climate action, sustainable cities, health and responsible consumption.</p></div><div class="sp"><div class="sp-h"><span class="sp-k">Our Priority Goals</span><h3 class="sp-t">The Four Goals At The Heart Of YSP</h3></div><ul class="sp-g"><li class="sp-c" style="--i:0"><div class="sp-art"><span class="sp-ring" aria-hidden="true"></span><img src="assets/illustrations/sdg-04-quality-education.webp" alt="" width="220" height="220" loading="lazy" decoding="async"></div><span class="sp-n">Goal 04</span><h3>Quality Education</h3><p>Policy literacy, research practice and learning through participation.</p><ul class="sp-r"><li><a href="learns.html">YSP Learns →</a></li><li><a href="programmes.html">Programmes →</a></li></ul></li><li class="sp-c" style="--i:1"><div class="sp-art"><span class="sp-ring" aria-hidden="true"></span><img src="assets/illustrations/sdg-10-reduced-inequalities.webp" alt="" width="220" height="220" loading="lazy" decoding="async"></div><span class="sp-n">Goal 10</span><h3>Reduced Inequalities</h3><p>Accessible participation for young people wherever they are.</p><ul class="sp-r"><li><a href="ambassadors.html">Global Ambassador Network →</a></li><li><a href="grassroots.html">Grassroots →</a></li></ul></li><li class="sp-c" style="--i:2"><div class="sp-art"><span class="sp-ring" aria-hidden="true"></span><img src="assets/illustrations/sdg-16-peace-justice-and-strong-institutions.webp" alt="" width="220" height="220" loading="lazy" decoding="async"></div><span class="sp-n">Goal 16</span><h3>Peace, Justice And Strong Institutions</h3><p>Informed public dialogue and trust in how decisions are made.</p><ul class="sp-r"><li><a href="policy-circles.html">YSP Policy Circles →</a></li><li><a href="youth-policy-debate-open.html">Youth Policy Debate Open →</a></li></ul></li><li class="sp-c" style="--i:3"><div class="sp-art"><span class="sp-ring" aria-hidden="true"></span><img src="assets/illustrations/sdg-17-partnerships-for-the-goals.webp" alt="" width="220" height="220" loading="lazy" decoding="async"></div><span class="sp-n">Goal 17</span><h3>Partnerships For The Goals</h3><p>Collaboration with schools, organisations and partners.</p><ul class="sp-r"><li><a href="partners.html">Our Partners →</a></li><li><a href="chapters.html">Global Chapters →</a></li></ul></li></ul></div><script id="sp-js">(function(){var g=document.querySelector('.sp-g');if(!g)return;if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){g.classList.add('sp-in');return}var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){g.classList.add('sp-in');o.disconnect()}})},{threshold:.15});o.observe(g)})();</script><h3 class="sx-h">Explore All 17 Goals</h3><div class="sx apple-reveal"><div class="sx-f" role="group" aria-label="Filter goals by positioning"><button type="button" aria-pressed="true" data-f="">All 17 Goals</button><button type="button" aria-pressed="false" data-f="o"><i class="dot-o"></i>Organisational Priorities <span>4</span></button><button type="button" aria-pressed="false" data-f="t"><i class="dot-t"></i>Thematic Connections <span>3</span></button><button type="button" aria-pressed="false" data-f="p"><i class="dot-p"></i>Project-Specific <span>10</span></button></div><div class="sx-w"><ul class="sx-g"><li><button type="button" class="sx-b sx-cp" data-n="1" data-c="p" aria-pressed="false" aria-controls="sx-panel"><span class="sx-i"><img src="assets/illustrations/sdg-01-no-poverty.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><span class="sx-n">01</span><span class="sx-t">No Poverty</span></button></li><li><button type="button" class="sx-b sx-cp" data-n="2" data-c="p" aria-pressed="false" aria-controls="sx-panel"><span class="sx-i"><img src="assets/illustrations/sdg-02-zero-hunger.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><span class="sx-n">02</span><span class="sx-t">Zero Hunger</span></button></li><li><button type="button" class="sx-b sx-cp" data-n="3" data-c="p" aria-pressed="false" aria-controls="sx-panel"><span class="sx-i"><img src="assets/illustrations/sdg-03-good-health-and-well-being.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><span class="sx-n">03</span><span class="sx-t">Good Health And Well-Being</span></button></li><li><button type="button" class="sx-b sx-co" data-n="4" data-c="o" aria-pressed="true" aria-controls="sx-panel"><span class="sx-i"><img src="assets/illustrations/sdg-04-quality-education.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><span class="sx-n">04</span><span class="sx-t">Quality Education</span></button></li><li><button type="button" class="sx-b sx-cp" data-n="5" data-c="p" aria-pressed="false" aria-controls="sx-panel"><span class="sx-i"><img src="assets/illustrations/sdg-05-gender-equality.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><span class="sx-n">05</span><span class="sx-t">Gender Equality</span></button></li><li><button type="button" class="sx-b sx-cp" data-n="6" data-c="p" aria-pressed="false" aria-controls="sx-panel"><span class="sx-i"><img src="assets/illustrations/sdg-06-clean-water-and-sanitation.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><span class="sx-n">06</span><span class="sx-t">Clean Water And Sanitation</span></button></li><li><button type="button" class="sx-b sx-ct" data-n="7" data-c="t" aria-pressed="false" aria-controls="sx-panel"><span class="sx-i"><img src="assets/illustrations/sdg-07-affordable-and-clean-energy.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><span class="sx-n">07</span><span class="sx-t">Affordable And Clean Energy</span></button></li><li><button type="button" class="sx-b sx-cp" data-n="8" data-c="p" aria-pressed="false" aria-controls="sx-panel"><span class="sx-i"><img src="assets/illustrations/sdg-08-decent-work-and-economic-growth.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><span class="sx-n">08</span><span class="sx-t">Decent Work And Economic Growth</span></button></li><li><button type="button" class="sx-b sx-cp" data-n="9" data-c="p" aria-pressed="false" aria-controls="sx-panel"><span class="sx-i"><img src="assets/illustrations/sdg-09-industry-innovation-and-infrastructure.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><span class="sx-n">09</span><span class="sx-t">Industry, Innovation And Infrastructure</span></button></li><li><button type="button" class="sx-b sx-co" data-n="10" data-c="o" aria-pressed="false" aria-controls="sx-panel"><span class="sx-i"><img src="assets/illustrations/sdg-10-reduced-inequalities.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><span class="sx-n">10</span><span class="sx-t">Reduced Inequalities</span></button></li><li><button type="button" class="sx-b sx-cp" data-n="11" data-c="p" aria-pressed="false" aria-controls="sx-panel"><span class="sx-i"><img src="assets/illustrations/sdg-11-sustainable-cities-and-communities.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><span class="sx-n">11</span><span class="sx-t">Sustainable Cities And Communities</span></button></li><li><button type="button" class="sx-b sx-ct" data-n="12" data-c="t" aria-pressed="false" aria-controls="sx-panel"><span class="sx-i"><img src="assets/illustrations/sdg-12-responsible-consumption-and-production.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><span class="sx-n">12</span><span class="sx-t">Responsible Consumption And Production</span></button></li><li><button type="button" class="sx-b sx-ct" data-n="13" data-c="t" aria-pressed="false" aria-controls="sx-panel"><span class="sx-i"><img src="assets/illustrations/sdg-13-climate-action.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><span class="sx-n">13</span><span class="sx-t">Climate Action</span></button></li><li><button type="button" class="sx-b sx-cp" data-n="14" data-c="p" aria-pressed="false" aria-controls="sx-panel"><span class="sx-i"><img src="assets/illustrations/sdg-14-life-below-water.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><span class="sx-n">14</span><span class="sx-t">Life Below Water</span></button></li><li><button type="button" class="sx-b sx-cp" data-n="15" data-c="p" aria-pressed="false" aria-controls="sx-panel"><span class="sx-i"><img src="assets/illustrations/sdg-15-life-on-land.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><span class="sx-n">15</span><span class="sx-t">Life On Land</span></button></li><li><button type="button" class="sx-b sx-co" data-n="16" data-c="o" aria-pressed="false" aria-controls="sx-panel"><span class="sx-i"><img src="assets/illustrations/sdg-16-peace-justice-and-strong-institutions.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><span class="sx-n">16</span><span class="sx-t">Peace, Justice And Strong Institutions</span></button></li><li><button type="button" class="sx-b sx-co" data-n="17" data-c="o" aria-pressed="false" aria-controls="sx-panel"><span class="sx-i"><img src="assets/illustrations/sdg-17-partnerships-for-the-goals.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><span class="sx-n">17</span><span class="sx-t">Partnerships For The Goals</span></button></li></ul><div class="sx-p" id="sx-panel" aria-live="polite"></div></div><div hidden id="sx-icons"><template data-n="1"><img src="assets/illustrations/sdg-01-no-poverty.webp" alt="" width="160" height="160" decoding="async"></template><template data-n="2"><img src="assets/illustrations/sdg-02-zero-hunger.webp" alt="" width="160" height="160" decoding="async"></template><template data-n="3"><img src="assets/illustrations/sdg-03-good-health-and-well-being.webp" alt="" width="160" height="160" decoding="async"></template><template data-n="4"><img src="assets/illustrations/sdg-04-quality-education.webp" alt="" width="160" height="160" decoding="async"></template><template data-n="5"><img src="assets/illustrations/sdg-05-gender-equality.webp" alt="" width="160" height="160" decoding="async"></template><template data-n="6"><img src="assets/illustrations/sdg-06-clean-water-and-sanitation.webp" alt="" width="160" height="160" decoding="async"></template><template data-n="7"><img src="assets/illustrations/sdg-07-affordable-and-clean-energy.webp" alt="" width="160" height="160" decoding="async"></template><template data-n="8"><img src="assets/illustrations/sdg-08-decent-work-and-economic-growth.webp" alt="" width="160" height="160" decoding="async"></template><template data-n="9"><img src="assets/illustrations/sdg-09-industry-innovation-and-infrastructure.webp" alt="" width="160" height="160" decoding="async"></template><template data-n="10"><img src="assets/illustrations/sdg-10-reduced-inequalities.webp" alt="" width="160" height="160" decoding="async"></template><template data-n="11"><img src="assets/illustrations/sdg-11-sustainable-cities-and-communities.webp" alt="" width="160" height="160" decoding="async"></template><template data-n="12"><img src="assets/illustrations/sdg-12-responsible-consumption-and-production.webp" alt="" width="160" height="160" decoding="async"></template><template data-n="13"><img src="assets/illustrations/sdg-13-climate-action.webp" alt="" width="160" height="160" decoding="async"></template><template data-n="14"><img src="assets/illustrations/sdg-14-life-below-water.webp" alt="" width="160" height="160" decoding="async"></template><template data-n="15"><img src="assets/illustrations/sdg-15-life-on-land.webp" alt="" width="160" height="160" decoding="async"></template><template data-n="16"><img src="assets/illustrations/sdg-16-peace-justice-and-strong-institutions.webp" alt="" width="160" height="160" decoding="async"></template><template data-n="17"><img src="assets/illustrations/sdg-17-partnerships-for-the-goals.webp" alt="" width="160" height="160" decoding="async"></template></div></div><script type="application/json" id="sx-data">{"1": {"n": 1, "t": "No Poverty", "d": "Research on social protection, affordability and economic exclusion", "c": "p", "l": "Project-Specific", "r": [], "x": ""}, "2": {"n": 2, "t": "Zero Hunger", "d": "Food security, sustainable agriculture and food-system policy", "c": "p", "l": "Project-Specific", "r": [], "x": ""}, "3": {"n": 3, "t": "Good Health And Well-Being", "d": "Health policy, healthcare access and the social determinants of health", "c": "p", "l": "Project-Specific", "r": [], "x": ""}, "4": {"n": 4, "t": "Quality Education", "d": "Policy literacy, research practice, educational resources and learning through participation", "c": "o", "l": "Organisational Priority", "r": [["YSP Learns", "learns.html"], ["Programmes", "programmes.html"]], "x": ""}, "5": {"n": 5, "t": "Gender Equality", "d": "Gender-responsive policy research and equitable access to participation and leadership", "c": "p", "l": "Project-Specific", "r": [], "x": ""}, "6": {"n": 6, "t": "Clean Water And Sanitation", "d": "Water governance, access, sanitation and resource management", "c": "p", "l": "Project-Specific", "r": [], "x": ""}, "7": {"n": 7, "t": "Affordable And Clean Energy", "d": "Energy policy, fossil fuel subsidies and the energy transition", "c": "t", "l": "Established Thematic Connection", "r": [["Global Policy Brief Competition 2026", "policy-brief-competition.html"], ["China And The Oil Crisis", "publications.html#library"]], "x": "Our 2026 Global Policy Brief Competition focused on fossil fuel subsidy reform."}, "8": {"n": 8, "t": "Decent Work And Economic Growth", "d": "Labour policy, sustainable economic development and skills development", "c": "p", "l": "Project-Specific", "r": [["The Hidden Crisis of Youth Underemployment", "substack-article.html?slug=the-hidden-crisis-of-youth-underemployment-in-southeast-asia"]], "x": ""}, "9": {"n": 9, "t": "Industry, Innovation And Infrastructure", "d": "Digital governance, responsible innovation and infrastructure policy", "c": "p", "l": "Project-Specific", "r": [], "x": ""}, "10": {"n": 10, "t": "Reduced Inequalities", "d": "Accessible opportunities, youth inclusion and attention to unequal policy effects", "c": "o", "l": "Organisational Priority", "r": [["Global Ambassador Network", "ambassadors.html"], ["Grassroots", "grassroots.html"]], "x": ""}, "11": {"n": 11, "t": "Sustainable Cities And Communities", "d": "Housing, transport, urban sustainability and local policy", "c": "p", "l": "Project-Specific", "r": [], "x": ""}, "12": {"n": 12, "t": "Responsible Consumption And Production", "d": "Resource use, sustainable business and fossil fuel subsidy reform", "c": "t", "l": "Established Thematic Connection", "r": [["Global Policy Brief Competition 2026", "policy-brief-competition.html"]], "x": "SDG target 12.c addresses inefficient fossil fuel subsidies, the subject of our 2026 Global Policy Brief Competition."}, "13": {"n": 13, "t": "Climate Action", "d": "Climate-policy research, education and public engagement", "c": "t", "l": "Established Thematic Connection", "r": [["India’s Climate Reckoning", "substack-article.html?slug=india-s-climate-reckoning"], ["Environment route", "environment-route.html"]], "x": ""}, "14": {"n": 14, "t": "Life Below Water", "d": "Marine conservation, fisheries and ocean governance", "c": "p", "l": "Project-Specific", "r": [], "x": ""}, "15": {"n": 15, "t": "Life On Land", "d": "Biodiversity, land use, conservation and environmental governance", "c": "p", "l": "Project-Specific", "r": [["What Earth Day Doesn’t Tell You", "substack-article.html?slug=what-earth-day-doesn-t-tell-you"]], "x": ""}, "16": {"n": 16, "t": "Peace, Justice And Strong Institutions", "d": "Informed participation, governance, accountability and inclusive policy dialogue", "c": "o", "l": "Organisational Priority", "r": [["YSP Policy Circles", "policy-circles.html"], ["Youth Policy Debate Open", "youth-policy-debate-open.html"]], "x": ""}, "17": {"n": 17, "t": "Partnerships For The Goals", "d": "Collaboration across organisations, disciplines, countries and communities", "c": "o", "l": "Organisational Priority", "r": [["Our Partners", "partners.html"], ["Global Chapters", "chapters.html"]], "x": ""}}</script><script id="sx-js">(function(){var D=JSON.parse(document.getElementById('sx-data').textContent),P=document.getElementById('sx-panel'),B=[].slice.call(document.querySelectorAll('.sx-b')),F=[].slice.call(document.querySelectorAll('.sx-f button'));
+function e(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function show(n){var g=D[n];B.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.n==n))});var ic=document.querySelector('#sx-icons template[data-n="'+n+'"]').innerHTML;
+P.className='sx-p sx-c'+g.c;P.innerHTML='<div class="sx-ph"><span class="sx-pi">'+ic+'</span><div><span class="sx-pn">Goal '+g.n+'</span><h3>'+e(g.t)+'</h3><span class="sx-pl">'+e(g.l)+'</span></div></div><p class="sx-pd"><b>Connection to YSP.</b> '+e(g.d)+'.</p>'+(g.x?'<p class="sx-px">'+e(g.x)+'</p>':'')+(g.r.length?'<div class="sx-pr"><span>Related YSP work</span><ul>'+g.r.map(function(r){return '<li><a href="'+e(r[1])+'">'+e(r[0])+' →</a></li>'}).join('')+'</ul></div>':'<p class="sx-px">A relevant area of our research agenda. Our contribution will be shown through the specific projects we deliver. <a href="resources.html">Browse resources →</a></p>')}
+B.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.n);if(window.innerWidth<900){var r=P.getBoundingClientRect();if(r.top<150||r.top>window.innerHeight*0.6){window.scrollTo({top:r.top+window.scrollY-160,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})}}})});
+F.forEach(function(f){f.addEventListener('click',function(){var v=f.dataset.f;F.forEach(function(x){x.setAttribute('aria-pressed',String(x===f))});var first=null;B.forEach(function(b){var on=!v||b.dataset.c===v;b.parentNode.classList.toggle('sx-dim',!on);b.disabled=false;if(on&&!first)first=b});if(first&&v)show(first.dataset.n)})});
+show(4)})();</script><details class="tcd-tbl apple-reveal"><summary>View All 17 Goals In One Table</summary><div class="tw apple-reveal "><table><caption>YSP’s proposed mapping to the 17 Sustainable Development Goals</caption><thead><tr><th scope="col">Goal</th><th scope="col">Connection to YSP</th><th scope="col">Positioning</th></tr></thead><tbody><tr><th scope="row">1 · No Poverty</th><td data-label="Connection to YSP">Research on social protection, affordability and economic exclusion</td><td data-label="Positioning">Project-Specific</td></tr><tr><th scope="row">2 · Zero Hunger</th><td data-label="Connection to YSP">Food security, sustainable agriculture and food-system policy</td><td data-label="Positioning">Project-Specific</td></tr><tr><th scope="row">3 · Good Health And Well-Being</th><td data-label="Connection to YSP">Health policy, healthcare access and the social determinants of health</td><td data-label="Positioning">Project-Specific</td></tr><tr><th scope="row">4 · Quality Education</th><td data-label="Connection to YSP">Policy literacy, research practice, educational resources and learning through participation</td><td data-label="Positioning">Organisational Priority</td></tr><tr><th scope="row">5 · Gender Equality</th><td data-label="Connection to YSP">Gender-responsive policy research and equitable access to participation and leadership</td><td data-label="Positioning">Project-Specific</td></tr><tr><th scope="row">6 · Clean Water And Sanitation</th><td data-label="Connection to YSP">Water governance, access, sanitation and resource management</td><td data-label="Positioning">Project-Specific</td></tr><tr><th scope="row">7 · Affordable And Clean Energy</th><td data-label="Connection to YSP">Energy policy, fossil fuel subsidies and the energy transition</td><td data-label="Positioning">Established Thematic Connection</td></tr><tr><th scope="row">8 · Decent Work And Economic Growth</th><td data-label="Connection to YSP">Labour policy, sustainable economic development and skills development</td><td data-label="Positioning">Project-Specific</td></tr><tr><th scope="row">9 · Industry, Innovation And Infrastructure</th><td data-label="Connection to YSP">Digital governance, responsible innovation and infrastructure policy</td><td data-label="Positioning">Project-Specific</td></tr><tr><th scope="row">10 · Reduced Inequalities</th><td data-label="Connection to YSP">Accessible opportunities, youth inclusion and attention to unequal policy effects</td><td data-label="Positioning">Organisational Priority</td></tr><tr><th scope="row">11 · Sustainable Cities And Communities</th><td data-label="Connection to YSP">Housing, transport, urban sustainability and local policy</td><td data-label="Positioning">Project-Specific</td></tr><tr><th scope="row">12 · Responsible Consumption And Production</th><td data-label="Connection to YSP">Resource use, sustainable business and fossil fuel subsidy reform</td><td data-label="Positioning">Established Thematic Connection</td></tr><tr><th scope="row">13 · Climate Action</th><td data-label="Connection to YSP">Climate-policy research, education and public engagement</td><td data-label="Positioning">Established Thematic Connection</td></tr><tr><th scope="row">14 · Life Below Water</th><td data-label="Connection to YSP">Marine conservation, fisheries and ocean governance</td><td data-label="Positioning">Project-Specific</td></tr><tr><th scope="row">15 · Life On Land</th><td data-label="Connection to YSP">Biodiversity, land use, conservation and environmental governance</td><td data-label="Positioning">Project-Specific</td></tr><tr><th scope="row">16 · Peace, Justice And Strong Institutions</th><td data-label="Connection to YSP">Informed participation, governance, accountability and inclusive policy dialogue</td><td data-label="Positioning">Organisational Priority</td></tr><tr><th scope="row">17 · Partnerships For The Goals</th><td data-label="Connection to YSP">Collaboration across organisations, disciplines, countries and communities</td><td data-label="Positioning">Organisational Priority</td></tr></tbody></table></div></details><p class="b2-note apple-reveal">Select a goal to see how it connects to our work. Each project’s SDG alignment will identify the relevant goal, explain the connection and link to the supporting work. Goal names follow the UN framework; illustrations are YSP’s own.</p>
+  </div>
+</section>
+<section class="yb-band alt" id="in-practice" data-screen-label="In Practice">
+  <div class="container">
+    <span class="eyebrow apple-reveal"><span class="dot"></span> Our Work In Practice</span>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Explore What We Are <em>Building.</em></h2>
+    
+    <div class="ftg"><article class="ft apple-reveal" style="transition-delay:0.00s"><div class="ft-img"><img src="assets/pbc2026/cards/ysp-pbc2026-junior-01-nandini-singh-share.jpg" alt="Results card for Nandini Singh, First Place in the Junior category of the 2026 Global Policy Brief Competition" loading="lazy" decoding="async"></div><div class="ft-b"><span class="ft-k">Competition · Policy briefs</span><h3>Global Policy Brief Competition 2026</h3><p>Participants wrote 600–900-word policy briefs responding to a climate and energy policy prompt. Twenty finalists were selected from more than 100 briefs submitted from 40 countries, and the winning briefs on fuel subsidy reform are published.</p><p class="ft-m">Results announced 5 November 2026 · 2027 edition to be announced</p><a class="ft-a" href="policy-brief-competition.html">See the results <span aria-hidden="true">→</span></a></div></article><article class="ft apple-reveal" style="transition-delay:0.05s"><div class="ft-img"><img src="assets/interviews/spca-dogs.jpg" alt="Dogs resting in the outdoor kennel area at SPCA Selangor" loading="lazy" decoding="async"></div><div class="ft-b"><span class="ft-k">Interview · Publications</span><h3>In Conversation With SPCA Selangor</h3><p>Why rescue alone doesn’t work, where Malaysia’s animal-welfare framework breaks, and why the most useful young people in this field are operations thinkers.</p><p class="ft-m">Interview · June 2026 · 8 min read</p><a class="ft-a" href="interview-spca-selangor.html">Read the conversation <span aria-hidden="true">→</span></a></div></article><article class="ft apple-reveal" style="transition-delay:0.10s"><div class="ft-img"><img src="assets/home/plugin-mentorship.jpg" alt="Three students discussing a printed brief around a table" loading="lazy" decoding="async"></div><div class="ft-b"><span class="ft-k">Internship · Pathways</span><h3>GreenHouse Internship Programme</h3><p>A 12-week, remote, mentor-led internship. Interns work across research, growth and communications and finish with a final capstone.</p><p class="ft-m">Relaunching 14 December 2026</p><a class="ft-a" href="interns.html">See the programme <span aria-hidden="true">→</span></a></div></article></div>
+  </div>
+</section>
+<!-- /suite -->
+<section class="identity-band" id="what-ysp-is" data-screen-label="04 What YSP Is">
   <div class="mesh" aria-hidden="true" style="opacity:.35"></div>
   <div class="container">
     <span class="eyebrow apple-reveal"><span class="dot"></span> What YSP Is</span>
@@ -620,12 +914,39 @@ setTimeout(finish,MAX);})();</script>
       <article class="id-card apple-reveal" style="transition-delay:.16s">
         <span class="label">Global · ASEAN-rooted</span>
         <h3 class="serif">Regional In <em>Focus,</em> Global In Reach.</h3>
-        <p>YSP is grounded in Singapore and Southeast Asia, but our network spans 16+ countries. Members work on issues that matter regionally — and meet collaborators from far beyond it.</p>
+        <p>YSP is grounded in Singapore and Southeast Asia, but our ambassador network alone spans 85 countries. Members work on issues that matter regionally — and meet collaborators from far beyond it.</p>
       </article>
     </div>
   </div>
 </section>
 
+
+
+<!-- Partners -->
+<!-- suite:people -->
+<section class="yb-band" id="people" data-screen-label="Our People">
+  <div class="container">
+    <span class="eyebrow apple-reveal"><span class="dot"></span> Our People &amp; Community</span>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Built Through The Contributions Of <em>Many People.</em></h2>
+    
+    <div class="pp-prose"><p class="apple-reveal">YSP brings together young researchers, writers, organisers, communicators, designers and collaborators across countries and disciplines.</p><p class="apple-reveal">Our team coordinates programmes and publications, supports contributors and develops relationships that help the work grow. Ambassadors and chapter teams connect those opportunities with their own communities.</p><p class="apple-reveal"><b>657 Global Youth Ambassadors</b> appear in our public directory, living in <b>85 countries</b>. This counts ambassadors appointed from the Founding Cohort 2026 to the October 2026 intake.</p></div><div class="closing-cta acts apple-reveal"><a href="team.html" class="btn btn-forest">Meet our team <span class="arr">↗</span></a><a href="ambassadors.html" class="btn btn-ghost">Explore the ambassador network <span class="arr">▸</span></a><a href="chapters.html" class="btn btn-ghost">Find a chapter <span class="arr">▸</span></a></div>
+  </div>
+</section>
+<!-- /suite -->
+<section class="pt-about" id="partners" data-screen-label="05 Partners">
+<div class="container">
+<span class="eyebrow apple-reveal"><span class="dot"></span> Partners</span>
+<h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Working <em>In Good Company.</em></h2>
+<div class="pt-grid">
+<article class="pt-card apple-reveal"><img src="assets/partners/sib.png" alt="Social Issues Bubble logo" /><div><small>Organisational Partner</small><h3>Social Issues Bubble <em>(SIB°)</em></h3><p>Social Issues Bubble (SIB°) is a youth-led platform that examines social issues through writing, discussion and storytelling. Starting from the idea that social issues are connected, SIB publishes SIB Research briefs, SIB Perspectives essays, SIB Dialogues conversations, The Bubble Podcast and The SIB Review, a curated digital magazine.</p></div></article>
+<article class="pt-card apple-reveal" style="transition-delay:.08s"><img src="assets/partners/brainink.png" alt="BrainInk Magazine logo" /><div><small>Organisational Partner</small><h3>BrainInk <em>Magazine</em></h3><p>BrainInk Magazine is a student-led magazine on psychology, mental health and human stories. Students write, research, edit and design each issue, with the aim of making psychological knowledge accessible, amplifying unheard voices and giving young writers, researchers and creators a place to share their work.</p></div></article>
+</div>
+<p class="apple-reveal" style="margin:24px 0 0"><a href="partners.html" class="pt-all">All partners and partnership enquiries <span class="arr">→</span></a></p>
+<!-- suite:wt --><div class="suite-wt"><div class="pp-prose"><p class="apple-reveal">We collaborate with organisations that share our interest in research, education, dialogue and public engagement. Collaboration can include a joint publication, a competition, an educational activity or a project built around a shared question.</p></div><div class="closing-cta acts apple-reveal"><a href="partners.html" class="btn btn-forest">Meet our partners <span class="arr">↗</span></a><a href="mailto:youthforsustainablepolicy@gmail.com?subject=Collaboration%20with%20YSP" class="btn btn-ghost">Discuss a collaboration <span class="arr">▸</span></a></div></div><!-- /suite -->
+</div>
+</section>
+
+<!-- Closing CTA -->
 <!-- 2027 Vision -->
 <section class="v27-band" id="vision-2027" data-screen-label="05 Vision 2027">
   <div class="container">
@@ -656,31 +977,23 @@ setTimeout(finish,MAX);})();</script>
     </div>
   </div>
 </section>
-
-<!-- Partners -->
-<section class="pt-about" id="partners" data-screen-label="05 Partners">
-<div class="container">
-<span class="eyebrow apple-reveal"><span class="dot"></span> Partners</span>
-<h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Working <em>In Good Company.</em></h2>
-<div class="pt-grid">
-<article class="pt-card apple-reveal"><img src="assets/partners/sib.png" alt="Social Issues Bubble logo" /><div><small>Organisational Partner</small><h3>Social Issues Bubble <em>(SIB°)</em></h3><p>Social Issues Bubble (SIB°) is a youth-led platform that examines social issues through writing, discussion and storytelling. Starting from the idea that social issues are connected, SIB publishes SIB Research briefs, SIB Perspectives essays, SIB Dialogues conversations, The Bubble Podcast and The SIB Review, a curated digital magazine.</p></div></article>
-<article class="pt-card apple-reveal" style="transition-delay:.08s"><img src="assets/partners/brainink.png" alt="BrainInk Magazine logo" /><div><small>Organisational Partner</small><h3>BrainInk <em>Magazine</em></h3><p>BrainInk Magazine is a student-led magazine on psychology, mental health and human stories. Students write, research, edit and design each issue, with the aim of making psychological knowledge accessible, amplifying unheard voices and giving young writers, researchers and creators a place to share their work.</p></div></article>
-</div>
-<p class="apple-reveal" style="margin:24px 0 0"><a href="partners.html" class="pt-all">All partners and partnership enquiries <span class="arr">→</span></a></p>
-</div>
+<!-- suite:progress -->
+<section class="yb-band alt" id="progress" data-screen-label="Progress">
+  <div class="container">
+    <span class="eyebrow apple-reveal"><span class="dot"></span> Our Progress &amp; Accountability</span>
+    <h2 class="section-title serif apple-reveal" style="transition-delay:.08s">Make The Work Visible. <em>Learn From What It Shows.</em></h2>
+    
+    <div class="pp-prose"><p class="apple-reveal">As YSP develops, we aim to document what we deliver, how people participate and what we learn from their experiences.</p><p class="apple-reveal">Our reporting will bring together programme activity, published work, participant feedback and organisational developments. We will use those findings to improve how we plan and deliver our work. Our first Annual Report, covering 2026, is due by 31 January 2027.</p></div><div class="closing-cta acts apple-reveal"><a href="progress.html" class="btn btn-forest">Our progress <span class="arr">↗</span></a><a href="monitoring-evaluation.html" class="btn btn-ghost">Monitoring &amp; Evaluation <span class="arr">▸</span></a><a href="annual-reports.html" class="btn btn-ghost">Annual reports <span class="arr">▸</span></a><a href="policies.html" class="btn btn-ghost">Governance &amp; policies <span class="arr">▸</span></a></div>
+  </div>
 </section>
-
-<!-- Closing CTA -->
-<section class="closing" data-screen-label="05 Join CTA">
+<!-- /suite -->
+<section class="closing" id="join" data-screen-label="05 Join CTA">
   <div class="mesh" aria-hidden="true"><span></span></div>
   <div class="card">
     <span class="eyebrow apple-reveal"><span class="dot"></span> Join the work</span>
-    <h2 class="apple-reveal" style="transition-delay:.1s">If This Sounds Like<br/>The Kind Of Place <em>You'd Belong,</em></h2>
-    <p class="apple-reveal" style="transition-delay:.2s">— start by taking the YSP Pledge, or browse the six tracks. There are no fees, no gates, and no perfect time to begin.</p>
-    <div class="closing-cta apple-reveal" style="transition-delay:.3s">
-      <a href="programmes.html#pledge" class="btn btn-forest" data-magnetic>Take the YSP Pledge <span class="arr">↗</span></a>
-      <a href="programmes.html" class="btn btn-ghost">Explore programmes ▸</a>
-    </div>
+    <h2 class="apple-reveal" style="transition-delay:.1s">Help Shape <em>What Comes Next.</em></h2>
+    <p class="apple-reveal" style="transition-delay:.2s">Bring a question you want to investigate, a skill you want to contribute or an idea you would like to develop with others. There are no fees, and you can also start by taking the <a href="programmes.html#pledge">YSP Pledge</a>.</p>
+    <div class="closing-cta apple-reveal" style="transition-delay:.3s"><a href="https://forms.gle/rKPHAxvj6NaM9Dd66" class="btn btn-forest" target="_blank" rel="noopener noreferrer" data-magnetic>Join YSP <span class="arr">↗</span></a><a href="careers.html" class="btn btn-ghost">Explore opportunities ▸</a><a href="partners.html" class="btn btn-ghost">Work with us ▸</a></div>
   </div>
 </section>
 
@@ -724,9 +1037,10 @@ setTimeout(finish,MAX);})();</script>
     <nav aria-label="Organisation">
       <h2>Organisation</h2>
       <ul>
-        <li><a href="about.html">About</a></li>
+        <li><a href="about.html">Why YSP?</a></li>
+        <li><a href="our-story.html">Our Story &amp; Values</a></li>
+        <li><a href="team.html">Our People</a></li>
         <li><a href="partners.html">Partners</a></li>
-        <li><a href="team.html">Team</a></li>
         <li><a href="careers.html">Careers</a></li>
         <li><a href="index.html#join">Contact</a></li>
       </ul>
@@ -734,9 +1048,13 @@ setTimeout(finish,MAX);})();</script>
     <nav aria-label="Resources">
       <h2>Resources</h2>
       <ul>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="progress.html">Our Progress</a></li>
         <li><a href="annual-reports.html">Annual Reports</a></li>
-        <li><a href="substack.html">Substack</a></li>
+        <li><a href="theory-of-change.html">Theory of Change</a></li>
+        <li><a href="monitoring-evaluation.html">Monitoring &amp; Evaluation</a></li>
         <li><a href="policies.html">Policies &amp; Declarations</a></li>
+        <li><a href="substack.html">Substack</a></li>
       </ul>
     </nav>
   </div>
@@ -793,5 +1111,10 @@ setTimeout(finish,MAX);})();</script>
 </script>
 <script src="mobile-nav.js"></script>
 <script src="competition-config.js"></script>
+<script id="sn-js">(function(){var n=document.querySelector('.sn');if(!n)return;var links=[].slice.call(n.querySelectorAll('a'));var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1))});var bar=n.querySelector('.sn-prog i');
+function upd(){var y=window.scrollY+Math.min(window.innerHeight*0.4,320),cur=-1;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top+window.scrollY<=y)cur=i});links.forEach(function(a,i){if(i===cur){a.setAttribute('aria-current','true');var ol=a.closest('ol');var l=a.offsetLeft-ol.clientWidth/2+a.clientWidth/2;if(Math.abs(ol.scrollLeft-l)>40)ol.scrollTo({left:l})}else a.removeAttribute('aria-current')});
+var f=secs[0],last=document.querySelector('footer');if(f&&last){var a0=f.getBoundingClientRect().top+window.scrollY-200,a1=last.getBoundingClientRect().top+window.scrollY-window.innerHeight;var p=Math.max(0,Math.min(1,(window.scrollY-a0)/Math.max(1,a1-a0)));bar.style.width=(p*100)+'%'}}
+function fix(){if(location.hash.length>1){var el=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(el){var y=el.getBoundingClientRect().top+window.scrollY-162;window.scrollTo({top:y,behavior:'instant'})}}upd()}window.addEventListener('load',function(){setTimeout(fix,60);setTimeout(fix,700)});
+var t=0;window.addEventListener('scroll',function(){if(!t){t=requestAnimationFrame(function(){t=0;upd()})}},{passive:true});window.addEventListener('resize',upd);upd();})();</script>
 </body>
 </html>
